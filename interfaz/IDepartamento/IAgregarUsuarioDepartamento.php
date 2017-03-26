@@ -1,0 +1,124 @@
+<script>
+	window.onload=ocultarBarra();
+</script>
+<?php 
+include_once ("../../controladora/ctrListaUsuarios.php");
+include_once("../../controladora/ctrListaDepartamento.php");
+include_once("../../controladora/ctrListaDepartamentoUsuario.php");
+$idDepartamento = $_GET['idDepartamento'];
+$controlDepartamento = new ctrListaDepartamento;
+$controlUsuarios = new ctrListaUsuarios;
+$controlDepaUsu = new ctrListaDepartamentoUsuario;
+$listaDepartamento = $controlDepartamento->obtenerDepartamento($idDepartamento);
+$listaUsuarios = $controlUsuarios->obtenerListaUsuarios();
+$listaDepaUsu = $controlDepaUsu->obtenerDepartamentoUsuario($idDepartamento);
+foreach ($listaDepartamento as $departamento) {
+    echo "<h2>Departamento de ".$departamento->getNombreDepartamento()."</h2>";
+}
+
+?>
+<div class="row" id="usuarios1">
+    <div class="col s12 m12 l12 blue darken-3 z-depth-5">
+    <h4>Lista de usuarios no registrados</h4>
+    <?php
+    if($listaUsuarios!=null) {
+        if($listaDepaUsu != null) {
+    ?>
+    <table class="responsive-table centered bordered">
+        <thead>
+            <tr>
+                <th>Agregar</th>
+                <th>C&eacutedula</th>
+                <th>Primer apellido</th>
+                <th>Segundo apellido</th>
+                <th>Nombre</th>
+                <th>Cargo</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($listaUsuarios as $usuario){
+                $encontro = false;
+                foreach($listaDepaUsu as $du){
+                    if($du->getCedulaUsuario() == $usuario->getCedula()){
+                        $encontro = true;
+                    }
+                }
+                if(!$encontro){
+                echo "<tr><td><input type=\"button\" value=\"Agregar\" class=\"btn btn-default\" onclick=\"agregarUsuarioDepartamento(".$idDepartamento.",".$usuario->getCedula()."), cargarPagina('../interfaz/IDepartamento/IAgregarUsuarioDepartamento.php?idDepartamento=".$idDepartamento."')\"></td><td>".$usuario->getCedula()."</td><td>".$usuario->getPrimerApellido()."</td><td>".$usuario->getSegundoApellido()."</td><td>".$usuario->getNombre()."</td><td>".$usuario->getCargo()."</td><td>".$usuario->getTipo()."</td></tr>";
+                }
+            }
+            ?>
+        </tbody>
+    </table>
+    <?php
+        } else {
+    ?>
+    <table class="responsive-table centered bordered">
+        <thead>
+            <tr>
+                <th>Agregar</th>
+                <th>C&eacutedula</th>
+                <th>Primer apellido</th>
+                <th>Segundo apellido</th>
+                <th>Nombre</th>
+                <th>Cargo</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($listaUsuarios as $usuario){
+                echo "<tr><td><input type=\"button\" value=\"Agregar\" class=\"btn btn-default\" onclick=\"agregarUsuarioDepartamento(".$idDepartamento.",".$usuario->getCedula()."), cargarPagina('../interfaz/IDepartamento/IAgregarUsuarioDepartamento.php?idDepartamento=".$idDepartamento."')\"></td><td>".$usuario->getCedula()."</td><td>".$usuario->getPrimerApellido()."</td><td>".$usuario->getSegundoApellido()."</td><td>".$usuario->getNombre()."</td><td>".$usuario->getCargo()."</td><td>".$usuario->getTipo()."</td></tr>";}
+            ?>
+        </tbody>
+        </table>
+        <?php
+        }
+    } else{
+        echo "<h5>No hay usuarios registrados</h5>";
+    }
+        ?>
+    </div>
+</div>
+
+<div class="row" id="usuarios2">
+    <div class="col s12 m12 l12 blue darken-3 z-depth-5">
+    <h4>Lista de usuarios registrados</h4>
+    <?php  
+    if($listaUsuarios!=null) {
+        if($listaDepaUsu != null) {
+    ?>
+        <table class="responsive-table centered bordered">
+            <thead>
+                <tr>
+                    <th>Agregar</th>
+                    <th>C&eacutedula</th>
+                    <th>Primer apellido</th>
+                    <th>Segundo apellido</th>
+                    <th>Nombre</th>
+                    <th>Cargo</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($listaUsuarios as $usuario){
+                foreach($listaDepaUsu as $du){
+                    if($du->getCedulaUsuario() == $usuario->getCedula()){
+                        echo "<tr><td><input type=\"button\" value=\"Eliminar\" class=\"btn btn-default\" onclick=\"eliminarUsuarioDepartamento(".$idDepartamento.",".$usuario->getCedula()."), cargarPagina('../interfaz/IDepartamento/IAgregarUsuarioDepartamento.php?idDepartamento=".$idDepartamento."')\"></td><td>".$usuario->getCedula()."</td><td>".$usuario->getPrimerApellido()."</td><td>".$usuario->getSegundoApellido()."</td><td>".$usuario->getNombre()."</td><td>".$usuario->getCargo()."</td><td>".$usuario->getTipo()."</td></tr>";
+                    }
+                }
+            }
+            ?>
+            </tbody>
+        </table>
+        <?php
+        } else {
+            echo "<h3>No hay usuarios registrados</h3>";
+        }
+    }
+        ?>
+    </div>
+</div>

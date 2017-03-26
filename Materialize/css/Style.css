@@ -1,0 +1,25 @@
+
+/*acomodando el formulario de crear sevri*/
+
+
+.contForm{
+ margin: auto;
+ margin-top: 2%;
+ margin-left: 6%;
+ color: #FFFFFF;
+}
+.inputs{
+  float-left;
+  margin-left: 0% ;
+  width: 60%;
+  
+}
+.contendorselect{
+	float: left;
+	margin-left: -1%;
+	width: 50%;
+	height: 100px;
+	padding: 0 10px;
+}
+
+
