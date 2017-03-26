@@ -25,9 +25,7 @@
  	 			$conexion->exec("CALL insertarDivicionNivelRiesgo('$id','$cantidadDivisiones', '$nombreDivision')");
 				foreach ($nivelesRiesgo as $nivelRiego) {
 					$limite = $nivelRiego->limite;
-					echo "Este es el limite ".$limite;
     				$descriptor= $nivelRiego->descriptor;
-    				echo "Este es el descriptor ".$descriptor;
     				$descripcion = $nivelRiego->descripcion;
     				$color = $nivelRiego->colorAsociado;
 	                $conexion->exec("CALL insertarNivelRiesgo('$id','$limite','$descriptor','$descripcion','$color')");
@@ -49,7 +47,6 @@
         	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	 	 		$conexion->beginTransaction();
 				foreach ($nivelesRiesgo as $nivelRiego) {
-					echo "Niveles: ".$nivelRiego->idNivel;
     				$descriptor= $nivelRiego->descriptor;
     				$descripcion = $nivelRiego->descripcion;
     				$color = $nivelRiego->colorAsociado;
