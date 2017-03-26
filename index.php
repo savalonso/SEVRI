@@ -19,7 +19,7 @@
 </head>
 <body>
 	<a href="interfaz/paginaPrincipal.php">Pagina Principal</a>
-	<!-- Estoy probando en github  -->
+	<!-- Estoy probando en github , AHORA YO FRANDER TAMBIEN MODIFIQUE -->
 <!--	<iframe src="http://www.localhost:8080/SEVRI/interfaz/paginaPrincipal.php"></iframe>-->
 </body>
 </html>
