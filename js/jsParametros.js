@@ -17,8 +17,10 @@ function insertarParametros(){
 }
 
 function modificarParametro(){
+    var idParametro = document.getElementById('idParametro').value;
     var formData = new FormData(document.getElementById("modificarParametro")); 
     formData.append("opcion", 2);
+    formData.append("codigoParametro", idParametro);
     $.ajax({
     url : "../controladora/ctrParametros.php",
     type : "post",
