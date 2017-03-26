@@ -66,3 +66,8 @@ function irPaginaEnlace(url, idMensaje){
         $('#contenedor').load(url);
     });
 }
+function limpiar(){
+    alert("si esta fincionando");
+    document.getElementById('usuario').value="";
+    document.getElementById('clave').value="";
+}

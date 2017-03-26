@@ -4,6 +4,28 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
  /* metodos creados*/
+ #ingresoSistema{
+
+  height: 200%;
+  margin: 0 auto;
+  width:80%;
+  text-align:center;
+}
+
+#ingresoSistema img{
+
+  height: 200%;
+  width: 20%;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.colorSlider1{
+  background-color:#1565C0;
+}
+.colorSlider2{
+  background-color:#ea770c;
+}
 
 .posicion1{
    float: left;
@@ -2387,24 +2409,9 @@ html {
 /**
  * Remove default margin.
  */
-body {
- background:url('../../img/1.jpg') repeat 0 0;
- background-size: cover;  
- background-position: center center;
- background-repeat: no-repeat;
- background-attachment: fixed; 
- display: flex;
- min-height: 100vh;
- flex-direction: column;
- color:white;
 
- /*
- background:url('../../img/fondoSevri.jpg') repeat 0 0;
- background-size: cover;  
- background-position: center center;
- background-repeat: no-repeat;
- background-attachment: fixed; 
- */
+body {
+background-color:#f2f2f2;
 }
 .contenedor1{
   width: 95%;
@@ -5287,8 +5294,9 @@ button.btn-floating {
 }
 
 .dropdown-content {
-  background-color: #fff;
-  margin: 0;
+   background-color: #fff;
+  margin: 4.7%;
+  margin-left: 0%;
   display: none;
   min-width: 200px;
   max-height: 650px;
