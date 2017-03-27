@@ -39,7 +39,11 @@
 		'valorParametro' => $parametro->getValorParametro()
 		); 	
 	}
+	$cantidadDivisiones = count($listaNiveles);
+	$valorFormula = 100 / (($maximoImpacto * $maximaProbabilidad)/1);
 	$ArrayJson = json_encode($arr);
+	$probabilidadSeleccionada;
+	$impactoSeleccionado;
 ?>
 <div class="row">
 	<form class="responsive" id="IModificarAnalisis" method="Post" role="form">
@@ -62,7 +66,7 @@
 					foreach ($listaParametros as $parametro){
 						if (strcmp ($parametro->getNombreParametro() , "Probabilidad" ) == 0) {
 							if($probabilidad == $parametro->getIdParametro()) {
-								echo "<input type=\"hidden\" id=\"valorProbabilidadSeleccionado\" value=".$parametro->getValorParametro().">";
+								$probabilidadSeleccionada = $parametro->getValorParametro();
 								echo "<option value=".$parametro->getIdParametro()." selected>".$parametro->getValorParametro().": ".$parametro->getDescriptorParametro()."</option>";
 							} else {
 								echo "<option value=".$parametro->getIdParametro().">".$parametro->getValorParametro().": ".$parametro->getDescriptorParametro()."</option>";
@@ -79,7 +83,7 @@
 					foreach ($listaParametros as $parametro){
 						if (strcmp ($parametro->getNombreParametro() , "Impacto" ) == 0) {
 							if($impacto == $parametro->getIdParametro()) {
-								echo "<input type=\"hidden\" id=\"valorImpactoSeleccionado\" value=".$parametro->getValorParametro().">";
+								$impactoSeleccionado = $parametro->getValorParametro();
 								echo "<option value=".$parametro->getIdParametro()." selected>".$parametro->getValorParametro().": ".$parametro->getDescriptorParametro()."</option>";
 							} else {
 								echo "<option value=".$parametro->getIdParametro().">".$parametro->getValorParametro().": ".$parametro->getDescriptorParametro()."</option>";
@@ -92,9 +96,22 @@
 
 			<div class="">
 				<label>Calificación Nivel de Riesgo</label><br>
-				<div class="mostrarNivel" id="visualizadorNivelRiesgo">
-					
-				</div>
+				<input type="hidden" id="valorProbabilidadSeleccionado" value="<?php echo "$probabilidadSeleccionada"; ?>">
+				<input type="hidden" id="valorImpactoSeleccionado"  value="<?php echo "$impactoSeleccionado"; ?>">
+				<?php 
+					$limiteInicial = 0;
+					$contador = 1;
+					$resultadoOperacion = round(($probabilidadSeleccionada*$impactoSeleccionado)/1*$valorFormula);
+					foreach ($listaNiveles as $nivel) {
+						if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nivel->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
+							echo "<div class=\"mostrarNivel\" id=\"visualizadorNivelRiesgo\" style=\"background-color:".$nivel->getColor()."\">
+									".$resultadoOperacion.": ".$nivel->getDescriptor()."
+								</div>";
+						}
+						$contador++;
+						$limiteInicial = $nivel->getLimite();
+					}
+				 ?>
 			</div>
 
 			<div class="">
