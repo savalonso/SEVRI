@@ -83,6 +83,23 @@
 			}
 		}
 
+		public function getCantidadMensajesNuevos($cedula){
+			include_once ('dtConnection.php');
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerCantidadMensajesNuevos('$cedula')";
+			$result = mysqli_query($conexion, $query);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$cantidadMensajes = $row['cantidad'];
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $cantidadMensajes;
+			}
+		}
+
 		function insertarUsuario($usuario){
 		    include_once ('dtConnection.php');
 			$con = new dtConnection;

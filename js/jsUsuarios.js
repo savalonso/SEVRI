@@ -66,3 +66,21 @@ function irPaginaEnlace(url, idMensaje){
         $('#contenedor').load(url);
     });
 }
+
+function traerMensajesNuevos(){
+    cedulaUsuario = document.getElementById('cedulaOculta').value;
+    var formData = new FormData();
+    formData.append("opcion", 4);
+    formData.append("cedula", cedulaUsuario);
+    $.ajax({
+        url: "../controladora/ctrUsuarios.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false
+    }).done(function (data) {
+        document.getElementById('cantMenUsuario').innerHTML = "Mensajes: " + data;
+    });
+}
