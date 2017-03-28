@@ -14,7 +14,7 @@
 			    <div class="nav-wrapper">
 					
 					<div class="posicion1">
-						<a href="#" class="brand-logo left ">SEVRI</a>
+						<a href="../interfaz/paginaPrincipal.php" class="brand-logo left ">SEVRI</a>
 					</div>
 					<a href="#" data-activates="menuresponsive" class="button-collapse right"><i class="material-icons">menu</i></a>
 	
@@ -24,15 +24,12 @@
 			      			if($_SESSION['tipo']=='Administrador'){?>
 								<li><a class="dropdown-button" href="#" data-activates="SubSevri">SEVRI</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subComplementos">Agregar Complementos</a></li>
+								<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos">Crear Complementos</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subUsuarios">Usuarios</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subNivelRiesgo">Nivel Riesgo</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subParametro">Par&aacutemetros</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subCategoria">Categor&iacuteas</a></li>
+								<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamentos</a></li>
 							<?php } ?>
+							<li><a class="dropdown-button" href="#" data-activates="subProceso">Procesos SEVRI</a></li>
 							<li><a class="dropdown-button" href="#" data-activates="subMensajes"><?php echo "Mensajes: ".$cantidadMensajes; ?></a></li>
-							<li><a class="dropdown-button" href="#" data-activates="subIdentificar">Identificaci&oacuten</a></li>
-							<li><a class="dropdown-button" href="#" data-activates="subAnalizar">An&aacutelisis</a></li>
-							<li><a class="dropdown-button" href="#" data-activates="subAdministrar">Administraci&oacuten</a></li>
 							<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown1"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
 						</ul>
 
@@ -61,44 +58,39 @@
 			if($_SESSION['tipo']=='Administrador'){?>
 				<ul id="SubSevri" class="dropdown-content" >
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IcrearSevri.php')">Crear SEVRI</a></li>
-				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IAgregarComponentesSEVRI.php')">Complementos</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IMostrarSevri.php')">Mostrar Versiones</a></li>
+				 
 				</ul>
 				<ul id="subComplementos" class="dropdown-content" >
 					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarParametros.php')">Agregar Par&aacutemetros</a></li>
 					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarDepartamentos.php')">Agregar Departamentos</a></li>
 					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarCategorias.php')">Agregar Categor&iacuteas</a></li>
-				</ul>
-				<ul id="subUsuarios" class="dropdown-content" >
-					<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')">Registrar Usuarios</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php')">Mostrar Usuarios</a></li>
-				</ul>
-				<ul id="subParametro" class="dropdown-content">
-					<li><a href="javascript:cargarPagina('../interfaz/IParametros/IcrearParametro.php')">Crear Par&aacutemetro</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/IParametros/IMostrarParametros.php')">Mostrar Par&aacutemetro</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')">Crear Niveles de Riesgo</a></li>
-				</ul>
-				<ul id="subNivelRiesgo" class="dropdown-content">
 					<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IAgregarNivelRiesgoAuxiliar.php')">Agregar Nivel Riesgo</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')">Crear Niveles de Riesgo</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php')">Mostrar Nivel Riesgo</a></li>
+					
 				</ul>
-				<ul id="subCategoria" class="dropdown-content">
-					<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IMostrarCategoria.php')">Mostrar Categor&iacuteas</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')">Insertar Categor&iacuteas</a></li>
+				<ul id="subCrearComplementos" class="dropdown-content" >
+				  <li><a href="javascript:cargarPagina('../interfaz/IParametros/IcrearParametro.php')">Crear Par&aacutemetro</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IParametros/IMostrarParametros.php')">Mostrar Par&aacutemetro</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')">Insertar Categor&iacuteas</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/ICategoria/IMostrarCategoria.php')">Mostrar Categor&iacuteas</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')">Crear Niveles de Riesgo</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php')">Mostrar Nivel Riesgo</a></li>	
 				</ul>
 			<?php } ?>
-		<ul id="subIdentificar" class="dropdown-content">
-		  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')">Identificar Riesgo</a></li>
-		  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php')">Mostrar Riesgos</a></li>
-		</ul>
-		<ul id="subAnalizar" class="dropdown-content">
-		  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IAnalizarRiesgo.php')">Analizar Riesgo</a></li>
-		  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php')">Mostrar An&aacutelisis</a></li>
-		</ul>
-		<ul id="subAdministrar" class="dropdown-content">
-		  <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
-		</ul>
+				<ul id="subProceso" class="dropdown-content">
+				  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')">Identificar Riesgo</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php')">Mostrar Riesgos</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IAnalizarRiesgo.php')">Analizar Riesgo</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php')">Mostrar An&aacutelisis</a></li>
+				   <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
+				</ul>
+				<ul id="subUsuarios" class="dropdown-content">
+				  <li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')">Registrar Usuarios</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php')">Mostrar Usuarios</a></li>
+				</ul>
+				<ul id="subDepartamentos" class="dropdown-content">
+				
+				</ul>
 		<ul id="subDropdown1" class="dropdown-content">
 			<li><a href="../desconectar.php">Salir</a></li>
 		</ul>
