@@ -59,7 +59,7 @@
 			</div>
 				<?php  
 					}else{
-						echo "<h3>A&uacuten no se ha realizado ninguna administraci&oacutens</h3>";
+						echo "<h3>A&uacuten no se ha realizado ninguna administraci&oacuten</h3>";
 					}
 				?>	
 		</div>

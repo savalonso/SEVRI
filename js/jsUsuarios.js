@@ -51,22 +51,6 @@ function eliminarUsuario(cedulaUsuario) {
     });
 }
 
-function irPaginaEnlace(url, idMensaje){
-    formData.append("opcion", 3);
-    formData.append("idMensaje", idMensaje);
-    $.ajax({
-        url: "../controladora/ctrUsuarios.php",
-        type: "post",
-        dataType: "html",
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false
-    }).done(function (data) {
-        $('#contenedor').load(url);
-    });
-}
-
 function traerMensajesNuevos(){
     cedulaUsuario = document.getElementById('cedulaOculta').value;
     var formData = new FormData();

@@ -45,6 +45,7 @@
 								<li><a class="dropdown-button white-text" href="#" data-activates="subParametro2">Par&aacutemetros</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subCategoria2">Categor&iacuteas</a></li>
 							<?php } ?>
+							<li><a class="dropdown-button" href="#" data-activates="subMensajes2" id="cantMenUsuario">Mensajes</a></li>
 							<li><a class="dropdown-button white-text" href="#" data-activates="subIdentificar2">Identificaci&oacuten</a></li>
 							<li><a class="dropdown-button white-text" href="#" data-activates="subAnalizar2">An&aacutelisis</a></li>
 							<li><a class="dropdown-button white-text" href="#" data-activates="subAdministrar2">Administraci&oacuten</a></li>
@@ -87,6 +88,9 @@
 					<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')">Insertar Categor&iacuteas</a></li>
 				</ul>
 			<?php } ?>
+		<ul id="subMensajes" class="dropdown-content">
+			<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMensajesUsuario.php')">Ver Mensajes</a></li>
+		</ul>
 		<ul id="subIdentificar" class="dropdown-content">
 		  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')">Identificar Riesgo</a></li>
 		  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php')">Mostrar Riesgos</a></li>

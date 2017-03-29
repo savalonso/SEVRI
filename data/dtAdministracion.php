@@ -74,33 +74,81 @@
 			}
 		}
 
+		public function getAdministracion($idAdministracion){
+			include_once ('dtConnection.php');
+			include_once("../../dominio/dAdministracion.php");
+			include_once("../../dominio/dMedidaAdministracion.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerAdministracion('$idAdministracion')";
+			$result = mysqli_query($conexion, $query);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			
+			$administracion = new dAdministracion;
+			$administracion->setId($row['Id']);	
+
+			$medida = new dMedidaAdministracion;
+			$medida->setId($row['IdMedida']);	
+			$medida->setNombreMedida($row['nombreMedida']);
+			$medida->setDescripcionMedida($row['descripcionMedida']);
+
+			$administracion->setActividadTratamiento($row['ActividadTratamiento']);
+			$administracion->setPlazoTratamiento($row['PlazoTratamiento']);
+			$administracion->setCostoActividad($row['CostoActividad']);
+			$administracion->setIndicador($row['Indicador']);
+			$administracion->setMedidaAdministracion($medida);
+			
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $administracion;
+			}
+		}
+
 		function agregarAdministracion($administracion, $idAnalisis){
 			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
+			$query = "CALL obtenerUltimoIdAdministracion()";
 
-			$responsable = $administracion->getUsuario();
-    		$actividad = $administracion->getActividadTratamiento();
-    		$plazo = $administracion->getPlazoTratamiento();
-    		$costo = $administracion->getCostoActividad();
-    		$indicador = $administracion->getIndicador();
-    		$medida = $administracion->getMedidaAdministracion();
-
-			$result = $conexion->query("CALL insertarAdministracion('$idAnalisis','$responsable', '$actividad', '$plazo', '$costo', '$indicador', '$medida')");
-
-			mysqli_close($conexion);
-
-			if (!$result){
-				return false;
-			} else {
-				return true;
-			}
+			$result = mysqli_query($conexion, $query);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$id = $row['id'] + 1;
 			
+			$conexion = $con->crearConexionPDO();
+			try {
+				$responsable = $administracion->getUsuario();
+	    		$actividad = $administracion->getActividadTratamiento();
+	    		$plazo = $administracion->getPlazoTratamiento();
+	    		$costo = $administracion->getCostoActividad();
+	    		$indicador = $administracion->getIndicador();
+	    		$medida = $administracion->getMedidaAdministracion();
+
+				session_start();
+				$creadorMensaje = $_SESSION['nombreUsuario'];
+				$creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
+				$mensaje = "Tienes que realizar el seguimiento de una medida de administración";
+				$url = "../interfaz/IAdministracion/IMostrarAdministracionSeguimiento.php?IdAdministracion=".$id;
+				echo "$creadorMensaje";
+        	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	 	 		$conexion->beginTransaction();
+ 	 			$conexion->exec("CALL insertarAdministracion('$idAnalisis','$responsable', '$actividad', '$plazo', '$costo', '$indicador', '$medida')");			  
+ 	 			$conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$responsable')");
+
+				$conexion->commit();
+				return true;
+            } catch (Exception $e) {
+            	$conexion->rollback();
+            	return false;
+            }
 		}
+
 		function actualizarAdministracion($administracion){
 			include_once ('dtConnection.php');
 			$con = new dtConnection;
-			$prueba = $con->conect();
+			$conexion = $con->conect();
 
 			$id = $administracion->getId();
 			$cedulaResponsable = $administracion->getUsuario();
@@ -109,13 +157,14 @@
 			$costoActividad = $administracion->getCostoActividad();
 			$medidaAdministracion = $administracion->getMedidaAdministracion();
 			$indicador = $administracion->getIndicador();
-			$result = $prueba->query("CALL modificarAdministracion('$medidaAdministracion','$cedulaResponsable','$actividad','$plazo', '$costoActividad', '$id','$indicador')");
+			$result = $conexion->query("CALL modificarAdministracion('$medidaAdministracion','$cedulaResponsable','$actividad','$plazo', '$costoActividad', '$id','$indicador')");
 			if (!$result){
 				return false;
 			} else {
 				return true;
 			}
-		}
+		} 
+
 		function eliminarAdministracion($id){
 			include_once ('dtConnection.php');
 			$con = new dtConnection;
