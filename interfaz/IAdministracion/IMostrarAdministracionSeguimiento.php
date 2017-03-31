@@ -5,7 +5,6 @@
 	$control = new ctrListaAdministracion;	
 	$idAdministracion = $_GET['IdAdministracion'];
 	$administracion =$control->obtenerAdministracion($idAdministracion);	
-	$fechaActual = date("Y-m-d");
 ?>
 	<script>
 		window.onload=ocultarBarra();
@@ -31,8 +30,8 @@
 					</thead>
 					<tbody>
 						<?php 
-						if($lista==null){
-							echo "A&uacuten no se ha realizado ninguna administraci&oacutens";
+						if($administracion==null){
+							echo "A&uacuten no se ha realizado ninguna administraci&oacuten";
 						}else{
 					            echo "<tr>				
 						        	<td>".$administracion->getMedidaAdministracion()->getNombreMedida()."</td>
@@ -40,7 +39,7 @@
 						        	<td>".$administracion->getIndicador()."</td>
 						        	<td>".$administracion->getPlazoTratamiento()."</td>
 						        	<td>"."₡".number_format($administracion->getCostoActividad(), 2, ',', ' ')."</td>
-					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificarAdmi(this,'".$administracion->getId()."')\"/></td>
+					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Realizar Seguimiento\" onclick=\"realizarSeguimiento('".$administracion->getId()."')\"/></td>
 					    		</tr>";
 						}
 						?>

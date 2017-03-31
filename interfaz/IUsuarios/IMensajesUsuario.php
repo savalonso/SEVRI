@@ -35,7 +35,7 @@ $listaMensajes = $control->obtenerMensajesUsuario();
 						        <td>
 							        ".$mensaje->getMensaje()."
 						        </td>
-						        <td> <input class=\"btn btn-default\" type=\"button\" value=\"Realizar Proceso\" cargarPagina=\"irPaginaEnlace('".$mensaje->getDireccionPagina()."')\"/>
+						        <td> <input class=\"btn btn-default\" type=\"button\" value=\"Realizar Proceso\" onclick=\"dirigir_url_mensaje('".$mensaje->getDireccionPagina()."', '".$mensaje->getIdMensaje()."')\"/>
 						        </td>
 					        </tr>";
                     }

@@ -45,6 +45,7 @@
 				$mensaje->setNombreRemitente($row['EnviadoPor']);
 				$mensaje->setMensaje($row['Mensaje']);
 				$mensaje->setDireccionPagina($row['DireccionPagina']);
+				$mensaje->setIdMensaje($row['Id']);
 
 				array_push($lista, $mensaje);
 			}
@@ -158,10 +159,12 @@
 		}
 
 		function eliminarUsuarios($cedula){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
 			$result = $conexion->query("CALL eliminarUsuario($cedula);");
+			mysqli_close($conexion);
 			if (!$result){
 				return false;
 			} else {
@@ -170,10 +173,12 @@
 		}
 
 		function marcarMensajeLeido($idMensaje){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
 			$conexion->query("CALL marcarMensajeLeido($idMensaje);");
+			mysqli_close($conexion);
 		}
 
 		function getUsuario($cedula){
@@ -208,6 +213,7 @@
 		}
 
 		function actualizarUsuario($usuario, $cedulaUsuario){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 

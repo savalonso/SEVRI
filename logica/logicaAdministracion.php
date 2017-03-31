@@ -30,7 +30,7 @@
 			include_once('../../data/dtAdministracion.php');
 			$data = new dtAdministracion;
 			$administracion = $data->getAdministracion($idAdministracion);		
-			if(!$lista){
+			if(!$administracion){
 				return false;
 			}else{
 				return $administracion;

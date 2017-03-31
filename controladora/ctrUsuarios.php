@@ -84,8 +84,8 @@
 			include_once ("../logica/logicaUsuario.php");
     		$idMensaje = $_POST['idMensaje'];
 	      	$logica = new logicaUsuario;
-	      	$mensaje = $logica->marcarMensajeLeido($idMensaje);
-	      	echo $mensaje;
+	      	$logica->marcarMensajeLeido($idMensaje);
+	      	echo "true";
 		}
 
 		function contarMensajesNoLeidos(){
@@ -111,5 +111,8 @@
 	}
 	else if($op == 4){
 	 	$control->contarMensajesNoLeidos();
+	}
+	else if($op == 5){
+	 	$control->marcarMensajeLeido();
 	}
 ?>
