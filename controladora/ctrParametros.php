@@ -32,8 +32,7 @@
     		$mparametro->setDescripcionParametro($_POST['descripcion']);
     		$mparametro->setValorParametro($_POST['valor']);
     		$mparametro->setColorParametro($_POST['color']);
-    		$mparametro->setIdParametro($_POST['idParametro']);
-	      
+    		$mparametro->setIdParametro($_POST['codigoParametro']);
 	      	$resultado = $logica->modificarParametro($mparametro);
 			echo $resultado;
 		}

@@ -18,6 +18,13 @@
 			return $lista;
 		}
 
+		public function obtenerAdministracion($idAdministracion){
+			include_once('../../logica/logicaAdministracion.php');
+ 			$logica = new logicaAdministracion;
+ 			$lista = $logica->obtenerAdministracion($idAdministracion);		
+			return $lista;
+		}
+
 	}
 
  ?>

@@ -5,6 +5,7 @@ class dBandejaEntrada{
 	private $nombreRemitente;
 	private $mensaje;
 	private $direccionPagina;
+	private $idMensaje;
 
 	public function dBandejaEntrada(){}
 
@@ -30,6 +31,14 @@ class dBandejaEntrada{
 
 	public function setDireccionPagina($direccionPagina){
 		$this->direccionPagina = $direccionPagina; 
+	}
+
+	public function getIdMensaje(){
+		return $this->idMensaje;
+	}
+
+	public function setIdMensaje($idMensaje){
+		$this->idMensaje = $idMensaje; 
 	}
 }
 

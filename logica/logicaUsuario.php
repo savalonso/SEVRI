@@ -29,11 +29,10 @@
 		public function contarMensajesNuevos($cedula){
 			include_once('../data/dtUsuario.php');
 			$data = new dtUsuario;
-			$lista = $data->getMensajesNuevos($cedula);		
-			if(!$lista){
+			$cantidadMensajes = $data->getCantidadMensajesNuevos($cedula);		
+			if(!$cantidadMensajes){
 				return 0;
 			}else{
-				$cantidadMensajes = count($lista);
 				return $cantidadMensajes;
 			}
 		}
