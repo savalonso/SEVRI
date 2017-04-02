@@ -3076,7 +3076,11 @@ ul.staggered-list li {
     display: none !important;
   }
 }
-
+@media only screen and (max-width: 1350px) {
+  .responsive-nav {
+    display: none !important;
+  }
+}
 @media only screen and (min-width: 601px) {
   .hide-on-med-and-up {
     display: none !important;
@@ -4283,7 +4287,7 @@ nav .nav-wrapper {
   height: 100%;
 }
 
-@media only screen and (min-width: 993px) {
+@media only screen and (min-width: 1350px) {
   nav a.button-collapse {
     display: none;
   }
@@ -5294,7 +5298,7 @@ button.btn-floating {
 }
 
 .dropdown-content {
-   background-color: #fff;
+  background-color: #fff;
   margin: 4.7%;
   margin-left: 0%;
   display: none;
@@ -7014,7 +7018,7 @@ input[type=range]:focus::-ms-fill-upper {
   height: calc(100% + 60px);
   height: -moz-calc(100%);
   padding-bottom: 60px;
-  background-color: #fff;
+  background-color: #0d47a1; /*este es el color del side-nav*/
   z-index: 999;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -7037,12 +7041,13 @@ input[type=range]:focus::-ms-fill-upper {
 
 .side-nav .collapsible {
   margin: 0;
+
 }
 
 .side-nav li {
   float: none;
   line-height: 48px;
-  background-color: blue;
+  
 }
 
 .side-nav li.active {
@@ -7050,7 +7055,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav a {
-  color: rgba(0, 0, 0, 0.87);
+  color: #fff;
   display: block;
   font-size: 14px;
   font-weight: 500;

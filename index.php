@@ -32,7 +32,7 @@
 	        </div>
 	      </li>
 	      <li class="colorSlider1">
-	        <div class="caption right-align">
+	        <div class="caption left-align">
 	          <h3>Misi&oacuten</h3>
 	          <h5 class="light grey-text text-lighten-3">"Ser un gobierno local con autonomía propia, para el cumplimiento de sus fines, tal 
 	          	y como lo establece el Código Municipal, gestora del desarrollo integral con capacidad de liderazgo, transparencia en sus 
