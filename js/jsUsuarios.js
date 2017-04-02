@@ -87,3 +87,7 @@ function traerMensajesNuevos(){
         document.getElementById('cantMenUsuario').innerHTML = "Mensajes: " + data;
     });
 }
+
+function mostrandoCambios(){
+    alert("Esto es un cambio");
+}
