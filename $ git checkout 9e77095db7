@@ -1,0 +1,276 @@
+[33mcommit 9399a0b35f60c1a0672e73f408fb21ea084f0e6d[m
+Merge: 1f936e0 2390517
+Author: frander170896 <franderramirez@yahoo.es>
+Date:   Wed Apr 5 08:33:31 2017 -0600
+
+    Merge pull request #11 from savalonso/Correcion-en-menu
+    
+    Interfaz arreglada
+
+[33mcommit 239051777c3f655b461829952db64c9705ce2b43[m
+Author: frander170896 <franderramirez@yahoo.es>
+Date:   Wed Apr 5 08:30:02 2017 -0600
+
+    Interfaz arreglada
+    
+    se arreglo el preblema de responsive
+
+[33mcommit 1f936e0fe44c4191bbfed351f2ea82ee84254fb3[m
+Merge: 8279ff3 2efc5b6
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 23:07:05 2017 -0600
+
+    Merge pull request #10 from savalonso/Desarrollo-Frander
+    
+    Desarrollo frander
+
+[33mcommit 2efc5b60d4c492e640a5b855dddc3c89fa1b5f11[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Tue Apr 4 23:05:15 2017 -0600
+
+    Volviendo a agregar header
+    
+    se volvio a agregar el header
+
+[33mcommit 81d8e3049440d23845e53bdd07e147c5b569cc22[m
+Merge: 65542bd 8279ff3
+Author: savalonso <savalonso@gmail.com>
+Date:   Tue Apr 4 22:52:53 2017 -0600
+
+    Merge remote-tracking branch 'refs/remotes/origin/master' into Desarrollo-Frander
+
+[33mcommit 8279ff31126abda519c4df33cb472a36cfbabb70[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Tue Apr 4 22:50:34 2017 -0600
+
+    eliminar header
+    
+    quitar header
+
+[33mcommit 0721a05f5d062a6a99f79be8b7b4579fbd936870[m
+Merge: 0177ad4 91b15a9
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 22:48:51 2017 -0600
+
+    Merge pull request #9 from savalonso/revert-8-desarrollo-Sergio
+    
+    Revert "Desarrollo sergio"
+
+[33mcommit 91b15a9cc52eae313999c38f5807ca2fe550e3ce[m
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 22:41:19 2017 -0600
+
+    Revert "Desarrollo sergio"
+
+[33mcommit 0177ad4b3d20e4badebd8fa9c1168d6a603dee49[m
+Merge: 5fd2194 b50e298
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 22:35:20 2017 -0600
+
+    Merge pull request #8 from savalonso/desarrollo-Sergio
+    
+    Desarrollo sergio
+
+[33mcommit b50e2989055fa15a6a561ae1634699d8b0251e99[m
+Merge: 1c73d7d 5fd2194
+Author: savalonso <savalonso@gmail.com>
+Date:   Tue Apr 4 22:32:44 2017 -0600
+
+    Merge remote-tracking branch 'refs/remotes/origin/master' into desarrollo-Sergio
+
+[33mcommit 1c73d7dceda7646f3a896b2b9c879cce0ffa5b75[m
+Merge: 92b9e2d 65542bd
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 22:32:06 2017 -0600
+
+    Merge pull request #7 from savalonso/Desarrollo-Frander
+    
+    Desarrollo frander
+
+[33mcommit 5fd21945a69161a7613389eacd2722bdb019ad95[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Tue Apr 4 22:15:01 2017 -0600
+
+    Quitar Header
+    
+    Eliminación del header para que no de problemas
+
+[33mcommit 54013f407963018ee6a2a2b9fb6c5f17a71fc200[m
+Merge: 368f13b 7e81c1e
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 22:11:58 2017 -0600
+
+    Merge pull request #6 from savalonso/revert-3-Desarrollo-Frander
+    
+    Revert "Pagina Principal"
+
+[33mcommit 7e81c1ee498acf530a222113575d3ea402977674[m
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 22:10:41 2017 -0600
+
+    Revert "Pagina Principal"
+
+[33mcommit 368f13b0aad9553382f4b6a37a1544ec078dddd5[m
+Merge: 9e77095 65542bd
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 22:01:57 2017 -0600
+
+    Merge pull request #3 from savalonso/Desarrollo-Frander
+    
+    Pagina Principal
+
+[33mcommit 65542bd7d05c6fdfb61205760e42577ddff31c29[m
+Merge: a97155f 9e77095
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Tue Apr 4 22:01:50 2017 -0600
+
+    Merge branch 'master' into Desarrollo-Frander
+
+[33mcommit 92b9e2db693b8ec629994134c6223c9a69101a3d[m
+Merge: 80ff195 adf1dbc
+Author: ruben2807 <rubenporrass@gmail.com>
+Date:   Sat Apr 1 21:03:17 2017 -0600
+
+    Merge pull request #5 from savalonso/Desarrollo-Ruchi
+    
+    Mostrando a ruchi como funciona
+
+[33mcommit adf1dbccc81907bdd96018772e7f020d0f2c74ce[m
+Author: ruben2807 <rubenporrass@gmail.com>
+Date:   Sat Apr 1 21:00:43 2017 -0600
+
+    probando
+    
+    realice una prueba
+
+[33mcommit 9e77095db7c3cd1e74c18cedac7be3cc5fa3da45[m
+Merge: 54899a9 80ff195
+Author: Sergio Araya Vargas <savalonso@gmail.com>
+Date:   Thu Mar 30 20:50:54 2017 -0600
+
+    Merge pull request #4 from savalonso/desarrollo-Sergio
+    
+    Mensajes y Administracion completada
+
+[33mcommit 80ff1954c8c020bd8e96164832d863ac5538fe1c[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Thu Mar 30 20:24:45 2017 -0600
+
+    Finalizada la parte de mensajes
+    
+    Se completo la parte mostrar los mensajes y que se pueda ir al enlace o
+    url que se guardo en el mensaje
+
+[33mcommit 369dcea3bb6779dd8848dc01bc2085c46ad07b2f[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Wed Mar 29 12:35:05 2017 -0600
+
+    Crear Mensajes en Administracion y Redireccionamiento con url mensaje
+    
+    Cuando se inserta una administracion se insertar el mensaje para el
+    usuario que se asigno en la administacion. La funcionalidad del boton
+    realizar proceso cuando se muestran los mensajes ya se implemento, pero
+    falta agregar que el mensaje se marque como leído
+
+[33mcommit a97155f825d967d98b9363c98a219a3a46a94b7a[m
+Author: frander170896 <franderramirez@yahoo.es>
+Date:   Tue Mar 28 08:50:56 2017 -0600
+
+    Modifique el header
+    
+    algunos cambios de pocisionamiento de las opciones del menu y cambios en
+    el menu desplegable
+
+[33mcommit 7aad9f1dbb24a0e7e4fde30b91c604e422cd70e8[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Mon Mar 27 11:05:13 2017 -0600
+
+    Las notificaciones de los mensajes se muestran dinamicamente
+    
+    Ahora cada vez que se asigna un usuario para realizar un seguimiento o
+    para aporbar un seguimiento los mensajes siempre se actualizan
+
+[33mcommit a6ef6047529414485759a5dcf4d3fde137b463aa[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Mon Mar 27 09:30:15 2017 -0600
+
+    Implementado nivel riesgo en modificar analisis
+    
+    Se termino de implementar el mostrar el nivel de riesgo en la parte de
+    modifcar analisis y se termina todo el crud de analisis, sin embargo hay
+    que arreglar detalles y ver si se pueden reducir los tiempos de espera
+
+[33mcommit d2fdd76f8c7675cf1bd30f2452cbde6a93e3df12[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Sun Mar 26 16:39:08 2017 -0600
+
+    Mostrar Nivel Riesgo crud analisis
+    
+    Se termino de arregar la parte de mostrar nivel riesgo en analisis en
+    las partes de mostrar y modificar.
+
+[33mcommit 78559267958a61509c0ab613fbef470e0b266334[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Sat Mar 25 23:15:13 2017 -0600
+
+    Modificaciones en dtNivelRiesgo, ICrearNiveles y IMostrarNivelRiesgo
+    
+    En ICrearNiveles  se saco la tabla del formulario y se elimino el mismo,
+    en IMostrarNivelRiesgo se agrego el modal para confirmar la modificacion
+
+[33mcommit b32cfa7f79f196eb4864d9fd5fbd7019c52e4058[m
+Author: frander170896 <franderramirez@yahoo.es>
+Date:   Sat Mar 25 21:34:29 2017 -0600
+
+    Pagina Principal
+    
+    Agregue la pagina principal del sistema y le añadi la parte del login.
+
+[33mcommit 54899a90ddbdbf5b3868bb7f869e6dadb37aca8e[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Sat Mar 25 20:14:27 2017 -0600
+
+    Eliminando Cambios Prueba
+    
+    Se quitaron las pruebas que se habían realizado
+
+[33mcommit 4d9ae2e7e41baad90760e37dc44a5a33d3cd66df[m
+Merge: 018ffa2 c613fd8
+Author: savalonso <savalonso@gmail.com>
+Date:   Sat Mar 25 20:01:56 2017 -0600
+
+    Merge pull request #2 from savalonso/Desarrollo-Sergio
+    
+    Este es un cambio sensillo
+
+[33mcommit c613fd8a1794fceb7a80126b0eed0df1f6388425[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Sat Mar 25 20:00:57 2017 -0600
+
+    Este es un cambio sensillo
+    
+    Probando para subir al master
+
+[33mcommit 018ffa2c7985f889ea25b11a94f483b123118356[m
+Author: frander170896 <franderramirez@yahoo.es>
+Date:   Sat Mar 25 19:51:28 2017 -0600
+
+    CAMBIO EN EL INDEX
+    
+    MAE LE HICE UN CAMBIO AL INDEX REVISE
+
+[33mcommit 61ce4904128c260d46a156fd6ca661f55e313260[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Sat Mar 25 19:49:20 2017 -0600
+
+    cambio prueba
+    
+    esta vara funciona
+
+[33mcommit 85013bea41fe5b012e15665448c0cf657ab78f1a[m
+Author: savalonso <savalonso@gmail.com>
+Date:   Sat Mar 25 19:42:33 2017 -0600
+
+    Proyecto Completo
+    
+    Se está subiendo todo el proyecto por primera vez
