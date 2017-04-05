@@ -87,8 +87,8 @@ function irPaginaEnlace(url, idMensaje){
 
 
 
+
 function limpiar(){
-    alert("si esta fincionando");
     document.getElementById('usuario').value="";
     document.getElementById('clave').value="";
 }
