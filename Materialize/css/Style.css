@@ -1,18 +1,7 @@
 
 /*acomodando el formulario de crear sevri*/
 
-body{
- background:url('../../img/1.jpg') repeat 0 0;
- background-size: cover;  
- background-position: center center;
- background-repeat: no-repeat;
- background-attachment: fixed; 
- display: flex;
- min-height: 100vh;
- flex-direction: column;
- color:white;
 
-}
 .contForm{
  margin: auto;
  margin-top: 2%;
