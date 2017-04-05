@@ -14,6 +14,7 @@
 	<script src="../js/jsAnalisis.js"></script>
 	<script src="../js/jsNivelRiesgo.js"></script>
 	<script src="../js/jsAdministracion.js"></script>
+	<script src="../js/jsUsuarios.js"></script>
 	<script type="text/javascript" src="../js/jsSevri.js"></script>
 	<script type="text/javascript" src="../js/jsCategoria.js"></script>
 	<script type="text/javascript" src="../js/jsParametros.js"></script>

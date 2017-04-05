@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-include_once ("../../controladora/ctrListaUsuarios.php");
-$control = new ctrListaUsuarios();
+include_once ("../../controladora/ctrListaUsuario.php");
+$control = new ctrListaUsuario();
 $listaMensajes = $control->obtenerMensajesUsuario();
 ?>
 
@@ -35,7 +35,7 @@ $listaMensajes = $control->obtenerMensajesUsuario();
 						        <td>
 							        ".$mensaje->getMensaje()."
 						        </td>
-						        <td> <input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"irPaginaEnlace('".$mensaje->getDireccionPagina()."')\"/>
+						        <td> <input class=\"btn btn-default\" type=\"button\" value=\"Realizar Proceso\" onclick=\"dirigir_url_mensaje('".$mensaje->getDireccionPagina()."', '".$mensaje->getIdMensaje()."')\"/>
 						        </td>
 					        </tr>";
                     }

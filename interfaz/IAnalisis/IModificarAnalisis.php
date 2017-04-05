@@ -10,6 +10,7 @@
 	$controlDatos = new ctrDatosSevri;
 	$listaAnalisis = $controAnalisis->obtenerAnalisis($idAnalisis);
 	$listaParametros = $controlDatos->obtenerParametrosSevriActivo();
+	$listaNiveles = $controlDatos->obtenerNivelesSevriActivo();
 	$listaRiesgos = $controlDatos->obtenerRiesgosSevriActivo();
 	foreach ($listaAnalisis as $analisis) {
 		$id = $analisis->getId();
@@ -20,13 +21,29 @@
 		$medidaControl = $analisis->getMedidaControl();
 		$calificacionMedida = $analisis->getCalificacionMedida();
 	}
+	$maximaProbabilidad = 0;
+	$maximoImpacto = 0;
 	foreach ($listaParametros as $parametro) {
+		if (strcmp ($parametro->getNombreParametro() , "Probabilidad" ) == 0) {
+			if($maximaProbabilidad < $parametro->getValorParametro()){
+				$maximaProbabilidad = $parametro->getValorParametro();
+			}
+		}elseif (strcmp ($parametro->getNombreParametro() , "Impacto" ) == 0) {
+			if($maximoImpacto < $parametro->getValorParametro()){
+				$maximoImpacto = $parametro->getValorParametro();
+			}
+		}
 		$arr[] = array(
 		'_id' => $parametro->getIdParametro(),
-		'descripcion' => $parametro->getDescripcionParametro()
+		'descripcion' => $parametro->getDescripcionParametro(),
+		'valorParametro' => $parametro->getValorParametro()
 		); 	
 	}
+	$cantidadDivisiones = count($listaNiveles);
+	$valorFormula = 100 / (($maximoImpacto * $maximaProbabilidad)/1);
 	$ArrayJson = json_encode($arr);
+	$probabilidadSeleccionada;
+	$impactoSeleccionado;
 ?>
 <div class="row">
 	<form class="responsive" id="IModificarAnalisis" method="Post" role="form">
@@ -44,14 +61,15 @@
 			</div>
 			<div class="">
 				<label>Probabilidad</label>
-				<select id="probabilidad" name="probabilidad" onChange="mostrarDescripcionProbabilidad(this.value)"> 
+				<select id="probabilidad" name="probabilidad" onChange="mostrarDescripcionProbabilidad(this.value, <?php echo "$maximaProbabilidad"; ?>, <?php echo "$maximoImpacto"; ?>)"> 
 				<?php 
 					foreach ($listaParametros as $parametro){
 						if (strcmp ($parametro->getNombreParametro() , "Probabilidad" ) == 0) {
 							if($probabilidad == $parametro->getIdParametro()) {
-								echo "<option value=".$parametro->getIdParametro()." selected>".$parametro->getDescriptorParametro()."</option>";	
+								$probabilidadSeleccionada = $parametro->getValorParametro();
+								echo "<option value=".$parametro->getIdParametro()." selected>".$parametro->getValorParametro().": ".$parametro->getDescriptorParametro()."</option>";
 							} else {
-								echo "<option value=".$parametro->getIdParametro().">".$parametro->getDescriptorParametro()."</option>";
+								echo "<option value=".$parametro->getIdParametro().">".$parametro->getValorParametro().": ".$parametro->getDescriptorParametro()."</option>";
 							}
 						}
 					}
@@ -60,20 +78,42 @@
 			</div>
 			<div class="">
 				<label>Impacto</label><br>
-				<select id="impacto" name="impacto" onChange="mostrarDescripcionImpacto(this.value)"> 
+				<select id="impacto" name="impacto" onChange="mostrarDescripcionImpacto(this.value, <?php echo "$maximaProbabilidad"; ?>, <?php echo "$maximoImpacto"; ?>)"> 
 				<?php 
 					foreach ($listaParametros as $parametro){
 						if (strcmp ($parametro->getNombreParametro() , "Impacto" ) == 0) {
 							if($impacto == $parametro->getIdParametro()) {
-								echo "<option value=".$parametro->getIdParametro()." selected>".$parametro->getDescriptorParametro()."</option>";
+								$impactoSeleccionado = $parametro->getValorParametro();
+								echo "<option value=".$parametro->getIdParametro()." selected>".$parametro->getValorParametro().": ".$parametro->getDescriptorParametro()."</option>";
 							} else {
-								echo "<option value=".$parametro->getIdParametro().">".$parametro->getDescriptorParametro()."</option>";
+								echo "<option value=".$parametro->getIdParametro().">".$parametro->getValorParametro().": ".$parametro->getDescriptorParametro()."</option>";
 							}
 						}
 					}
 				?>
 				</select>
 			</div>
+
+			<div class="">
+				<label>Calificación Nivel de Riesgo</label><br>
+				<input type="hidden" id="valorProbabilidadSeleccionado" value="<?php echo "$probabilidadSeleccionada"; ?>">
+				<input type="hidden" id="valorImpactoSeleccionado"  value="<?php echo "$impactoSeleccionado"; ?>">
+				<?php 
+					$limiteInicial = 0;
+					$contador = 1;
+					$resultadoOperacion = round(($probabilidadSeleccionada*$impactoSeleccionado)/1*$valorFormula);
+					foreach ($listaNiveles as $nivel) {
+						if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nivel->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
+							echo "<div class=\"mostrarNivel\" id=\"visualizadorNivelRiesgo\" style=\"background-color:".$nivel->getColor()."\">
+									".$resultadoOperacion.": ".$nivel->getDescriptor()."
+								</div>";
+						}
+						$contador++;
+						$limiteInicial = $nivel->getLimite();
+					}
+				 ?>
+			</div>
+
 			<div class="">
 				<label  for="medida">Medida de Control:</label>
 				<input type="text" name="MedidaControl" id="MedidaControl" value="<?php echo "$medidaControl";?>">
@@ -121,13 +161,32 @@
 		<div id="mensajeCalificacion" class="mensajeCalificacion" style="display:none;"></div>
 	</div>
 </div>
+
+<div style="display:none">
+	<table id="tbNivelesRiesgoOcultos">
+		<tbody>
+			<?php 
+			foreach ($listaNiveles as $nivel) {
+				echo "<tr>";
+					echo "<td>".$nivel->getLimite()."</td>";
+					echo "<td>".$nivel->getDescriptor()."</td>";
+					echo "<td>".$nivel->getDescripcion()."</td>";
+					echo "<td>".$nivel->getColor()."</td>";
+				echo "</tr>";
+			}
+			 ?>
+		</tbody>
+	</table>
+</div>
+
+
 <script type="text/javascript">
 
 	$(document).ready(function(){
 		$('.modal-trigger').leanModal();
 	});
 
-	function mostrarDescripcionProbabilidad(id) {
+	function mostrarDescripcionProbabilidad(id, maximaProbabilidad, maximoImpacto) {
 		if (id == 0) {
 	        $("#mensajeProbabilidad").hide();
 	    } else {
@@ -139,11 +198,13 @@
 	    var lparametros = eval(<?php echo $ArrayJson ?>);
 	    for(i=0;i<lparametros.length;i++){
 			if(lparametros[i]._id == id){
+				document.getElementById('valorProbabilidadSeleccionado').value = lparametros[i].valorParametro;
 				document.getElementById('mensajeProbabilidad').innerHTML = lparametros[i].descripcion;
 			}
 		}
+		crearNivelRiesgo(maximaProbabilidad, maximoImpacto);
 	}	
-	function mostrarDescripcionImpacto(id) {
+	function mostrarDescripcionImpacto(id, maximaProbabilidad, maximoImpacto) {
 		if (id == 0) {
 	        $("#mensajeImpacto").hide();
 	    } else {
@@ -155,9 +216,11 @@
 	    var lparametros = eval(<?php echo $ArrayJson ?>);
 	    for(i=0;i<lparametros.length;i++){
 			if(lparametros[i]._id == id){
+				document.getElementById('valorImpactoSeleccionado').value = lparametros[i].valorParametro;
 				document.getElementById('mensajeImpacto').innerHTML = lparametros[i].descripcion;
 			}
 		}
+		crearNivelRiesgo(maximaProbabilidad, maximoImpacto);
 	}
 	function mostrarDescripcionCalificacion(id) {
 		if (id == 0) {

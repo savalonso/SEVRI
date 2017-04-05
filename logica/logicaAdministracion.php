@@ -26,6 +26,17 @@
 			}
 		}
 
+		public function obtenerAdministracion($idAdministracion){
+			include_once('../../data/dtAdministracion.php');
+			$data = new dtAdministracion;
+			$administracion = $data->getAdministracion($idAdministracion);		
+			if(!$administracion){
+				return false;
+			}else{
+				return $administracion;
+			}
+		}
+
 		public function insertarAdministracion($administracion, $idAnalisis){
 			include_once("../data/dtAdministracion.php");
 			$dataAnalisis = new dtAdministracion;

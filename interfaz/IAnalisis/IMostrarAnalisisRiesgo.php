@@ -26,7 +26,7 @@
 						<th>Impacto</th>
 						<th>Nivel Riesgo</th>
 						<th>Medida Control</th>
-						<th>Calificaci&oacute;n Medida</th>
+						<th>Calificaci&oacuten Medida</th>
 						<th>Modificar</th>
 						<th>Eliminar</th>
 					</tr>
@@ -49,10 +49,9 @@
 								</td>";
 								$limiteInicial = 0;
 								$contador = 1;
+								$resultadoOperacion = round(($analisis->getImpacto()->getValorParametro()*$analisis->getProbabilidad()->getValorParametro())/1*$valorFormula);
 								foreach ($listaNiveles as $nivel) {
-									$resultadoOperacion = ($analisis->getImpacto()->getDescriptorParametro()*$analisis->getProbabilidad()->getDescriptorParametro())/1*$valorFormula;
-									echo "resultadoOperacion: ".$resultadoOperacion;
-									if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nivel->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $nivel->getLimite())){
+									if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nivel->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
 										echo "<td style=\"background-color:".$nivel->getColor()."\">
 												".$resultadoOperacion.": ".$nivel->getDescriptor()."
 											</td>";

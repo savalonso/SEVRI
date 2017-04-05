@@ -84,8 +84,16 @@
 			include_once ("../logica/logicaUsuario.php");
     		$idMensaje = $_POST['idMensaje'];
 	      	$logica = new logicaUsuario;
-	      	$mensaje = $logica->marcarMensajeLeido($idMensaje);
-	      	echo $mensaje;
+	      	$logica->marcarMensajeLeido($idMensaje);
+	      	echo "true";
+		}
+
+		function contarMensajesNoLeidos(){
+			include_once ("../logica/logicaUsuario.php");
+    		$idUsuario = $_POST['cedula'];
+	      	$logica = new logicaUsuario;
+	      	$cantidadMensajes = $logica->contarMensajesNuevos($idUsuario);
+	      	echo $cantidadMensajes;
 		}
 
     }
@@ -95,10 +103,16 @@
 	if($op == 1){
 	 	$control->insertarUsuarios();
 	}
-	if($op == 2){
+	else if($op == 2){
 	 	$control->actualizarUsuarios();
 	}
-	if($op == 3){
+	else if($op == 3){
 	 	$control->eliminarUsuarios();
+	}
+	else if($op == 4){
+	 	$control->contarMensajesNoLeidos();
+	}
+	else if($op == 5){
+	 	$control->marcarMensajeLeido();
 	}
 ?>
