@@ -4,8 +4,8 @@
 	if($_SESSION['nombreUsuario']){
 		session_destroy();
 
-		header("location:index.php");
+		header("location:loginUsuarios.php");
 	}else{
-		header("location:index.php");
+		header("location:loginUsuarios.php");
 	}
 ?>
