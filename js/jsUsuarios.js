@@ -70,6 +70,11 @@ function dirigir_url_mensaje(url, idMensaje) {
     });
 }
 
+function limpiar(){
+    document.getElementById('usuario').value="";
+    document.getElementById('clave').value="";
+}
+
 function traerMensajesNuevos(){
     cedulaUsuario = document.getElementById('cedulaOculta').value;
     var formData = new FormData();
