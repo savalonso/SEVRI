@@ -164,12 +164,25 @@
 			</div>
 			 
 			<div>
-				<input type="button" id="btnModificarNivel" value="Modificar Niveles" class="btn btn-default" onclick="modificarNivelesRiesgo()"><br>
+				<button type="button" class="btnModificar" ><a class="waves-effect waves-light btn modal-trigger" href="#MmodificarNivel">Modificar Niveles</a></button><br>
 			</div>
 			 
 		</div>
 	</form>
 </div>
+
+<!--  Modal para confirmar modificacion de nivel -->
+
+	<div id="MmodificarNivel" class="modal  blue darken-3 z-depth-5 white-text">
+		<div class="modal-content">
+			<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
+		</div>
+		<div class="modal-footer blue darken-3 z-depth-5">
+			<input type="hidden" id="idDivision" name="idDivision">
+		 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+		 	<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="modificarNivelesRiesgo()" />
+		</div>
+	</div>
 
 <script>
   window.onload=ocultarBarra();

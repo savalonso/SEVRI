@@ -1,11 +1,10 @@
 <?php  
 	session_start();
-	if($_SESSION){
-		include_once('../controladora/ctrListaUsuario.php');
-		$controlUsuario = new ctrListaUsuario;
-		$cantidadMensajes = $controlUsuario->contarMensajesNuevos($_SESSION['idUsuario']);
+	if($_SESSION){ 
+		$cedulaUsuarioLogin = $_SESSION['idUsuario'];
 		?>
 <header>
+	<input type="hidden" id="cedulaOculta" value="<?php echo "$cedulaUsuarioLogin"; ?>">
 	<div class="navbar-fixed">
 		<ul id="dropdown1" class="dropdown-content">
 			<li><a href="../desconectar.php">Salir</a></li>
@@ -30,6 +29,10 @@
 							<?php } ?>
 							<li><a class="dropdown-button" href="#" data-activates="subProceso">Procesos SEVRI</a></li>
 							<li><a class="dropdown-button" href="#" data-activates="subMensajes"><?php echo "Mensajes: ".$cantidadMensajes; ?></a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subMensajes" id="cantMenUsuario">Mensajes</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subIdentificar">Identificaci&oacuten</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subAnalizar">An&aacutelisis</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subAdministrar">Administraci&oacuten</a></li>
 							<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown1"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
 						</ul>
 
@@ -43,6 +46,7 @@
 								<li><a class="dropdown-button white-text" href="#" data-activates="subParametro2">Par&aacutemetros</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subCategoria2">Categor&iacuteas</a></li>
 							<?php } ?>
+							<li><a class="dropdown-button" href="#" data-activates="subMensajes2" id="cantMenUsuario">Mensajes</a></li>
 							<li><a class="dropdown-button white-text" href="#" data-activates="subIdentificar2">Identificaci&oacuten</a></li>
 							<li><a class="dropdown-button white-text" href="#" data-activates="subAnalizar2">An&aacutelisis</a></li>
 							<li><a class="dropdown-button white-text" href="#" data-activates="subAdministrar2">Administraci&oacuten</a></li>
@@ -91,6 +95,21 @@
 				<ul id="subDepartamentos" class="dropdown-content">
 				
 				</ul>
+			<?php } ?>
+		<ul id="subMensajes" class="dropdown-content">
+			<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMensajesUsuario.php')">Ver Mensajes</a></li>
+		</ul>
+		<ul id="subIdentificar" class="dropdown-content">
+		  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')">Identificar Riesgo</a></li>
+		  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php')">Mostrar Riesgos</a></li>
+		</ul>
+		<ul id="subAnalizar" class="dropdown-content">
+		  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IAnalizarRiesgo.php')">Analizar Riesgo</a></li>
+		  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php')">Mostrar An&aacutelisis</a></li>
+		</ul>
+		<ul id="subAdministrar" class="dropdown-content">
+		  <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
+		</ul>
 		<ul id="subDropdown1" class="dropdown-content">
 			<li><a href="../desconectar.php">Salir</a></li>
 		</ul>
@@ -136,13 +155,14 @@
 		</ul>
 		<script>
 		$( document ).ready(function(){
+			setInterval('traerMensajesNuevos()',10000);
 		   $('.dropdown-button').dropdown();
 		   $('.button-collapse').sideNav();
 		});
 		</script>
 </header>
 <?php  
-}else{
+ }else{
 	header("location:../loginUsuarios.php");
-}
+} 
 ?>

@@ -218,7 +218,6 @@
     		$valor = $parametro->getValorParametro();
     		$color = $parametro->getColorParametro();
     		$id = $parametro->getIdParametro();
-
     		$result = $conexion->query("CALL actualizarParametro('$nombre','$descriptor','$descripcion','$valor','$color','$id')");
 
 			mysqli_close($conexion);
