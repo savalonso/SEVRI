@@ -145,6 +145,6 @@
 </header>
 <?php  
 }else{
-	header("location:../loginUsuarios.php");
+	header("location:../index.php");
 }
 ?>
