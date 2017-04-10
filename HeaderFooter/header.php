@@ -1,11 +1,10 @@
 <?php  
 	session_start();
 	if($_SESSION){
-		include_once('../controladora/ctrListaUsuario.php');
-		$controlUsuario = new ctrListaUsuario;
-		$cantidadMensajes = $controlUsuario->contarMensajesNuevos($_SESSION['idUsuario']);
+		$cedulaUsuarioLogin = $_SESSION['idUsuario'];
 		?>
 <header>
+	<input type="hidden" id="cedulaOculta" value="<?php echo "$cedulaUsuarioLogin"; ?>">
 	<div class="navbar-fixed">
 		<ul id="dropdown1" class="dropdown-content">
 			<li><a href="../desconectar.php">Salir</a></li>
@@ -30,7 +29,7 @@
 								<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamentos</a></li>
 							<?php } ?>
 							<li><a class="dropdown-button" href="#" data-activates="subProceso">Procesos SEVRI</a></li>
-							<li><a class="dropdown-button" href="#" data-activates="subMensajes"><?php echo "Mensajes: ".$cantidadMensajes; ?></a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subMensajes" id="cantMenUsuario">Mensajes</a></li>
 							<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown1"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
 						</ul>
 
@@ -45,7 +44,7 @@
 								<li><a class="dropdown-button" href="#" data-activates="subDepartamentos2">Departamentos</a></li>
 							<?php } ?>
 							<li><a class="dropdown-button" href="#" data-activates="subProceso2">Procesos SEVRI</a></li>
-							<li><a class="dropdown-button" href="#" data-activates="subMensajes2"><?php echo "Mensajes: ".$cantidadMensajes; ?></a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subMensajes2" id="cantMenUsuario2">Mensajes</a></li>
 							<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown2"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
 						</ul>
 					</div>
@@ -84,6 +83,11 @@
 				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php')">Mostrar An&aacutelisis</a></li>
 				   <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
 				</ul>
+
+				<ul id="subMensajes" class="dropdown-content">
+					<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMensajesUsuario.php')">Ver Mensajes</a></li>
+				</ul>
+
 				<ul id="subUsuarios" class="dropdown-content">
 				  <li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')">Registrar Usuarios</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php')">Mostrar Usuarios</a></li>
@@ -91,9 +95,10 @@
 				<ul id="subDepartamentos" class="dropdown-content">
 				
 				</ul>
-		<ul id="subDropdown1" class="dropdown-content">
-			<li><a href="../desconectar.php">Salir</a></li>
-		</ul>
+
+				<ul id="subDropdown1" class="dropdown-content">
+					<li><a href="../desconectar.php">Salir</a></li>
+				</ul>
 		<!-- estructura del menú responsive-->
 		<?php
 			if($_SESSION['tipo']=='Administrador'){?>
@@ -125,6 +130,11 @@
 			  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php')">Mostrar An&aacutelisis</a></li>
 			   <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
 			</ul>
+
+			<ul id="subMensajes2" class="dropdown-content">
+				<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMensajesUsuario.php')">Ver Mensajes</a></li>
+			</ul>
+
 			<ul id="subUsuarios2" class="dropdown-content">
 			  <li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')">Registrar Usuarios</a></li>
 			  <li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php')">Mostrar Usuarios</a></li>
@@ -138,6 +148,7 @@
 
 		<script>
 		$( document ).ready(function(){
+			setInterval('traerMensajesNuevos()',10000);
 		   $('.dropdown-button').dropdown();
 		   $('.button-collapse').sideNav();
 		});
