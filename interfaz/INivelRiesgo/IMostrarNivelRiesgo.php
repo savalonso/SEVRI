@@ -110,8 +110,8 @@
 											echo "<td style=\"display:none\"><input type=\"hidden\" id=\"inputId".$contador."\" value=\"".$nivel->getIdNivel()."\"></td>";
 											echo "<td>".$limiteAnterior."%"."</td>";
 											echo "<td>".$nivel->getLimite()."%"."</td>";
-											echo "<td> <input type=\"text\" id=\"input01".$contador."\" value=\"".$nivel->getDescriptor()."\" placeholder=\"Dato: ".$nivel->getDescriptor()."\"></td>";
-											echo "<td> <input type=\"text\" id=\"input02".$contador."\" value=\"".$nivel->getDescripcion()."\" placeholder=\"Dato: ".$nivel->getDescripcion()."\"></td>";
+											echo "<td> <input type=\"text\" class=\"datoInput\" id=\"input01".$contador."\" value=\"".$nivel->getDescriptor()."\" placeholder=\"Dato: ".$nivel->getDescriptor()."\"></td>";
+											echo "<td> <input type=\"text\" class=\"datoInput\" id=\"input02".$contador."\" value=\"".$nivel->getDescripcion()."\" placeholder=\"Dato: ".$nivel->getDescripcion()."\"></td>";
 											echo "<td> <select id=\"selectColorMod".$contador."\">";
 										if($nivel->getColor() == "#009900"){
 											echo "<option value=\"#009900\" selected>Verde Oscuro</option>
@@ -180,7 +180,7 @@
 		<div class="modal-footer blue darken-3 z-depth-5">
 			<input type="hidden" id="idDivision" name="idDivision">
 		 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-		 	<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="modificarNivelesRiesgo()" />
+		 	<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="validarFormularioModificar()" />
 		</div>
 	</div>
 
