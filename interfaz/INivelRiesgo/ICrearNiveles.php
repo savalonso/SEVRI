@@ -32,7 +32,6 @@
 							<th>Descriptor</th>
 							<th>Descripción</th>
 							<th>Color</th>
-							<th>Muestra Color</th>
 						</tr>
 					</thead>
 					<tbody>

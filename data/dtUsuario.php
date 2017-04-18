@@ -46,6 +46,7 @@
 				$mensaje->setMensaje($row['Mensaje']);
 				$mensaje->setDireccionPagina($row['DireccionPagina']);
 				$mensaje->setIdMensaje($row['Id']);
+				$mensaje->setEsNuevo($row['EsNuevo']);
 
 				array_push($lista, $mensaje);
 			}

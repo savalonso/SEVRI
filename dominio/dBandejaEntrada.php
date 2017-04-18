@@ -6,6 +6,7 @@ class dBandejaEntrada{
 	private $mensaje;
 	private $direccionPagina;
 	private $idMensaje;
+	private $esNuevo;
 
 	public function dBandejaEntrada(){}
 
@@ -39,6 +40,14 @@ class dBandejaEntrada{
 
 	public function setIdMensaje($idMensaje){
 		$this->idMensaje = $idMensaje; 
+	}
+
+	public function getEsNuevo(){
+		return $this->esNuevo;
+	}
+
+	public function setEsNuevo($esNuevo){
+		$this->esNuevo = $esNuevo;
 	}
 }
 

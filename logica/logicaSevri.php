@@ -60,6 +60,18 @@ class LogicaSevri{
 		}
 	}
 
+	public function verificarNivelRiesgo(){
+		include_once('../data/dtNivelRiesgo.php');
+		$dataNivel = new dtNivelRiesgo;
+		$nivelRiesgo = $dataNivel->verificarNivelRiesgoAgregado();
+		if($nivelRiesgo == false){
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+
 	public function verificarComplementos($idSevri){
 		include_once("../data/dtParametro.php");
 		include_once("../data/dtSevri.php");
@@ -67,53 +79,56 @@ class LogicaSevri{
 		$mensaje = '';
 		$dataParametro = new dtParametro;
 		$dataSevri = new dtSevri;
-		if($this->verificarCategorias() == true){
-			if($this->verificarDepartamentos() == true){
-				$listaParametros = $dataParametro->getParametrosSevriNuevo(1);
-				if(is_null($listaParametros) == false){
-					$listaImpacto = $this->dividirParametros($listaParametros, 1);
-					$listaProbabilidad = $this->dividirParametros($listaParametros, 2);
-					$listaCalificacion = $this->dividirParametros($listaParametros, 3);
-				}else{
-					$resultado = 2;
-				}
+		if($this->verificarNivelRiesgo() == true){
+			if($this->verificarCategorias() == true){
+				if($this->verificarDepartamentos() == true){ 
+					$listaParametros = $dataParametro->getParametrosSevriNuevo(1);
+					if(is_null($listaParametros) == false){
+						$listaImpacto = $this->dividirParametros($listaParametros, 1);
+						$listaProbabilidad = $this->dividirParametros($listaParametros, 2);
+						$listaCalificacion = $this->dividirParametros($listaParametros, 3);
+					}else{
+						$resultado = 2;
+					}
 
-				if($resultado == 1){
-					$resultado = $this->verificarListaParametros($listaImpacto);
 					if($resultado == 1){
-						$resultado = $this->verificarListaParametros($listaProbabilidad);
+						$resultado = $this->verificarListaParametros($listaImpacto);
 						if($resultado == 1){
-							$resultado = $this->verificarListaParametros($listaCalificacion);
-							if($resultado == 2){
-								$mensaje = 'El SEVRI no se puede activar porque:  No se agregaron parametros para la medida de calificacion';
-							}else if($resultado == 3){
-								$mensaje = ' El SEVRI no se puede activar porque:  Se agregaron valores repetidos, o faltan valores para la medida de calificacion';
-							}else{
-								if($dataSevri->activarSevri($idSevri)){
-									$mensaje = 'El SEVRI se ha activado correctamente';
+							$resultado = $this->verificarListaParametros($listaProbabilidad);
+							if($resultado == 1){
+								$resultado = $this->verificarListaParametros($listaCalificacion);
+								if($resultado == 2){
+									$mensaje = 'El SEVRI no se puede activar porque:  No se agregaron parametros para la medida de calificacion';
+								}else if($resultado == 3){
+									$mensaje = ' El SEVRI no se puede activar porque:  Se agregaron valores repetidos, o faltan valores para la medida de calificacion';
 								}else{
-									$mensaje = 'No se ha podido activar el SEVRI';
+									if($dataSevri->activarSevri($idSevri)){
+										$mensaje = 'El SEVRI se ha activado correctamente';
+									}else{
+										$mensaje = 'No se ha podido activar el SEVRI';
+									}
 								}
+							}else if($resultado == 2){
+								$mensaje = 'El SEVRI no se puede activar porque:  No se agregaron parametros para los valores de probabilidad';
+							}else if($resultado == 3){
+								$mensaje = 'El SEVRI no se puede activar porque:  Se agregaron valores repetidos, o falta valores para los datos de probabilidad';
 							}
 						}else if($resultado == 2){
-							$mensaje = 'El SEVRI no se puede activar porque:  No se agregaron parametros para los valores de probabilidad';
+							$mensaje = 'El SEVRI no se puede activar porque:  No se agregaron parametros para los valores de impacto';
 						}else if($resultado == 3){
-							$mensaje = 'El SEVRI no se puede activar porque:  Se agregaron valores repetidos, o falta valores para los datos de probabilidad';
+							$mensaje = 'El SEVRI no se puede activar porque:  Se agregaron valores repetidos, o faltan valores para los datos de impacto';
 						}
-					}else if($resultado == 2){
-						$mensaje = 'El SEVRI no se puede activar porque:  No se agregaron parametros para los valores de impacto';
-					}else if($resultado == 3){
-						$mensaje = 'El SEVRI no se puede activar porque:  Se agregaron valores repetidos, o faltan valores para los datos de impacto';
+					}else{
+						$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado ningún parametro';
 					}
 				}else{
-					$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado ningún parametro';
+					$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado ningún Departamento';
 				}
-			}else{
-				$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado ninguna Categoría';
 			}
 		}else{
-			$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado ningún Departamento';
-		}
+				$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado los niveles de Riesgo';
+			}
+		
 		return $mensaje;
 	}
 

@@ -76,6 +76,7 @@
 		public function setNombreDiviciones($nombreDiviciones){
 			$this->nombreDiviciones = $nombreDiviciones;
 		}
+
 		public function getEsEditable(){
 			return $this->esEditable;
 		}
@@ -83,6 +84,7 @@
 		public function setEsEditable($esEditable){
 			$this->esEditable = $esEditable;
 		}
+
 	}
 
  ?>

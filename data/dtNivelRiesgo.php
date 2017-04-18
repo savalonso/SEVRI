@@ -213,15 +213,28 @@
 		}
 
 		function getSevriNivel(){
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerSevriNivelRiesgo()";
+			$result = mysqli_query($conexion, $query);
+
+			if (!$result){
+				return false;
+			} else {
+				return true;
+			}
+
+		}
+
+		function verificarNivelRiesgoAgregado(){
 		  $con = new dtConnection();
 		  $conexion = $con->conect();
-		  $query = "CALL obtenerSevriNivelRiesgo()";
+		  $query = "CALL obtenerNivelRiesgoSevriNuevo()";
 		  $result = mysqli_query($conexion, $query);
 		  $lista = array();
 		  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 				
-				$valores = array("idSevri"=>$row["IdSevri"],
-					             "idDivicion"=>$row["IdDivicionNivel"]);	
+				$valores = array("idSevri"=>$row["Id"]);	
 				
 				array_push($lista, $valores);
 			}
