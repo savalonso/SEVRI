@@ -44,6 +44,6 @@
 	</div>
 	 
 	<div>
-		<input type="button" id="btnGuardar" value="Crear Niveles" class="btn btn-default" onclick="agregarNivelesRiesgo()"><br>
+		<input type="button" id="btnGuardar" value="Crear Niveles" class="btn btn-default" onclick="validarFormularioInsertar()"><br>
 	</div>
 	 

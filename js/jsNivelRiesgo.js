@@ -197,6 +197,7 @@ function crearInput(idInput){
 	var input = document.createElement('input');
 	input.type = 'text';
 	input.id = idInput;
+	input.className= "datoInput";
 	return input;
 }
 
@@ -211,12 +212,12 @@ function crearSelect(idSelect, idDiv){
 	var select = document.createElement('select');
 	select.name = 'color';
 	select.id = idSelect;
+	
 
 	var opcion = document.createElement('option');
 	opcion.value = '0';
 	opcion.text = 'Seleccione un color';
-	opcion.disabled = true;
-	opcion.selected = true;
+	
 
 	select.appendChild(opcion);
 	select.appendChild(crearOpcionSelect('Verde Oscuro','#009900'));
@@ -240,8 +241,39 @@ function cargarGuiAgregarNivelRiesgo(idDivicion){
 		$('#mostrarDatos').load("../interfaz/INivelRiesgo/IAgregarNivelRiesgo.php?idDivicion="+idDivicion);
 	}
 }
-
-
+// metodo jqwery que valida si hay campos vacios en el insertar.
+ function validarFormularioInsertar(){
+ 	var vacio = false;
+	       $("#tablaInsertarDivisiones").find(".datoInput").each(function () {
+	                valor = $(this).val();    
+	                if (valor == '') {  
+	                   vacio = true;                  
+	                   return false;
+	                }         
+	        });
+	       if(vacio){
+	       		 Materialize.toast("Hay espacios en blanco que deben ser llenados", 7000,'blue darken-3');
+	       }else{
+	       		agregarNivelesRiesgo();
+	       }
+ }
+ // metodo jqwery que valida si hay campos vacios en el modificar.
+ function validarFormularioModificar(){
+ 
+ 	var vacio = false;
+	       $("#tablaModificarDivisiones").find(".datoInput").each(function () {
+	                valor = $(this).val();  
+	                if (valor == '') {  
+	                   vacio = true;                  
+	                   return false;
+	                }         
+	        });
+	       if(vacio){
+	       		 Materialize.toast("Hay espacios en blanco que deben ser llenados", 7000,'blue darken-3');
+	       }else{
+	       		modificarNivelesRiesgo();
+	       }
+ }      
 function AgregarNivelRiesgo(valor){
 	var formData = new FormData(); 
     formData.append("opcion", 2);
