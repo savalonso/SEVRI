@@ -120,7 +120,7 @@
 						</div>
 					</div>
 					
-	 				<input type="submit" value="Ingresar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+	 				<button type="submit" class="btn waves-effect waves-light" >Ingresar</button>
 				</form>	
 			</div>			    
 		</div>	
