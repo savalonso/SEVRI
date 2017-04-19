@@ -90,7 +90,35 @@
 				return $lista;
 			}
 		}
+		function obtenerAnalisisPorRiesgo($idRiesgo){
+			include_once("../../dominio/dAnalisis.php");
+			$con = new dtConnection;
+			$conexion = $con->conect();
 
+			$query = "CALL obtenerAnalisisPorRiesgo($idRiesgo)";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+				$analisis = new dAnalisis();
+
+				$analisis->setId($row['Id']);
+				$analisis->setIdRiesgo($row['Nombre']);
+	    		$analisis->setProbabilidad($row['Probabilidad']);
+		      	$analisis->setImpacto($row['Impacto']);
+		      	$analisis->setNivelRiesgo($row['NivelRiesgo']);
+		      	$analisis->setMedidaControl($row['MedidaControl']);
+		      	$analisis->setCalificacionMedida($row['CalificacionMedida']);
+				array_push($lista, $analisis);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
 		function getTodosAnalisis(){
 			include_once("../../dominio/dAnalisis.php");
 			$con = new dtConnection;

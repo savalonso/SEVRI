@@ -58,7 +58,7 @@
 				<ul id="SubSevri" class="dropdown-content" >
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IcrearSevri.php')">Crear SEVRI</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IMostrarSevri.php')">Mostrar Versiones</a></li>
-				 
+				  <li><a href="javascript:cargarPagina('../interfaz/IHistorial/IMostarRiesgos.php')">Historial</a></li>
 				</ul>
 				<ul id="subComplementos" class="dropdown-content" >
 					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarParametros.php')">Agregar Par&aacutemetros</a></li>
@@ -105,7 +105,7 @@
 				<ul id="SubSevri2" class="dropdown-content" >
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IcrearSevri.php')">Crear SEVRI</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IMostrarSevri.php')">Mostrar Versiones</a></li>
-				 
+				  <li><a href="javascript:cargarPagina('../interfaz/IHistorial/IMostarRiesgos.php')">Historial</a></li>
 				</ul>
 				<ul id="subComplementos2" class="dropdown-content" >
 					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarParametros.php')">Agregar Par&aacutemetros</a></li>

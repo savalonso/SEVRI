@@ -6,6 +6,7 @@
  		private $mnombreDepartamento;
  		private $mfechaCreacion;
  		private $midDepartamento;
+ 		private $midSevri;
 
  		function dDepartamento(){}
 
@@ -32,6 +33,12 @@
   	 	}
 	  	public function setIdDepartamento($pid){
 	  		$this->midDepartamento = $pid;
+	  	}
+	  	public function getIdSevri(){
+  			return $this->midSevri;
+  	 	}
+	  	public function setIdSevri($pid){
+	  		$this->midSevri = $pid;
 	  	}
  	}
 

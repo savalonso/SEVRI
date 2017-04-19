@@ -26,10 +26,34 @@
 				return $departamento;
 			}
 		}
+		function obtenerListaDepartamentosUsuario($cedula){
+
+			include_once("../../logica/logicaDepartamentos.php");
+			$lDepartamento = new logicaDepartamentos();
+			$lista=$lDepartamento->getDepartamentosUsuario($cedula);
+
+			if(!$lista){
+				return false;
+			}else{
+				return $lista;
+			}
+		}
 		function mostrarDepartamentos(){
 			include_once('../../logica/LogicaDepartamento.php');
 			$lDepartamento = new LogicaDepartamento();
 			$lista = $lDepartamento->obtenerDepartamentosFiltrados();
+
+			if(!$lista){
+				return false;
+			}else{
+				return $lista;
+			}
+		}
+		function obtenerDepartamentosVersionesAntiguas(){
+
+			include_once("../../logica/logicaDepartamentos.php");
+			$lDepartamento = new logicaDepartamentos();
+			$lista=$lDepartamento->getDepartamentosVersionesAntiguas();
 
 			if(!$lista){
 				return false;

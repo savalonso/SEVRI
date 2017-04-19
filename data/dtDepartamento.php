@@ -32,7 +32,33 @@
 				return $lista;
 			}
 		}
+		function getDepartamentosUsuario($idUsuario){
+			include_once ('dtConnection.php');
+			include("../../dominio/dDepartamento.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerDepartamentosUsuario($idUsuario)";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+				$departamento = new dDepartamento;
+					
+				$departamento->setCodigoDepartamento($row['Codigo']);
+				$departamento->setNombreDepartamento($row['Nombre']);	
+				$departamento->setFechaCreacion($row['FechaCreacion']);	
+				$departamento->setIdDepartamento($row['Id']);						
+				
 
+				array_push($lista, $departamento);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
 		function getDepartamentosAgregados(){
 			include_once ('dtConnection.php');
 			include_once("../../dominio/dDepartamento.php");
@@ -107,7 +133,34 @@
 				return $lista2;
 			}
 		}
+		function getDepartamentosVersionesAntiguas(){
+			include_once ('dtConnection.php');
+			include("../../dominio/dDepartamento.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerDepartamentosVersionesAntiguas()";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+				$departamento = new dDepartamento;
+					
+				$departamento->setCodigoDepartamento($row['Codigo']);
+				$departamento->setNombreDepartamento($row['Nombre']);	
+				$departamento->setFechaCreacion($row['FechaCreacion']);	
+				$departamento->setIdDepartamento($row['Id']);
+				$departamento->setIdSevri($row['IdSEVRI']);					
+				
 
+				array_push($lista, $departamento);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
 		function insertarSevriDepartamento($departamento){
 			$con = new dtConnection;
 			$prueba = $con->conect();
