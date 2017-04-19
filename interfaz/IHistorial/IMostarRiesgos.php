@@ -22,7 +22,7 @@
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<div>
 				<label class="white-text" for="sevri">Seleccione una versi&oacuten de SEVRI:</label>
-				<select id="sevri" name="sevri" onchange="actualizarTablaAgregar1()"> 
+				<select id="sevri" name="sevri" onchange="actualizarTablaAgregar()"> 
 					<option selected="true" value="0">Seleccione una versi&oacuten de SEVRI...</option>
 					<?php 
 						if($listaS!=null){
@@ -37,7 +37,7 @@
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<div>
 				<label class="white-text" for="departamento">Seleccione un departamento:</label>
-				<select id="departamento" name="departamento" onchange="actualizarTablaAgregar1()"> 
+				<select id="departamento" name="departamento" onchange="actualizarTablaAgregar()"> 
 					<option selected="true" value="0">Seleccione un departamento...</option>
 					<?php
 						if($listaD!=null){
@@ -97,7 +97,7 @@
 	  		$('select').material_select();
 	  		$('.tooltipped').tooltip({delay: 50});
 	   	});
-	   	function actualizarTablaAgregar1(){
+	   	function actualizarTablaAgregar(){
 	   		var idSevri = document.getElementById("sevri").value;
 	   		var idDepa = document.getElementById("departamento").value;
 
