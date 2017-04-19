@@ -28,16 +28,29 @@ $listaMensajes = $control->obtenerMensajesUsuario();
 				<tbody>
 					<?php
                     foreach ($listaMensajes as $mensaje){
-                        echo "<tr>
-						        <td>
-							        ".$mensaje->getNombreRemitente()."
-						        </td>
-						        <td>
-							        ".$mensaje->getMensaje()."
-						        </td>
-						        <td> <input class=\"btn btn-default\" type=\"button\" value=\"Realizar Proceso\" onclick=\"dirigir_url_mensaje('".$mensaje->getDireccionPagina()."', '".$mensaje->getIdMensaje()."')\"/>
-						        </td>
-					        </tr>";
+                    	if($mensaje->getEsNuevo() == 1){
+                    		echo "<tr style=\"background-color:#F39C12;\">
+							        <td>
+								        ".$mensaje->getNombreRemitente()."
+							        </td>
+							        <td>
+								        ".$mensaje->getMensaje()."
+							        </td>
+							        <td> <input class=\"btn btn-default\" type=\"button\" value=\"Realizar Proceso\" onclick=\"dirigir_url_mensaje('".$mensaje->getDireccionPagina()."', '".$mensaje->getIdMensaje()."')\"/>
+							        </td>
+						        </tr>";
+                    	}else{
+                    		echo "<tr>
+							        <td>
+								        ".$mensaje->getNombreRemitente()."
+							        </td>
+							        <td>
+								        ".$mensaje->getMensaje()."
+							        </td>
+							        <td> <input class=\"btn btn-default\" type=\"button\" value=\"Realizar Proceso\" onclick=\"dirigir_url_mensaje('".$mensaje->getDireccionPagina()."', '".$mensaje->getIdMensaje()."')\"/>
+							        </td>
+						        </tr>";
+                    	}
                     }
                     ?>
 				</tbody>

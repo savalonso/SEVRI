@@ -4,6 +4,28 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
  /* metodos creados*/
+ #ingresoSistema{
+
+  height: 200%;
+  margin: 0 auto;
+  width:80%;
+  text-align:center;
+}
+
+#ingresoSistema img{
+
+  height: 200%;
+  width: 20%;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.colorSlider1{
+  background-color:#1565C0;
+}
+.colorSlider2{
+  background-color:#ea770c;
+}
 
 .posicion1{
    float: left;
@@ -2387,24 +2409,9 @@ html {
 /**
  * Remove default margin.
  */
-body {
- background:url('../../img/1.jpg') repeat 0 0;
- background-size: cover;  
- background-position: center center;
- background-repeat: no-repeat;
- background-attachment: fixed; 
- display: flex;
- min-height: 100vh;
- flex-direction: column;
- color:white;
 
- /*
- background:url('../../img/fondoSevri.jpg') repeat 0 0;
- background-size: cover;  
- background-position: center center;
- background-repeat: no-repeat;
- background-attachment: fixed; 
- */
+body {
+background-color:#f2f2f2;
 }
 .contenedor1{
   width: 95%;
@@ -3069,7 +3076,11 @@ ul.staggered-list li {
     display: none !important;
   }
 }
-
+@media only screen and (max-width: 1350px) {
+  .responsive-nav {
+    display: none !important;
+  }
+}
 @media only screen and (min-width: 601px) {
   .hide-on-med-and-up {
     display: none !important;
@@ -4276,7 +4287,7 @@ nav .nav-wrapper {
   height: 100%;
 }
 
-@media only screen and (min-width: 993px) {
+@media only screen and (min-width: 1350px) {
   nav a.button-collapse {
     display: none;
   }
@@ -5288,7 +5299,8 @@ button.btn-floating {
 
 .dropdown-content {
   background-color: #fff;
-  margin: 0;
+  margin: 4.7%;
+  margin-left: 0%;
   display: none;
   min-width: 200px;
   max-height: 650px;
@@ -7006,7 +7018,7 @@ input[type=range]:focus::-ms-fill-upper {
   height: calc(100% + 60px);
   height: -moz-calc(100%);
   padding-bottom: 60px;
-  background-color: #fff;
+  background-color: #0d47a1; /*este es el color del side-nav*/
   z-index: 999;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -7029,12 +7041,13 @@ input[type=range]:focus::-ms-fill-upper {
 
 .side-nav .collapsible {
   margin: 0;
+
 }
 
 .side-nav li {
   float: none;
   line-height: 48px;
-  background-color: blue;
+  
 }
 
 .side-nav li.active {
@@ -7042,7 +7055,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav a {
-  color: rgba(0, 0, 0, 0.87);
+  color: #fff;
   display: block;
   font-size: 14px;
   font-weight: 500;

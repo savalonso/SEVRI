@@ -32,7 +32,6 @@
 							<th>Descriptor</th>
 							<th>Descripción</th>
 							<th>Color</th>
-							<th>Muestra Color</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -44,6 +43,6 @@
 	</div>
 	 
 	<div>
-		<input type="button" id="btnGuardar" value="Crear Niveles" class="btn btn-default" onclick="agregarNivelesRiesgo()"><br>
+		<input type="button" id="btnGuardar" value="Crear Niveles" class="btn btn-default" onclick="validarFormularioInsertar()"><br>
 	</div>
 	 

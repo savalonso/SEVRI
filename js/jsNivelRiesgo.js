@@ -87,7 +87,7 @@ function crearLiNivRiesgoInsertar(){
 		idElementos = "input2"+i;
 		descripcion = document.getElementById(idElementos).value;
 
-		idElementos = "selectColor"+i;
+		idElementos = "input3"+i;
 		color = document.getElementById(idElementos).value;
 
 		var nivelRiesgo = new Object();
@@ -116,7 +116,7 @@ function crearLiNivRiesgoModificar(){
 		idElementos = "input02"+i;
 		descripcion = document.getElementById(idElementos).value;
 
-		idElementos = "selectColorMod"+i;
+		idElementos = "input03"+i;
 		color = document.getElementById(idElementos).value;
 
 		idElementos = "inputId"+i;
@@ -173,13 +173,9 @@ function crearTr(porcentajeInicial, porcentajeFinal, idSelect, idDiv, idInput){
 	input2.appendChild(crearInput("input2"+idInput));
 	nuevaFila.appendChild(input2);
 
-	var select = crearTd(false);
-	select.appendChild(crearSelect(idSelect));
-	nuevaFila.appendChild(select);
-
-	var div = crearTd(false);
-	div.appendChild(crearDiv(idDiv));
-	nuevaFila.appendChild(div);
+	var input3 = crearTd(false);
+	input3.appendChild(crearInputColor("input3"+idInput));
+	nuevaFila.appendChild(input3);
 
 	document.querySelector('#tablaInsertarDivisiones tbody').appendChild(nuevaFila);
 }
@@ -197,42 +193,16 @@ function crearInput(idInput){
 	var input = document.createElement('input');
 	input.type = 'text';
 	input.id = idInput;
+	input.className= "datoInput";
 	return input;
 }
 
-function crearDiv(idDiv){
-	var div = document.createElement('div');
-	div.id = idDiv;
-	div.className = 'paletaColores';
-	return div;
-}
-
-function crearSelect(idSelect, idDiv){
-	var select = document.createElement('select');
-	select.name = 'color';
-	select.id = idSelect;
-
-	var opcion = document.createElement('option');
-	opcion.value = '0';
-	opcion.text = 'Seleccione un color';
-	opcion.disabled = true;
-	opcion.selected = true;
-
-	select.appendChild(opcion);
-	select.appendChild(crearOpcionSelect('Verde Oscuro','#009900'));
-	select.appendChild(crearOpcionSelect('Verde Claro','#00cc00'));
-	select.appendChild(crearOpcionSelect('Anaranjado','#ff6600'));
-	select.appendChild(crearOpcionSelect('Amarillo','#ffcc00'));
-	select.appendChild(crearOpcionSelect('Rojo','#e60000'));
-
-	return select;
-}
-
-function crearOpcionSelect(nombre, valor){
-	var opcion = document.createElement('option');
-	opcion.value = valor;
-	opcion.text = nombre;
-	return opcion;
+function crearInputColor(idInput){
+	var input = document.createElement('input');
+	input.type = 'color';
+	input.id = idInput;
+	input.className= "datoInput";
+	return input;
 }
 
 function cargarGuiAgregarNivelRiesgo(idDivicion){
@@ -240,8 +210,39 @@ function cargarGuiAgregarNivelRiesgo(idDivicion){
 		$('#mostrarDatos').load("../interfaz/INivelRiesgo/IAgregarNivelRiesgo.php?idDivicion="+idDivicion);
 	}
 }
-
-
+// metodo jqwery que valida si hay campos vacios en el insertar.
+ function validarFormularioInsertar(){
+ 	var vacio = false;
+	       $("#tablaInsertarDivisiones").find(".datoInput").each(function () {
+	                valor = $(this).val();    
+	                if (valor == '') {  
+	                   vacio = true;                  
+	                   return false;
+	                }         
+	        });
+	       if(vacio){
+	       		 Materialize.toast("Hay espacios en blanco que deben ser llenados", 7000,'blue darken-3');
+	       }else{
+	       		agregarNivelesRiesgo();
+	       }
+ }
+ // metodo jqwery que valida si hay campos vacios en el modificar.
+ function validarFormularioModificar(){
+ 
+ 	var vacio = false;
+	       $("#tablaModificarDivisiones").find(".datoInput").each(function () {
+	                valor = $(this).val();  
+	                if (valor == '') {  
+	                   vacio = true;                  
+	                   return false;
+	                }         
+	        });
+	       if(vacio){
+	       		 Materialize.toast("Hay espacios en blanco que deben ser llenados", 7000,'blue darken-3');
+	       }else{
+	       		modificarNivelesRiesgo();
+	       }
+ }      
 function AgregarNivelRiesgo(valor){
 	var formData = new FormData(); 
     formData.append("opcion", 2);
