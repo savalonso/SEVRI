@@ -3,6 +3,7 @@
   class dRiesgo {
 
     private $id;
+    private $midSevri;
   	private $midDepartamento;
   	private $midCategoria;
     private $mnombre;
@@ -20,6 +21,12 @@
     }
     public function setId($id){
       $this->id = $id;
+    }
+    public function getIdSevri(){
+      return $this->midSevri;
+    }
+    public function setIdSevri($midSevri){
+      $this->midSevri = $midSevri;
     }
   	public function getIdDepartamento(){
   		return $this->midDepartamento;
