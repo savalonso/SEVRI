@@ -78,6 +78,7 @@
 							        	<td>".$riesgo->getDescripcion()."</td>
 						        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver detalles\" onclick=\"		cargarPagina('../interfaz/IHistorial/IVerDetalles.php?idRiesgo=".$riesgo->getId()."')\"/></td>
 						    		</tr>";
+						    		$contador++;
 								}
 							}
 						?>
@@ -100,8 +101,6 @@
 	   	function actualizarTablaAgregar(){
 	   		var idSevri = document.getElementById("sevri").value;
 	   		var idDepa = document.getElementById("departamento").value;
-
-	   		var tbody = document.getElementById("tbody");//obtengo el objeto tabla del html
 	   		var tabla = document.getElementById("tabla");
 
 	   		if(idSevri == 0 && idDepa != 0){//combo depa seleccionado
