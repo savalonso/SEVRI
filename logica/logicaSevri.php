@@ -145,6 +145,48 @@ class LogicaSevri{
 		return $mensaje;
 	}
 
+	public function desvincularParametro($idParametro){
+		include_once("../data/dtSevri.php");
+		$dataSevri = new dtSevri;
+		$resultado = $dataSevri->getSevriNuevo();
+		if($resultado == 0){
+			include_once("../data/dtParametro.php");
+			$dataParametro = new dtparametro;
+			$resultado1 = $dataParametro->eliminarSevriParametro($idParametro);
+			return $resultado1;
+		}else{
+			return 0;
+		}
+	}
+
+	public function desvincularCategoria($idCategoria){
+		include_once("../data/dtSevri.php");
+		$dataSevri = new dtSevri;
+		$resultado = $dataSevri->getSevriNuevo();
+		if($resultado == 0){
+			include_once('../data/dtCategoria.php');
+			$dataCategoria = new dtCategoria;
+			$resultado1 = $dataParametro->eliminarSevriCategoria($idCategoria);
+			return $resultado1;
+		}else{
+			return 0;
+		}
+	}
+
+	public function desvincularDepartamento($idDepartamento){
+		include_once("../data/dtSevri.php");
+		$dataSevri = new dtSevri;
+		$resultado = $dataSevri->getSevriNuevo();
+		if($resultado == 0){
+			include_once('../data/dtDepartamento.php');
+			$dataDepartamento = new dtDepartamento;
+			$resultado1 = $dataParametro->eliminarSevriDepartamento($idDepartamento);
+			return $resultado1;
+		}else{
+			return 0;
+		}
+	}
+
 	public function insertarSevri($sevri){
 		include_once("../data/dtSevri.php");
 		$correcto = true;

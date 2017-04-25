@@ -79,12 +79,12 @@
 		}
 
 		function eliminarParametroSevri(){
-	      	include("../data/dtParametro.php");
+	      	include_once("../logica/logicaSevri.php");
+			$logica = new LogicaSevri;
 
 	      	$idParametro = $_POST['id'];
-	      	$dataParam = new dtParametro;
             $Respuesta = array();   
-	      	if($dataParam->eliminarSevriParametro($idParametro) == true){
+	      	if($logica->desvincularParametro($idParametro) == true){
 	      		$Respuesta[] = array('inserto' => 1,
                    					 'mensaje' => "Se ha desvinculado correctamente el parametro");	
 	      		echo '' . json_encode($Respuesta) . '';
@@ -113,12 +113,12 @@
 		}
 
 		function eliminarCategoriaSevri(){
-	      	include("../data/dtCategoria.php");
+	      	include_once("../logica/logicaSevri.php");
+			$logica = new LogicaSevri;
 
 	      	$idCategoria = $_POST['id'];
-	      	$dataCat = new dtCategoria;
             $Respuesta = array();   
-	      	if($dataCat->eliminarSevriCategoria($idCategoria) == true){
+	      	if($logica->desvincularCategoria($idCategoria) == true){
 	      	$Respuesta[] = array('inserto' => 1,
                    				 'mensaje' => "Se ha desvinculado correctamente la categoria");	
 				echo '' . json_encode($Respuesta) . '';
@@ -146,13 +146,13 @@
 	      	}
 		}
 
-		function EliminarDepartamento(){
-	      	include("../data/dtDepartamento.php");
+		function EliminarDepartamentoSevri(){
+	      	include_once("../logica/logicaSevri.php");
+			$logica = new LogicaSevri;
 
 	      	$idDepartamento = $_POST['id'];
-	      	$dataDep = new dtDepartamento();
             $Respuesta = array();   
-	      	if($dataDep->eliminarSevriDepartamento($idDepartamento) == true){
+	      	if($logica->desvincularDepartamento($idDepartamento) == true){
 	      	$Respuesta[] = array('inserto' => 1,
                    				 'mensaje' => "Se ha desvinculado correctamente el departamento");	
 				echo '' . json_encode($Respuesta) . '';
@@ -219,7 +219,7 @@
 		$control->InsertarDepartamento();
 	}
 	else if($op == 12){
-		$control->eliminarDepartamento();
+		$control->EliminarDepartamentoSevri();
 	}
 	else if($op == 13){
 		$control->ActivarSevri();

@@ -84,6 +84,7 @@
 				return $lista;
 			}
 		}
+
 		function getSevri($IdSevri){
 			include("../../dominio/dSevri.php");
 			$con = new dtConnection();
@@ -105,6 +106,24 @@
 				return false;
 			} else {
 				return $sevri;
+			}
+		}
+
+		function getSevriNuevo(){
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerIdSevriNuevo()";
+			$result = mysqli_query($conexion, $query);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$id = $row['Id'];
+
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+
+			if (empty($id)){
+				return 1;
+			} else {
+				return 0;
 			}
 		}
 

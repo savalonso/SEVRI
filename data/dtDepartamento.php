@@ -163,10 +163,10 @@
 		}
 		function insertarSevriDepartamento($departamento){
 			$con = new dtConnection;
-			$prueba = $con->conect();
-			$result = $prueba->query("CALL insertarSevriDepartamentos('$departamento')");
+			$conexion = $con->conect();
+			$result = $conexion->query("CALL insertarSevriDepartamentos('$departamento')");
 
-			//mysqli_close($prueba);
+			mysqli_close($conexion);
 
 			if (!$result){
 				return false;
@@ -178,10 +178,10 @@
 
 		function eliminarSevriDepartamento($departamento){
 			$con = new dtConnection;
-			$prueba = $con->conect();
-			$result = $prueba->query("CALL eliminarDepartamentoAgregado('$departamento')");
+			$conexion = $con->conect();
+			$result = $conexion->query("CALL eliminarDepartamentoAgregado('$departamento')");
 
-			//mysqli_close($prueba);
+			mysqli_close($conexion);
 
 			if (!$result){
 				return false;
