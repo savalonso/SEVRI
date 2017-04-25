@@ -112,3 +112,16 @@ function eliminarUsuarioDepartamento(idDepartamento, cedulaUsuario){
         Materialize.toast(data, 7000,'blue darken-3');
     }); 
 }
+/*aqui se encuentra el paginador de las tablas*/
+ $(document).ready(function(){
+        $("#tbDepartamentos").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+ $(document).ready(function(){
+        $("#tbDepartamentosAgregadas").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+
+/*aqui finalisa*/
