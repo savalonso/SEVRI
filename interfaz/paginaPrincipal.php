@@ -24,7 +24,6 @@
 <body>
 		<?php 
 			include('../HeaderFooter/header.php');
-
 		?>
 
 		<main>

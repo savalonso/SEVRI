@@ -24,6 +24,7 @@ function insertarSevri(){
 }
 
 function activarSevri(idSevri){
+  document.getElementById('barraCargando').style.display="";
   var formData = new FormData();
   formData.append("idSevri", idSevri); 
   formData.append("opcion", 13);
@@ -38,6 +39,7 @@ function activarSevri(idSevri){
   }).done(function(data) {
       cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
       Materialize.toast(data, 7000,'blue darken-3');
+      ocultarBarra();
   });    
 }
 
