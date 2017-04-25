@@ -54,16 +54,7 @@
 float: right;
 margin-right: -30%; 
 }
-#div1 {
-     overflow:scroll;
-     height:320px;
-     width:102%;
 
-}
-#div1 table {
-    width:100%;
-    background-color:transparent;
-}
 ::-webkit-scrollbar {
       width: 15px;
 }
@@ -3188,14 +3179,14 @@ thead {
 }
 
 td, th {
-  padding: 15px 5px;
+  padding: 15px 4px;
   display: table-cell;
   text-align: left;
   vertical-align: middle;
   border-radius: 2px;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
   table.responsive-table {
     width: 100%;
     border-collapse: collapse;
@@ -3218,13 +3209,11 @@ td, th {
   table.responsive-table thead {
     display: block;
     float: left;
+    margin-top: 11%;
   }
   table.responsive-table thead tr {
     display: block;
     padding: 0 10px 0 0;
-  }
-  table.responsive-table thead tr th::before {
-    content: "\00a0";
   }
   table.responsive-table tbody {
     display: block;
@@ -3237,6 +3226,7 @@ td, th {
     display: inline-block;
     vertical-align: top;
   }
+ 
   table.responsive-table th {
     display: block;
     text-align: right;

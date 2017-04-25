@@ -10,7 +10,7 @@
 
 	<div class="row">
 		<h2>Lista de riesgos</h2>
-		<a href="#" onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php')" data-tooltip="Agregar riesgos de versiones antiguas." class="btn-floating tooltipped btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
+		<a href="#" onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgos.php')" data-tooltip="Agregar riesgos de versiones antiguas." class="btn-floating tooltipped btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
 		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
 		<?php  
 			if($lista!=null){

@@ -407,3 +407,10 @@ function recorrerTabla(posicion, tabla){
     }
     return parametros;
 }
+/*aqui se encuentra el paginador de las tablas*/
+ $(document).ready(function(){
+        $("#MostrarSevri").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+/*aqui finalisa*/

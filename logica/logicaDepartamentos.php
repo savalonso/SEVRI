@@ -25,6 +25,26 @@ class logicaDepartamentos{
 			return $lista;
 		}
 	}
+	public function getDepartamentosUsuario($cedula){
+		include_once('../../data/dtDepartamento.php');
+		$data = new dtDepartamento;
+		$lista = $data->getDepartamentosUsuario($cedula);		
+		if(!$lista){
+		return false;
+		}else{
+			return $lista;
+		}
+	}
+	public function getDepartamentosVersionesAntiguas(){
+		include_once('../../data/dtDepartamento.php');
+		$data = new dtDepartamento;
+		$lista = $data->getDepartamentosVersionesAntiguas();		
+		if(!$lista){
+		return false;
+		}else{
+			return $lista;
+		}
+	}
 
 	public function obtenerDepartamentosSevriNuevo(){
 		include_once('../../data/dtDepartamento.php');

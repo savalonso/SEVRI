@@ -28,7 +28,7 @@
 			if($lista!=null){
 		?>
 			<div id="div1">
-				<table class="responsive-table centered bordered">
+				<table class="responsive-table centered bordered" id="categoria">
 					<thead>
 						<tr>
 							<th>Nombre</th>
@@ -146,7 +146,7 @@
 	   		}
 	   }
 	</script>
-
+	<script type="text/javascript" src="../js/jsCategoria.js"></script>	
 	<?php }else{
 
 		header("location:../../loginUsuarios.php");
