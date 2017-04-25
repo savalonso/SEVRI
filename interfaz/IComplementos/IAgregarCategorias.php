@@ -85,3 +85,4 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="../js/jsCategoria.js"></script>
