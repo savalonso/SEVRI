@@ -57,26 +57,6 @@ function confirmarEliminarDepartamento(idDepartamento){
     document.getElementById('idDepartamento').value = idDepartamento;
 }
 
-function ocultarDivModificar(){
-    document.getElementById('divModificarDepartamentos').style.display='none';
-}
-
-function invocarDivModificarDepartamento(button,idDepartamento){
-    var row=button.parentNode.parentNode;
-    var cells= row.querySelectorAll('td:not(:last-of-type)');
-    document.getElementById('codigoDepartamento').value=cells[0].innerText;
-    document.getElementById('codigoDepartamento').placeholder = "dato: " + cells[0].innerText; 
-    document.getElementById('nombreDepartamento').value=cells[1].innerText;
-    document.getElementById('nombreDepartamento').placeholder = "dato: " + cells[1].innerText;
-    document.getElementById('fechaDepartamento').value=cells[2].innerText;
-    document.getElementById('fechaDepartamento').placeholder = "dato: " + cells[2].innerText;
-    document.getElementById('idDepartamento').value = idDepartamento;
-    document.getElementById('divModificarDepartamentos').style.display = '';
-    $( document ).ready(function(){
-    $('select').material_select();
-    });
-}
-
 function agregarUsuarioDepartamento(idDepartamento, cedulaUsuario){
     var formData= new FormData();
     formData.append("opcion",4);
@@ -112,16 +92,3 @@ function eliminarUsuarioDepartamento(idDepartamento, cedulaUsuario){
         Materialize.toast(data, 7000,'blue darken-3');
     }); 
 }
-/*aqui se encuentra el paginador de las tablas*/
- $(document).ready(function(){
-        $("#tbDepartamentos").paginationTdA({
-            elemPerPage: 4
-        });
-    });
- $(document).ready(function(){
-        $("#tbDepartamentosAgregadas").paginationTdA({
-            elemPerPage: 4
-        });
-    });
-
-/*aqui finalisa*/

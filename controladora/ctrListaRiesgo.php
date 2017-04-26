@@ -1,20 +1,9 @@
 <?php 
 		include_once ('../../data/dtRiesgo.php');
+		
 	class ctrListaRiesgo{
 
 		function ctrListaRiesgo(){}
-
-		function obtenerListaRiesgo(){
-
-			$dataRiesgo = new dtRiesgo();
-			$lista = $dataRiesgo->getListaRiesgo();
-
-			if(!$lista){
-				return false;
-			}else{
-				return $lista;
-			}
-		}
 
 		function obtenerRiesgo($idRiesgo){
 			$dataRiesgo = new dtRiesgo();
@@ -26,10 +15,10 @@
 			}
 		}
 
-		function obtenerRiesgosAnalisados(){
+		function obtenerRiesgosAnalisados($idDepartamento){
 			include_once('../../logica/logicaRiesgo.php');
  			$logica = new logicaRiesgo;
- 			$lista = $logica->obtenerRiesgosAnalisados();		
+ 			$lista = $logica->obtenerRiesgosAnalisados($idDepartamento);		
 			return $lista;
 		}
 		function obtenerRiesgosAntiguos(){
@@ -43,6 +32,16 @@
 				return $lista;
 			}
 		}
+
+		function obtenerRiesgosDepartamento($idDepartamento){
+
+			include_once('../../logica/logicaRiesgo.php');
+			$logica=new logicaRiesgo;
+			$lista=$logica->obtenerRiesgosDepartamento($idDepartamento);
+			return $lista;
+
+		}
+		
 
 	}
 

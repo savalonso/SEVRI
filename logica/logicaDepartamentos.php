@@ -25,20 +25,11 @@ class logicaDepartamentos{
 			return $lista;
 		}
 	}
-	public function getDepartamentosUsuario($cedula){
+
+	public function obtenerDepartamentosUsuario($cedula){
 		include_once('../../data/dtDepartamento.php');
 		$data = new dtDepartamento;
 		$lista = $data->getDepartamentosUsuario($cedula);		
-		if(!$lista){
-		return false;
-		}else{
-			return $lista;
-		}
-	}
-	public function getDepartamentosVersionesAntiguas(){
-		include_once('../../data/dtDepartamento.php');
-		$data = new dtDepartamento;
-		$lista = $data->getDepartamentosVersionesAntiguas();		
 		if(!$lista){
 		return false;
 		}else{
@@ -58,6 +49,7 @@ class logicaDepartamentos{
 	}
 	
 	public function insertarDepartamento($departamento){
+
 		include_once("../data/dtDepartamento.php");
 		$dtdepartamento=new dtDepartamento();
 		$resultado=$dtdepartamento->insertarDepartamentos($departamento);
@@ -70,10 +62,10 @@ class logicaDepartamentos{
 		return $mensaje;
 	}
 	
-	public function modificarDepartamento($departamento){
+	public function modificarDepartamento($departamento,$idDepartamento){
 		include_once("../data/dtDepartamento.php");
 		$dtdepartamento = new dtDepartamento();
-		$resultado = $dtdepartamento->modificarDepartamento($departamento);
+		$resultado = $dtdepartamento->modificarDepartamento($departamento,$idDepartamento);
 		$mensaje = '';
 		if(!$resultado){	
 			$mensaje = 'Lo sentimos no se ha podido modificar el departamento';			
@@ -100,6 +92,17 @@ class logicaDepartamentos{
 		include_once('../data/dtDepartamento.php');
 		$dataDepartamento = new dtDepartamento();
 		$lista = $dataDepartamento->getDepartamentos();
+		if(!$lista){	
+			return false;
+		} else {
+			return $lista;
+		}
+	}
+
+	public function obtenerDepartamentosSeguimientos(){
+		include_once('../../data/dtDepartamento.php');
+		$dataDepartamento = new dtDepartamento();
+		$lista=$dataDepartamento->getDepartamentosSeguimientos();
 		if(!$lista){	
 			return false;
 		} else {
