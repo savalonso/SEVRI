@@ -1,9 +1,12 @@
 	<?php
 		include_once ("../../controladora/ctrListaAnalisis.php");
 		include_once ("../../Controladora/ctrDatosSevri.php");
+
+		$idDepartamento=$_GET['id'];
+
 		$controlDatos = new ctrDatosSevri;
 		$controlAnalisis = new ctrListaAnalisis();
-		$listaAnalisis = $controlAnalisis->obtenerListaAnalisis();
+		$listaAnalisis = $controlAnalisis->obtenerListaAnalisis($idDepartamento);
 		$listaNiveles = $controlDatos->obtenerNivelesSevriActivo();
 		$cantidadDivisiones = count($listaNiveles);
 		$valorFormula = $controlDatos->obtenerValorFormula();

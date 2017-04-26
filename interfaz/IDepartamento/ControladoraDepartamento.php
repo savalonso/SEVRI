@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Departamento</title>
+	<script src="../../js/jQuery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../js/jsDepartamento.js"></script>
+</head>
+<body>
+	
+			<a href="javascript:cargarPagina('../../interfaz/IDepartamento/IInsertarDepartamento.php')">Crear Departamento</a> <br>
+		    <a href="javascript:cargarPagina('../../interfaz/IDepartamento/IMostrarDepartamento.php')">Mostrar Departamentos</a> <br>
+		 
+		<hr>
+		<div id="contenedor">
+			<script>
+				window.onload = cargarPagina('../../interfaz/IDepartamento/IMostrarDepartamento.php');
+			</script>
+		</div>
+		
+	
+	
+	
+</body>
+</html>
