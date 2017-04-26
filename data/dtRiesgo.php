@@ -290,6 +290,7 @@
 			
 				$riesgo = new dRiesgo;
 				$riesgo->setId($row[0]);
+				$riesgo->setIdSevri($row[1]);
 				$riesgo->setIdDepartamento($row[2]);
 				$riesgo->setIdCategoria($row[3]);	
 				$riesgo->setNombre($row[4]);
