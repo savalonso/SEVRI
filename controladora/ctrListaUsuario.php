@@ -12,8 +12,8 @@
 		}
 
 		function obtenerListaUsuarios(){
-			include_once ('../../data/dtUsuarios.php');
-			$dataUsuarios = new dtUsuarios();
+			include_once ('../../data/dtUsuario.php');
+			$dataUsuarios = new dtUsuario();
 			$lista = $dataUsuarios->getListaUsuarios();
 			if(!$lista){
 				return false;
@@ -23,8 +23,8 @@
 		}
 
 		function obtenerUsuario($cedula){
-			include_once ('../../data/dtUsuarios.php');
-			$dataUsuarios = new dtUsuarios();
+			include_once ('../../data/dtUsuario.php');
+			$dataUsuarios = new dtUsuario();
 			$usuario = $dataUsuarios->getUsuario($cedula);
 			if(!$usuario){
 				return false;

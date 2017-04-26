@@ -3,9 +3,12 @@
 	class dUsuario{
 		private $cedula;
 		private $nombre;
+		private $primerApellido;
+    	private $segundoApellido;
 		private $fechaRegistro;
 		private $telefono;
 		private $correo;
+		private $clave;
 		private $cargo;
 		private $tipo;
 
@@ -26,6 +29,22 @@
 		public function setNombre($nombre){
 			$this->nombre = $nombre;
 		}
+
+		public function getPrimerApellido(){
+	      return $this->primerApellido;
+	    }
+
+	    public function setPrimerApellido($primerApellido){
+	      $this->primerApellido = $primerApellido;
+	    }
+
+	    public function getSegundoApellido(){
+	      return $this->segundoApellido;
+	    }
+
+	    public function setSegundoApellido($segundoApellido){
+	      $this->segundoApellido = $segundoApellido;
+	    }
 
 		public function getFechaRegistro(){
 			return $this->fechaRegistro;
@@ -50,6 +69,14 @@
 		public function setCorreo($correo){
 			$this->correo = $correo;
 		}
+
+		public function getClave(){
+	      return $this->clave;
+	    }
+	    
+	    public function setClave($clave){
+	      $this->clave = $clave;
+	    }
 
 		public function getCargo(){
 			return $this->cargo;

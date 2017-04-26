@@ -3,8 +3,8 @@
     $('#email').val(' ');
 </script>
 <?php
-include_once ("../../controladora/ctrListaUsuarios.php");
-$control = new ctrListaUsuarios();
+include_once ("../../controladora/ctrListaUsuario.php");
+$control = new ctrListaUsuario();
 $listaUsuarios = $control->obtenerListaUsuarios();
 
 foreach ($listaUsuarios as $usuario) {
