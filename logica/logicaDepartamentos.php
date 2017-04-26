@@ -25,6 +25,16 @@ class logicaDepartamentos{
 			return $lista;
 		}
 	}
+	public function obtenerDepartamentosVersionesAntiguas(){
+		include_once('../../data/dtDepartamento.php');
+		$data = new dtDepartamento;
+		$lista = $data->getDepartamentosVersionesAntiguas();		
+		if(!$lista){
+		return false;
+		}else{
+			return $lista;
+		}
+	}
 
 	public function obtenerDepartamentosUsuario($cedula){
 		include_once('../../data/dtDepartamento.php');
