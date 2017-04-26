@@ -7,6 +7,7 @@
  		private $mfechaCreacion;
  		private $midDepartamento;
  		private $mEsModificable;
+ 		private $midSevri;
 
  		function dDepartamento(){}
 
@@ -39,6 +40,12 @@
   	 	}
 	  	public function setEsModificable($pEsModificable){
 	  		$this->mEsModificable = $pEsModificable;
+	  	}
+	  	public function getIdSevri(){
+  			return $this->midSevri;
+  	 	}
+	  	public function setIdSevri($pid){
+	  		$this->midSevri = $pid;
 	  	}
  	}
 
