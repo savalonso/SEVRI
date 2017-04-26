@@ -14,7 +14,7 @@
     private $mfecha;
     private $mDominio;
 
-  	function dSevri(){
+  	function dRiesgo(){
   	}
     public function getId(){
       return $this->id;
