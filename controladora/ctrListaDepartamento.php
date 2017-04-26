@@ -65,6 +65,17 @@
 				return $lista;
 			}
 		}
+		function obtenerDepartamentosVersionesAntiguas(){
+			include_once('../../logica/logicaDepartamentos.php');
+			$lDepartamento=new logicaDepartamentos();
+			$lista=$lDepartamento->obtenerDepartamentosVersionesAntiguas();
+
+			if(!$lista){
+				return false;
+			}else{
+				return $lista;
+			}
+		}
 	}
 
  ?>
