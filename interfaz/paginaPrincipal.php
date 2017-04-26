@@ -19,6 +19,7 @@
 	<script type="text/javascript" src="../js/jsSevri.js"></script>
 	<script type="text/javascript" src="../js/jsCategoria.js"></script>
 	<script type="text/javascript" src="../js/jsParametros.js"></script>
+	<script type="text/javascript" src="../js/jsHistorial.js"></script>
 	<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
 </head>
 <body>
