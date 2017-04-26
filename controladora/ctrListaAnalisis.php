@@ -16,10 +16,10 @@
 			}
 		}
 
-		function obtenerListaAnalisis(){
+		function obtenerListaAnalisis($idDepartamento){
 			include_once ('../../data/dtAnalisis.php');
 			$dataAnalisis = new dtAnalisis();
-			$lista = $dataAnalisis->getListaAnalisis();
+			$lista = $dataAnalisis->getListaAnalisisDepartamento($idDepartamento);
 
 			if(!$lista){
 				return false;

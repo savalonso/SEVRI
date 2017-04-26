@@ -32,33 +32,7 @@
 				return $lista;
 			}
 		}
-		function getDepartamentosUsuario($idUsuario){
-			include_once ('dtConnection.php');
-			include("../../dominio/dDepartamento.php");
-			$con = new dtConnection();
-			$conexion = $con->conect();
-			$query = "CALL obtenerDepartamentosUsuario($idUsuario)";
-			$lista = array();
-			$result = mysqli_query($conexion, $query);
-			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-				$departamento = new dDepartamento;
-					
-				$departamento->setCodigoDepartamento($row['Codigo']);
-				$departamento->setNombreDepartamento($row['Nombre']);	
-				$departamento->setFechaCreacion($row['FechaCreacion']);	
-				$departamento->setIdDepartamento($row['Id']);						
-				
 
-				array_push($lista, $departamento);
-			}
-			mysqli_free_result($result);
-			mysqli_close($conexion);
-			if (!$result){
-				return false;
-			} else {
-				return $lista;
-			}
-		}
 		function getDepartamentosAgregados(){
 			include_once ('dtConnection.php');
 			include_once("../../dominio/dDepartamento.php");
@@ -133,34 +107,7 @@
 				return $lista2;
 			}
 		}
-		function getDepartamentosVersionesAntiguas(){
-			include_once ('dtConnection.php');
-			include("../../dominio/dDepartamento.php");
-			$con = new dtConnection();
-			$conexion = $con->conect();
-			$query = "CALL obtenerDepartamentosVersionesAntiguas()";
-			$lista = array();
-			$result = mysqli_query($conexion, $query);
-			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-				$departamento = new dDepartamento;
-					
-				$departamento->setCodigoDepartamento($row['Codigo']);
-				$departamento->setNombreDepartamento($row['Nombre']);	
-				$departamento->setFechaCreacion($row['FechaCreacion']);	
-				$departamento->setIdDepartamento($row['Id']);
-				$departamento->setIdSevri($row['IdSEVRI']);					
-				
 
-				array_push($lista, $departamento);
-			}
-			mysqli_free_result($result);
-			mysqli_close($conexion);
-			if (!$result){
-				return false;
-			} else {
-				return $lista;
-			}
-		}
 		function insertarSevriDepartamento($departamento){
 			$con = new dtConnection;
 			$prueba = $con->conect();
@@ -189,15 +136,13 @@
 				return true;
 			}
 		}
-function insertarDepartamentos($departamento){
+		function insertarDepartamentos($departamento){
 
-			
 			include_once ("dtConnection.php");
 
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
-			
 			$codigo=$departamento->getCodigoDepartamento();
 			$nombre=$departamento->getNombreDepartamento();
 			$fecha=$departamento->getFechaCreacion();
@@ -218,18 +163,19 @@ function insertarDepartamentos($departamento){
 				
 		}
 
-		function modificarDepartamento($departamento){
+		function modificarDepartamento($departamento, $idDepartamento){
 
-		
+			include_once ("dtConnection.php");
+
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
-			$codigo=$departamento->getCodigoDepartamento();
 			$nombre=$departamento->getNombreDepartamento();
 			$fecha=$departamento->getFechaCreacion();
-			$id=$departamento->getIdDepartamento();
+			$codigo=$departamento->getCodigoDepartamento();
+			$id=$idDepartamento;
     		
-    		$result=$conexion->query("CALL modificarDepartamento('$codigo','$nombre','$fecha','$id')");
+    		$result=$conexion->query("CALL modificarDepartamento('$id','$nombre','$fecha','$codigo')");
 
 
 
@@ -242,6 +188,7 @@ function insertarDepartamentos($departamento){
 			}
 
 		}
+
 
 		function eliminarDepartamento($idDepartamento){
 			$con = new dtConnection;
@@ -279,6 +226,88 @@ function insertarDepartamentos($departamento){
 			if (!$result){
 				return false;
 			} else {
+				return $lista;
+			}
+		}
+
+		function getSevriDepartamentos(){
+
+			$con=new dtConnection();
+			$conexion=$con->conect();
+			$query="CALL obtenerSevriDepartamentos()";
+			$result=mysqli_query($conexion,$query);
+			$lista=array();
+
+			while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+				
+				$valores=array("idSevri"=>$row["IdSevri"],
+								"idDepartamento"=>$row["IdDepartamento"]);
+				array_push($lista, $valores);				
+			}
+
+			if(!$result){
+				return false;
+			}else{
+				return $lista;
+			}
+
+		}
+
+		function getDepartamentosUsuario($cedula){
+
+			include_once ('dtConnection.php');
+			include_once("../../dominio/dDepartamento.php");
+
+			$con=new dtConnection();
+			$conexion=$con->conect();
+			$query="CALL obtenerDepartamentosUsuario('$cedula')";
+			$resultado=mysqli_query($conexion,$query);
+			$lista=array();
+	
+			while ($row=mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
+				$departamento=new dDepartamento;
+
+				$departamento->setIdDepartamento($row['Id']);
+				$departamento->setCodigoDepartamento($row['Codigo']);
+				$departamento->setNombreDepartamento($row['Nombre']);
+
+				array_push($lista, $departamento);
+			}
+
+			mysqli_free_result($resultado);
+			mysqli_close($conexion);
+
+			if(!$resultado){
+				return false;
+			}else{
+				return $lista;
+			}
+
+		}
+
+		function getDepartamentosSeguimientos(){
+			include_once ('dtConnection.php');
+			include_once("../../dominio/dDepartamento.php");
+			$con=new dtConnection();
+			$conexion=$con->conect();
+			$query="CALL obtenerDepartamentosSeguimiento()";
+			$resultado=mysqli_query($conexion,$query);
+			$lista=array();
+
+			while ($row=mysqli_fetch_array($resultado,MYSQLI_NUM)) {
+				$departamento=new dDepartamento;
+				$departamento->setIdDepartamento($row[0]);
+				$departamento->setNombreDepartamento($row[1]);
+
+				array_push($lista, $departamento);
+			}
+
+			mysqli_free_result($resultado);
+			mysqli_close($conexion);
+
+			if(!$resultado){
+				return false;
+			}else{
 				return $lista;
 			}
 		}

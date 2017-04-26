@@ -1,14 +1,16 @@
 <?php 
 	include("../dominio/dRiesgo.php");
 	include("../data/dtRiesgo.php");
-	class ctrSevri {
+	
+	class ctrRiesgo {
 		
 		function ctrRiesgo(){}
 
 		function insertarRiesgo(){
+
 	      	$mriesgo = new dRiesgo;
 
-    		$mriesgo->setIdDepartamento('1');
+    		$mriesgo->setIdDepartamento($_POST['idDepartamento']);
     		$mriesgo->setIdCategoria($_POST['sub']);
 	      	$mriesgo->setNombre($_POST['nombre']);
 	      	$mriesgo->setDescripcion($_POST['descripcion']);
@@ -88,7 +90,7 @@
 	}
 
 	$op = $_POST['opcion'];
-	$control = new ctrSevri;
+	$control = new ctrRiesgo;
 	if($op == 1){
 	 	$control->insertarRiesgo();
 	}

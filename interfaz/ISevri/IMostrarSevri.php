@@ -1,4 +1,6 @@
 <script type="text/javascript" src="../js/jsTablas.js"></script>
+<script type="text/javascript" src="../js/jsSevri.js"></script>
+
 	<script>
 		window.onload=ocultarBarra();
 	</script>
@@ -17,16 +19,17 @@
 	        <input id="filtrar" type="text" >
         	</div>
         	
-				<div class="col s12 m8 l8 blue darken-3 z-depth-5">
+				<div class="col s12 m12 l8 blue darken-3 z-depth-5">
 					<div id="div1">
-						<table class="responsive-table centered bordered">
+						<table class="responsive-table " id="MostrarSevri">
 							<thead >
 								<tr >
 									<th>Nombre Versi&oacuten</th>
 									<th>Fecha Creaci&oacuten</th>
-									<th>Opcion 1</th>
-									<th>Opcion 2</th>
-									<th>Opcion 3</th>
+									<th>Opci&oacuten 1</th>
+									<th>Opci&oacuten 2</th>
+									<th></th>
+									<th>Opci&oacuten 3</th>
 								</tr>
 							</thead>
 							<tbody class="buscar">
@@ -40,20 +43,22 @@
 										<?php 
 						
 										if($sevri->getActivo()==1){
-										 echo 	"<td style=\"text-align:center;\"><button class=\"btn btn-danger\" type=\"button\" onclick=\"paginaModificarSevri('".$sevri->getIdSevri()."') \"><span class='glyphicon glyphicon-pencil'></span> Modificar</button></td>";
+										 echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" onclick=\"paginaModificarSevri('".$sevri->getIdSevri()."') \">Modificar</button></td>";
 										 echo 	"<td style=\"text-align:center;\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></td>";
 										 echo 	"<td style=\"text-align:center;\"><input type=\"hidden\" value=\"".$sevri->getIdSevri()."\" id=\"idSevri\"></input></td>";
 										}else{
-											echo "<td style=\"text-align:center;\"><button class=\"btn btn-danger\" type=\"button\"><span class='glyphicon glyphicon-pencil'></span>Registros</button></td>";
+											echo "<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\">Registros</button></td>";
+											echo "<td></td>";
+											echo "<td></td>";
 										}
 
 										if($sevri->getEsNuevo()==1 && $sevri->getActivo() == 0){
-											echo 	"<td style=\"text-align:center;\"><button class=\"btn btn-danger\" type=\"button\" onclick=\"activarSevri('".$sevri->getIdSevri()."') \"><span class='glyphicon glyphicon-pencil'></span> Activar</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"activarSevri('".$sevri->getIdSevri()."') \">Activar</button></td>";
 										}
 										else if($sevri->getEsNuevo()==1 && $sevri->getActivo() == 1){
-											echo 	"<td style=\"text-align:center;\"><button class=\"btn btn-danger\" type=\"button\" onclick=\"desactivarSevri('".$sevri->getIdSevri()."') \"><span class='glyphicon glyphicon-pencil'></span> Desactivar</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"desactivarSevri('".$sevri->getIdSevri()."') \">Desactivar</button></td>";
 										}else{
-											echo 	"<td style=\"text-align:center;\"><button class=\"btn btn-danger\" type=\"button\" ><span class='glyphicon glyphicon-pencil'></span> Sin Opci&oacuten</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" >Sin Opci&oacuten</button></td>";
 										}
 										?>
 										
@@ -84,5 +89,6 @@
 		  		$(document).ready(function(){
    		  		$('.modal-trigger').leanModal();
   		   		});
+
 			</script>
 			

@@ -2,12 +2,12 @@
 	window.onload=ocultarBarra();
 </script>
 <?php 
-include_once ("../../controladora/ctrListaUsuarios.php");
+include_once ("../../controladora/ctrListaUsuario.php");
 include_once("../../controladora/ctrListaDepartamento.php");
 include_once("../../controladora/ctrListaDepartamentoUsuario.php");
 $idDepartamento = $_GET['idDepartamento'];
 $controlDepartamento = new ctrListaDepartamento;
-$controlUsuarios = new ctrListaUsuarios;
+$controlUsuarios = new ctrListaUsuario;
 $controlDepaUsu = new ctrListaDepartamentoUsuario;
 $listaDepartamento = $controlDepartamento->obtenerDepartamento($idDepartamento);
 $listaUsuarios = $controlUsuarios->obtenerListaUsuarios();

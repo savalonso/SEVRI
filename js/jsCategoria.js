@@ -68,3 +68,26 @@ function modificarCategoria(){
         alert(data);
     });
 }
+/*aqui se encuentra el paginador de las tablas*/
+ $(document).ready(function(){
+        $("#tbCategorias").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+ $(document).ready(function(){
+        $("#tbCategoriasAgregadas").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+ $(document).ready(function(){
+        $("#categoria").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+ $(document).ready(function(){
+        $("#subCategorias").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+
+/*aqui finalisa*/

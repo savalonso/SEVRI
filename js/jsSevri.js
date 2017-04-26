@@ -208,11 +208,11 @@ function activarFila(posicion){
 
 function agregarEliminarParametroSevri(id, opcion, idColumna, desicion, fila, posicion, nombre){
 
-    var formData = new FormData(); 
-    formData.append("opcion", opcion);
-    formData.append("id", id);
-    var seInserto = "";
-    $.ajax({
+  var formData = new FormData(); 
+  formData.append("opcion", opcion);
+  formData.append("id", id);
+  var seInserto = "";
+  $.ajax({
     url : "../controladora/ctrSevri.php",
     type : "post",
     dataType : "html",
@@ -220,26 +220,37 @@ function agregarEliminarParametroSevri(id, opcion, idColumna, desicion, fila, po
     cache : false,
     contentType : false,
     processData : false
-    }).done(function(data) {
-        var respuesta = eval(data);
-        for(var i in respuesta){
-          seInserto = respuesta[i].inserto;
-          var mensaje = respuesta[i].mensaje;
+  }).done(function(data) {
+    var respuesta = eval(data);
+    for(var i in respuesta){
+      seInserto = respuesta[i].inserto;
+      var mensaje = respuesta[i].mensaje;
+    }
+    Materialize.toast(mensaje, 7000,'blue darken-3');
+    if(seInserto == 1){
+      if(desicion == 1){
+        agregarATablaParametros(fila,posicion,nombre);
+      }else if(desicion == 2){
+        agregarATablaCategorias(fila, posicion);
+      }else if(desicion == 3){
+        agregarATablaDepartamentos(fila, posicion);
+      }else{
+        document.getElementById(idColumna).style.display = '';
+        switch(posicion){
+          case 1:
+            document.querySelector('#tbParametrosAgregados tbody').removeChild(fila);
+            break;
+          case 2:
+            document.querySelector('#tbCategoriasAgregadas tbody').removeChild(fila);
+            break;
+          case 3:
+            document.querySelector('#tbDepartamentosAgregadas tbody').removeChild(fila);
+            break;
         }
-        Materialize.toast(mensaje, 7000,'blue darken-3');
-        if(seInserto == 1){
-          if(desicion == 1){
-            addToCartTable(fila,posicion,nombre);
-          }else if(desicion == 2){
-            agregarATablaCategorias(fila, posicion);
-          }else if(desicion == 3){
-            agregarATablaDepartamentos(fila, posicion);
-          }else{
-            document.getElementById(idColumna).style.display = '';
-          }
-        }
-       
-    }); 
+      }
+    }
+  });
+  return seInserto; 
 }
 
 function remove() {
@@ -254,23 +265,17 @@ function remove() {
 
 function removerParametros(boton, idElemento) {
   var row = boton.parentNode.parentNode;
-  document.querySelector('#tbParametrosAgregados tbody').removeChild(row);
-
-  agregarEliminarParametroSevri(idElemento, 8, idElemento, 4);
+  agregarEliminarParametroSevri(idElemento, 8, idElemento, 4, row, 1);
 }
 
 function quitarCategoria(boton, idFila, idCategoria) {
   var row = boton.parentNode.parentNode;
-  document.querySelector('#tbCategoriasAgregadas tbody').removeChild(row);
-
-  agregarEliminarParametroSevri(idCategoria,10, idFila, 4);
+  agregarEliminarParametroSevri(idCategoria,10, idFila, 4, row, 2);
 }
 
 function quitarDepartamento(boton, idFila, idDepartamento) {
   var row = boton.parentNode.parentNode;
-  document.querySelector('#tbDepartamentosAgregadas tbody').removeChild(row);
-
-  agregarEliminarParametroSevri(idDepartamento,12, idFila, 4);
+  agregarEliminarParametroSevri(idDepartamento,12, idFila, 4, row, 3);
 }
 
 function removerCategorias() {
@@ -309,7 +314,7 @@ function add(button, idElemento, opcion, nombre) {
   }
 }
 
-function addToCartTable(cells, posicion, nombre) {
+function agregarATablaParametros(cells, posicion, nombre) {
    var valor = cells[0].innerText;
    var descriptor = cells[1].innerText;
    var descripcion = cells[2].innerText;
@@ -402,3 +407,10 @@ function recorrerTabla(posicion, tabla){
     }
     return parametros;
 }
+/*aqui se encuentra el paginador de las tablas*/
+ $(document).ready(function(){
+        $("#MostrarSevri").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+/*aqui finalisa*/

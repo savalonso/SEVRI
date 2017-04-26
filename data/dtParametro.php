@@ -122,6 +122,7 @@
 		}
 
 		function getParametro($IdParametro){
+			include_once ('dtConnection.php');
 			include_once("../../dominio/dParametro.php");
 			$con = new dtConnection();
 			$conexion = $con->conect();
@@ -155,6 +156,7 @@
 		}
 
 		function insertarSevriParametro($idParametro){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
@@ -171,6 +173,7 @@
 		}
 
 		function eliminarSevriParametro($idParametro){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
@@ -187,6 +190,7 @@
 		}
 
 		function insertarParametros($parametro){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
@@ -209,6 +213,7 @@
 		}
 
 		function modificarParametro($parametro){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
@@ -231,6 +236,7 @@
 		}
 
 		function eliminarParametro($idParametro){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
@@ -247,12 +253,13 @@
 		}
 
 		function getSevriParametros(){
-		  $con = new dtConnection();
-		  $conexion = $con->conect();
-		  $query = "CALL obtenerSevriParametros()";
-		  $result = mysqli_query($conexion, $query);
-		  $lista = array();
-		  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			include_once ('dtConnection.php');
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerSevriParametros()";
+			$result = mysqli_query($conexion, $query);
+			$lista = array();
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 				
 				$valores = array("idSevri"=>$row["IdSEVRI"],
 					             "idParametro"=>$row["IdParametro"]);	
