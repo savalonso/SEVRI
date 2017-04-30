@@ -29,9 +29,9 @@
 				if($lista!=null){
 			?>
 			<h2>Par&aacutemetros de Impacto</h2>
-			<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-				<div id="div1">
-					<table class="responsive-table centered bordered" id="impacto">
+			<div class="col s12 m12 l12">
+				<div>
+					<table class="responsive-table striped" id="impacto">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -85,9 +85,9 @@
 				if($lista!=null){
 			?>
 			<h2>Par&aacutemetros de Probabilidad</h2>
-			<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-				<div id="div1">
-					<table class="responsive-table centered bordered" id="probabilidad">
+			<div class="col s12 m12 l12">
+				<div>
+					<table class="responsive-table striped" id="probabilidad">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -141,9 +141,9 @@
 				if($lista!=null){
 			?>
 			<h2>Par&aacutemetros de Calificaci&oacuten de la Medida</h2>
-			<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-				<div id="div1">
-					<table class="responsive-table centered bordered" id="calificacion">
+			<div class="col s12 m12 l12 ">
+				<div>
+					<table class="responsive-table striped " id="calificacion">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
