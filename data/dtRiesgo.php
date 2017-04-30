@@ -7,6 +7,7 @@
 		function dtRiesgo(){}
 
 		function insertarRiesgo($Riesgo){
+			
 			$con = new dtConnection;
 			$prueba = $con->conect();
 
@@ -111,83 +112,13 @@
 			}
 		}
 
-		function getRiesgos(){
-			include_once ('dtConnection.php');
-			include_once("../../dominio/dRiesgo.php");
-			$con = new dtConnection();
-			$conexion = $con->conect();
-			$query = "CALL obtenerRiesgos()";
-			$lista = array();
-			$result = mysqli_query($conexion, $query);
-			while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
-			
-				$riesgo = new dRiesgo;
-				$riesgo->setId($row[0]);
-				$riesgo->setIdDepartamento($row[2]);
-				$riesgo->setIdCategoria($row[3]);	
-				$riesgo->setNombre($row[4]);
-				$riesgo->setDescripcion($row[5]);
-				$riesgo->setMontoEconomico($row[6]);
-				if($row[7]=='1'){
-					$riesgo->setEstaActivo("Activo");
-				}else{
-					$riesgo->setEstaActivo("Inactivo");
-				}
-				$riesgo->setCausa($row[8]);
-				$riesgo->setFecha($row[9]);
 
-				array_push($lista, $riesgo);
-			}
-			mysqli_free_result($result);
-			mysqli_close($conexion);
-			if (!$result){
-				return false;
-			} else {
-				return $lista;
-			}
-		}
-		function obtenerRiesgoDetalles($idRiesgo){
+		function getRiesgosAnalisados($idDepartamento){
 			include_once ('dtConnection.php');
 			include_once("../../dominio/dRiesgo.php");
 			$con = new dtConnection();
 			$conexion = $con->conect();
-			$query = "CALL obtenerRiesgoDetalles('$idRiesgo')";
-			$lista = array();
-			$result = mysqli_query($conexion, $query);
-			while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
-			
-				$riesgo = new dRiesgo;
-				$riesgo->setId($row[0]);
-				$riesgo->setIdSevri($row[1]);
-				$riesgo->setIdDepartamento($row[2]);
-				$riesgo->setIdCategoria($row[3]);	
-				$riesgo->setNombre($row[4]);
-				$riesgo->setDescripcion($row[5]);
-				$riesgo->setMontoEconomico($row[6]);
-				if($row[7]=='1'){
-					$riesgo->setEstaActivo("Activo");
-				}else{
-					$riesgo->setEstaActivo("Inactivo");
-				}
-				$riesgo->setCausa($row[8]);
-				$riesgo->setFecha($row[9]);
-				
-				array_push($lista, $riesgo);
-			}
-			mysqli_free_result($result);
-			mysqli_close($conexion);
-			if (!$result){
-				return false;
-			} else {
-				return $lista;
-			}
-		}
-		function getRiesgosAnalisados(){
-			include_once ('dtConnection.php');
-			include_once("../../dominio/dRiesgo.php");
-			$con = new dtConnection();
-			$conexion = $con->conect();
-			$query = "CALL obtenerRiesgoAnalisis()";
+			$query = "CALL obtenerRiesgoAnalisis('$idDepartamento')";
 			$lista = array();
 			$result = mysqli_query($conexion, $query);
 			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -290,6 +221,7 @@
 			
 				$riesgo = new dRiesgo;
 				$riesgo->setId($row[0]);
+				$riesgo->setIdSevri($row[1]);
 				$riesgo->setIdDepartamento($row[2]);
 				$riesgo->setIdCategoria($row[3]);	
 				$riesgo->setNombre($row[4]);
@@ -323,6 +255,82 @@
 			} else {
 				return true;
 			}
+		}
+
+		function getRiesgos(){
+			include_once ('dtConnection.php');
+			include_once("../../dominio/dRiesgo.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerRiesgos()";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			
+				$riesgo = new dRiesgo;
+				$riesgo->setId($row[0]);
+				$riesgo->setIdSevri($row[1]);
+				$riesgo->setIdDepartamento($row[2]);
+				$riesgo->setIdCategoria($row[3]);	
+				$riesgo->setNombre($row[4]);
+				$riesgo->setDescripcion($row[5]);
+				$riesgo->setMontoEconomico($row[6]);
+				if($row[7]=='1'){
+					$riesgo->setEstaActivo("Activo");
+				}else{
+					$riesgo->setEstaActivo("Inactivo");
+				}
+				$riesgo->setCausa($row[8]);
+				$riesgo->setFecha($row[9]);
+
+				array_push($lista, $riesgo);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
+
+		function getRiesgosDepartamento($idDepartamento){
+			include_once ('dtConnection.php');
+			include_once("../../dominio/dRiesgo.php");
+			$con=new dtConnection();
+			$conexion=$con->conect();
+			$query="CALL obtenerRiesgosPorIdDepartamento('$idDepartamento')";
+			$lista=array();
+			$resultado=mysqli_query($conexion,$query);
+
+			while ($row=mysqli_fetch_array($resultado, MYSQLI_NUM)) {
+				$riesgo=new dRiesgo;
+				$riesgo->setId($row[0]);
+				$riesgo->setIdCategoria($row[2]);
+				$riesgo->setNombre($row[3]);
+				$riesgo->setDescripcion($row[4]);
+				$riesgo->setMontoEconomico($row[5]);
+				if($row[6]=='1'){
+					$riesgo->setEstaActivo("Activo");
+				}else{
+					$riesgo->setEstaActivo("Inactivo");
+				}
+				$riesgo->setCausa($row[7]);
+				$riesgo->setFecha($row[8]);
+
+				array_push($lista, $riesgo);
+
+			}
+
+			mysqli_free_result($resultado);
+			mysqli_close($conexion);
+			if (!$resultado){
+				return false;
+			} else {
+				return $lista;
+			}
+
+
 		}
 	}
 ?>

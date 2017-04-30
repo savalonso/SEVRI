@@ -19,13 +19,22 @@ function nuevoAjax(){
 
 
 function insertarRiesgo(){
+
     var formData = new FormData(document.getElementById("IIdentificarRiesgo")); 
+    
     formData.append("opcion", 1);
-    var cate = document.getElementById('subcategoria').value;
+
+    var cate = document.getElementById("subcategoria").value;
+
+    var IdDepartamento=document.getElementById("departamentoUsuario").value;
+
+    formData.append("idDepartamento",IdDepartamento);
+    
+
     if(cate!=0){
         formData.append("sub", cate);
     }else{
-        cate = document.getElementById('categoria').value;
+        cate = document.getElementById("categoria").value;
         formData.append("sub", cate);
     }
     $.ajax({
@@ -37,7 +46,7 @@ function insertarRiesgo(){
         contentType : false,
         processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php');
+        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
         Materialize.toast(data, 7000,'blue darken-3');
     });
 }
@@ -69,7 +78,7 @@ function eliminarRiesgo(){
         contentType : false,
         processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php');
+        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
         Materialize.toast(data, 7000,'blue darken-3');
     });
 }
@@ -87,7 +96,7 @@ function modificarRiesgo(){
         contentType : false,
         processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php');
+        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
         Materialize.toast(data, 7000,'blue darken-3');
     });
 }
@@ -98,27 +107,54 @@ function confirmarModificacionEliminacion(idRiesgo){
 function cancelarModificar(){
     document.getElementById('contenedorConfirmacion').style.display = 'none';
 }
-/*function validarCampos(){
-    var nombre = document.getElementById('nombre').value;
-    var descripcion = document.getElementById('descripcion').value;
-    var estado = document.getElementById('estado').value;
-    var monto = document.getElementById('monto').value;
-    var subcategoria = document.getElementById('subcategoria').value;
-    var causa = document.getElementById('causa').value;
-    if(
-        nombre.trim()!='' &&
-        nombre.length<100 &&
-        descripcion.trim()!='' &&
-        descripcion.length <3000 &&
-        (estado=='0' || estado=='1') &&
-        monto.trim() !='' &&
-        monto.length < 11 &&
-        subcategoria>0 &&
-        causa.trim()!='' &&
-        causa.length <200
-    ){
-        return true;
-    }else{
-        return false;
+
+function cargarGUIMostrarRiesgos(){
+
+    var idDepartamento=document.getElementById("departamentos").value;
+
+    if(idDepartamento!=0){
+
+        $('#mostrarRiesgos').load("../interfaz/IRiesgo/IMostrarRiesgo.php?id="+idDepartamento);
+        
     }
-}*/
+
+
+}
+
+function cargarGUIMostrarRiesgosAnalisis(){
+
+    var idDepartamento=document.getElementById("departamentos").value;
+
+    if(idDepartamento!=0){
+
+        $('#mostrarRiesgosAnalisis').load("../interfaz/IAnalisis/IAnalizarRiesgo.php?id="+idDepartamento);
+        
+    }
+
+
+}
+
+function cargarGUIMostrarRiesgosAdministracion(){
+
+    var idDepartamento=document.getElementById("departamentos").value;
+
+
+    if(idDepartamento!=0){
+
+        $('#mostrarRiesgosAdministracion').load("../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php?id="+idDepartamento);
+        
+    }
+    
+}
+
+function cargarGUIMostrarRiesgosAnalizados(){
+
+    var idDepartamento=document.getElementById("departamentos").value;
+   
+    if(idDepartamento!=0){
+
+        $('#mostrarRiesgosAnalizados').load("../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php?id="+idDepartamento);
+        
+    }
+
+}

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 
 <?php
-	include ("../../Controladora/ctrListaRiesgo.php");
+
+	$idDepartamento=$_GET['id'];
+	include ("../../controladora/ctrListaRiesgo.php");
 	$control = new ctrListaRiesgo;	
-	$lista =$control->obtenerRiesgosAnalisados();	
+	$lista =$control->obtenerRiesgosAnalisados($idDepartamento);	
 ?>
 	<script>
 		window.onload=ocultarBarra();

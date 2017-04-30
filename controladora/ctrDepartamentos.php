@@ -1,4 +1,5 @@
 <?php 
+
 include_once("../dominio/dDepartamento.php");
 include_once("../data/dtDepartamentoUsuario.php");
 include_once("../dominio/dDepartamentoUsuario.php");
@@ -7,8 +8,8 @@ class ctrDepartamentos {
 	function ctrDepartamentos(){}
 
 	function insertarDepartamento(){
-		include_once("../logica/logicaDepartamento.php");
-		$logica=new LogicaDepartamento;
+		include_once("../logica/logicaDepartamentos.php");
+		$logica=new logicaDepartamentos;
 		$mdepartamento=new dDepartamento;
 		$mdepartamento->setCodigoDepartamento($_POST['codigo']);
 		$mdepartamento->setNombreDepartamento($_POST['nombre']);
@@ -18,20 +19,20 @@ class ctrDepartamentos {
 	}
 
 	function modificarDepartamento(){	
-		include_once("../logica/logicaDepartamento.php");
-		$logica = new LogicaDepartamento;
+		include_once("../logica/logicaDepartamentos.php");
+		$logica = new logicaDepartamentos;
 		$mdepartamento = new dDepartamento;
-		$mdepartamento->setCodigoDepartamento($_POST['codigoDepartamento']);
-		$mdepartamento->setNombreDepartamento($_POST['nombreDepartamento']);
-		$mdepartamento->setFechaCreacion($_POST['fechaDepartamento']);
-		$mdepartamento->setIdDepartamento($_POST['idDepartamento']);
-		$resultado = $logica->modificarDepartamento($mdepartamento);
+		$mdepartamento->setNombreDepartamento($_POST['nombre']);
+		$mdepartamento->setFechaCreacion($_POST['fecha']);
+		$mdepartamento->setCodigoDepartamento($_POST['codigo']);
+		$id=$_POST['idDepartamento'];
+		$resultado = $logica->modificarDepartamento($mdepartamento,$id);
 		echo $resultado;
 	}
 
 	function eliminarDepartamento(){
-		include_once("../logica/logicaDepartamento.php");
-		$logica = new LogicaDepartamento;
+		include_once("../logica/logicaDepartamentos.php");
+		$logica = new logicaDepartamentos;
 		$idDepartamento = $_POST['idDepartamento'];
 		$resultado = $logica->eliminarDepartamento($idDepartamento);
 		echo $resultado;

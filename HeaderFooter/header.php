@@ -78,11 +78,15 @@
 			<?php } ?>
 				<ul id="subProceso" class="dropdown-content">
 				  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')">Identificar Riesgo</a></li>
-				  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php')">Mostrar Riesgos</a></li>
-				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IAnalizarRiesgo.php')">Analizar Riesgo</a></li>
-				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php')">Mostrar An&aacutelisis</a></li>
-				   <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php')">Mostrar Riesgos</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')">Analizar Riesgo</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalizados.php')">Mostrar An&aacutelisis</a></li>
+				   <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php')">Administrar Riesgo</a></li>
+				   <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimientos</a></li>
+
+				   <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php')">Mostrar Seguimientos</a></li>
 				</ul>
+
 
 				<ul id="subMensajes" class="dropdown-content">
 					<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMensajesUsuario.php')">Ver Mensajes</a></li>
@@ -93,7 +97,8 @@
 				  <li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php')">Mostrar Usuarios</a></li>
 				</ul>
 				<ul id="subDepartamentos" class="dropdown-content">
-				
+					<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IInsertarDepartamento.php')">Registrar Departamentos</a></li>
+					<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IMostrarDepartamentos.php')">Mostrar Departamentos</a></li>
 				</ul>
 
 				<ul id="subDropdown1" class="dropdown-content">
