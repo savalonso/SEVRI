@@ -25,9 +25,9 @@
 			
 		</div>
 		<div class="row">
-			<div class="col s12 m8 l8 blue darken-3 z-depth-5">
-				<div id="div1">
-					 <table class="responsive-table bordered" id="tbNivelRiesgoAgregado">
+			<div class="col s12 m8 l8">
+				<div>
+					 <table class="responsive-table striped" id="tbNivelRiesgoAgregado">
 					 	<thead>
 					 		<tr>
 								<th>Nombre Nivel de Riesgo</th>

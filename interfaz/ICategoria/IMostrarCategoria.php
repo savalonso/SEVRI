@@ -23,12 +23,12 @@
 
 	<div class="row">
 		<h2>Lista de Categor&iacuteas</h2>
-		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
+		<div class="col s12 m12 l12">
 		<?php  
 			if($lista!=null){
 		?>
-			<div id="div1">
-				<table class="responsive-table centered bordered" id="categoria">
+			<div>
+				<table class="responsive-table striped" id="categoria">
 					<thead>
 						<tr>
 							<th>Nombre</th>
@@ -80,9 +80,9 @@
 		</div>
 		<div <div class="row">
 			<h2>Lista de Sub Categor&iacuteas</h2>
-			<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-				<div id="div1">
-					<table class="responsive-table centered bordered" id="subCategorias">
+			<div class="col s12 m12 l12">
+				<div>
+					<table class="responsive-table striped" id="subCategorias">
 						<thead>
 							<tr>
 								<th>Nombre</th>

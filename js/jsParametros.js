@@ -108,26 +108,7 @@ function marcarColor(idSelect, valor){
     }
 }
 /*aqui se encuentra el paginador de las tablas*/
- $(document).ready(function(){
-        $("#tbParametros").paginationTdA({
-            elemPerPage: 4
-        });
-    });
- $(document).ready(function(){
-        $(".ParametrosImpacto").paginationTdA({
-            elemPerPage: 4
-        });
-    });
- $(document).ready(function(){
-        $(".ParametrosCalificacion").paginationTdA({
-            elemPerPage: 4
-        });
-    });
- $(document).ready(function(){
-        $("#tbParametrosAgregados").paginationTdA({
-            elemPerPage: 4
-        });
-    });
+ 
  $(document).ready(function(){
         $("#impacto").paginationTdA({
             elemPerPage: 4
