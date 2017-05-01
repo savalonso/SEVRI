@@ -10,9 +10,9 @@
 <div id="contenedorCategorias">
     <div class="row" id="contenedorTablaCategorias">
     <h3>Categor&iacuteas para agregar</h3>
-        <div class="col s12 m8 l8 blue darken-3 z-depth-5">
+        <div class="col s12 m8 l8">
             <div id="div1">
-                <table class="responsive-table centered bordered" id="tbCategorias">
+                <table class="responsive-table striped" id="tbCategorias">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -56,9 +56,9 @@
 
     <div class="row">
         <h3>Categor&iacuteas Agregadas</h3>
-        <div class="col s12 m8 l8 blue darken-3 z-depth-5">
+        <div class="col s12 m8 l8">
             <div id="div1">
-                <table class="responsive-table centered bordered" id="tbCategoriasAgregadas">
+                <table class="responsive-table striped" id="tbCategoriasAgregadas">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -78,11 +78,10 @@
                                 echo "</tr>";
                             }
                         }
-                            ?>
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../js/jsCategoria.js"></script>

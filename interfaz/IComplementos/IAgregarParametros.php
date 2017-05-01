@@ -45,9 +45,9 @@
 
 <div id="contenedorTablaProbabilidad">
 <h3>Valores de probabilidad para agregar</h3>
-	<div class="col s12 m8 l8 blue darken-3 z-depth-5">
+	<div class="col s12 m8 l8">
 		<div id="div1">
-			<table class="responsive-table centered bordered" id="tbParametros">
+			<table class="responsive-table striped" id="tbParametros">
 				<thead>
 					<tr>
 						<th>Nombre</th>
@@ -90,9 +90,9 @@
 
 <div id="contenedorTablaImpacto" style="display:none">
 <h3>Valores de impacto para agregar</h3>
-	<div class="col s12 m8 l8 blue darken-3 z-depth-5">
+	<div class="col s12 m8 l8">
 		<div id="div1">
-			<table class="responsive-table centered bordered ParametrosImpacto" id="tbParametros">
+			<table class="responsive-table ParametrosImpacto striped" id="tbParametros">
 				<thead>
 					<tr>
 						<th>Nombre</th>
@@ -135,9 +135,9 @@
 
 <div id="contenedorTablaCalificacion" style="display:none">
 <h3>Valores de medida calificaci&oacuten para agregar</h3>
-	<div class="col s12 m8 l8 blue darken-3 z-depth-5">
+	<div class="col s12 m8 l8">
 		<div id="div1">
-			<table class="responsive-table centered bordered ParametrosCalificacion" id="tbParametros">
+			<table class="responsive-table striped ParametrosCalificacion" id="tbParametros">
 				<thead>
 					<tr>
 						<th>Nombre</th>
@@ -179,9 +179,9 @@
 </div>
 		
 <h3>Par&aacutemetros Agregados</h3>
-<div class="col s12 m8 l8 blue darken-3 z-depth-5">
+<div class="col s12 m8 l8 ">
 	<div id="div1">
-		<table class="responsive-table centered bordered" id="tbParametrosAgregados">
+		<table class="responsive-table striped" id="tbParametrosAgregados">
 			<thead>
 				<tr>
 					<th>Nombre</th>
@@ -232,4 +232,3 @@ function mostrarDatosModal(){
 	}
 }
 </script>
-<script type="text/javascript" src="../js/jsParametros.js"></script>
