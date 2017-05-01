@@ -102,7 +102,7 @@
 				$analisis = new dAnalisis();
 
 				$analisis->setId($row['Id']);
-				$analisis->setIdRiesgo($row['Nombre']);
+				$analisis->setIdRiesgo($row['IdRiesgo']);
 	    		$analisis->setProbabilidad($row['Probabilidad']);
 		      	$analisis->setImpacto($row['Impacto']);
 		      	$analisis->setNivelRiesgo($row['NivelRiesgo']);

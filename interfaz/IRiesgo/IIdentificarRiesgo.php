@@ -77,6 +77,7 @@
 					</div>
 							
 					<div >
+						<input type="submit" value="Crear" class="btn" ></br></br>
 					</div>
 				</div>
 			</form>
