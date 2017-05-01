@@ -15,7 +15,7 @@
 	<?php
 		include ("../../Controladora/ctrDatosSevri.php");
 		$control = new ctrDatosSevri;	
-		$lista =$control->obtenerTodasLasCategorias();	
+		$lista =$control->obtenerTodasLasCategorias();
 		
 		foreach ($lista as $categoria){
 			$arr[] = array(

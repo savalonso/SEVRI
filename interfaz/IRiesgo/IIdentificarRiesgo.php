@@ -77,7 +77,6 @@
 					</div>
 							
 					<div >
-						<input data-tooltip="I am tooltip" type="submit" value="Crear" class="btn tooltipped" ></br></br>
 					</div>
 				</div>
 			</form>

@@ -46,7 +46,7 @@ function insertarRiesgo(){
         contentType : false,
         processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
+        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php');
         Materialize.toast(data, 7000,'blue darken-3');
     });
 }
@@ -78,7 +78,7 @@ function eliminarRiesgo(){
         contentType : false,
         processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
+        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php');
         Materialize.toast(data, 7000,'blue darken-3');
     });
 }
@@ -96,7 +96,7 @@ function modificarRiesgo(){
         contentType : false,
         processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
+        cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php');
         Materialize.toast(data, 7000,'blue darken-3');
     });
 }
