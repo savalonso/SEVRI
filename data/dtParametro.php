@@ -270,6 +270,7 @@
 			if (!$result){
 				return false;
 			} else {
+				
 				return $lista;
 			}
 

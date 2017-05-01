@@ -127,6 +127,15 @@ function cargarPagina (url) {
     $('#contenedor').load(url);
 }
 
+function cargarPaginaConfiguraciones (url, radioButton) {
+    var inputRadioSeleccionado = document.getElementById('idRadioSeleccionado');
+    if (inputRadioSeleccionado.value != radioButton.id) {
+      inputRadioSeleccionado.value = radioButton.id;
+      document.getElementById('barraCargando').style.display="";
+      $('#contenedorPaginaConfiguraciones').load(url);
+    }
+}
+
 function ocultarBarra(){
     document.getElementById('barraCargando').style.display="none";
 }
