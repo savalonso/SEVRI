@@ -30,7 +30,7 @@
 	<script>
 		window.onload=ocultarBarra();
 	</script>	
-	<h2>Detalles del riesgo.</h2>		
+	<h2>Detalles principales del riesgo.</h2>		
 	<div class="row">
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<h5>Nombre:</h5>
@@ -68,5 +68,43 @@
 				}
 			 ?>
 		</div>
+	</div>
+	<div class="row">
+		<h2>Administraci&oacuten del riesgo.</h2>
+		<table class="responsive-table centered bordered">
+			<thead>
+				<tr>
+					<th>Nombre de la actividad</th>
+					<th>Descripci&oacuten de la actividad</th>
+					<th>Responsable</th>
+					<th>Actividad de tratamiento</th>
+					<th>Plazo de tratamiento</th>
+					<th>Costo de la actividad</th>
+					<th>Indentificador</th>
+					<th>Seguimiento</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php 
+				/*if($lista==null){
+					echo "NO HAY REGISTROS AUN";
+				}else{
+					foreach ($lista as $riesgo){
+			            echo "<tr>					        
+				        	<td>".$riesgo->getNombre()."</td>
+				        	<td>".$riesgo->getDescripcion()."</td>
+							<td>".$riesgo->getIdDepartamento()."</td>
+							<td>".$riesgo->getEstaActivo()."</td>
+							<td> ‎"."₡".number_format($riesgo->getMontoEconomico(), 2, ',', ' ')."</td>
+							<td>".$riesgo->getIdCategoria()."</td>
+							<td>".$riesgo->getCausa()."</td>
+							<td>".$riesgo->getFecha()."</td>
+			        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"		cargarPagina('../interfaz/IRiesgo/IModificarRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
+			    		</tr>";
+					}
+				}*/
+				?>
+			</tbody>
+		</table>
 	</div>
 </!DOCTYPE html>
