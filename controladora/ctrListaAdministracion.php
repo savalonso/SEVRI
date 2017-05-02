@@ -25,6 +25,12 @@
 			return $lista;
 		}
 
+		public function getAdministracionResponsable($responsable){
+			include_once('../../logica/logicaAdministracion.php');
+ 			$logica = new logicaAdministracion;
+ 			$lista = $logica->getAdministracionResponsable($responsable);		
+			return $lista;
+		}
 	}
 
  ?>

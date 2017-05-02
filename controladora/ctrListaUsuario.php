@@ -12,9 +12,9 @@
 		}
 
 		function obtenerListaUsuarios(){
-			include_once ('../../data/dtUsuarios.php');
-			$dataUsuarios = new dtUsuarios();
-			$lista = $dataUsuarios->getListaUsuarios();
+			include_once ('../../data/dtUsuario.php');
+			$dataUsuario = new dtUsuario();
+			$lista = $dataUsuario->getListaUsuarios();
 			if(!$lista){
 				return false;
 			}else{

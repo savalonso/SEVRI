@@ -4,6 +4,41 @@
 
 		public function logicaSeguimiento(){}
 
+		public function insertarSeguimientoNuevo($seguimiento){
+			include_once("../data/dtSeguimiento.php");
+			$dataSeguimiento = new dtSeguimiento;
+			$resultado = $dataSeguimiento->insertarSeguimientoNuevo($seguimiento);
+
+			$mensaje='';
+
+			if(!$resultado){
+				$mensaje='Lo sentimos no se ha podido insertar el seguimiento';
+			} else {
+				$mensaje='Se ha insertado el seguimiento con exito.';
+			}
+			return $mensaje;
+		}
+		public function obtenerSeguimiento($idAdministracion){
+			include_once('../../data/dtSeguimiento.php');
+			$dataSeguimiento= new dtSeguimiento;
+			$lista = $dataSeguimiento->obtenerSeguimiento($idAdministracion);
+			if(!$lista){
+				return false;
+			}else{
+				return $lista;
+			}
+		}
+		public function obtenerAdministracionRiesgo($cedula){
+			include_once('../../data/dtSeguimiento.php');
+			$dataSeguimiento= new dtSeguimiento;
+			$lista = $dataSeguimiento->obtenerAdministracionRiesgo($cedula);
+			if(!$lista){
+				return false;
+			}else{
+				return $lista;
+			}
+		}
+
 		public function obtenerSeguimientosAsignados($cedulaAprobador){
 
 			include_once('../../data/dtSeguimiento.php');
