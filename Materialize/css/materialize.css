@@ -19,7 +19,14 @@
   margin: 0 auto;
   text-align:center;
 }
-
+#div1 {
+     overflow:scroll;
+     height:320px;
+     width:102%;
+ }   
+#div1 table {
+    width:100%;
+}
 .colorSlider1{
   background-color:#1565C0;
 }
@@ -2779,6 +2786,12 @@ optgroup {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  background-color: #1565c0;
+  border-radius: 2px;
+  box-shadow: 10px 10px 5px #999;
+}
+table thead{
+  background-color: #ea770c;
 }
 
 td,
@@ -3155,7 +3168,7 @@ table.bordered > tbody > tr {
 }
 
 table.striped > tbody > tr:nth-child(odd) {
-  background-color: #f2f2f2;
+  background-color: #1e88e5;
 }
 
 table.striped > tbody > tr > td {
@@ -3193,6 +3206,9 @@ td, th {
     border-spacing: 0;
     display: block;
     position: relative;
+    background-color: #1565c0;
+    border-radius: 2px;
+    box-shadow: 10px 10px 5px #999;
     /* sort out borders */
   }
   table.responsive-table td:empty:before {

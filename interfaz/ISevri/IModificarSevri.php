@@ -11,7 +11,7 @@
 	   $nombre = $sevri->getNombreVersion();
 	   $fecha = $sevri->getFechaVersion();
 	   $id = $sevri->getIdSevri();
-       
+       $añoActual = date("Y");
 	 ?>
 	
 	 <h1>Modificar SEVRI</h1>
@@ -68,7 +68,7 @@
 	    });
 		});
 		$(function(){
-		  $('#nombre').mask('aaaaa-9999-99');
+		  $('#nombre').mask('SEVRI- <?= $añoActual ?>-99');
 		});
 		$(document).ready(function(){
    		  $('.modal-trigger').leanModal();
