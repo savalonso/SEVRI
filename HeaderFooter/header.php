@@ -134,6 +134,9 @@
 			  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IAnalizarRiesgo.php')">Analizar Riesgo</a></li>
 			  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php')">Mostrar An&aacutelisis</a></li>
 			   <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
+			   <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimientos</a></li>
+
+				   <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php')">Mostrar Seguimientos</a></li>
 			</ul>
 
 			<ul id="subMensajes2" class="dropdown-content">
@@ -145,7 +148,8 @@
 			  <li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php')">Mostrar Usuarios</a></li>
 			</ul>
 			<ul id="subDepartamentos2" class="dropdown-content">
-			
+					<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IInsertarDepartamento.php')">Registrar Departamentos</a></li>
+					<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IMostrarDepartamentos.php')">Mostrar Departamentos</a></li>
 			</ul>
 			<ul id="subDropdown2" class="dropdown-content">
 				<li><a href="../desconectar.php">Salir</a></li>
