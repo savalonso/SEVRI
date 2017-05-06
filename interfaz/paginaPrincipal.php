@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<title>SEVRI</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="../Materialize/css/materialize.css">
-	<link href="../Materialize/css/icon.css" rel="stylesheet">
-	<link rel="stylesheet" href="../Materialize/css/Style.css">
+	<link rel="stylesheet" href="../Materialize/css/materialize.css?v=1s">
+	<link href="../Materialize/css/icon.css?v=1" rel="stylesheet">
+	<link rel="stylesheet" href="../Materialize/css/Style.css?v=1">
 	<script src="../js/jQuery.js"></script>
 	<script src="../js/jquery.maskedinput.js"></script>
 	<script src="../Materialize/js/materialize.js"></script>
@@ -15,6 +15,7 @@
 	<script src="../js/jsNivelRiesgo.js"></script>
 	<script src="../js/jsAdministracion.js"></script>
 	<script src="../js/jsUsuarios.js"></script>
+	<script type="text/javascript" src="../js/jsSeguimiento.js"></script>
 	<script type="text/javascript" src="../js/jsPaginadorTablas.js"></script>
 	<script type="text/javascript" src="../js/jsSevri.js"></script>
 	<script type="text/javascript" src="../js/jsCategoria.js"></script>

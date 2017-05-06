@@ -1,5 +1,6 @@
 <?php 
 	$fechaActual = date("Y-m-d");
+	$añoActual = date("Y");
  ?>
 <script>
 	window.onload=ocultarBarra();
@@ -9,7 +10,7 @@
 			<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
 				<div>
 					<label class="white-text" for="nombre">Nombre Sevri</label>
-					<input type="text" name="nombre" id="nombre" title="El nombre puede ser SEVRI-año-un numero como identificador Ejemplo: SEVRI-2016-01" requerid>
+					<input type="text" name="nombre" id="nombre" value="SEVRI" title="El nombre puede ser SEVRI-año-un numero como identificador Ejemplo: SEVRI-2016-01" requerid>
 				</div>
 				 <div>
 				 	<label class="white-text" for="fecha">Fecha Creaci&oacuten</label>
@@ -47,6 +48,6 @@
 	    selectYears: 15 // Creates a dropdown of 15 years to control year
  	 });
  	 $(function(){
-		  $('#nombre').mask('aaaaa-9999-99');
+		  $('#nombre').mask('SEVRI- <?= $añoActual ?>-99');
 		});
   </script>

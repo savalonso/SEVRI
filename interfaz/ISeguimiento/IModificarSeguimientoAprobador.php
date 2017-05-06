@@ -15,7 +15,7 @@
 		$estado=$seguimiento->getEstadoSeguimiento();
 		$comentario=$seguimiento->getComentarioAprobador();
 	}
-
+	
   ?>
 
 <div class="row">

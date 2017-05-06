@@ -4,6 +4,17 @@
 
 		public function logicaAdministracion(){}
 
+		public function getAdministracionResponsable($responsable){
+			include_once('../../data/dtAdministracion.php');
+			$data = new dtAdministracion;
+			$lista = $data->getAdministracionResponsable($responsable);		
+			if(!$lista){
+				return false;
+			}else{
+				return $lista;
+			}
+		}
+
 		public function obtenerMedidas(){
 			include_once('../../data/dtAdministracion.php');
 			$data = new dtAdministracion;
