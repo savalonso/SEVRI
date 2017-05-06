@@ -10,7 +10,7 @@ function insertarAdministracion(){
     contentType : false,
     processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php');
+        cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php');
         Materialize.toast(data, 7000,'blue darken-3');
     }); 
 }

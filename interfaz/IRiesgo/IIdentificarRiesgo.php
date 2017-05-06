@@ -5,8 +5,27 @@
 	<meta charset="UTF-8">
 </head>
 <body>
+
+	<?php 
+		session_start();
+		$cedula=$_SESSION['idUsuario'];
+		include("../../controladora/ctrListaDepartamento.php");
+		$control=new ctrListaDepartamento;
+		$listaDepartamentos=$control->obtenerListaDepartamentosUsuario($cedula);
+
+		foreach($listaDepartamentos as $departamento) {
+			$arrayDepartamento[]=array(
+				'idDepartamento'=>$departamento->getIdDepartamento(),
+				'codigoDepartamento'=>utf8_encode($departamento->getCodigoDepartamento()),
+				'nombreDepartamento'=>utf8_encode($departamento->getNombreDepartamento())
+			);
+		}
+		$arrayJsonDepartamentos=json_encode($arrayDepartamento);
+	?>
+
+
 	<?php
-		include ("../../Controladora/ctrDatosSevri.php");
+		include ("../../controladora/ctrDatosSevri.php");
 		$control = new ctrDatosSevri;	
 		$lista =$control->obtenerTodasLasCategorias();	
 		
@@ -25,62 +44,90 @@
 	</script>
 	
 		<div class="row">
-			<form id="IIdentificarRiesgo" method="Post" role="form" class="responsive">
-				<div class="inputs blue darken-3 col s8 m6 l6 z-depth-5">
-					<h3>Identificaci&oacuten</h3>
-					<div >
-						<label class="white-text" for="nombre">Nombre:</label>
-						<input type="text" name="nombre" id="nombre">
-					</div>
 
-					<div >
-						<label class="white-text" for="descripcion">Descripci&oacuten:</label>
-						<textarea class="materialize-textarea" rows="10" celds="30" id="descripcion" name="descripcion" ></textarea>
-					</div>
+				<form id="IIdentificarRiesgo" method="Post" role="form" class="responsive">
+					<div class="inputs blue darken-3 col s8 m6 l6 z-depth-5">
+						<h3>Identificaci&oacuten</h3>
 
-					<div>
-						<label class="white-text" for="estado">Estado:</label>
-						<select id="estado" name="estado"> 
-							<option value="1">Activo</option>
-							<option value="0">Inactivo</option>
-						</select>
-					</div>
+						<div class="">
 
-					<div >
-						<label class="white-text" for="monto">Monto Econ&oacutemico:</label>
-						<input type="text" name="monto" id="monto" onkeyup="format(this)">
-					</div>
-							
-					<div>
-						<label  class="white-text" for="categoria">Categor&iacutea:</label>
-						<select id="categoria" name="categoria" onchange="llenarSelect2(this.value)"> 
-							<option disabled="true" selected="true" value="0">Seleccione una categor&iacutea...</option>
-							<?php 
-								foreach ($lista as $categoria){
-									if($categoria->getHijoDe()=="0"){
-										echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+                			<label  for="Tipo">Departamentos:</label>
+               				 <select id="departamentoUsuario" name="departamentoUsuario" onchange="cargarDepartamentos()">
+								<option disabled="true" selected="true" value="0">Seleccione un departamento...</option>
+								<?php
+									foreach ($listaDepartamentos as $departamento):?> {
+									
+										<option value="<?php echo $departamento->getIdDepartamento();?>"><?php echo $departamento->getNombreDepartamento();?></option>;
+										<?php endforeach ?>
 									}
-								}
-							?>
-						</select>
-					</div>
-					<div>
-						<label  class="white-text" for="subcategoria">Sub Categor&iacuteas:</label>
-						<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)"> 
-							<option disabled="true" selected="true" value="0">Seleccione una sub categor&iacutea...</option>
-						</select>
-					</div>
 
-					<div >
-						<label class="white-text" for="causa">Causa:</label>
-						<textarea class="materialize-textarea" rows="10" cels="30" id="causa" name="causa" ></textarea>
-					</div>
+							 	?>
+                    		
+							</select>
+
+            			</div>	
+					
+						<div id="temporal" style="display:none">
+						
+							<div >
+								<label class="white-text" for="nombre">Nombre:</label>
+								<input type="text" name="nombre" id="nombre">
+							</div>
+
+							<div >
+								<label class="white-text" for="descripcion">Descripci&oacuten:</label>
+								<textarea class="materialize-textarea" rows="10" celds="30" id="descripcion" name="descripcion" ></textarea>
+							</div>
+
+							<div>
+								<label class="white-text" for="estado">Estado:</label>
+								<select id="estado" name="estado"> 
+									<option value="1">Activo</option>
+									<option value="0">Inactivo</option>
+								</select>
+							</div>
+
+							<div >
+								<label class="white-text" for="monto">Monto Econ&oacutemico:</label>
+								<input type="text" name="monto" id="monto" onkeyup="format(this)">
+							</div>
 							
-					<div >
-						<input data-tooltip="I am tooltip" type="submit" value="Crear" class="btn tooltipped" ></br></br>
-					</div>
+							<div>
+								<label  class="white-text" for="categoria">Categor&iacutea:</label>
+								<select id="categoria" name="categoria" onchange="llenarSelect2(this.value)"> 
+									<option disabled="true" selected="true" value="0">Seleccione una categor&iacutea...</option>
+									<?php 
+										foreach ($lista as $categoria){
+											if($categoria->getHijoDe()=="0"){
+												echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+											}
+										}
+									?>
+								</select>
+							</div>
+
+							<div>
+								<label  class="white-text" for="subcategoria">Sub Categor&iacuteas:</label>
+								<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)"> 
+									<option disabled="true" selected="true" value="0">Seleccione una sub categor&iacutea...</option>
+								</select>
+							</div>
+
+							<div >
+								<label class="white-text" for="causa">Causa:</label>
+								<textarea class="materialize-textarea" rows="10" cels="30" id="causa" name="causa" ></textarea>
+							</div>
+							
+							<div >
+								<input type="submit" value="Crear" class="btn btn-default"></br></br>
+							</div>
+
+						</div>
+
+					
 				</div>
 			</form>
+
 			<div id="divContenedorM" class="divContenedorM col s4 m6 l6">
 				<div id="divMsjCategoria" class="divMsjCategoria">
 					<div id="msjCategoria" class="msjCategoria" style="display:none;"></div>
@@ -90,7 +137,7 @@
 				</div>
 			</div>
 		</div>
-</body>
+
 <script>
 	$( document ).ready(function(){
 	   $('select').material_select();
@@ -152,6 +199,21 @@
 		    });
 		}
 	});
+
+	function cargarDepartamentos(){
+
+		document.getElementById("temporal").style.display = 'block';
+		var departamentos= eval(<?php echo $arrayJsonDepartamentos?> );
+
+		for (i=0; i<departamentos.length; i++) {
+
+			new Option(departamentos[i].nombreDepartamento,departamentos[i].idDepartamento);
+			
+		}
+
+		$('select').material_select();
+
+	}
 	function llenarSelect2(valor){
 		var categorias = eval(<?php echo $ArrayJson ?>);
 		if(valor == 0){

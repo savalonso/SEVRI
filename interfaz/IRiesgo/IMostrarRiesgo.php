@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 	<?php
-		include ("../../Controladora/ctrDatosSevri.php");
-		$control = new ctrDatosSevri;	
-		$lista =$control->obtenerRiesgos();	
+
+	$idDepartamento=$_GET['id'];
+	
+	include("../../controladora/ctrListaRiesgo.php");
+	$control=new ctrListaRiesgo;
+	$listaRiesgos=$control->obtenerRiesgosDepartamento($idDepartamento);
+		
 	?>
 	<script>
 		window.onload=ocultarBarra();
-	</script>			
+	</script>		
+		
+	<link rel="stylesheet" type="text/css" href="../css/styleMostrarRiesgos.css">
 
 	<div class="row">
-		<h2>Lista de riesgos</h2>
-		<a href="#" onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgos.php')" data-tooltip="Agregar riesgos de versiones antiguas." class="btn-floating tooltipped btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
+		<h3>Lista de riesgos</h3>
+		<a id="boton" href="#" onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php')" data-tooltip="Agregar riesgos de versiones antiguas." class="btn-floating tooltipped btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
 		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
 		<?php  
-			if($lista!=null){
+			if($listaRiesgos!=null){
 		?>
 			<div id="div1">
 				<table class="responsive-table centered bordered">
@@ -21,26 +27,24 @@
 						<tr>
 							<th>Nombre</th>
 							<th>Descripci&oacuten</th>
-							<th>Departamento</th>
 							<th>Estado</th>
 							<th>Monto Econ&oacutemico</th>
 							<th>Categor&iacutea</th>
 							<th>Causa</th>
 							<th>Fecha Registro</th>
-							<th>Modificar</th>
-							<th>Eliminar</th>
+							<th>Opcion 1</th>
+							<th>Opcion 2</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php 
-						if($lista==null){
+						if($listaRiesgos==null){
 							echo "NO HAY REGISTROS AUN";
 						}else{
-							foreach ($lista as $riesgo){
+							foreach ($listaRiesgos as $riesgo){
 					            echo "<tr>					        
 						        	<td>".$riesgo->getNombre()."</td>
 						        	<td>".$riesgo->getDescripcion()."</td>
-									<td>".$riesgo->getIdDepartamento()."</td>
 									<td>".$riesgo->getEstaActivo()."</td>
 									<td> ‎"."₡".number_format($riesgo->getMontoEconomico(), 2, ',', ' ')."</td>
 									<td>".$riesgo->getIdCategoria()."</td>
