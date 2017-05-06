@@ -2791,7 +2791,11 @@ table {
   box-shadow: 10px 10px 5px #999;
 }
 table thead{
-  background-color: #ea770c;
+  background-color: #0d47a1 ;
+}
+
+table tfoot{
+  background-color: #0d47a1  ;
 }
 
 td,
