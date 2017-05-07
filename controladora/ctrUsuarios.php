@@ -4,9 +4,9 @@
         function ctrUsuarios(){}
 
         function insertarUsuarios(){
-        	include_once ("../dominio/dUsuarios.php");
-			include_once ("../data/dtUsuarios.php");
-	      	$usuario = new dUsuarios;
+        	include_once ("../dominio/dUsuario.php");
+			include_once ("../data/dtUsuario.php");
+	      	$usuario = new dUsuario;
 
     		$usuario->setCedula($_POST['cedula']);
             $usuario->setNombre($_POST['nombre']);
@@ -17,7 +17,7 @@
             $usuario->setClave($_POST['clave']);
             $usuario->setCargo($_POST['cargo']);
             $usuario->setTipo($_POST['tipo']);
-	      	$dataUsuarios = new dtUsuarios;
+	      	$dataUsuarios = new dtUsuario;
 	      	if($dataUsuarios->insertarUsuario($usuario) == true){
 	      		echo 
 	      		'
@@ -32,9 +32,9 @@
 		}
 
 		function actualizarUsuarios(){
-			include_once ("../dominio/dUsuarios.php");
-			include_once ("../data/dtUsuarios.php");
-			$usuario = new dUsuarios();
+			include_once ("../dominio/dUsuario.php");
+			include_once ("../data/dtUsuario.php");
+			$usuario = new dUsuario();
 			
 			$usuario->setNombre($_POST['nombre']);
 			$usuario->setPrimerApellido($_POST['primerApellido']);
@@ -46,7 +46,7 @@
 			$usuario->setTipo($_POST['tipo']);
 	      	$cedula = $_POST['cedula'];
 	      
-	      	$dataUsuario = new dtUsuarios();
+	      	$dataUsuario = new dtUsuario();
                
 	      	if($dataUsuario->actualizarUsuario($usuario,$cedula) == true){
 	      		echo 
@@ -62,10 +62,10 @@
 		}
 
 		function eliminarUsuarios(){
-			include_once ("../dominio/dUsuarios.php");
-			include_once ("../data/dtUsuarios.php");
+			include_once ("../dominio/dUsuario.php");
+			include_once ("../data/dtUsuario.php");
     		$cedula = $_POST['cedula'];
-	      	$dataUsuarios = new dtUsuarios;
+	      	$dataUsuarios = new dtUsuario;
                
 	      	if($dataUsuarios->eliminarUsuarios($cedula) == true){
 	      		echo 

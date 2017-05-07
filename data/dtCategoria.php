@@ -251,11 +251,11 @@
 			
 		}
 
-		function eliminarSevriCategoria($idCategoia){
+		function eliminarSevriCategoria($idCategoria){
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
-			$result = $conexion->query("CALL eliminarSevriCategoria('$idCategoia')");
+			$result = $conexion->query("CALL eliminarSevriCategoria('$idCategoria')");
 
 			mysqli_close($conexion);
 

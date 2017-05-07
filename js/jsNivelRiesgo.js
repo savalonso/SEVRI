@@ -1,4 +1,5 @@
 function agregarNivelesRiesgo(){
+	document.getElementById('barraCargando').style.display="";
 	
 	var nivelesRiesgoJSON = JSON.stringify(crearLiNivRiesgoInsertar());
 	var formData = new FormData();
@@ -15,10 +16,12 @@ function agregarNivelesRiesgo(){
     }).done(function(data) {
     	cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php');
     	Materialize.toast(data, 7000,'blue darken-3');
+    	document.getElementById('barraCargando').style.display="none";
     });
 }
 
 function modificarNivelesRiesgo(){
+	document.getElementById('barraCargando').style.display="";
 	
 	var nivelesRiesgoJSON = JSON.stringify(crearLiNivRiesgoModificar());
 	var formData = new FormData();
@@ -35,10 +38,12 @@ function modificarNivelesRiesgo(){
     }).done(function(data) {
     	cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php');
     	Materialize.toast(data, 7000,'blue darken-3');
+    	document.getElementById('barraCargando').style.display="none";
     });
 }
 
 function eliminarNivelRiesgo(){
+	document.getElementById('barraCargando').style.display="";
 	var formData = new FormData();
 	var idDivision = document.getElementById('idDivision').value;
     formData.append("opcion", 5);
@@ -54,6 +59,7 @@ function eliminarNivelRiesgo(){
     }).done(function(data) {
     	cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php');
     	Materialize.toast(data, 7000,'blue darken-3');
+    	document.getElementById('barraCargando').style.display="none";
     });
 }
 
@@ -207,7 +213,8 @@ function crearInputColor(idInput){
 
 function cargarGuiAgregarNivelRiesgo(idDivicion){
 	if(idDivicion != 0){
-		$('#mostrarDatos').load("../interfaz/INivelRiesgo/IAgregarNivelRiesgo.php?idDivicion="+idDivicion);
+		document.getElementById('barraCargando').style.display="";
+		$('#mostrarDatos').load("../interfaz/IComplementos/IAgregarNivelRiesgo.php?idDivicion="+idDivicion);
 	}
 }
 // metodo jqwery que valida si hay campos vacios en el insertar.
@@ -244,6 +251,7 @@ function cargarGuiAgregarNivelRiesgo(idDivicion){
 	       }
  }      
 function AgregarNivelRiesgo(valor){
+	document.getElementById('barraCargando').style.display="";
 	var formData = new FormData(); 
     formData.append("opcion", 2);
     formData.append("id", valor);
@@ -256,6 +264,7 @@ function AgregarNivelRiesgo(valor){
         contentType : false,
         processData : false
     }).done(function(data) {
+    	document.getElementById('barraCargando').style.display="none";
         var respuesta = eval(data);
         var seInserto;
         var mensaje;
@@ -300,6 +309,7 @@ function crearBotonDescartar(idDivicion){
 }
 
 function descartarNivelRiesgo(idDivicion){
+	document.getElementById('barraCargando').style.display="";
 	var idElemento;
 	 if(idDivicion > 0){
 	 	idElemento = idDivicion;
@@ -320,6 +330,7 @@ function descartarNivelRiesgo(idDivicion){
         contentType : false,
         processData : false
     }).done(function(data) {
+    	document.getElementById('barraCargando').style.display="none";
         var respuesta = eval(data);
         var seElimino;
         var mensaje;

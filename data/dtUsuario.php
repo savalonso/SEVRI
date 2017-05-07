@@ -126,7 +126,8 @@
 		}
 
         function getListaUsuarios(){
-			include_once("../../dominio/dUsuarios.php");
+        	include_once ('dtConnection.php');
+			include_once("../../dominio/dUsuario.php");
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
@@ -134,7 +135,7 @@
 			$lista = array();
 			$result = mysqli_query($conexion, $query);
 			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-				$usuario = new dUsuarios();
+				$usuario = new dUsuario();
 
 				$usuario->setCedula($row['Cedula']);
 				$usuario->setNombre($row['Nombre']);
@@ -183,7 +184,8 @@
 		}
 
 		function getUsuario($cedula){
-			include_once ("../../dominio/dUsuarios.php");
+			include_once ('dtConnection.php');
+			include_once ("../../dominio/dUsuario.php");
 			$con = new dtConnection();
 			$conexion = $con->conect();
 			$query = "CALL obtenerUsuario($cedula)";
@@ -191,7 +193,7 @@
 			$result = mysqli_query($conexion, $query);
 			while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
 			
-				$usuario = new dUsuarios;
+				$usuario = new dUsuario;
 				$usuario->setCedula($row[0]);
 				$usuario->setNombre($row[1]);
 				$usuario->setPrimerApellido($row[2]);	

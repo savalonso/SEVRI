@@ -2,6 +2,7 @@
  * Victor
  */
 function registrarSeguimiento(idAdministracion){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IRegistrarSeguimiento"));
     formData.append("opcion", 4);
     $.ajax({
@@ -15,6 +16,7 @@ function registrarSeguimiento(idAdministracion){
     }).done(function(data) {
         cargarPagina('../interfaz/ISeguimiento/IRealizarSeguimiento.php?IdAdministracion='+idAdministracion)
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 /**
@@ -28,6 +30,7 @@ function confirmarModificacionEliminacion(idSeguimiento){
     document.getElementById('idSeguimiento').value = idSeguimiento;
 }
 function eliminarSeguimientoAprobador(){
+    document.getElementById('barraCargando').style.display="";
 	var formData= new FormData();
 	var idSeguimiento=document.getElementById('idSeguimiento').value;
 	formData.append("idSeguimiento", idSeguimiento);
@@ -43,9 +46,11 @@ function eliminarSeguimientoAprobador(){
 	}).done(function(data){
 		cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php');
 		Materialize.toast(data, 7000, 'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
 	});
 }
 function modificarSeguimiento(){
+    document.getElementById('barraCargando').style.display="";
 	var formData=new FormData(document.getElementById("modificarSeguimiento"));
 	formData.append("opcion",2);
 	$.ajax({
@@ -59,10 +64,12 @@ function modificarSeguimiento(){
    }).done(function(data) {
         cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 
 }
 function insertarSeguimiento(){
+    document.getElementById('barraCargando').style.display="";
 	var formData=new FormData(document.getElementById("insertarSeguimientoAprobador"));
 	formData.append("opcion",1);
 	$.ajax({
@@ -76,6 +83,7 @@ function insertarSeguimiento(){
    }).done(function(data) {
         cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 function cargarFormulario(){

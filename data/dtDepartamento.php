@@ -137,6 +137,7 @@
 		}
 
 		function insertarSevriDepartamento($departamento){
+			include_once ("dtConnection.php");
 			$con = new dtConnection;
 			$prueba = $con->conect();
 			$result = $prueba->query("CALL insertarSevriDepartamentos('$departamento')");
@@ -152,11 +153,12 @@
 		}
 
 		function eliminarSevriDepartamento($departamento){
+			include_once ("dtConnection.php");
 			$con = new dtConnection;
-			$prueba = $con->conect();
-			$result = $prueba->query("CALL eliminarDepartamentoAgregado('$departamento')");
+			$conexion = $con->conect();
+			$result = $conexion->query("CALL eliminarDepartamentoAgregado('$departamento')");
 
-			//mysqli_close($prueba);
+			mysqli_close($conexion);
 
 			if (!$result){
 				return false;
@@ -219,6 +221,7 @@
 
 
 		function eliminarDepartamento($idDepartamento){
+			include_once ("dtConnection.php");
 			$con = new dtConnection;
 			$prueba = $con->conect();
 
@@ -232,6 +235,7 @@
 
 	
 		function getDepartamento($idDepartamento){
+			include_once ("dtConnection.php");
 			include_once ("dtConnection.php");
 			include_once("../../dominio/dDepartamento.php");
 			$con = new dtConnection();
@@ -259,7 +263,7 @@
 		}
 
 		function getSevriDepartamentos(){
-
+			include_once ("dtConnection.php");
 			$con=new dtConnection();
 			$conexion=$con->conect();
 			$query="CALL obtenerSevriDepartamentos()";

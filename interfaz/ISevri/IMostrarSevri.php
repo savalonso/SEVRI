@@ -28,8 +28,8 @@
 									<th>Fecha Creaci&oacuten</th>
 									<th>Opci&oacuten 1</th>
 									<th>Opci&oacuten 2</th>
-									<th></th>
 									<th>Opci&oacuten 3</th>
+									<th>Opci&oacuten 4</th>
 								</tr>
 							</thead>
 							<tbody class="buscar">
@@ -42,23 +42,22 @@
 						
 										<?php 
 						
-										if($sevri->getActivo()==1){
-										 echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" onclick=\"paginaModificarSevri('".$sevri->getIdSevri()."') \">Modificar</button></td>";
-										 echo 	"<td style=\"text-align:center;\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></td>";
-										 echo 	"<td style=\"text-align:center;\"><input type=\"hidden\" value=\"".$sevri->getIdSevri()."\" id=\"idSevri\"></input></td>";
-										}else{
-											echo "<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\">Registros</button></td>";
-											echo "<td></td>";
-											echo "<td></td>";
-										}
-
-										if($sevri->getEsNuevo()==1 && $sevri->getActivo() == 0){
+										if($sevri->getActivo()==0 && $sevri->getEsNuevo()==1){
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" onclick=\"paginaModificarSevri('".$sevri->getIdSevri()."') \">Modificar</button></td>";
+											echo 	"<td style=\"text-align:center;\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"cargarPagina('../interfaz/IComplementos/IConfigurarSevri.php') \">Configurar</button></td>";
 											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"activarSevri('".$sevri->getIdSevri()."') \">Activar</button></td>";
-										}
-										else if($sevri->getEsNuevo()==1 && $sevri->getActivo() == 1){
+											echo 	"<td style=\"text-align:center;\"><input type=\"hidden\" value=\"".$sevri->getIdSevri()."\" id=\"idSevri\"></input></td>";
+										}else if($sevri->getEsNuevo()==1 && $sevri->getActivo() == 1){
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" disabled=\"true\">Modificar</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" disabled=\"true\">Eliminar</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" disabled=\"true\">Configurar</button></td>";
 											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"desactivarSevri('".$sevri->getIdSevri()."') \">Desactivar</button></td>";
 										}else{
-											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" >Sin Opci&oacuten</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" disabled=\"true\">Modificar</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" disabled=\"true\">Eliminar</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" disabled=\"true\">Configurar</button></td>";
+											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" disabled=\"true\">Activar</button></td>";
 										}
 										?>
 										

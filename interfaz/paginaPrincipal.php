@@ -7,22 +7,22 @@
 	<link rel="stylesheet" href="../Materialize/css/materialize.css?v=1s">
 	<link href="../Materialize/css/icon.css?v=1" rel="stylesheet">
 	<link rel="stylesheet" href="../Materialize/css/Style.css?v=1">
-	<script src="../js/jQuery.js"></script>
-	<script src="../js/jquery.maskedinput.js"></script>
-	<script src="../Materialize/js/materialize.js"></script>
-	<script src="../js/jsRiesgo.js"></script>
-	<script src="../js/jsAnalisis.js"></script>
-	<script src="../js/jsNivelRiesgo.js"></script>
-	<script src="../js/jsAdministracion.js"></script>
-	<script src="../js/jsUsuarios.js"></script>
-	<script src="../js/jsDepartamento.js"></script>
-	<script type="text/javascript" src="../js/jsSeguimiento.js"></script>
-	<script type="text/javascript" src="../js/jsPaginadorTablas.js"></script>
-	<script type="text/javascript" src="../js/jsSevri.js"></script>
-	<script type="text/javascript" src="../js/jsCategoria.js"></script>
-	<script type="text/javascript" src="../js/jsParametros.js"></script>
-	<script type="text/javascript" src="../js/jsHistorial.js"></script>
-	<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+	<script src="../js/jQuery.js?v=1"></script>
+	<script src="../js/jquery.maskedinput.js?v=1"></script>
+	<script src="../Materialize/js/materialize.js?v=1"></script>
+	<script src="../js/jsRiesgo.js?v=1"></script>
+	<script src="../js/jsAnalisis.js?v=1"></script>
+	<script src="../js/jsNivelRiesgo.js?v=1"></script>
+	<script src="../js/jsAdministracion.js?v=1"></script>
+	<script src="../js/jsUsuarios.js?v=1"></script>
+	<script src="../js/jsDepartamento.js?v=1"></script>
+	<script type="text/javascript" src="../js/jsSeguimiento.js?v=1"></script>
+	<script type="text/javascript" src="../js/jsPaginadorTablas.js?v=1"></script>
+	<script type="text/javascript" src="../js/jsSevri.js?v=1"></script>
+	<script type="text/javascript" src="../js/jsCategoria.js?v=1"></script>
+	<script type="text/javascript" src="../js/jsParametros.js?v=1"></script>
+	<script type="text/javascript" src="../js/jsHistorial.js?v=1"></script>
+	<script type="text/javascript" src="../js/jquery.validate.min.js?v=1"></script>
 </head>
 <body>
 		<?php 

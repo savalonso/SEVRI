@@ -2,11 +2,11 @@
 	window.onload=ocultarBarra();
 </script>
 <?php
-include_once ("../../controladora/ctrListaUsuarios.php");
+include_once ("../../controladora/ctrListaUsuario.php");
 
 $cedulaUsuario = $_GET['cedula'];
 
-$control = new ctrListaUsuarios;
+$control = new ctrListaUsuario;
 
 $listaUsuarios = $control->obtenerUsuario($cedulaUsuario);
 

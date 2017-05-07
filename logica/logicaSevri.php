@@ -166,7 +166,7 @@ class LogicaSevri{
 		if($resultado == 0){
 			include_once('../data/dtCategoria.php');
 			$dataCategoria = new dtCategoria;
-			$resultado1 = $dataParametro->eliminarSevriCategoria($idCategoria);
+			$resultado1 = $dataCategoria->eliminarSevriCategoria($idCategoria);
 			return $resultado1;
 		}else{
 			return 0;
@@ -180,7 +180,7 @@ class LogicaSevri{
 		if($resultado == 0){
 			include_once('../data/dtDepartamento.php');
 			$dataDepartamento = new dtDepartamento;
-			$resultado1 = $dataParametro->eliminarSevriDepartamento($idDepartamento);
+			$resultado1 = $dataDepartamento->eliminarSevriDepartamento($idDepartamento);
 			return $resultado1;
 		}else{
 			return 0;

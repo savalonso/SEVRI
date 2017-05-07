@@ -38,10 +38,10 @@
 				</p>
 			</div>
 		</form>
-	<div class="col s12 m3 l3">
-		<input type="button" value="Crear Parametro" class="btn">
+		<div class="col s12 m3 l3">
+			<input type="button" value="Crear Parametro" class="btn">
+		</div>
 	</div>
-</div>
 
 <div id="contenedorTablaProbabilidad">
 <h3>Valores de probabilidad para agregar</h3>

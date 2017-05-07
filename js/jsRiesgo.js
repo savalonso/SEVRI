@@ -19,6 +19,7 @@ function nuevoAjax(){
 
 
 function insertarRiesgo(){
+    document.getElementById('barraCargando').style.display="";
 
     var formData = new FormData(document.getElementById("IIdentificarRiesgo")); 
     
@@ -48,9 +49,13 @@ function insertarRiesgo(){
     }).done(function(data) {
         cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
-function modificarRiesgoConsulta(id){  
+
+
+function modificarRiesgoConsulta(id){
+    document.getElementById('barraCargando').style.display="";  
     var formData = new FormData(document.getElementById("IListaModificarRiesgo"));
     formData.append("idRiesgo", id);
     $.ajax({
@@ -62,9 +67,13 @@ function modificarRiesgoConsulta(id){
         contentType : false,
         processData : false
     }).done(function(data) {
+        document.getElementById('barraCargando').style.display="none";
     });
 }
+
+
 function eliminarRiesgo(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IIdentificarRiesgo"));
     var id = document.getElementById("idRiesgo").value;
     formData.append("opcion", 3);
@@ -80,9 +89,11 @@ function eliminarRiesgo(){
     }).done(function(data) {
         cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 function modificarRiesgo(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IModificarRiesgo")); 
     var id = document.getElementById("idRiesgo").value;
     formData.append("idRiesgo", id);
@@ -98,6 +109,7 @@ function modificarRiesgo(){
     }).done(function(data) {
         cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 function confirmarModificacionEliminacion(idRiesgo){
