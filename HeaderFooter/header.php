@@ -1,8 +1,4 @@
-<?php  
-	session_start();
-	if($_SESSION){
-		$cedulaUsuarioLogin = $_SESSION['idUsuario'];
-		?>
+
 <header>
 	<input type="hidden" id="cedulaOculta" value="<?php echo "$cedulaUsuarioLogin"; ?>">
 	<div class="navbar-fixed">
@@ -20,12 +16,10 @@
 					<div class="posicion2">
 						<ul id="nav-mobile" class="right responsive-nav">
 							<!--menu -->
-						<?php  
-			      			if($_SESSION['tipo']=='Administrador'){?>
-								<li><a class="dropdown-button" href="#" data-activates="SubSevri">SEVRI</a></li>								<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos">Crear Complementos</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subUsuarios">Usuarios</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamentos</a></li>
-							<?php } ?>
+							<li><a class="dropdown-button" href="#" data-activates="SubSevri">SEVRI</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos">Crear Complementos</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subUsuarios">Usuarios</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamentos</a></li>
 							<li><a class="dropdown-button" href="#" data-activates="subProceso">Procesos SEVRI</a></li>
 							<li><a class="dropdown-button" href="#" data-activates="subMensajes" id="cantMenUsuario">Mensajes</a></li>
 							<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown1"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
@@ -33,13 +27,10 @@
 
 						<ul class="side-nav" id="menuresponsive">
 						<!-- sub menu responsive-->
-						<?php  
-				      	  	if($_SESSION['tipo']=='Administrador'){?>
-								<li><a class="dropdown-button" href="#" data-activates="SubSevri2">SEVRI</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos2">Crear Complementos</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subUsuarios2">Usuarios</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subDepartamentos2">Departamentos</a></li>
-							<?php } ?>
+							<li><a class="dropdown-button" href="#" data-activates="SubSevri2">SEVRI</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos2">Crear Complementos</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subUsuarios2">Usuarios</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="subDepartamentos2">Departamentos</a></li>
 							<li><a class="dropdown-button" href="#" data-activates="subProceso2">Procesos SEVRI</a></li>
 							<li><a class="dropdown-button" href="#" data-activates="subMensajes2" id="cantMenUsuario2">Mensajes</a></li>
 							<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown2"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
@@ -50,8 +41,6 @@
 		  </nav>
 	   </div>
 		   <!-- Dropdown Structure -->
-		   <?php
-			if($_SESSION['tipo']=='Administrador'){?>
 				<ul id="SubSevri" class="dropdown-content" >
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IcrearSevri.php')">Crear SEVRI</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IMostrarSevri.php')">Mostrar Versiones</a></li>
@@ -66,16 +55,15 @@
 				  <li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')">Crear Niveles de Riesgo</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php')">Mostrar Nivel Riesgo</a></li>	
 				</ul>
-			<?php } ?>
+
 				<ul id="subProceso" class="dropdown-content">
 				  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')">Identificar Riesgo</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php')">Mostrar Riesgos</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')">Analizar Riesgo</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalizados.php')">Mostrar An&aacutelisis</a></li>
-				   <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php')">Administrar Riesgo</a></li>
-				   <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimientos</a></li>
-
-				   <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php')">Mostrar Seguimientos</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php')">Administrar Riesgo</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimientos</a></li>
+				  <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php')">Mostrar Seguimientos</a></li>
 				</ul>
 
 
@@ -96,8 +84,6 @@
 					<li><a href="../desconectar.php">Salir</a></li>
 				</ul>
 		<!-- estructura del menú responsive-->
-		<?php
-			if($_SESSION['tipo']=='Administrador'){?>
 				<ul id="SubSevri2" class="dropdown-content" >
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IcrearSevri.php')">Crear SEVRI</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IMostrarSevri.php')">Mostrar Versiones</a></li>
@@ -112,16 +98,14 @@
 				  <li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')">Crear Niveles de Riesgo</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php')">Mostrar Nivel Riesgo</a></li>	
 				</ul>
-		<?php } ?>
 			<ul id="subProceso2" class="dropdown-content">
 			  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')">Identificar Riesgo</a></li>
 			  <li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php')">Mostrar Riesgos</a></li>
 			  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IAnalizarRiesgo.php')">Analizar Riesgo</a></li>
 			  <li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php')">Mostrar An&aacutelisis</a></li>
-			   <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
-			   <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimientos</a></li>
-
-				   <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php')">Mostrar Seguimientos</a></li>
+			  <li><a href="javascript:cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php')">Administrar Riesgo</a></li>
+			  <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimientos</a></li>
+			  <li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php')">Mostrar Seguimientos</a></li>
 			</ul>
 
 			<ul id="subMensajes2" class="dropdown-content">
@@ -148,8 +132,3 @@
 		});
 		</script>
 </header>
-<?php  
-}else{
-	header("location:../index.php");
-}
-?>

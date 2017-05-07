@@ -8,6 +8,22 @@
 	<link rel="stylesheet" href="Materialize/css/materialize.css">
 	<script src="Materialize/js/materialize.js"></script>
 	<script src="js/jsUsuarios.js"></script>
+	 <style>
+
+    .input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=email]:focus + label,
+    .input-field input[type=password]:focus + label {
+      color: #fff;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=email]:focus,
+    .input-field input[type=password]:focus {
+      border-bottom: 2px solid #fff;
+    }
+  </style>
 </head>
 <?php 
 	include('HeaderFooter/headerPaginaPrincipal.php');
@@ -103,6 +119,44 @@
         </div>
    </div>
       <!--Aqui se encuentra el modal del registro de usuario-->
+      <div id="login" class="modal">
+	
+		 <div class="section"></div>
+		      <div class="container">
+			        <div class="z-depth-1 blue darken-3 row" style="display: inline-block;padding: 32px 48px 32px 48px; border: 1px solid #EEE; margin-left:1px;width:100%;">
+			
+				          <form method="Post" action="accesoUsuario.php" class="col s12">
+				          	<div class='row'>
+					              <div class='col s12'>
+										<img class="imagenUsuario"src="img/user2.png" alt="">
+					              </div>
+					            </div>
+					            <div class='row'>
+					              <div class='input-field col s12'>
+						                <input class='validate white-text' type='text' name='usuario' id='usuario' />
+						                <label for='usuario' class="white-text">Usuario</label>
+					              </div>
+					            </div>
+					            <div class='row'>
+						            <div class='input-field col s12'>
+							            <input class='validate white-text' type='password' name='clave' id='clave' />
+							            <label for='clave' class="white-text">Clave</label>
+						            </div>
+					            </div>
+					            <center>
+						            <div class='row'>
+						               <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Ingresar</button>
+						            </div>
+					            </center>
+				          </form>
+			        </div>
+	      		</div>
+    
+					    
+		</div>	
+
+	<!--
+
       <div id="login" class="modal blue darken-3 z-depth-5 white-text">
 		<div class="modal-content" id="contenido">
 			<div id="contenidoFormulario">
@@ -124,7 +178,7 @@
 				</form>	
 			</div>			    
 		</div>	
-	</div>	
+	</div>	 -->
 	<script>
 		$(document).ready(function(){
 		   	$('.modal-trigger').leanModal();

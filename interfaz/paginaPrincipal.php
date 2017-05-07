@@ -26,62 +26,78 @@
 </head>
 <body>
 		<?php 
-			include('../HeaderFooter/header.php');
+			session_start();
+			$cedula=$_SESSION['idUsuario'];
+			$tipo = $_SESSION['tipo'];
+			if($cedula != null){
+				if($tipo == "Administrador"){
+					include('../HeaderFooter/header.php');
+				}else{
+					include('../HeaderFooter/headerUsuario.php');
+				}
 		?>
 
 		<main>
 			<div class="preloader-wrapper big active posicionBarra" id="barraCargando" style="display:none">
-		  <div class="spinner-layer spinner-blue">
-		    <div class="circle-clipper left">
-		      <div class="circle"></div>
-		    </div><div class="gap-patch">
-		      <div class="circle"></div>
-		    </div><div class="circle-clipper right">
-		      <div class="circle"></div>
-		    </div>
-		  </div>
+			  <div class="spinner-layer spinner-blue">
+				    <div class="circle-clipper left">
+					    <div class="circle"></div>
+				   </div>
+				   <div class="gap-patch">
+						<div class="circle"></div>
+				   </div>
+				   <div class="circle-clipper right">
+					    <div class="circle"></div>
+				   </div>
+			  </div>
 
-		  <div class="spinner-layer spinner-red">
-		    <div class="circle-clipper left">
-		      <div class="circle"></div>
-		    </div><div class="gap-patch">
-		      <div class="circle"></div>
-		    </div><div class="circle-clipper right">
-		      <div class="circle"></div>
-		    </div>
-		  </div>
+			  <div class="spinner-layer spinner-red">
+				    <div class="circle-clipper left">
+				       <div class="circle"></div>
+				    </div>
+				    <div class="gap-patch">
+				       <div class="circle"></div>
+				    </div>
+				    <div class="circle-clipper right">
+				       <div class="circle"></div>
+				    </div>
+			  </div>
 
-		  <div class="spinner-layer spinner-yellow">
-		    <div class="circle-clipper left">
-		      <div class="circle"></div>
-		    </div><div class="gap-patch">
-		      <div class="circle"></div>
-		    </div><div class="circle-clipper right">
-		      <div class="circle"></div>
-		    </div>
-		  </div>
+			  <div class="spinner-layer spinner-yellow">
+				    <div class="circle-clipper left">
+				       <div class="circle"></div>
+				    </div>
+				    <div class="gap-patch">
+				       <div class="circle"></div>
+				    </div>
+				    <div class="circle-clipper right">
+				       <div class="circle"></div>
+				    </div>
+			  </div>
 
-      <div class="spinner-layer spinner-green">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
-			<div id="contenedor" class="container contForm">
-				
-			</div>
-		
-			<div id="mRespuesta">
-
-			</div>
-	</main>
+		      <div class="spinner-layer spinner-green">
+			        <div class="circle-clipper left">
+			           <div class="circle"></div>
+			        </div>
+			        <div class="gap-patch">
+			           <div class="circle"></div>
+			        </div>
+			        <div class="circle-clipper right">
+			           <div class="circle"></div>
+			        </div>
+		      </div>
+           </div>
+			<div id="contenedor" class="container contForm"></div>
+			<div id="mRespuesta"></div>
+	    </main>
 	
  		<?php 
 			include('../HeaderFooter/footer.php');
 		 ?>
-</body>
+
+	<?php }else{
+		header("location:../index.php");
+	} ?>
+
+    </body>
 </html>

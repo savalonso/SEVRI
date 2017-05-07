@@ -99,3 +99,12 @@ function limpiar(){
     document.getElementById('usuario').value="";
     document.getElementById('clave').value="";
 }
+/*aqui se encuentra el paginador de las tablas*/
+ 
+ $(document).ready(function(){
+        $("#tbUsuario").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+
+/*aqui finalisa*/
