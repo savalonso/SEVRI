@@ -1,12 +1,6 @@
-function recorrerSelect(){
-   // var select = document.getElementById('selectDepartamentos');
-    $("#selectDepartamentos option:selected").each(function(){
-        alert('opcion '+$(this).text()+' valor '+ $(this).attr('value'))
-    });
-}
 
 function insertarSevri(){
-
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IcrearSevri")); 
     formData.append("opcion", 1);
     $.ajax({
@@ -20,6 +14,7 @@ function insertarSevri(){
     }).done(function(data) {
         cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        ocultarBarra();
     });    
 }
 
@@ -44,6 +39,7 @@ function activarSevri(idSevri){
 }
 
 function desactivarSevri(idSevri){
+  document.getElementById('barraCargando').style.display="";
   var formData = new FormData();
   formData.append("idSevri", idSevri); 
   formData.append("opcion", 14);
@@ -58,10 +54,16 @@ function desactivarSevri(idSevri){
   }).done(function(data) {
       cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
       Materialize.toast(data, 7000,'blue darken-3');
+      ocultarBarra();
   });    
 }
 
+/*
+creo que el metodo no se utiliza
+
+
 function agregarParametros(desicion, formulario, tabla){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById(formulario)); 
     if(desicion == 1){
         var parametros = recorrerTabla(4, tabla);
@@ -93,8 +95,9 @@ function agregarParametros(desicion, formulario, tabla){
     }).done(function(data) {
      cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
      Materialize.toast(data, 7000,'blue darken-3');
+     ocultarBarra();
     });     
-}
+}*/
 
 function ocultarTodos(){
     document.getElementById('contenedorTablaProbabilidad').style.display='none';
@@ -158,7 +161,7 @@ function cancelarActualizar(){
 }
 
 function actualizarSevri(){
-   
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById('actualizarSevri')); 
     var id = document.getElementById("id").value;
     formData.append("opcion", 5);
@@ -172,13 +175,14 @@ function actualizarSevri(){
     contentType : false,
     processData : false
     }).done(function(data) {
-    
     cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
     Materialize.toast(data, 7000,'blue darken-3');
+    ocultarBarra();
     });    
 }
 
 function eliminarSevri(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(); 
     var id = document.getElementById("idSevri").value;
     formData.append("opcion", 6);
@@ -194,6 +198,7 @@ function eliminarSevri(){
     }).done(function(data) {
      cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
      Materialize.toast(data, 7000,'blue darken-3');
+     ocultarBarra();
     });    
 }
 
@@ -215,8 +220,19 @@ function activarFila(posicion){
     document.getElementById(posicion).style.display  = '';
 }
 
-function agregarEliminarParametroSevri(id, opcion, idColumna, desicion, fila, posicion, nombre){
 
+/*Metodo que se encarga de vincular o desvicular los parametros, categorias y departamentos al sevri
+los valores que recibe son los siguientes:
+id= el id del elemento que se quiere vincular o desvincular del sevri
+opcion=el metodo que tiene que llamar ctrSevri dependiendo del tipo de elemento a eliminar y acción a realizar
+idCulumna=la columna que se quiere mostrar y solo se utiliza si  la desición es 4 o mayor
+desicion=para saber a cual tabla se deben agregar los objetos
+fila= toda la fila que se quiere agregar a la otra tabla
+posicion=la posicion del elemento que se va eliminar, tambien se utiliza para saber la tabla en caso de que se quiera eliminar
+nombre=nombre del objeto o lugar donde se van a insertar los datos y solo se utiliza si es en la tabla parametros
+*/
+function agregarEliminarParametroSevri(id, opcion, idColumna, desicion, fila, posicion, nombre){
+  document.getElementById('barraCargando').style.display="";
   var formData = new FormData(); 
   formData.append("opcion", opcion);
   formData.append("id", id);
@@ -230,6 +246,7 @@ function agregarEliminarParametroSevri(id, opcion, idColumna, desicion, fila, po
     contentType : false,
     processData : false
   }).done(function(data) {
+    ocultarBarra();
     var respuesta = eval(data);
     for(var i in respuesta){
       seInserto = respuesta[i].inserto;
@@ -272,6 +289,9 @@ function remove() {
   agregarEliminarParametroSevri(idElemento, 8, idElemento, 4);
 }
 
+/*En el siguiente metodo se desvinculan los parametros de la version del sevri que sea nueva
+recibe el boton para así poder tener una referencia del elemento y el id del parametro que se quiere
+eliminar o desvincular de la verisón del sevri*/
 function removerParametros(boton, idElemento) {
   var row = boton.parentNode.parentNode;
   agregarEliminarParametroSevri(idElemento, 8, idElemento, 4, row, 1);
@@ -289,24 +309,22 @@ function quitarDepartamento(boton, idFila, idDepartamento) {
 
 function removerCategorias() {
   var row = this.parentNode.parentNode;
-  document.querySelector('#tbCategoriasAgregadas tbody').removeChild(row);
 
   var cells = row.querySelectorAll('td:not(:last-of-type)');
   var idFila = cells[3].innerText;
   var idCategoria = cells[2].innerText;
 
-  agregarEliminarParametroSevri(idCategoria,10, idFila, 4);
+  agregarEliminarParametroSevri(idCategoria,10, idFila, 4, row, 2);
 }
 
 function removerDepartamentos() {
   var row = this.parentNode.parentNode;
-  document.querySelector('#tbDepartamentosAgregadas tbody').removeChild(row);
 
   var cells = row.querySelectorAll('td:not(:last-of-type)');
   var idFila = cells[3].innerText;
   var idDepartamento = cells[2].innerText;
 
-  agregarEliminarParametroSevri(idDepartamento,12, idFila, 4);
+  agregarEliminarParametroSevri(idDepartamento,12, idFila, 4, row, 3);
 }
 
 function add(button, idElemento, opcion, nombre) {

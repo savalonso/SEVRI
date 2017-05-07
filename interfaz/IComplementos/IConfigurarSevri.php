@@ -21,6 +21,11 @@
 			<input class="with-gap radiosConfiguracion" name="group1" type="radio" id="radioDepartamentos" onclick="cargarPaginaConfiguraciones('../interfaz/IComplementos/IAgregarDepartamentos.php', this)" />
 			<label for="radioDepartamentos" class="white-text radiosConfiguracion">Agregar Departamentos</label>
 		</p>
+
+		<p>
+			<input class="with-gap radiosConfiguracion" name="group1" type="radio" id="radioNivelRiesgo" onclick="cargarPaginaConfiguraciones('../interfaz/IComplementos/IAgregarNivelRiesgoAuxiliar.php', this)" />
+			<label for="radioNivelRiesgo" class="white-text radiosConfiguracion">Agregar Nivel de Riesgo</label>
+		</p>
 		
 	</div>
 	<input type="hidden" id="idRadioSeleccionado">

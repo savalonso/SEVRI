@@ -1,4 +1,5 @@
 function insertarCategoria(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IInsertarCategoria"));
     if(document.getElementById('categoria').disabled==false){
       formData.append("subcategoria", 1);
@@ -17,6 +18,7 @@ function insertarCategoria(){
     }).done(function(data) {
         cargarPagina('../interfaz/ICategoria/IMostrarCategoria.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });    
 }
 function confirmarModificacionEliminacionCategoria(idCategoria){
@@ -27,6 +29,7 @@ function cancelarModificar(){
     document.getElementById('contenedorConfirmacion').style.display = 'none';
 }
 function eliminarCategoria(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IMostrarCategoria"));
     var id = document.getElementById("idCategoria").value;
     formData.append("opcion", 2);
@@ -42,9 +45,11 @@ function eliminarCategoria(){
     }).done(function(data) {
         cargarPagina('../interfaz/ICategoria/IMostrarCategoria.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 function modificarCategoria(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IModificarCategoria")); 
     var id = document.getElementById("id").value;
     formData.append("idCategoria", id);
@@ -65,7 +70,7 @@ function modificarCategoria(){
     }).done(function(data) {
         cargarPagina('../interfaz/ICategoria/IMostrarCategoria.php');
         Materialize.toast(data, 7000,'blue darken-3');
-        alert(data);
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 /*aqui se encuentra el paginador de las tablas*/

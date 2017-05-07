@@ -1,4 +1,5 @@
 function insertarUsuarios(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IRegistrarUsuarios"));
     formData.append("opcion", 1);
     $.ajax({
@@ -12,10 +13,12 @@ function insertarUsuarios(){
     }).done(function(data) {
         cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 
 function modificarUsuarios() {
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById('IModificarUsuarios'));
     formData.append("opcion", 2);
     $.ajax({
@@ -29,10 +32,12 @@ function modificarUsuarios() {
     }).done(function (data) {
         cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php');
         Materialize.toast(data, 7000, 'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 
 function eliminarUsuario(cedulaUsuario) {
+    document.getElementById('barraCargando').style.display="";
     var cedula = cedulaUsuario;
     var formData = new FormData();
     formData.append("opcion", 3);
@@ -48,10 +53,12 @@ function eliminarUsuario(cedulaUsuario) {
     }).done(function (data) {
         cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php');
         Materialize.toast(data, 7000, 'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 
 function dirigir_url_mensaje(url, idMensaje) {
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     formData.append("opcion", 5);
     formData.append("idMensaje", idMensaje);
@@ -64,6 +71,7 @@ function dirigir_url_mensaje(url, idMensaje) {
         contentType: false,
         processData: false
     }).done(function (data) {
+        document.getElementById('barraCargando').style.display="none";
         $('#contenedor').load(url);
     });
 }

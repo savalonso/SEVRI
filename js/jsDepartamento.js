@@ -1,5 +1,6 @@
 
 function insertarDepartamento(){
+    document.getElementById('barraCargando').style.display="";
     var formData= new FormData(document.getElementById("ingresarDepartamento"));
     formData.append("opcion",1);
     $.ajax({
@@ -13,10 +14,12 @@ function insertarDepartamento(){
     }).done(function(data) {
         cargarPagina('../interfaz/IDepartamento/IMostrarDepartamentos.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     }); 
 }
 
 function modificarDepartamento(){
+    document.getElementById('barraCargando').style.display="";
     var formData=new FormData(document.getElementById("modificarDepartamento"));
     formData.append("opcion", 2);
     $.ajax({
@@ -30,10 +33,12 @@ function modificarDepartamento(){
    }).done(function(data) {
         cargarPagina('../interfaz/IDepartamento/IMostrarDepartamentos.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 
 function eliminarDepartamento(){
+    document.getElementById('barraCargando').style.display="";
     var formData=new FormData();
     var idDepartamento=document.getElementById('idDepartamento').value;
     formData.append("idDepartamento",idDepartamento);
@@ -49,6 +54,7 @@ function eliminarDepartamento(){
     }).done(function(data){
         cargarPagina('../interfaz/IDepartamento/IMostrarDepartamentos.php');
         Materialize.toast(data, 7000, 'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
 
     });
 }
@@ -58,6 +64,7 @@ function confirmarEliminarDepartamento(idDepartamento){
 }
 
 function agregarUsuarioDepartamento(idDepartamento, cedulaUsuario){
+    document.getElementById('barraCargando').style.display="";
     var formData= new FormData();
     formData.append("opcion",4);
     formData.append("idDepartamento",idDepartamento);
@@ -72,10 +79,12 @@ function agregarUsuarioDepartamento(idDepartamento, cedulaUsuario){
     processData : false
     }).done(function(data) {
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 
 function eliminarUsuarioDepartamento(idDepartamento, cedulaUsuario){
+    document.getElementById('barraCargando').style.display="";
     var formData= new FormData();
     formData.append("opcion",5);
     formData.append("idDepartamento",idDepartamento);
@@ -90,6 +99,7 @@ function eliminarUsuarioDepartamento(idDepartamento, cedulaUsuario){
     processData : false
     }).done(function(data) {
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     }); 
 }
 

@@ -1,4 +1,5 @@
 function insertarAnalisis(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IAnalisisRiesgo"));
     formData.append("opcion", 1);
     $.ajax({
@@ -12,6 +13,7 @@ function insertarAnalisis(){
     }).done(function(data) {
         cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
 }
 
@@ -49,6 +51,7 @@ function paginaModificarAnalisis(IdAnalisis){
 }
 
 function modificarAnalisis(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById('IModificarAnalisis'));
     formData.append("opcion", 2);
     $.ajax({
@@ -62,10 +65,12 @@ function modificarAnalisis(){
     }).done(function(data) {
         cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     });
     }
 
     function eliminarAnalisis(idAnalisisForm){
+        document.getElementById('barraCargando').style.display="";
         var idAnalisis = idAnalisisForm;
         var formData = new FormData(); 
         formData.append("opcion", 3);
@@ -81,5 +86,6 @@ function modificarAnalisis(){
         }).done(function(data) {
             cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php');
             Materialize.toast(data, 7000,'blue darken-3');
+            document.getElementById('barraCargando').style.display="none";
         });
     }

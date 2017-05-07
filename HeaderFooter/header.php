@@ -22,9 +22,7 @@
 							<!--menu -->
 						<?php  
 			      			if($_SESSION['tipo']=='Administrador'){?>
-								<li><a class="dropdown-button" href="#" data-activates="SubSevri">SEVRI</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subComplementos">Agregar Complementos</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos">Crear Complementos</a></li>
+								<li><a class="dropdown-button" href="#" data-activates="SubSevri">SEVRI</a></li>								<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos">Crear Complementos</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subUsuarios">Usuarios</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamentos</a></li>
 							<?php } ?>
@@ -38,7 +36,6 @@
 						<?php  
 				      	  	if($_SESSION['tipo']=='Administrador'){?>
 								<li><a class="dropdown-button" href="#" data-activates="SubSevri2">SEVRI</a></li>
-								<li><a class="dropdown-button" href="#" data-activates="subComplementos2">Agregar Complementos</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos2">Crear Complementos</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subUsuarios2">Usuarios</a></li>
 								<li><a class="dropdown-button" href="#" data-activates="subDepartamentos2">Departamentos</a></li>
@@ -60,13 +57,7 @@
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IMostrarSevri.php')">Mostrar Versiones</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/IHistorial/IMostarRiesgos.php')">Historial</a></li>
 				</ul>
-				<ul id="subComplementos" class="dropdown-content" >
-					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarParametros.php')">Agregar Par&aacutemetros</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarDepartamentos.php')">Agregar Departamentos</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarCategorias.php')">Agregar Categor&iacuteas</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IAgregarNivelRiesgoAuxiliar.php')">Agregar Nivel Riesgo</a></li>
-					
-				</ul>
+
 				<ul id="subCrearComplementos" class="dropdown-content" >
 				  <li><a href="javascript:cargarPagina('../interfaz/IParametros/IcrearParametro.php')">Crear Par&aacutemetro</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/IParametros/IMostrarParametros.php')">Mostrar Par&aacutemetro</a></li>
@@ -112,13 +103,7 @@
 				  <li><a href="javascript:cargarPagina('../interfaz/ISevri/IMostrarSevri.php')">Mostrar Versiones</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/IHistorial/IMostarRiesgos.php')">Historial</a></li>
 				</ul>
-				<ul id="subComplementos2" class="dropdown-content" >
-					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarParametros.php')">Agregar Par&aacutemetros</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarDepartamentos.php')">Agregar Departamentos</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/IComplementos/IAgregarCategorias.php')">Agregar Categor&iacuteas</a></li>
-					<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IAgregarNivelRiesgoAuxiliar.php')">Agregar Nivel Riesgo</a></li>
-					
-				</ul>
+				
 				<ul id="subCrearComplementos2" class="dropdown-content" >
 				  <li><a href="javascript:cargarPagina('../interfaz/IParametros/IcrearParametro.php')">Crear Par&aacutemetro</a></li>
 				  <li><a href="javascript:cargarPagina('../interfaz/IParametros/IMostrarParametros.php')">Mostrar Par&aacutemetro</a></li>

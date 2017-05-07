@@ -1,5 +1,6 @@
 
 function insertarParametros(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IcrearParametros")); 
     formData.append("opcion", 1);
     $.ajax({
@@ -13,10 +14,12 @@ function insertarParametros(){
     }).done(function(data) {
         cargarPagina('../interfaz/IParametros/ImostrarParametros.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     }); 
 }
 
 function modificarParametro(){
+    document.getElementById('barraCargando').style.display="";
     var idParametro = document.getElementById('idParametro').value;
     var formData = new FormData(document.getElementById("modificarParametro")); 
     formData.append("opcion", 2);
@@ -32,10 +35,12 @@ function modificarParametro(){
     }).done(function(data) {
         cargarPagina('../interfaz/IParametros/ImostrarParametros.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     }); 
 }
 
 function eliminarParametro(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     var idParametro = document.getElementById('idParametro').value;
     formData.append("idParametro", idParametro); 
@@ -51,6 +56,7 @@ function eliminarParametro(){
     }).done(function(data) {
         cargarPagina('../interfaz/IParametros/ImostrarParametros.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     }); 
 }
 

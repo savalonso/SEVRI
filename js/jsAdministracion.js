@@ -1,4 +1,5 @@
 function insertarAdministracion(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IAdministrarRiesgo")); 
     formData.append("opcion", 1);
     $.ajax({
@@ -12,6 +13,7 @@ function insertarAdministracion(){
     }).done(function(data) {
         cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     }); 
 }
 function invocarDivModificarAdmi(button,idAdministracion){
@@ -57,6 +59,7 @@ function ocultarDivActualizar(){
     document.getElementById('divModificarAdministracion').style.display = 'none';
 }
 function modificarAdministracion(){
+    document.getElementById('barraCargando').style.display="";
   
     var formData = new FormData(document.getElementById("IModificarAdministrarRiesgo")); 
     formData.append("opcion", 2);
@@ -71,12 +74,14 @@ function modificarAdministracion(){
     }).done(function(data) {
         cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     }); 
 }
 function confirmarEliminarAdministracion(idAdministracion){
     document.getElementById('idAdministracion').value = idAdministracion;
 }
 function eliminarAdministracion(){
+    document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     var idAdmi = document.getElementById('idAdministracion').value;
     alert("hola el id a eliminar es "+idAdmi);
@@ -93,6 +98,7 @@ function eliminarAdministracion(){
     }).done(function(data) {
         cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php');
         Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
     }); 
 }
 function mascaraDinero(input){
