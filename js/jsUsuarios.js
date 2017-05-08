@@ -101,6 +101,7 @@ function limpiar(){
 }
 /*aqui se encuentra el paginador de las tablas*/
  
+ 
  $(document).ready(function(){
         $("#tbUsuario").paginationTdA({
             elemPerPage: 4

@@ -7,6 +7,7 @@
 	
 	<link rel="stylesheet" href="Materialize/css/materialize.css">
 	<script src="Materialize/js/materialize.js"></script>
+	<script type="text/javascript" src="js/jsPaginadorTablas.js?v=3"></script>
 	<script src="js/jsUsuarios.js"></script>
 	 <style>
 
@@ -119,11 +120,11 @@
         </div>
    </div>
       <!--Aqui se encuentra el modal del registro de usuario-->
-      <div id="login" class="modal">
+      <div id="login" class="modal blue darken-3">
 	
 		 <div class="section"></div>
 		      <div class="container">
-			        <div class="z-depth-1 blue darken-3 row" style="display: inline-block;padding: 32px 48px 32px 48px; border: 1px solid #EEE; margin-left:1px;width:100%;">
+			        <div class=" blue darken-3 row" style="display: inline-block;padding: 32px 48px 0 48px; margin-left:1px;width:100%;">
 			
 				          <form method="Post" action="accesoUsuario.php" class="col s12">
 				          	<div class='row'>
