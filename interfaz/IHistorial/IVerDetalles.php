@@ -58,7 +58,7 @@
 						<p><?php echo"$nivel"; ?></p><hr>
 						<h5>Medida de control:</h5>
 						<p><?php echo "$medida"; ?></p><hr>
-						<h5>Calificaci&nacuten medida:</h5>
+						<h5>Calificaci&oacuten medida:</h5>
 						<p><?php echo "$calificacion"; ?></p><hr>
 					<?php
 				}else{
