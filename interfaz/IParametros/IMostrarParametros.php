@@ -31,7 +31,7 @@
 			<h2>Par&aacutemetros de Impacto</h2>
 			<div class="col s12 m12 l12">
 				<div>
-					<table class="responsive-table striped" id="impacto">
+					<table class="responsive-table striped centered responsive" id="impacto">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -87,7 +87,7 @@
 			<h2>Par&aacutemetros de Probabilidad</h2>
 			<div class="col s12 m12 l12">
 				<div>
-					<table class="responsive-table striped" id="probabilidad">
+					<table class="responsive-table striped centered responsive" id="probabilidad">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -143,7 +143,7 @@
 			<h2>Par&aacutemetros de Calificaci&oacuten de la Medida</h2>
 			<div class="col s12 m12 l12 ">
 				<div>
-					<table class="responsive-table striped " id="calificacion">
+					<table class="responsive-table striped centered responsive" id="calificacion">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
