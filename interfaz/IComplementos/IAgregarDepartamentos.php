@@ -10,9 +10,9 @@
 <div id="contenedorDepartamentos">
     <div class="row" id="contenedorTablaCategorias">
     <h3>Departamentos para agregar</h3>
-        <div class="col s12 m8 l8 blue darken-3 z-depth-5">
+        <div class="col s12 m8 l8">
             <div id="div1">
-                <table class="responsive-table centered bordered" id="tbDepartamentos">
+                <table class="responsive-table striped" id="tbDepartamentos">
                     <thead>
                         <tr>
                             <th>C&oacutedigo Departamento</th>
@@ -56,9 +56,9 @@
 
     <div class="row">
         <h3>Departamentos Agregados</h3>
-        <div class="col s12 m8 l8 blue darken-3 z-depth-5">
+        <div class="col s12 m8 l8">
             <div id="div1">
-                <table class="responsive-table centered bordered" id="tbDepartamentosAgregadas">
+                <table class="responsive-table striped" id="tbDepartamentosAgregadas">
                     <thead>
                         <tr>
                             <th>C&oacutedigo Departamento</th>
@@ -85,5 +85,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="../js/jsDepartamento.js"></script>

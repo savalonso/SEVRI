@@ -19,9 +19,9 @@
 	        <input id="filtrar" type="text" >
         	</div>
         	
-				<div class="col s12 m12 l8 blue darken-3 z-depth-5">
-					<div id="div1">
-						<table class="responsive-table " id="MostrarSevri">
+				<div class="col s12 m12 l8">
+					<div>
+						<table class="responsive-table striped" id="MostrarSevri">
 							<thead >
 								<tr >
 									<th>Nombre Versi&oacuten</th>

@@ -9,9 +9,9 @@
  ?>
 
 <div class="row">
-	<div class="col s12 m8 l8 blue darken-3 z-depth-5">
+	<div class="col s12 m8 l8">
 		<div id="div1">
-			 <table class="responsive-table bordered">
+			 <table class="responsive-table striped">
 			 	<thead>
 			 		<tr>
 						<th>Limite</th>

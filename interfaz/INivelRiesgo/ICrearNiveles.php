@@ -22,9 +22,9 @@
 	</div>
 
 	<div class="row">
-		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
+		<div class="col s12 m12 l12 ">
 			<div id="div1">
-				<table class="responsive-table centered bordered" id="tablaInsertarDivisiones">
+				<table class="responsive-table striped" id="tablaInsertarDivisiones">
 					<thead>
 						<tr>
 							<th>De</th>

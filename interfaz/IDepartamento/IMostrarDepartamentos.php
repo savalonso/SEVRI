@@ -18,9 +18,9 @@
 			?>
 
 			<h2>Lista de Departamentos</h2>
-			<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-				<div id="div1">
-					<table class="responsive-table centered bordered">
+			<div class="col s12 m12 l12">
+				<div>
+					<table class="responsive-table striped" id="mostrarDep">
 						<thead>
 							<tr>
 								<th>Codigo</th>
@@ -95,4 +95,5 @@
 	   	$('ul.tabs').tabs();
 	});
   </script>	
+  <script type="text/javascript" src="../js/jsDepartamento.js"></script>	
 				

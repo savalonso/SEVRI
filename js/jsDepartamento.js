@@ -92,3 +92,10 @@ function eliminarUsuarioDepartamento(idDepartamento, cedulaUsuario){
         Materialize.toast(data, 7000,'blue darken-3');
     }); 
 }
+
+/*paginacion*/
+$(document).ready(function(){
+        $("#mostrarDep").paginationTdA({
+            elemPerPage: 4
+        });
+    });
