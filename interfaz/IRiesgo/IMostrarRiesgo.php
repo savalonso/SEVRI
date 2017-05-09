@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!$_SESSION){
+		echo "<meta http-equiv=\"refresh\" content=\"0; url=paginaPrincipal.php\">";
+    }else{
+ ?>
 <!DOCTYPE html>
 	<?php
 
@@ -76,7 +82,7 @@
 	 			</div>
 		</div>
 	</div>
-
+<?php } ?>
 	<script>
   		$(document).ready(function(){
 	  		$('.modal-trigger').leanModal();

@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!$_SESSION){
+		echo "<meta http-equiv=\"refresh\" content=\"0; url=paginaPrincipal.php\">";
+    }else{
+ ?>
 <?php
 	$idAdministracion = $_GET['idAdministracion'];
 	include ("../../controladora/ctrListaSeguimientos.php");
@@ -46,3 +52,4 @@
 		</tbody>
 	</table>
 </div>
+<?php } ?>

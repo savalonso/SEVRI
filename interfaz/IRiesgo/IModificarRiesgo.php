@@ -1,35 +1,45 @@
+<?php 
+	session_start();
+	if(!$_SESSION){
+		echo "<meta http-equiv=\"refresh\" content=\"0; url=paginaPrincipal.php\">";
+    }else{
+ ?>
 <?php
 	$idRiesgo = $_GET['idRiesgo'];
 	include ("../../data/dtRiesgo.php");
 	//include ("../../dominio/dRiesgo.php");
 	$control = new dtRiesgo;
 	$lista = $control->getRiesgo($idRiesgo);
-	foreach ($lista as $riesgo) {
-		$id = $riesgo->getId();
-		$idDepartamento = $riesgo->getIdDepartamento();
-		$nombre = $riesgo->getNombre();
-		$descripcion = $riesgo->getDescripcion();
-		$monto = $riesgo->getMontoEconomico();
-		$causa = $riesgo->getCausa();
-		$subcategoria = $riesgo->getIdCategoria();
-		$estado = $riesgo->getEstaActivo();
+	if($lista!=null){
+		foreach ($lista as $riesgo) {
+			$id = $riesgo->getId();
+			$idDepartamento = $riesgo->getIdDepartamento();
+			$nombre = $riesgo->getNombre();
+			$descripcion = $riesgo->getDescripcion();
+			$monto = $riesgo->getMontoEconomico();
+			$causa = $riesgo->getCausa();
+			$subcategoria = $riesgo->getIdCategoria();
+			$estado = $riesgo->getEstaActivo();
+		}
 	}
 
 	include ("../../controladora/ctrDatosSevri.php");
 	$control1 = new ctrDatosSevri;	
 	$listaC =$control1->obtenerTodasLasCategorias();
-	foreach ($listaC as $categoria) {
-		if($categoria->getIdCategoria()==$subcategoria){
-			$padre = $categoria->getHijoDe();
+	if($listaC!=null){
+		foreach ($listaC as $categoria) {
+			if($categoria->getIdCategoria()==$subcategoria){
+				$padre = $categoria->getHijoDe();
+			}
+			$arr[] = array(
+			'_id' => $categoria->getIdCategoria(),
+	        'nombre' => $categoria->getNombreCategoria(),
+	        'padre' => $categoria->getHijoDe(),
+	        'descripcion' => utf8_encode($categoria->getDescripcion())
+	    	); 	
 		}
-		$arr[] = array(
-		'_id' => $categoria->getIdCategoria(),
-        'nombre' => $categoria->getNombreCategoria(),
-        'padre' => $categoria->getHijoDe(),
-        'descripcion' => utf8_encode($categoria->getDescripcion())
-    	); 	
+		$ArrayJson =json_encode($arr);
 	}
-	$ArrayJson =json_encode($arr);
 ?>	
 <script>
 	window.onload=ocultarBarra();
@@ -80,17 +90,23 @@
 			<div >
 				<label  for="categoria">Categor&iacutea:</label></br></br>
 				<select id="categoria" name="categoria" onchange="llenarSelect2(this.value)"> 
-					<option value="0">Seleccione una categor&iacutea...</option>
-				<?php 
-					foreach ($listaC as $categoria){
-						if($categoria->getHijoDe()=="0"){
-							if($categoria->getIdCategoria()==$padre){
-								echo "<option selected=\"true\" value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
-							}else{
-								echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
-							}	
+					
+				<?php
+					if($listaC!=null){
+						echo "<option value=\"0\">Seleccione una categor&iacutea...</option>";
+						foreach ($listaC as $categoria){
+							if($categoria->getHijoDe()=="0"){
+								if($categoria->getIdCategoria()==$padre){
+									echo "<option selected=\"true\" value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								}else{
+									echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								}	
+							}
 						}
+					}else{
+						echo "<option value=\"0\">No hay categor&iacuteas registradas</option>";
 					}
+					
 				?>
 				</select>
 			</div>
@@ -100,15 +116,21 @@
 				<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)">
 				<option value="0">Seleccione una sub categor&iacutea...</option> 
 				<?php 
-					foreach ($listaC as $categoria){
-						if($categoria->getHijoDe()==$padre){
-							if($categoria->getIdCategoria()==$subcategoria){
-								echo "<option selected=\"true\" value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
-							}else{
-								echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
-							}	
+					if($listaC!=null){
+						echo "<option value="0">Seleccione una sub categor&iacutea...</option>";
+						foreach ($listaC as $categoria){
+							if($categoria->getHijoDe()==$padre){
+								if($categoria->getIdCategoria()==$subcategoria){
+									echo "<option selected=\"true\" value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								}else{
+									echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								}	
+							}
 						}
+					}else{
+						echo "<option value=\"0\">No hay sub categor&iacuteas registrdas</option>";
 					}
+				}//cierre del if de variable de sesion
 				?>
 				</select>
 			</div>

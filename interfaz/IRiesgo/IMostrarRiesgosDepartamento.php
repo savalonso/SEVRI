@@ -1,6 +1,10 @@
+<?php 
+	session_start();
+	if(!$_SESSION){
+		echo "<meta http-equiv=\"refresh\" content=\"0; url=paginaPrincipal.php\">";
+    }else{
+ ?>
 <!DOCTYPE html>
-
-
 <?php 
 
 	session_start();
@@ -21,17 +25,21 @@
 	
 	<label>Seleccione un departamento</label>
 	<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgos()">
-
-		<option value="0" disabled="true" selected>Seleccione una opci&oacuten</option>
 		<?php
-			foreach ($listaDepartamentos as $departamento) {
-				echo "<option value=".$departamento->getIdDepartamento().">".$departamento->getNombreDepartamento()."</option>";
+			if($listaDepartamentos!=null){
+				echo "<option value=\"0\" disabled=\"true\" selected>Seleccione una opci&oacuten</option>";
+				foreach ($listaDepartamentos as $departamento) {
+					echo "<option value=".$departamento->getIdDepartamento().">".$departamento->getNombreDepartamento()."</option>";
+				}
+			}else{
+				echo "<option value=\"0\" disabled=\"true\" selected>No hay departamentos registrados</option>";
 			}
+			
 		?>
 
 	</select>
 
-
+<?php } ?>
 </div><br/><br/></br>
 
 <div id="mostrarRiesgos"></div>

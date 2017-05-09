@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!$_SESSION){
+		echo "<meta http-equiv=\"refresh\" content=\"0; url=paginaPrincipal.php\">";
+    }else{
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,30 +16,33 @@
 		include ("../../data/dtRiesgo.php");
 		$controlR = new dtRiesgo;
 		$listaR = $controlR->getRiesgo($idRiesgo);
-		foreach ($listaR as $riesgo) {
-			$id = $riesgo->getId();
-			$idDepartamento = $riesgo->getIdDepartamento();
-			$nombre = $riesgo->getNombre();
-			$descripcion = $riesgo->getDescripcion();
-			$monto = $riesgo->getMontoEconomico();
-			$causa = $riesgo->getCausa();
-			$subcategoria = $riesgo->getIdCategoria();
-			$estado = $riesgo->getEstaActivo();
+		if($listaR!=null){
+			foreach ($listaR as $riesgo) {
+				$id = $riesgo->getId();
+				$idDepartamento = $riesgo->getIdDepartamento();
+				$nombre = $riesgo->getNombre();
+				$descripcion = $riesgo->getDescripcion();
+				$monto = $riesgo->getMontoEconomico();
+				$causa = $riesgo->getCausa();
+				$subcategoria = $riesgo->getIdCategoria();
+				$estado = $riesgo->getEstaActivo();
+			}
 		}
-
 		include ("../../Controladora/ctrDatosSevri.php");
 		$control = new ctrDatosSevri;	
 		$lista =$control->obtenerTodasLasCategorias();	
 		
-		foreach ($lista as $categoria){
-			$arr[] = array(
-			'_id' => $categoria->getIdCategoria(),
-            'nombre'=> utf8_encode($categoria->getNombreCategoria()),
-            'padre' => utf8_encode($categoria->getHijoDe()),
-            'descripcion' => utf8_encode($categoria->getDescripcion())
-        	); 	
-		}
+		if($lista!=null){
+			foreach ($lista as $categoria){
+				$arr[] = array(
+				'_id' => $categoria->getIdCategoria(),
+	            'nombre'=> utf8_encode($categoria->getNombreCategoria()),
+	            'padre' => utf8_encode($categoria->getHijoDe()),
+	            'descripcion' => utf8_encode($categoria->getDescripcion())
+	        	); 	
+			}
 		$ArrayJson =json_encode($arr);
+		}
 	?>
 	<script>
 	window.onload=ocultarBarra();
@@ -69,12 +78,17 @@
 					<div>
 						<label  class="white-text" for="categoria">Categor&iacutea:</label>
 						<select id="categoria" name="categoria" onchange="llenarSelect2(this.value)"> 
-							<option disabled="true" selected="true" value="0">Seleccione una categor&iacutea...</option>
+							
 							<?php 
-								foreach ($lista as $categoria){
-									if($categoria->getHijoDe()=="0"){
-										echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								if($lista!=null){
+									echo "<option disabled=\"true\" selected=\"true\" value=\"0\">Seleccione una categor&iacutea...</option>";
+									foreach ($lista as $categoria){
+										if($categoria->getHijoDe()=="0"){
+											echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+										}
 									}
+								}else{
+									echo "<option disabled=\"true\" selected=\"true\" value=\"0\">No hay categor&iacuteas registradas.</option>";
 								}
 							?>
 						</select>
@@ -106,6 +120,7 @@
 			</div>
 		</div>
 </body>
+<?php } ?>
 <script>
 	$( document ).ready(function(){
 	   $('select').material_select();

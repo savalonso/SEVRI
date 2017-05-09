@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!$_SESSION){
+		echo "<meta http-equiv=\"refresh\" content=\"0; url=paginaPrincipal.php\">";
+    }else{
+ ?>
 <!DOCTYPE html>
 	<?php
 		session_start();
@@ -86,3 +92,4 @@
 		
 	</div>
 </!DOCTYPE html>
+<?php } ?>

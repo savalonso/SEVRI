@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!$_SESSION){
+		echo "<meta http-equiv=\"refresh\" content=\"0; url=paginaPrincipal.php\">";
+    }else{
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +11,7 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-
 	<?php 
-		session_start();
 		$cedula=$_SESSION['idUsuario'];
 		include("../../controladora/ctrListaDepartamento.php");
 		$control=new ctrListaDepartamento;
@@ -66,6 +70,7 @@
 							 	?>
                     		
 							</select>
+
 						<?php  
 						}else{
 							echo "<h5>Debes a&ntilde;adir categor&iacuteas antes de indentificar un riesgo.</h5>";
@@ -108,10 +113,10 @@
 												echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
 											}
 										}
+									}//cierre de else de if variable de sesion
 									?>
 								</select>
 							</div>
-
 							<div>
 								<label  class="white-text" for="subcategoria">Sub Categor&iacuteas:</label>
 								<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)"> 
