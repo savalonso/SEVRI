@@ -20,7 +20,7 @@
 			<h2>Lista de Departamentos</h2>
 			<div class="col s12 m12 l12">
 				<div>
-					<table class="responsive-table striped" id="mostrarDep">
+					<table class="responsive-table striped centered responsive" id="mostrarDep">
 						<thead>
 							<tr>
 								<th>Codigo</th>

@@ -12,12 +12,12 @@ $listaUsuarios = $control->obtenerListaUsuarios();
 
 <div class="row">
     <h2>Lista de Usuarios</h2>
-    <div class="col s12 m12 l12 blue darken-3 z-depth-5">
-        <div id="div1">
+    <div class="col s12 m12 l12 ">
+        <div>
             <?php  
                 if($listaUsuarios!=null){
 	    	?>
-            <table class="responsive-table centered bordered">
+            <table id="tbUsuario" class="responsive-table responsive striped centered">
 				<thead>
 					<tr>
 						<th>C&eacutedula</th>
@@ -29,6 +29,8 @@ $listaUsuarios = $control->obtenerListaUsuarios();
 						<th>Correo electr&oacutenico</th>
 						<th>Cargo</th>
                         <th>Tipo</th>
+                        <th>Opci&oacuten 1</th>
+                        <th>Opci&oacuten 2</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -107,3 +109,4 @@ $listaUsuarios = $control->obtenerListaUsuarios();
 		$('.modal-trigger').leanModal();
 	});
 </script>
+<script type="text/javascript" src="../js/jsUsuarios.js"></script>

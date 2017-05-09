@@ -4,6 +4,14 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
  /* metodos creados*/
+
+
+.imagenUsuario{
+  float:left;
+  margin-left: 40%;
+  width: 20%;
+  height: 20%;
+}
  #ingresoSistema{
 
   height: 200%;
@@ -3222,14 +3230,15 @@ td, th {
   table.responsive-table td {
     margin: 0;
     vertical-align: top;
+    height: 15%;
   }
   table.responsive-table th {
     text-align: left;
   }
-  table.responsive-table thead {
+  table.responsive thead {
     display: block;
     float: left;
-    margin-top: 11%;
+    margin-top: 10%;
   }
   table.responsive-table thead tr {
     display: block;
@@ -5500,9 +5509,8 @@ button.btn-floating {
   background-color: #fafafa;
   padding: 0;
   max-height: 70%;
-  width: 55%;
+  width: 30%;
   margin: auto;
-  overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity;
 }
