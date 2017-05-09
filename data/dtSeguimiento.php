@@ -55,6 +55,35 @@ class dtSeguimiento{
             return $lista;
         }
     }
+    public function obtenerSeguimientosPorIdAdministracion($idAdministracion){
+        include_once ('dtConnection.php');
+        include_once("../../dominio/dSeguimiento.php");
+        $con = new dtConnection();
+        $conexion = $con->conect();
+        $query = "CALL obtenerSeguimientoPorIdAdministracion($idAdministracion)";
+        $result = mysqli_query($conexion, $query);
+        $lista = array();
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $seguimiento = new dSeguimiento;
+            $seguimiento->setId($row['Id']);
+            $seguimiento->setMontoSeguimiento($row['MontoSeguimiento']);
+            $seguimiento->setEstadoSeguimiento($row['estaAprobado']);
+            $seguimiento->setComentarioAprobador($row['ComentarioAprobador']);
+            $seguimiento->setComentarioAvance($row['ComentarioAvance']);
+            $seguimiento->setPorcentajeAvance($row['PorcentajeAvance']);
+            $seguimiento->setFechaAvance($row['FechaAvance']);
+            $seguimiento->setUsuarioAprobador($row['Nombre'].' '.$row['PrimerApellido'].' '.$row['SegundoApellido']);
+            array_push($lista, $seguimiento);
+        }
+        mysqli_free_result($result);
+        mysqli_close($conexion);
+
+        if (!$result){
+            return false;
+        } else {
+            return $lista;
+        }
+    }
 
     public function obtenerAdministracionRiesgo($cedula){
         include_once ('dtConnection.php');
