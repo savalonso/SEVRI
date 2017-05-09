@@ -26,17 +26,18 @@
 	<?php
 		include ("../../controladora/ctrDatosSevri.php");
 		$control = new ctrDatosSevri;	
-		$lista =$control->obtenerTodasLasCategorias();	
-		
-		foreach ($lista as $categoria){
-			$arr[] = array(
-			'_id' => $categoria->getIdCategoria(),
-            'nombre'=> utf8_encode($categoria->getNombreCategoria()),
-            'padre' => utf8_encode($categoria->getHijoDe()),
-            'descripcion' => utf8_encode($categoria->getDescripcion())
-        	); 	
+		$lista =$control->obtenerTodasLasCategorias();
+		if($lista!=null){
+			foreach ($lista as $categoria){
+				$arr[] = array(
+				'_id' => $categoria->getIdCategoria(),
+	            'nombre'=> utf8_encode($categoria->getNombreCategoria()),
+	            'padre' => utf8_encode($categoria->getHijoDe()),
+	            'descripcion' => utf8_encode($categoria->getDescripcion())
+	        	);
+			}
+			$ArrayJson =json_encode($arr);
 		}
-		$ArrayJson =json_encode($arr);
 	?>
 	<script>
 	window.onload=ocultarBarra();
@@ -49,7 +50,9 @@
 						<h3>Identificaci&oacuten</h3>
 
 						<div class="">
-
+						<?php  
+						if($lista!=null){
+						?>
                 			<label  for="Tipo">Departamentos:</label>
                				 <select id="departamentoUsuario" name="departamentoUsuario" onchange="cargarDepartamentos()">
 								<option disabled="true" selected="true" value="0">Seleccione un departamento...</option>
@@ -63,7 +66,11 @@
 							 	?>
                     		
 							</select>
-
+						<?php  
+						}else{
+							echo "<h5>Debes a&ntilde;adir categor&iacuteas antes de indentificar un riesgo.</h5>";
+						}
+						?>
             			</div>	
 					
 						<div id="temporal" style="display:none">
