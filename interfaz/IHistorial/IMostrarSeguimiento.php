@@ -8,7 +8,7 @@
 	window.onload=ocultarBarra();
 </script>
 <div class="row">
-	<h2>Seguimiento del riesgo.</h2>
+	<h2>Seguimiento(s) del riesgo.</h2>
 	<table class="responsive-table centered bordered">
 		<thead>
 			<tr>
@@ -24,7 +24,7 @@
 		<tbody>
 			<?php 
 			if($lista==null){
-				echo "NO HAY ADMINISTRACIONES PARA ESTE REISGO.";
+				echo "NO HAY SEGUIMIENTOS PARA ESTE REISGO.";
 			}else{
 				foreach ($lista as $seguimiento){
 		            echo "<tr>					        
