@@ -21,7 +21,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
 </script>
 
 <div class="row">
-    <div class="col s12 m12 l12 blue darken-3 z-depth-5">
+    <div class="col s12 m12 l12">
     <?php
     $porcentajeTotal= 0;
     $montoTotal = 0;
