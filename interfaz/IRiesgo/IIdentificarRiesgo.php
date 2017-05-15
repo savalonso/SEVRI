@@ -12,7 +12,6 @@
 		include("../../controladora/ctrListaDepartamento.php");
 		$control=new ctrListaDepartamento;
 		$listaDepartamentos=$control->obtenerListaDepartamentosUsuario($cedula);
-
 		foreach($listaDepartamentos as $departamento) {
 			$arrayDepartamento[]=array(
 				'idDepartamento'=>$departamento->getIdDepartamento(),

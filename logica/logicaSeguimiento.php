@@ -90,7 +90,17 @@
 			}else{
 				return $lista;
 			}
-				
+		}
+		public function obtenerSeguimientosPorIdAdministracion($idAdministracion){
+			include_once('../../data/dtSeguimiento.php');
+			$dataSeguimiento= new dtSeguimiento;
+			$lista=$dataSeguimiento->obtenerSeguimientosPorIdAdministracion($idAdministracion);
+
+			if(!$lista){
+				return false;
+			}else{
+				return $lista;
+			}
 		}
 
 		public function insertarSeguimientoAprobador($idSeguimiento,$seguimiento){
