@@ -56,8 +56,18 @@
 			$lista=$logica->obtenerSeguimientosDepartamento($idDepartamento);
 			return $lista;
 		}
-
-	}
 	/*Cristhoper
-		----------*/
+	----------*/
+		/*Ruben
+	----------*/
+		function obtenerSeguimientosPorIdAdministracion($idAdministracion){
+			include_once('../../logica/logicaSeguimiento.php');
+			$logica=new logicaSeguimiento;
+			$lista=$logica->obtenerSeguimientosPorIdAdministracion($idAdministracion);
+			return $lista;
+		}
+
+	/*Ruben
+	----------*/
+	}
 ?>

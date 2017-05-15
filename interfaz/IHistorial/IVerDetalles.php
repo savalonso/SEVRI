@@ -6,25 +6,30 @@
 		include ("../../data/dtRiesgo.php");
 		$controlR = new dtRiesgo;
 		$listaR = $controlR->obtenerRiesgoDetalles($idRiesgo);
-		foreach ($listaR as $riesgo) {
-			$id = $riesgo->getId();
-			$idDepartamento = $riesgo->getIdDepartamento();
-			$nombre = $riesgo->getNombre();
-			$descripcion = $riesgo->getDescripcion();
-			$monto = $riesgo->getMontoEconomico();
-			$causa = $riesgo->getCausa();
-			$subcategoria = $riesgo->getIdCategoria();
-			$estado = $riesgo->getEstaActivo();
+		if($listaR!=null){
+			foreach ($listaR as $riesgo) {
+				$id = $riesgo->getId();
+				$idDepartamento = $riesgo->getIdDepartamento();
+				$nombre = $riesgo->getNombre();
+				$descripcion = $riesgo->getDescripcion();
+				$monto = $riesgo->getMontoEconomico();
+				$causa = $riesgo->getCausa();
+				$subcategoria = $riesgo->getIdCategoria();
+				$estado = $riesgo->getEstaActivo();
+			}
 		}
 		include ("../../data/dtAnalisis.php");
 		$controlA = new dtAnalisis;
 		$listaA = $controlA->obtenerAnalisisPorRiesgo($idRiesgo);
-		foreach ($listaA as $analisis) {
-			$probabilidad = $analisis->getProbabilidad();
-			$impacto = $analisis->getImpacto();
-			$nivel = $analisis->getNivelRiesgo();
-			$medida = $analisis->getMedidaControl();
-			$calificacion = $analisis->getCalificacionMedida();
+		if($listaA!=null){
+			foreach ($listaA as $analisis) {
+				$idAnalisis = $analisis->getId();
+				$probabilidad = $analisis->getProbabilidad();
+				$impacto = $analisis->getImpacto();
+				$nivel = $analisis->getNivelRiesgo();
+				$medida = $analisis->getMedidaControl();
+				$calificacion = $analisis->getCalificacionMedida();
+			}
 		}
 	?>
 	<script>
@@ -58,7 +63,7 @@
 						<p><?php echo"$nivel"; ?></p><hr>
 						<h5>Medida de control:</h5>
 						<p><?php echo "$medida"; ?></p><hr>
-						<h5>Calificaci&nacuten medida:</h5>
+						<h5>Calificaci&oacuten medida:</h5>
 						<p><?php echo "$calificacion"; ?></p><hr>
 					<?php
 				}else{
@@ -68,5 +73,16 @@
 				}
 			 ?>
 		</div>
+	</div>
+	<?php  
+		if($listaA!=null){
+			echo "<input class=\"btn\" type=\"button\" name=\"btnAdministracion\" value=\"Ver Administraciones\" onclick=\"cargarPaginaHistorial('../interfaz/IHistorial/IMostrarAdministracion.php?idAnalisis=".$idAnalisis."')\">";
+		}
+	?>
+	<div id="contenedorAdministracion">
+		
+	</div>
+	<div id="contenedorSeguimiento">
+		
 	</div>
 </!DOCTYPE html>
