@@ -93,47 +93,45 @@
 			<?php  
 				if($lista!=null){
 			?>
-			<h2>Seguimientos asignados</h2>
-			<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-				<div id="div1">
-					<table class="responsive-table centered bordered">
-						<thead>
-							<tr>
-								<th>Actividad</th>
-								<th>Porcentaje de avance</th>
-								<th>Comentario de avance</th>
-								<th>Monto de Seguimiento</th>
-								<th>Fecha de avance</th>
-								<th>Aprobacion</th>
-								
-							</tr>
-						</thead>
-						<tbody>
-							<?php 
-								foreach ($lista as $seguimiento){	
-									echo "<tr>
-									<td>".$seguimiento->getActividadTratamiento()."</td>
-									<td>"."%".$seguimiento->getPorcentajeAvance()."</td>
-									<td>".$seguimiento->getComentarioAvance()."</td>
-									<td>"."₡".number_format($seguimiento->getMontoSeguimiento(), 2, ',', ' ')."</td>
-									<td>".$seguimiento->getFechaAvance()."</td>";
-									if($seguimiento->getEstadoSeguimiento() == null) {
-										echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Realizar aprobacion\" onclick=\"cargarPagina('../interfaz/ISeguimiento/IInsertarSeguimientoAprobador.php?idSeguimiento=".$seguimiento->getId()."')\"/></td></tr>";
-									} else if($seguimiento->getEstadoSeguimiento()==1) {
-										echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Realizada\" /></td></tr>";
-									} else if($seguimiento->getEstadoSeguimiento()==0) {
-										echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Realizada\" /></td></tr>";
-									}
+			<div class="col s12 m12 l12">
+				<h3>Seguimientos asignados</h3>
+				<table class="responsive-table centered bordered">
+					<thead>
+						<tr>
+							<th>Actividad</th>
+							<th>Porcentaje de avance</th>
+							<th>Comentario de avance</th>
+							<th>Monto de Seguimiento</th>
+							<th>Fecha de avance</th>
+							<th>Aprobacion</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<?php 
+							foreach ($lista as $seguimiento){	
+								echo "<tr>
+								<td>".$seguimiento->getActividadTratamiento()."</td>
+								<td>"."%".$seguimiento->getPorcentajeAvance()."</td>
+								<td>".$seguimiento->getComentarioAvance()."</td>
+								<td>"."₡".number_format($seguimiento->getMontoSeguimiento(), 2, ',', ' ')."</td>
+								<td>".$seguimiento->getFechaAvance()."</td>";
+								if($seguimiento->getEstadoSeguimiento() == null) {
+									echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Realizar aprobacion\" onclick=\"cargarPagina('../interfaz/ISeguimiento/IInsertarSeguimientoAprobador.php?idSeguimiento=".$seguimiento->getId()."')\"/></td></tr>";
+								} else if($seguimiento->getEstadoSeguimiento()==1) {
+									echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Realizada\" /></td></tr>";
+								} else if($seguimiento->getEstadoSeguimiento()==0) {
+									echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Realizada\" /></td></tr>";
 								}
-							?>
-						</tbody>
-					</table>
-				</div>
-					<?php  
-						}else{
-							echo "<br><h3>A&uacuten no se han asignado aprobaciones</h3>";
-						}
-					?>
+							}
+						?>
+					</tbody>
+				</table>
+				<?php  
+					}else{
+						echo "<br><h3>A&uacuten no se han asignado aprobaciones</h3>";
+					}
+				?>
 			</div>
 		</div>
 	</div>
@@ -144,12 +142,11 @@
 	<!---------->
 	<div id="contenedorSeguimientosUsuario">
 		<div class="row">
-		<?php
-			if($listaAdministracion!=null){
-		?>
-		<h2>Seguimientos asignados</h2>
-		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-			<div id="div1">
+			<?php
+				if($listaAdministracion!=null){
+			?>
+			<div class="col s12 m12 l12">
+				<h3>Seguimientos asignados</h3>
 				<table class="responsive-table centered bordered">
 					<thead>
 						<tr>
@@ -173,7 +170,6 @@
 						?>
 					</tbody>
 				</table>
-			</div>
 				<?php  
 					} else {
 						echo "<br><h3>A&uacuten no se han asignado seguimientos</h3>";
@@ -184,9 +180,8 @@
 	</div>
 	<!--Victor-->
 	<!---------->
-
-<div id="Mmostrar" class="modal  blue darken-3 z-depth-5 white-text"></div>
-
+	<div id="Mmostrar" class="modal  blue darken-3 z-depth-5 white-text"></div>
+	
 <script>
 /*Victor
 ------*/

@@ -30,25 +30,28 @@
 	}
 	$ArrayJson = json_encode($arr);
 ?>
-<div class="row">
-	<form class="responsive" id="IAnalisisRiesgo" method="Post" role="form">
-		<div class="inputs blue darken-3 col s6 m6 l6 z-depth-5">	
-	 		<h3>Analizar Riesgo</h3>
-			<div class="">
+<form class="responsive" id="IAnalisisRiesgo" method="Post" role="form">
+	<div class="row">
+		<div class="col s12 m12 l12">
+			<div class="inputs blue darken-3 col s6 m6 l6">
+				<h3>Analizar Riesgo</h3>
 				<label>Riesgo</label></br>
 				<?php
 					foreach ($listaRiesgos as $riesgo){
 						if($riesgo->getId() == $idRiesgo) {
-							echo $riesgo->getNombre()."</br></br>";
+							echo $riesgo->getNombre()."</br>";
 							echo "<input type=\"hidden\" id=\"riesgo\" name=\"riesgo\"  value=\"".$idRiesgo."\"/>";
 						}
 					}
-				?>				
+				?>
+				<br>
 			</div>
-
-			<div class="">
+			<div class="inputs col s6 m6 l6"></div>
+		</div>
+		<div class="col s12 m12 l12">
+			<div class="inputs blue darken-3 col s6 m6 l6">
 				<label>Probabilidad</label>
-				<select id="probabilidad" name="probabilidad" onChange="mostrarDescripcionProbabilidad(this.value, <?php echo "$maximaProbabilidad"; ?>, <?php echo "$maximoImpacto"; ?>)">
+				<select id="probabilidad" name="probabilidad" onChange="verProbabilidad(this.value, <?php echo "$maximaProbabilidad"; ?>, <?php echo "$maximoImpacto"; ?>)">
 					<option value="0" selected disabled>Selecione una probabilidad</option>
 					<?php 
 						foreach ($listaParametros as $parametro){
@@ -59,10 +62,14 @@
 					?>
 				</select>
 			</div>
-
-			<div class="">
+			<div class="inputs col s6 m6 l6" style="padding: 10px;">
+				<p id="pro_id" class="blue z-depth-5" style="padding: 10px; padding-right: 10px; margin: 0px; display: none;"></p>
+			</div>
+		</div>
+		<div class="col s12 m12 l12">
+			<div class="inputs blue darken-3 col s6 m6 l6">
 				<label>Impacto</label><br>
-				<select id="impacto" name="impacto" onChange="mostrarDescripcionImpacto(this.value, <?php echo "$maximaProbabilidad"; ?>, <?php echo "$maximoImpacto"; ?>)">
+				<select id="impacto" name="impacto" onChange="verImpacto(this.value, <?php echo "$maximaProbabilidad"; ?>, <?php echo "$maximoImpacto"; ?>)">
 					<option value="0" selected disabled>Seleccione un impacto</option> 
 				<?php 
 					foreach ($listaParametros as $parametro){
@@ -73,8 +80,12 @@
 				?>
 				</select>
 			</div>
-
-			<div class="">
+			<div class="inputs col s6 m6 l6" style="padding: 10px;">
+				<p id="imp_id" class="blue z-depth-5" style="padding: 10px; padding-right: 10px; margin: 0px; display: none;"></p>
+			</div>
+		</div>
+		<div class="col s12 m12 l12">
+			<div class="inputs blue darken-3 col s6 m6 l6">
 				<label>Calificación Nivel de Riesgo</label><br>
 				<input type="hidden" id="valorProbabilidadSeleccionado" value="0">
 				<input type="hidden" id="valorImpactoSeleccionado" value="0">
@@ -82,16 +93,19 @@
 					
 				</div>
 			</div>
-
-			<div class="">
+			<div class="inputs col s6 m6 l6"></div>
+		</div>			
+		<div class="col s12 m12 l12">
+			<div class="inputs blue darken-3 col s6 m6 l6">
 				<label  for="medida">Medida de Control:</label>
 				<input type="text" name="MedidaControl" id="MedidaControl">
 			</div>
-
-
-			<div class="">
+			<div class="inputs col s6 m6 l6"></div>
+		</div>
+		<div class="col s12 m12 l12">
+			<div class="inputs blue darken-3 col s6 m6 l6">
 				<label>Calificaci&oacute;n Medida</label><br>
-				<select id="CalificacionMedida" name="CalificacionMedida" onChange="mostrarDescripcionCalificacion(this.value)">
+				<select id="CalificacionMedida" name="CalificacionMedida" onChange="verCalificacion(this.value)">
 					<option value="0" selected disabled>Seleccione una calificaci&oacute;n</option> 
 					<?php 
 						foreach ($listaParametros as $parametro){
@@ -102,22 +116,18 @@
 					?>
 				</select>
 			</div>
-			<div>
-				<input type="submit" value="Guardar" class="btn btn-default"></br></br>
-			</div>	
+			<div class="inputs col s6 m6 l6" style="padding: 10px;">
+				<p id="cal_id" class="blue z-depth-5" style="padding: 10px; padding-right: 10px; margin: 0px; display: none;"></p>
+			</div>
 		</div>
-	</form>
-	<div id="contenedorMensajes" class="contenedorMensajes col s6 m6 l6">
-		<div id="divProbabilidad" class="divProbabilidad">
-			<div id="mensajeProbabilidad" class="mensajeProbabilidad" style="display:none;"></div>
+		<div class="col s12 m12 l12">
+			<div class="inputs blue darken-3 col s6 m6 l6">
+				<input type="submit" value="Guardar" class="btn btn-default"><br><br>
+			</div>
+			<div class="inputs col s6 m6 l6"></div>
 		</div>
-		<div id="divImpacto" class="divImpacto">
-			<div id="mensajeImpacto" class="mensajeImpacto" style="display:none;"></div>
-		</div>
-		<div id="mensajeCalificacion" class="mensajeCalificacion" style="display:none;"></div>
 	</div>
-</div>
-
+</form>
 <div style="display:none">
 	<table id="tbNivelesRiesgoOcultos">
 		<tbody>
@@ -136,59 +146,59 @@
 </div>
 
 <script type="text/javascript">
-	
-	function mostrarDescripcionProbabilidad(id, maximaProbabilidad, maximoImpacto) {
+	function verProbabilidad(id, maximaProbabilidad, maximoImpacto) {
+		var lparametros = eval(<?php echo $ArrayJson ?>);
 		if (id == 0) {
-	        $("#mensajeProbabilidad").hide();
+			$("#pro_id").hide();
 	    } else {
-	        $("#mensajeProbabilidad").show();
-			setTimeout(function() {
-				$("#mensajeProbabilidad").fadeOut(5);
-			},5000);
-	    }
-	    var lparametros = eval(<?php echo $ArrayJson ?>);
-	    for(i=0;i<lparametros.length;i++){
-			if(lparametros[i]._id == id){
-				document.getElementById('valorProbabilidadSeleccionado').value = lparametros[i].valorParametro;
-				document.getElementById('mensajeProbabilidad').innerHTML = lparametros[i].descripcion;
+			for(i=0;i<lparametros.length;i++){
+				if(lparametros[i]._id == id){
+					document.getElementById('valorProbabilidadSeleccionado').value = lparametros[i].valorParametro;
+					$("#pro_id").show();
+					$("#pro_id").text(lparametros[i].descripcion);
+					setTimeout(function() {
+						$("#pro_id").fadeOut(5);
+					},10000);
+				}
 			}
-		}
+	    }
 		crearNivelRiesgo(maximaProbabilidad, maximoImpacto);
 	}
 
-	function mostrarDescripcionImpacto(id, maximaProbabilidad, maximoImpacto) {
+	function verImpacto(id, maximaProbabilidad, maximoImpacto) {
+		var lparametros = eval(<?php echo $ArrayJson ?>);
 		if (id == 0) {
-	        $("#mensajeImpacto").hide();
+			$("#imp_id").hide();
 	    } else {
-	        $("#mensajeImpacto").show();
-			setTimeout(function() {
-				$("#mensajeImpacto").fadeOut(5);
-			},5000);
-	    }
-	    var lparametros = eval(<?php echo $ArrayJson ?>);
-	    for(i=0;i<lparametros.length;i++){
-			if(lparametros[i]._id == id){
-				document.getElementById('valorImpactoSeleccionado').value = lparametros[i].valorParametro;
-				document.getElementById('mensajeImpacto').innerHTML = lparametros[i].descripcion;
+			for(i=0;i<lparametros.length;i++){
+				if(lparametros[i]._id == id){
+					document.getElementById('valorProbabilidadSeleccionado').value = lparametros[i].valorParametro;
+					$("#imp_id").show();
+					$("#imp_id").text(lparametros[i].descripcion);
+					setTimeout(function() {
+						$("#imp_id").fadeOut(5);
+					},10000);
+				}
 			}
-		}
+	    }
 		crearNivelRiesgo(maximaProbabilidad, maximoImpacto);
 	}
-	function mostrarDescripcionCalificacion(id) {
+	function verCalificacion(id) {
+		var lparametros = eval(<?php echo $ArrayJson ?>);
 		if (id == 0) {
-	        $("#mensajeCalificacion").hide();
+			$("#cal_id").hide();
 	    } else {
-	        $("#mensajeCalificacion").show();
-			setTimeout(function() {
-				$("#mensajeCalificacion").fadeOut(5);
-			},5000);
-	    }
-	    var lparametros = eval(<?php echo $ArrayJson ?>);
-	    for(i=0;i<lparametros.length;i++){
-			if(lparametros[i]._id == id){
-				document.getElementById('mensajeCalificacion').innerHTML = lparametros[i].descripcion;
+			for(i=0;i<lparametros.length;i++){
+				if(lparametros[i]._id == id){
+					$("#cal_id").show();
+					$("#cal_id").text(lparametros[i].descripcion);
+					setTimeout(function() {
+						$("#cal_id").fadeOut(5);
+					},10000);
+				}
 			}
-		}
+	    }
+		crearNivelRiesgo(maximaProbabilidad, maximoImpacto);
 	}
 
  	$(document).ready(function() {
