@@ -117,7 +117,7 @@
 				<option value="0">Seleccione una sub categor&iacutea...</option> 
 				<?php 
 					if($listaC!=null){
-						echo "<option value="0">Seleccione una sub categor&iacutea...</option>";
+						echo "<option value=\"0\">Seleccione una sub categor&iacutea...</option>";
 						foreach ($listaC as $categoria){
 							if($categoria->getHijoDe()==$padre){
 								if($categoria->getIdCategoria()==$subcategoria){
