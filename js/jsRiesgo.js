@@ -170,3 +170,21 @@ function cargarGUIMostrarRiesgosAnalizados(){
     }
 
 }
+
+/*filtrado de tablas*/
+$(document).ready(function () {
+    (function ($) {
+
+        $('#datosRiesgos').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#datosR tr').hide();
+            $('#datosR tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+});
+/*fin filtrado*/

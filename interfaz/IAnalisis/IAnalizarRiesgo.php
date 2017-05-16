@@ -19,12 +19,16 @@
 
 	<div class="row">
 		<h2>Lista de riesgos</h2>
-		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
+		<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="datosAnalisis2" type="text" >
+        	</div>
+		<div class="col s12 m12 l12">
 			<div id="div1">
 			<?php  
 				if($listaRiesgos!=null){
 			?>
-			<table class="responsive-table centered bordered">
+			<table class="responsive-table responsive centered bordered">
 				<thead>
 					<tr>
 							<th>Nombre</th>
@@ -37,7 +41,7 @@
 							<th>Opcion 1</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="filtrarA">
 				<?php 
 				if($listaRiesgos==null){
 					echo "NO HAY REGISTROS A&Uacute;N";

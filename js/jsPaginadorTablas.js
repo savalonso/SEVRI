@@ -44,6 +44,7 @@
 						//Configuramos los TRs para comenzar con el plugin
 						//de cada TR del table tbody agregamos la clase con la que haremos los calculos
 						idTable.find("tbody").eq(0).find("tr").each(function(){
+							
 							$(this).addClass("elementToPaginate");
 						});
 						

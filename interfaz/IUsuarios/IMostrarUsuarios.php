@@ -12,12 +12,16 @@ $listaUsuarios = $control->obtenerListaUsuarios();
 
 <div class="row">
     <h2>Lista de Usuarios</h2>
+    <div class="input-field buscar1 col s12 m8 l8">
+        <label class="white-text" for="filtrar">Buscar</label>
+        <input id="datosUsuario" type="text" >
+    </div>
     <div class="col s12 m12 l12 ">
         <div>
             <?php  
                 if($listaUsuarios!=null){
 	    	?>
-            <table id="tbUsuario" class="responsive-table responsive striped centered">
+            <table id="tbUsuario" class="responsive-table responsive2 striped centered">
 				<thead>
 					<tr>
 						<th>C&eacutedula</th>
@@ -33,7 +37,7 @@ $listaUsuarios = $control->obtenerListaUsuarios();
                         <th>Opci&oacuten 2</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="datosU">
 					<?php
                         if($listaUsuarios==null) {
 	                        echo "NO HAY REGISTROS A&Uacute;N";

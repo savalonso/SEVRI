@@ -3212,6 +3212,7 @@ td, th {
 }
 
 @media only screen and (max-width: 1200px) {
+  
   table.responsive-table {
     width: 100%;
     border-collapse: collapse;
@@ -3238,7 +3239,12 @@ td, th {
   table.responsive thead {
     display: block;
     float: left;
-    margin-top: 10%;
+    margin-top: 0%;
+  }
+   table.responsive2 thead {
+    display: block;
+    float: left;
+    margin-top: 9%;
   }
   table.responsive-table thead tr {
     display: block;

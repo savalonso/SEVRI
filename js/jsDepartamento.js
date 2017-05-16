@@ -109,3 +109,21 @@ $(document).ready(function(){
             elemPerPage: 4
         });
     });
+
+/*filtrado de tablas*/
+$(document).ready(function () {
+    (function ($) {
+
+        $('#datosDepartamento').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#datosD tr').hide();
+            $('#datosD tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+});
+/*fin filtrado*/

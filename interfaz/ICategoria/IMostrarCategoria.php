@@ -23,12 +23,16 @@
 
 	<div class="row">
 		<h2>Lista de Categor&iacuteas</h2>
+		<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="datosCategoria" type="text" >
+        	</div>
 		<div class="col s12 m12 l12">
 		<?php  
 			if($lista!=null){
 		?>
 			<div>
-				<table class="responsive-table striped" id="categoria">
+				<table class="responsive-table responsive2 striped" id="categoria">
 					<thead>
 						<tr>
 							<th>Nombre</th>
@@ -37,7 +41,7 @@
 							<th>Eliminar</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="categoria1">
 						<?php 
 						if($lista==null){
 							echo "NO HAY REGISTROS AUN";
@@ -78,50 +82,57 @@
 			     </div>
  			</div>
 		</div>
-		<div <div class="row">
-			<h2>Lista de Sub Categor&iacuteas</h2>
-			<div class="col s12 m12 l12">
-				<div>
-					<table class="responsive-table striped" id="subCategorias">
-						<thead>
-							<tr>
-								<th>Nombre</th>
-								<th>Descripci&oacuten</th>
-								<th>Modificar</th>
-								<th>Eliminar</th>
-							</tr>
-						</thead>
-						<tbody id="tbody">
-							<?php 
-								$contador=1;
-								if($lista==null){
-									echo "SELECCIONE UNA CATEGOR&IacuteA";
-								}else{
-									foreach ($lista as $categoria){
-							            if($categoria->getHijoDe()!=0){
-							            	echo "<tr id=\"tr".$contador."\" style=\"display:none\">
-							            	<td style=\"display:none\">".$categoria->getHijoDe()."</td>
-								        	<td>".$categoria->getNombreCategoria()."</td>
-								        	<td>".$categoria->getDescripcion()."</td>
-							        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
-							        		if ($categoria->getCantRiesgos()>0){
-							    					echo "<td style=\"text-align:center;\"><button type=\"button\" disabled=\"true\" class=\"btnEliminar\"><a class=\"waves-effect waves-light btn disabled\">Eliminar</a> </button>  </td>
-							    					</tr>";
-							        		}else{
-							        			echo "<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacionCategoria('".$categoria->getIdCategoria()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
-							    				</tr>";
-							        		}
-							        		$contador++;
-							            }
+		</div>
+
+			<div class="row">
+				<h2>Lista de Sub Categor&iacuteas</h2>
+				<div class="input-field buscar1 col s12 m8 l8">
+			        <label class="white-text" for="filtrar">Buscar</label>
+			        <input id="datosSubCategoria"  type="text" >
+        		</div>
+				<div class="col s12 m12 l12">
+					<div>
+						<table class="responsive-table responsive2 striped" id="subCategorias">
+							<thead>
+								<tr>
+									<th>Nombre</th>
+									<th>Descripci&oacuten</th>
+									<th>Modificar</th>
+									<th>Eliminar</th>
+								</tr>
+							</thead>
+							<tbody id="tbody" class="subcategoria">
+								<?php 
+									$contador=1;
+									if($lista==null){
+										echo "SELECCIONE UNA CATEGOR&IacuteA";
+									}else{
+										foreach ($lista as $categoria){
+								            if($categoria->getHijoDe() != 0){
+								            	echo "<tr id=\"tr".$contador."\">
+								            	<td style=\"display:none\">".$categoria->getHijoDe()."</td>
+									        	<td>".$categoria->getNombreCategoria()."</td>
+									        	<td>".$categoria->getDescripcion()."</td>
+								        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
+								        		if ($categoria->getCantRiesgos()>0){
+								    					echo "<td style=\"text-align:center;\"><button type=\"button\" disabled=\"true\" class=\"btnEliminar\"><a class=\"waves-effect waves-light btn disabled\">Eliminar</a> </button>  </td>
+								    					</tr>";
+								        		}else{
+								        			echo "<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacionCategoria('".$categoria->getIdCategoria()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+								    				</tr>";
+								        		}
+								        		$contador++;
+								            }
+										}
 									}
-								}
-							?>
-						</tbody>
-					</table>
+								?>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+	
+	
 
 	<script>
   		$(document).ready(function(){
@@ -151,3 +162,4 @@
 
 		header("location:../../loginUsuarios.php");
 		}  ?>
+<script type="text/javascript" src="../js/jsCategoria.js"></script>
