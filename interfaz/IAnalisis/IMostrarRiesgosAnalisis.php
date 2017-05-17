@@ -16,6 +16,7 @@
 	$( document ).ready(function(){
 	$('select').material_select();});
 </script>
+
 <div class="row">
 	<div class="col l6 m6 s12">
 		<label>Seleccione un departamento</label>

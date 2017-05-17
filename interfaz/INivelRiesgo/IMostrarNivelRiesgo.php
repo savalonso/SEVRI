@@ -11,7 +11,7 @@
 <div class="row">
 	<div class="col s12 m8 l8">
 		<div id="div1">
-			 <table class="responsive-table striped">
+			 <table class="responsive-table responsive striped">
 			 	<thead>
 			 		<tr>
 						<th>Limite</th>
@@ -30,6 +30,7 @@
 									echo "<td>".$nivel->getDescriptor()."</td>";
 									echo "<td>".$nivel->getDescripcion()."</td>";
 									echo "<td>"."<div id=\"divColor\" style=\"background-color:".$nivel->getColor().";\"class=\"paletaColores\"></div>"."</td>";
+									echo "<td></td>";
 								echo "</tr>";
 							}
 						}
@@ -89,7 +90,7 @@
 			<div class="row">
 				<div class="col s12 m12 l12 blue darken-3 z-depth-5">
 					<div id="div1">
-						<table class="responsive-table centered bordered" id="tablaModificarDivisiones">
+						<table class="responsive-table responsive centered bordered" id="tablaModificarDivisiones">
 							<thead>
 								<tr>
 									<th>De</th>

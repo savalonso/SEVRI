@@ -14,14 +14,14 @@
 
 			
 			<div class="row">
-			<div class="input-group buscar1 col s12 m8 l8">
-	        <label class="white-text" for="filtrar">Buscar</label>
-	        <input id="filtrar" type="text" >
+			<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="datosSevri" type="text" >
         	</div>
         	
 				<div class="col s12 m12 l10">
 					<div>
-						<table class="responsive-table responsive striped centered" id="MostrarSevri">
+						<table class="responsive-table responsive2 striped centered" id="MostrarSevri">
 							<thead >
 								<tr >
 									<th>Nombre Versi&oacuten</th>

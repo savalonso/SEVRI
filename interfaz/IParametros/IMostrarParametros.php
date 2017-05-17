@@ -29,9 +29,13 @@
 				if($lista!=null){
 			?>
 			<h2>Par&aacutemetros de Impacto</h2>
+			<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="buscarParametroImpacto" type="text" >
+        	</div>
 			<div class="col s12 m12 l12">
 				<div>
-					<table class="responsive-table striped centered responsive" id="impacto">
+					<table class="responsive-table striped centered responsive2" id="impacto">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -43,7 +47,7 @@
 								<th>Eliminar</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="buscarImpacto">
 							<?php 
 								foreach ($lista as $parametro){
 									if($parametro->getNombreParametro() == "Impacto"){
@@ -85,9 +89,13 @@
 				if($lista!=null){
 			?>
 			<h2>Par&aacutemetros de Probabilidad</h2>
+			<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="buscarParametroProbabilidad" type="text" >
+        	</div>
 			<div class="col s12 m12 l12">
 				<div>
-					<table class="responsive-table striped centered responsive" id="probabilidad">
+					<table class="responsive-table striped centered responsive2" id="probabilidad">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -99,7 +107,7 @@
 								<th>Eliminar</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="buscarP1">
 							<?php 
 								foreach ($lista as $parametro){
 									if($parametro->getNombreParametro() == "Probabilidad"){
@@ -141,9 +149,13 @@
 				if($lista!=null){
 			?>
 			<h2>Par&aacutemetros de Calificaci&oacuten de la Medida</h2>
+			<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="buscarCalificacionMedida" type="text" >
+        	</div>
 			<div class="col s12 m12 l12 ">
 				<div>
-					<table class="responsive-table striped centered responsive" id="calificacion">
+					<table class="responsive-table striped centered responsive2" id="calificacion">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -155,7 +167,7 @@
 								<th>Eliminar</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="buscarCalificacion">
 							<?php 
 								foreach ($lista as $parametro){
 									if($parametro->getNombreParametro() == "Calificacion"){

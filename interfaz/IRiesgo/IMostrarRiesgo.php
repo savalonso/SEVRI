@@ -15,6 +15,12 @@
 	<link rel="stylesheet" type="text/css" href="../css/styleMostrarRiesgos.css">
 
 	<div class="row">
+		<h3>Lista de riesgos</h3>
+		<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="datosRiesgos" type="text" >
+		        <a id="boton" href="#" onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php')" data-tooltip="Agregar riesgos de versiones antiguas." class="btn-floating tooltipped btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
+        </div>
 		<div class="col l12 m12 s12">
 			<div class="col l8 m8 s8">
 				<h3>Lista de riesgos</h3>
@@ -25,7 +31,7 @@
 			<?php  
 				if($listaRiesgos!=null){
 			?>
-			<table class="responsive-table centered bordered">
+			<table class="responsive-table responsive centered bordered">
 				<thead>
 					<tr>
 						<th>Nombre</th>
@@ -39,7 +45,7 @@
 						<th>Opcion 2</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="datosR">
 					<?php 
 					if($listaRiesgos==null){
 						echo "NO HAY REGISTROS AUN";
