@@ -109,3 +109,21 @@ function limpiar(){
     });
 
 /*aqui finalisa*/
+
+/*filtrado de tablas*/
+$(document).ready(function () {
+    (function ($) {
+
+        $('#datosUsuario').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#datosU tr').hide();
+            $('#datosU tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+});
+/*fin filtrado*/

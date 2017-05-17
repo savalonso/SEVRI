@@ -27,7 +27,7 @@
 		<div class="row">
 			<div class="col s12 m8 l8">
 				<div>
-					 <table class="responsive-table striped" id="tbNivelRiesgoAgregado">
+					 <table class="responsive-table responsive striped" id="tbNivelRiesgoAgregado">
 					 	<thead>
 					 		<tr>
 								<th>Nombre Nivel de Riesgo</th>

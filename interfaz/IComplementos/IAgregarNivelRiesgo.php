@@ -10,7 +10,7 @@
 <div class="row">
 	<div class="col s12 m8 l8">
 		<div id="div1">
-			 <table class="responsive-table striped">
+			 <table class="responsive-table responsive striped">
 			 	<thead>
 			 		<tr>
 						<th>Limite</th>

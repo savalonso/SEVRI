@@ -131,3 +131,49 @@ function marcarColor(idSelect, valor){
         });
     });
 /*aqui finalisa*/
+
+/*filtrado de tablas*/
+$(document).ready(function () {
+    (function ($) {
+
+        $('#buscarParametroProbabilidad').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#buscarP1 tr').hide();
+            $('#buscarP1 tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+
+    (function ($) {
+
+        $('#buscarParametroImpacto').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#buscarImpacto tr').hide();
+            $('#buscarImpacto tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+
+     (function ($) {
+
+        $('#buscarCalificacionMedida').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#buscarCalificacion tr').hide();
+            $('#buscarCalificacion tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+});
+/*fin filtrado*/
