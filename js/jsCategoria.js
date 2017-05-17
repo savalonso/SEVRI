@@ -75,6 +75,7 @@ function modificarCategoria(){
 }
 /*aqui se encuentra el paginador de las tablas*/
  $(document).ready(function(){
+
         $("#tbCategorias").paginationTdA({
             elemPerPage: 4
         });
@@ -90,9 +91,41 @@ function modificarCategoria(){
         });
     });
  $(document).ready(function(){
+
         $("#subCategorias").paginationTdA({
             elemPerPage: 4
         });
     });
 
 /*aqui finalisa*/
+/*filtrado de tablas*/
+$(document).ready(function () {
+    (function ($) {
+
+        $('#datosCategoria').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#categoria1 tr').hide();
+            $('#categoria1 tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+      (function ($) {
+
+        $('#datosSubCategoria').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('.subcategoria tr').hide();
+            $('.subcategoria tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+
+});
+/*fin filtrado*/

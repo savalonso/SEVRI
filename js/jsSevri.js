@@ -448,4 +448,23 @@ function recorrerTabla(posicion, tabla){
             elemPerPage: 4
         });
     });
+
 /*aqui finalisa*/
+/*filtrado de tablas*/
+$(document).ready(function () {
+    (function ($) {
+
+        $('#datosSevri').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('.buscar tr').hide();
+            $('.buscar tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+
+});
+/*fin filtrado*/

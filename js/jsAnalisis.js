@@ -89,3 +89,34 @@ function modificarAnalisis(){
             document.getElementById('barraCargando').style.display="none";
         });
     }
+
+/*filtrado de tablas*/
+$(document).ready(function () {
+    (function ($) {
+
+        $('#datosAnalisis').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#datosA tr').hide();
+            $('#datosA tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+    (function ($) {
+
+        $('#datosAnalisis2').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#filtrarA tr').hide();
+            $('#filtrarA tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+});
+/*fin filtrado*/
