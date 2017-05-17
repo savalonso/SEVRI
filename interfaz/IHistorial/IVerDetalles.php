@@ -81,10 +81,10 @@
 	?>
 	<script type="text/javascript">
 	    function mover(){
-    	$('html,body').animate({
-            scrollTop: $("#contenedorAdministracion").offset().top
-        }, 2000);
-    }
+	    	$('html,body').animate({
+	            scrollTop: $("#contenedorAdministracion").offset().top
+	        }, 2000);
+	    }
     </script>
 	<div id="contenedorAdministracion">
 		
