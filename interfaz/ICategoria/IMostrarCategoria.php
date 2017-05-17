@@ -45,7 +45,7 @@
 							foreach ($lista as $categoria){
 					            if($categoria->getHijoDe()==0){
 					            	echo "<tr>					        
-						        	<td><a href=\"#\" onclick=\"agregarSubCategorias('".$categoria->getIdCategoria()."')\">".$categoria->getNombreCategoria()."</a></td>
+						        	<td><a href=\"#\" onclick=\"mover();agregarSubCategorias('".$categoria->getIdCategoria()."')\">".$categoria->getNombreCategoria()."</a></td>
 						        	<td>".$categoria->getDescripcion()."</td>
 					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
 					        		if ($categoria->getCantHijos()>0 || $categoria->getCantRiesgos()>0){
@@ -78,7 +78,7 @@
 			     </div>
  			</div>
 		</div>
-		<div <div class="row">
+		<div id="listaSubcategorias" class="row">
 			<h2>Lista de Sub Categor&iacuteas</h2>
 			<div class="col s12 m12 l12">
 				<div>
@@ -145,6 +145,11 @@
 	   			}
 	   		}
 	   }
+	   function mover(){
+	    	$('html,body').animate({
+	            scrollTop: $("#listaSubcategorias").offset().top
+	        }, 2000);
+	    }
 	</script>
 	<script type="text/javascript" src="../js/jsCategoria.js"></script>	
 	<?php }else{
