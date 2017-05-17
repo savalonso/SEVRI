@@ -329,8 +329,41 @@
 			} else {
 				return $lista;
 			}
-
-
+		}function obtenerRiesgoDetalles($idRiesgo){
+			include_once ('dtConnection.php');
+			include_once("../../dominio/dRiesgo.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerRiesgoDetalles('$idRiesgo')";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			
+				$riesgo = new dRiesgo;
+				$riesgo->setId($row[0]);
+				$riesgo->setIdSevri($row[1]);
+				$riesgo->setIdDepartamento($row[2]);
+				$riesgo->setIdCategoria($row[3]);	
+				$riesgo->setNombre($row[4]);
+				$riesgo->setDescripcion($row[5]);
+				$riesgo->setMontoEconomico($row[6]);
+				if($row[7]=='1'){
+					$riesgo->setEstaActivo("Activo");
+				}else{
+					$riesgo->setEstaActivo("Inactivo");
+				}
+				$riesgo->setCausa($row[8]);
+				$riesgo->setFecha($row[9]);
+				
+				array_push($lista, $riesgo);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
 		}
 	}
 ?>
