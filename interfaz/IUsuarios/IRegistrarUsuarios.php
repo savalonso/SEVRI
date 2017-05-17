@@ -110,7 +110,6 @@ function compararCedula(){
          document.getElementById('btn_Guardar').disabled=true;
      } else{
          document.getElementById('btn_Guardar').disabled=false;
-         Materialize.toast('El n&uacutemero de c&eacutedula no ha sido registrado a&uacuten!', 5000, 'blue darken-3');
      }
 }
 </script>

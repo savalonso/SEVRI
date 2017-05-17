@@ -129,6 +129,14 @@ function cargarPagina (url) {
     document.getElementById('barraCargando').style.display="";
     $('#contenedor').load(url);
 }
+function cargarPaginaHistorial (url) {
+    document.getElementById('barraCargando').style.display="";
+    $('#contenedorAdministracion').load(url);
+}
+function cargarPaginaHistorialS (url) {
+    document.getElementById('barraCargando').style.display="";
+    $('#contenedorSeguimiento').load(url);
+}
 
 function cargarPaginaConfiguraciones (url, radioButton) {
     var inputRadioSeleccionado = document.getElementById('idRadioSeleccionado');

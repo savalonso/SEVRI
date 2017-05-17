@@ -144,93 +144,105 @@
 		</div>
 	</div>
 
-	<div id="contenedorSeguimientosUsuario">
-		<div class="row">
-			<?php
-			if($listaSeguimientos != null) {
-				if($listaAdministracion != null) {
-					foreach ($listaAdministracion as $administracion){
-						echo "<h4>".$administracion->getActividadTratamiento()."</h4>";
-			?>
-			<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-				<div id="div2">
-					<table class="responsive-table centered bordered">
-						<thead>
-							<tr>
-								<th>Porcentaje avance</th>
-								<th>Estado del seguimiento</th>
-								<th>Comentario del aprobador</th>
-								<th>Opcion 1</th>
-								<th>Opcion 2</th>
-								<th>Opcion 3</th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php
-						foreach($listaSeguimientos as $seguimientos) {
-							if($seguimientos != null){
-								foreach($seguimientos as $seg){
-									if($administracion->getId() == $seg->getActividadTratamiento()){
-									?>
-									<tr>
-										<td><?= $seg->getPorcentajeAvance()."%"?></td>
-										<?php
-										if($seg->getEstadoSeguimiento() == null){
-											echo "<td>Aun no se ha realizado la aprobacion</td>";
-										} else if($seg->getEstadoSeguimiento()==1) {
-											echo "<td>Aprobado</td>";
-										} else if($seg->getEstadoSeguimiento()==0) {
-											echo "<td>Reprobado</td>";
-										}
-										if($seg->getComentarioAprobador() == null) {
-											echo "<td>Aun no se ha realizado la aprobacion</td>";
-										} else {
-											echo "<td>".$seg->getComentarioAprobador()."</td>";
-										}
-										if($seg->getEstadoSeguimiento() == null) {
-											echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" /></td>
-												<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" /></td>
-												<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Ver detalles\" /></td>";
-										} else {
-											echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ISeguimiento/IModificarSeguimientoAprobador.php?idSeguimiento=".$seg->getId()."')\"/></td>
-												<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" /></td>
-												<td><a class=\"waves-effect waves-light btn modal-trigger\" onclick=\"asignarID(".$seg->getId()."),  mostrarSeguimientoModal2()\" href=\"#MmostrarSeguimiento\">Ver detalles</a></td>";
-										}
-										?>
-									</tr>
-									<?php
-									}
-								}
-							}
+<div id="contenedorSeguimientosUsuario">
+	<div class="row">
+		<div class="col s12 m12 l12" style="margin:10px;">
+			<div class="col s12 m6 l6">
+				<label>Seleccione un Seguimiento</label>
+				<select id="selecSegui" name="selecSegui" onchange="verSeguimientos()">
+					<option value="0" disabled="true" selected>Seleccione una opci&oacuten</option>
+					<?php
+						foreach ($listaAdministracion as $administracion){
+							echo "<option value=".$administracion->getId().">".$administracion->getActividadTratamiento()."</option>";
 						}
-						?>
-						</tbody>
-					</table>
-				</div>	
+					?>
+				</select>
 			</div>
-			<?php
+		</div>
+<?php
+if($listaSeguimientos != null) {
+	if($listaAdministracion != null) {
+		foreach ($listaAdministracion as $administracion) {
+?>
+		<div class="col s12 m12 l12" name="seg" id="table_<?=$administracion->getId()?>" style="display:none">
+			<h4><?=$administracion->getActividadTratamiento()?></h4>
+				<table class="responsive-table centered bordered">
+					<thead>
+						<tr>
+							<th>Porcentaje avance</th>
+							<th>Estado del seguimiento</th>
+							<th>Comentario del aprobador</th>
+							<th>Opcion 1</th>
+							<th>Opcion 2</th>
+							<th>Opcion 3</th>
+						</tr>
+					</thead>
+					<tbody>
+<?php
+foreach($listaSeguimientos as $seguimientos) {
+	if($seguimientos != null){
+		foreach($seguimientos as $seg){
+			if($administracion->getId() == $seg->getActividadTratamiento()){
+?>
+						<tr>
+							<td><?= $seg->getPorcentajeAvance()."%"?></td>
+							<?php
+							if($seg->getEstadoSeguimiento() == null){
+								echo "<td>Aun no se ha realizado la aprobacion</td>";
+							} else if($seg->getEstadoSeguimiento()==1) {
+								echo "<td>Aprobado</td>";
+							} else if($seg->getEstadoSeguimiento()==0) {
+								echo "<td>Reprobado</td>";
+							}
+							if($seg->getComentarioAprobador() == null) {
+								echo "<td>Aun no se ha realizado la aprobacion</td>";
+							} else {
+								echo "<td>".$seg->getComentarioAprobador()."</td>";
+							}
+							if($seg->getEstadoSeguimiento() == null) {
+								echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" /></td>
+									<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" /></td>
+									<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Ver detalles\" /></td>";
+							} else {
+								echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ISeguimiento/IModificarSeguimentoAsignado.php?idAdministracion=".$administracion->getId()."')\"/></td>
+									<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" /></td>
+									<td><a class=\"waves-effect waves-light btn modal-trigger\" onclick=\"asignarID(".$seg->getId()."),  mostrarSeguimientoModal2()\" href=\"#MmostrarSeguimiento\">Ver detalles</a></td>";
+							}
+							?>
+						</tr>
+<?php
+						}
 					}
 				}
-			} else {
-				echo "<br><h3>A&uacuten no se han realizado aprobaciones</h3>";
 			}
-			?>		
+?>
+					</tbody>
+				</table>
+			</div>
+<?php
+		}
+	}
+} else {
+	echo "<br><h3>A&uacuten no se han realizado aprobaciones</h3>";
+}
+?>		
 		</div>
 	</div>
+</div>
 
-		<div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
-			<div class="modal-content">
-				<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
-			</div>
-			<div class="modal-footer blue darken-3 z-depth-5">
-				<input type="hidden" id="idSeguimiento" name="idSeguimiento">
-				<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="eliminarSeguimientoAprobador()"/>
-			</div>
-		</div>
-		<div id="MmostrarSeguimiento" class="modal  blue darken-3 z-depth-5 white-text"></div>
+<div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
+	<div class="modal-content">
+		<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
 	</div>
+	<div class="modal-footer blue darken-3 z-depth-5">
+		<input type="hidden" id="idSeguimiento" name="idSeguimiento">
+		<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+		<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="eliminarSeguimientoAprobador()"/>
+	</div>
+</div>
+<div id="MmostrarSeguimiento" class="modal  blue darken-3 z-depth-5 white-text"></div>
 <script>
+	var id = 0;
 	var idSeguimientoDetalles;
 	function asignarID(id){
 		idSeguimientoDetalles = id;
@@ -246,6 +258,17 @@
 		 $('ul.tabs').tabs();
 		 Materialize.updateTextFields();
 	});
+
+	function verSeguimientos() {
+		if(id == 0){
+			id = $('#selecSegui').val();
+			document.getElementById("table_"+id).style.display = "block";
+		} else {
+			document.getElementById("table_"+id).style.display = "none";
+			id = $('#selecSegui').val();
+			document.getElementById("table_"+id).style.display = "block";
+		}
+	}
 
 	function mostrarSeguimientoModal(){
 		var lSeguimiento = eval(<?php echo $ArrayJsonSeguimiento ?>);

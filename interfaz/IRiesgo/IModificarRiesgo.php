@@ -126,6 +126,7 @@
 				echo "<button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";
 			?>
 			</div>
+			<br>
 		</div>
 	</form>
 	<div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
