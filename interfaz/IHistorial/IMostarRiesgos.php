@@ -50,11 +50,13 @@
 			</div>
 		</div>
 	</div>
+	<?php  
+		if($lista==null){
+			echo "<h3>A&UacuteN NO HAY RIESGOS IDENTIFICADOS EN VERSIONES ANTERIORES</h3>";
+		}else{
+	?>
 	<div class="row">
 		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-		<?php  
-			if($lista!=null){
-		?>
 			<div id="div1">
 				<table class="responsive-table centered bordered" id="tabla">
 					<thead>
@@ -83,20 +85,17 @@
 							}
 						?>
 					</tbody>
-					</table>
+				</table>
 			</div>
-				<?php  
-					}else{
-						echo "<h3>A&uacuteN NO HAY RIESGOS IDENTIFICADOS EN VERSIONES ANTERIORES</h3>";
-					}
-				?>
 		</div>
 	</div>
+	<?php 	
+		}
+	?>
 	<script>
   		$(document).ready(function(){
 	  		$('.modal-trigger').leanModal();
 	  		$('select').material_select();
 	  		$('.tooltipped').tooltip({delay: 50});
 	   	});
-
 	</script>
