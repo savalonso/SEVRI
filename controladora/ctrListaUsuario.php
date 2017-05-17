@@ -23,9 +23,9 @@
 		}
 
 		function obtenerUsuario($cedula){
-			include_once ('../../data/dtUsuarios.php');
-			$dataUsuarios = new dtUsuarios();
-			$usuario = $dataUsuarios->getUsuario($cedula);
+			include_once ('../../data/dtUsuario.php');
+			$dataUsuario = new dtUsuario();
+			$usuario = $dataUsuario->getUsuario($cedula);
 			if(!$usuario){
 				return false;
 			}else{
