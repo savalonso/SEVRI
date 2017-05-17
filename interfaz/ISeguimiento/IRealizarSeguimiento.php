@@ -71,7 +71,6 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
     }
 ?>
 <div class="modal blue darken-3 z-depth-5 white-text" id="Mmostrar">
-    <h1>Hola</h1>
 </div>
 <div class="modal blue darken-3 z-depth-5 white-text" id="MInsertar">
     <div class="inputs modal-content" id="contenido" style="width:100%;">
@@ -103,7 +102,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
                     ?>
                 </select>
             </div>
-            <input type="submit" value="Guardar" class="btn btn-default modal-close">
+            <input type="submit" value="Guardar" class="btn btn-default">
         </form>
         </div>
     </div>
