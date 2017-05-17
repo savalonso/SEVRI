@@ -17,15 +17,17 @@
 		$control = new ctrDatosSevri;	
 		$lista =$control->obtenerTodasLasCategorias();	
 		
-		foreach ($lista as $categoria){
-			$arr[] = array(
-			'_id' => $categoria->getIdCategoria(),
-            'nombre'=> utf8_encode($categoria->getNombreCategoria()),
-            'padre' => utf8_encode($categoria->getHijoDe()),
-            'descripcion' => utf8_encode($categoria->getDescripcion())
-        	); 	
+		if($lista!=null){
+			foreach ($lista as $categoria){
+				$arr[] = array(
+				'_id' => $categoria->getIdCategoria(),
+	            'nombre'=> utf8_encode($categoria->getNombreCategoria()),
+	            'padre' => utf8_encode($categoria->getHijoDe()),
+	            'descripcion' => utf8_encode($categoria->getDescripcion())
+	        	); 	
+			}
+			$ArrayJson =json_encode($arr);
 		}
-		$ArrayJson =json_encode($arr);
 	?>
 	<script>
 	window.onload=ocultarBarra();
@@ -47,23 +49,34 @@
 
 					<div>
 						<label class="white-text" for="tipo">Tipo:</label>
-						<select id="tipo" name="tipo" onchange="verificarCombo(this.value)"> 
-							<option value="1">Categor&iacutea</option>
-							<option value="0">Sub Categor&iacutea</option>
+						<select id="tipo" name="tipo" onchange="verificarCombo(this.value)">
+							<?php 
+							if($lista!=null){
+								echo "<option value=\"1\">Categor&iacutea</option>";
+								echo "<option value=\"0\">Sub Categor&iacutea</option>";
+							}else{
+								echo "<option value=\"1\">Categor&iacutea</option>";
+								echo "<option disabled=\"true\" value=\"0\">Sub Categor&iacutea</option>";
+							}
+							?>
 						</select>
 					</div>
 		
 					<div>
 						<label  class="white-text" for="categoria">Categor&iacutea:</label>
-						<select id="categoria" name="categoria" disabled="true"> 
-							<option disabled="true" selected="true" value="0">Seleccione una categor&iacutea...</option>
-								<?php 
-									foreach ($lista as $categoria){
-										if($categoria->getHijoDe()=="0"){
-											echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
-										}
+						<select id="categoria" name="categoria" disabled="true">
+							<?php 
+							if($lista!=null){
+								echo "<option disabled=\"true\" selected=\"true\" value=\"0\">Seleccione una categor&iacutea...</option>";
+								foreach ($lista as $categoria){
+									if($categoria->getHijoDe()=="0"){
+										echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
 									}
-								?>
+								}
+							}else{
+								echo "<option disabled=\"true\" selected=\"true\" value=\"0\">No hay categor&iacuteas disponibles</option>";
+							}
+							?>
 						</select>
 					</div>
 							

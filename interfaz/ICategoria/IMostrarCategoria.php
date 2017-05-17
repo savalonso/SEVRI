@@ -7,15 +7,18 @@
 		$control = new ctrListaCategoria;	
 		$lista =$control->obtenerListaCategoriasDE();
 
-		foreach ($lista as $categorias) {
-			$arr[] = array(
-			'_id' => $categorias->getIdCategoria(),
-		    'nombre' => utf8_encode($categorias->getNombreCategoria()),
-		    'padre' => utf8_encode($categorias->getHijoDe()),
-		    'descripcion' => utf8_encode($categorias->getDescripcion())
-    		); 	
+		if($lista!=null){
+			foreach ($lista as $categorias) {
+				$arr[] = array(
+				'_id' => $categorias->getIdCategoria(),
+			    'nombre' => utf8_encode($categorias->getNombreCategoria()),
+			    'padre' => utf8_encode($categorias->getHijoDe()),
+			    'descripcion' => utf8_encode($categorias->getDescripcion())
+	    		); 	
+			}
+			$ArrayJson =json_encode($arr);
 		}
-		$ArrayJson =json_encode($arr);
+		
 	?>
 	<script>
 		window.onload=ocultarBarra();
@@ -49,7 +52,7 @@
 							foreach ($lista as $categoria){
 					            if($categoria->getHijoDe()==0){
 					            	echo "<tr>					        
-						        	<td><a href=\"#\" onclick=\"agregarSubCategorias('".$categoria->getIdCategoria()."')\">".$categoria->getNombreCategoria()."</a></td>
+						        	<td>".$categoria->getNombreCategoria()."</td>
 						        	<td>".$categoria->getDescripcion()."</td>
 					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
 					        		if ($categoria->getCantHijos()>0 || $categoria->getCantRiesgos()>0){
@@ -138,24 +141,6 @@
   		$(document).ready(function(){
 	  		$('.modal-trigger').leanModal();
 	   	});
-	   	function agregarSubCategorias(idCategoria){
-	   		//var categorias = eval(<?php echo $ArrayJson ?>);//obtengo lista de categorias
-	   		var tbody = document.getElementById("tbody");//obtengo el objeto tabla del html
-	   		var tabla = document.getElementById("subCategorias");//obtengo la tabla del html
-	   		var cant = tabla.rows.length;
-	   		//for(j=1;tabla.rows.length>1;j++){//recorro todas las filas y las elimino
-	   			//tabla.deleteRow(j);//elimina la fila en la posicion i
-	   			//j--;
-	   		//}
-	   		//alert(document.getElementById("tr"+j).cells[0].childNodes[0].nodeValue);
-	   		for(j=1;j<tabla.rows.length;j++){
-	   			if(document.getElementById("tr"+j).cells[0].childNodes[0].nodeValue==idCategoria){
-	   				document.getElementById("tr"+j).style.display = "";
-	   			}else{
-	   				document.getElementById("tr"+j).style.display = "none";
-	   			}
-	   		}
-	   }
 	</script>
 	<script type="text/javascript" src="../js/jsCategoria.js"></script>	
 	<?php }else{
