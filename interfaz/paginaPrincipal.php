@@ -4,12 +4,11 @@
 	<meta charset="UTF-8">
 	<title>SEVRI</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="../Materialize/css/materialize.css?v=1s">
+	<link rel="stylesheet" href="../Materialize/css/materialize.css?v=1">
 	<link href="../Materialize/css/icon.css?v=1" rel="stylesheet">
 	<link rel="stylesheet" href="../Materialize/css/Style.css?v=1">
 	<script src="../js/jQuery.js?v=1"></script>
 	<script src="../js/jquery.maskedinput.js?v=1"></script>
-	<script src="../js/jquery.dataTables.js?v=1"></script>
 	<script type="text/javascript" src="../js/jsPaginadorTablas.js?v=3"></script>
 	<script src="../Materialize/js/materialize.js?v=1"></script>
 	<script src="../js/jsRiesgo.js?v=1"></script>

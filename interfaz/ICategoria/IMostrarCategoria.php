@@ -68,12 +68,7 @@
 						?>
 					</tbody>
 					</table>
-			</div>
-			<?php  
-				}else{
-					echo "<h3>A&uacuten no hay Categor&iacuteas identificadas</h3>";
-				}
-			?>	
+			</div>	
 			<div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
 	 		    <div class="modal-content">
 				    <h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
@@ -134,7 +129,11 @@
 					</div>
 				</div>
 			</div>
-	
+	<?php  
+				}else{
+					echo "<h3>A&uacuten no hay categor&iacuteas identificadas</h3>";
+				}
+			?>
 	
 
 	<script>

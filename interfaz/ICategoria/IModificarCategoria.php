@@ -17,15 +17,17 @@ session_start();
 	include ("../../controladora/ctrDatosSevri.php");
 	$control1 = new ctrDatosSevri;	
 	$listaC =$control1->obtenerTodasLasCategorias();
-	foreach ($listaC as $categorias) {
-		$arr[] = array(
-		'_id' => $categorias->getIdCategoria(),
-        'nombre' => utf8_encode($categorias->getNombreCategoria()),
-        'padre' => utf8_encode($categorias->getHijoDe()),
-        'descripcion' => utf8_encode($categorias->getDescripcion())
-    	); 	
-	}
-	$ArrayJson =json_encode($arr);
+	if($listaC!=null){
+		foreach ($listaC as $categorias) {
+			$arr[] = array(
+			'_id' => $categorias->getIdCategoria(),
+	        'nombre' => utf8_encode($categorias->getNombreCategoria()),
+	        'padre' => utf8_encode($categorias->getHijoDe()),
+	        'descripcion' => utf8_encode($categorias->getDescripcion())
+	    	); 	
+		}
+		$ArrayJson =json_encode($arr);
+	}	
 ?>	
 <script>
 	window.onload=ocultarBarra();
@@ -46,7 +48,7 @@ session_start();
 
 			<div >
 				<label  for="tipo">Tipo:</label></br></br>
-				<select id="tipo" name="tipo" onchange="verificarCombo(this.value)"> 
+				<select id="tipo" name="tipo" onchange="verificarCombo(this.value)">
 				<?php
 					if($hijoDe==0){
 						echo"<option selected=\"true\" value=\"1\">Categor&iacutea</option>";
