@@ -147,7 +147,7 @@ function cargarGUIMostrarRiesgosAnalisis(){
 }
 
 function cargarGUIMostrarRiesgosAdministracion(){
-
+    document.getElementById('barraCargando').style.display="";
     var idDepartamento=document.getElementById("departamentos").value;
 
 

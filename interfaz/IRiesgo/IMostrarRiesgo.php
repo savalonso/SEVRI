@@ -19,7 +19,6 @@
 		<div class="input-field buscar1 col s12 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosRiesgos" type="text" >
-		        <a id="boton" href="#" onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php')" data-tooltip="Agregar riesgos de versiones antiguas." class="btn-floating tooltipped btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
         </div>
 		<div class="col l12 m12 s12">
 			<div class="col l8 m8 s8">
