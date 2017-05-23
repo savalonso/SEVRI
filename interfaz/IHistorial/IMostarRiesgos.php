@@ -23,7 +23,6 @@
 			<div>
 				<label class="white-text" for="sevri">Seleccione una versi&oacuten de SEVRI:</label>
 				<select id="sevri" name="sevri" onchange="actualizarTablaAgregar()"> 
-					<option selected="true" value="0">Seleccione una versi&oacuten de SEVRI...</option>
 					<?php 
 						if($listaS!=null){
 							foreach ($listaS as $sevri){
@@ -37,8 +36,7 @@
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<div>
 				<label class="white-text" for="departamento">Seleccione un departamento:</label>
-				<select id="departamento" name="departamento" onchange="actualizarTablaAgregar()"> 
-					<option selected="true" value="0">Seleccione un departamento...</option>
+				<select id="departamento" name="departamento" onchange="actualizarTablaAgregar()">
 					<?php
 						if($listaD!=null){
 							foreach ($listaD as $departamento){
@@ -97,5 +95,6 @@
 	  		$('.modal-trigger').leanModal();
 	  		$('select').material_select();
 	  		$('.tooltipped').tooltip({delay: 50});
+	  		actualizarTablaAgregar();
 	   	});
 	</script>

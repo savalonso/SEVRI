@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <?php 
@@ -67,7 +65,6 @@
 						<select id="categoria" name="categoria" disabled="true">
 							<?php 
 							if($lista!=null){
-								echo "<option disabled=\"true\" selected=\"true\" value=\"0\">Seleccione una categor&iacutea...</option>";
 								foreach ($lista as $categoria){
 									if($categoria->getHijoDe()=="0"){
 										echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";

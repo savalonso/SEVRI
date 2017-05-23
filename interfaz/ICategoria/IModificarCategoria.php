@@ -13,12 +13,15 @@ session_start();
 		$descripcion = $categoria->getDescripcion();
 		$hijoDe = $categoria->getHijoDe();	
 	}
-
+	$cont=0;
 	include ("../../controladora/ctrDatosSevri.php");
 	$control1 = new ctrDatosSevri;	
 	$listaC =$control1->obtenerTodasLasCategorias();
 	if($listaC!=null){
 		foreach ($listaC as $categorias) {
+			if($categorias->getHijoDe()==0){
+				$cont++;
+			}
 			$arr[] = array(
 			'_id' => $categorias->getIdCategoria(),
 	        'nombre' => utf8_encode($categorias->getNombreCategoria()),
@@ -51,26 +54,43 @@ session_start();
 				<select id="tipo" name="tipo" onchange="verificarCombo(this.value)">
 				<?php
 					if($hijoDe==0){
-						echo"<option selected=\"true\" value=\"1\">Categor&iacutea</option>";
-						echo"<option value=\"0\">Sub Categor&iacutea</option>";
+						if($cont==1){
+							echo"<option selected=\"true\" value=\"1\">Categor&iacutea</option>";
+							echo"<option disabled=\"true\" value=\"0\">Sub Categor&iacutea</option>";
+						}else{
+							echo"<option selected=\"true\" value=\"1\">Categor&iacutea</option>";
+							echo"<option value=\"0\">Sub Categor&iacutea</option>";
+						}
 					}else{
 						echo"<option value=\"1\">Categor&iacutea</option>";
 						echo"<option selected=\"true\" value=\"0\">Sub Categor&iacutea</option>";
-					}
-				?>
-					
+					}	
+				?>	
 				</select>
 			</div>
 			
 			<div>
 				<label  class="white-text" for="categoria">Categor&iacutea:</label>
-				<select id="categoria" name="categoria" disabled="true"> 
-					<option disabled="true" selected="true" value="0">Seleccione una categor&iacutea...</option>
+				<?php 
+				if($hijoDe==0){
+					echo "<select id=\"categoria\" name=\"categoria\" disabled=\"true\"> ";
+				}else{
+					echo "<select id=\"categoria\" name=\"categoria\"> ";
+				}
+				?>
 						<?php 
-							foreach ($listaC as $categorias){
-								if($categorias->getHijoDe()==0){
-									echo "<option value=".$categorias->getIdCategoria()." >".$categorias->getNombreCategoria()."</option>";
+							if($listaC!=null){
+								foreach ($listaC as $categorias){
+									if($categorias->getHijoDe()==0&&$categorias->getIdCategoria()!=$id){
+										if($categorias->getIdCategoria()==$hijoDe){
+											echo "<option selected=\"true\" value=".$categorias->getIdCategoria()." >".$categorias->getNombreCategoria()."</option>";
+										}else{
+											echo "<option value=".$categorias->getIdCategoria()." >".$categorias->getNombreCategoria()."</option>";
+										}
+									}
 								}
+							}else{
+								echo "<option disabled=\"true\" selected=\"true\" value=\"0\">No hay categor&iacuteas disponibles</option>";
 							}
 						?>
 				</select>
@@ -90,7 +110,7 @@ session_start();
 	$( document ).ready(function(){
 	   	$('select').material_select();
 
-	   	var hijoDe = eval(<?php echo $hijoDe ?>);
+	   	/*var hijoDe = eval(<?php echo $hijoDe ?>);
 	   	var id = eval(<?php echo $id ?>);
 	   	var categorias = eval(<?php echo $ArrayJson ?>);
 	   	if(hijoDe!=0){//si es una subcategoria
@@ -102,10 +122,8 @@ session_start();
            		}
            		document.getElementById("categoria").disabled=false;
        		}
-	   	}
-	});
-	$(document).ready(function() {
-		if(document.getElementById('categoria').disabled==false){
+	   	}*/
+	   	if(document.getElementById('categoria').disabled==false){
 			$("#IModificarCategoria").validate({
 		        rules: {
 		            nombre: { required: true,minlength: 10, maxlength: 500},
