@@ -266,7 +266,21 @@
 			}
 			
 		}
-		
+		function eliminarCategoria($idCategoia){
+			include_once ('dtConnection.php');
+			$con = new dtConnection;
+			$conexion = $con->conect();
+
+			$result = $conexion->query("CALL eliminarCategoria('$idCategoia')");
+
+			mysqli_close($conexion);
+
+			if (!$result){
+				return false;
+			} else {
+				return true;
+			}
+		}
 	}	
 
 ?>
