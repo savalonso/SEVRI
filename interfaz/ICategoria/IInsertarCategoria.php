@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php 
 	session_start();
 	if($_SESSION['tipo']=='Administrador'){
