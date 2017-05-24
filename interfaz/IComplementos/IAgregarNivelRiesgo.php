@@ -7,6 +7,7 @@
 	$NivelRiesgoVinculado = $ctrNivel->ObtenerNivelRiesgoViculado();
 	$idDivicion = $_GET['idDivicion']; 
  ?>
+ 
 <div class="row">
 	<div class="col s12 m8 l8">
 		<div id="div1">

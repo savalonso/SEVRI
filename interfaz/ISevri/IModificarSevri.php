@@ -68,7 +68,7 @@
 	    });
 		});
 		$(function(){
-		  $('#nombre').mask('SEVRI- <?= $añoActual ?>-99');
+		  $('#nombre').mask('SEVRI-<?= $añoActual ?>-99');
 		});
 		$(document).ready(function(){
    		  $('.modal-trigger').leanModal();
