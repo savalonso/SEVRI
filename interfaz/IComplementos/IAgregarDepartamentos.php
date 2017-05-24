@@ -7,6 +7,9 @@
 <script>
     window.onload=ocultarBarra();
 </script>
+<?php 
+    if($listaDepartamentos != null ){
+?>
 <div id="contenedorDepartamentos">
     <div class="row" id="contenedorTablaCategorias">
     <h3>Departamentos para agregar</h3>
@@ -50,7 +53,7 @@
             </div>
         </div>
         <div class="col s12 m3 l3">
-            <input type="button" value="Crear Departamento" class="btn">
+            <input type="button" onclick="cargarPagina('../interfaz/IDepartamento/IInsertarDepartamento.php')" value="Crear Departamentos" class="btn">
         </div>
     </div>
 
@@ -85,4 +88,11 @@
         </div>
     </div>
 </div>
+<?php 
+    }else{ ?>
+        <h4>No se han creado departamentos</h4>
+        <div class="col s12 m3 l3">
+            <input type="button" onclick="cargarPagina('../interfaz/IDepartamento/IInsertarDepartamento.php')" value="Crear Departamentos" class="btn">
+        </div>
+   <?php } ?>
 <script type="text/javascript" src="../js/jsTablas.js"></script>
