@@ -3,23 +3,26 @@
     $ctrDatos = new ctrDatosSevri;
     $listaParametros = $ctrDatos->obtenerParametros();
     $listaParametrosActivos = $ctrDatos->obtenerParametrosSevriNuevo();
-	foreach ($listaParametros as $parametro) {
-		$arr[] = array(
-		'_id' => $parametro->getIdParametro(),
-		'descriptor' => $parametro->getDescriptorParametro(),
-		'tipo' => $parametro->getNombreParametro(),
-		'valor' => $parametro->getValorParametro(),
-		'descripcion' => $parametro->getDescripcionParametro(),
-		'color' => $parametro->getColorParametro()
-		); 	
+    if($listaParametros!= null){
+		foreach ($listaParametros as $parametro) {
+			$arr[] = array(
+			'_id' => $parametro->getIdParametro(),
+			'descriptor' => $parametro->getDescriptorParametro(),
+			'tipo' => $parametro->getNombreParametro(),
+			'valor' => $parametro->getValorParametro(),
+			'descripcion' => $parametro->getDescripcionParametro(),
+			'color' => $parametro->getColorParametro()
+			); 	
+		}
+		$ArrayJson = json_encode($arr);
 	}
-	$ArrayJson = json_encode($arr);
+	
 ?>
 <script>
 	window.onload=ocultarBarra();
 </script>
 
-<h3>Agregar par&aacutemetros al SEVRI</h3>
+<h4>Agregar par&aacutemetros al SEVRI</h4>
 <div id="contenedorGeneralParametros">
 	<div id="divParametros">
 		<form id="agregarParametrosSevri" role="form" class="responsive">
@@ -39,12 +42,14 @@
 			</div>
 		</form>
 		<div class="col s12 m3 l3">
-			<input type="button" value="Crear Parametro" class="btn">
+			<input type="button" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php')" value="Crear Parametro" class="btn">
 		</div>
 	</div>
-
+<?php 
+	if($listaParametros != null ){
+?>
 <div id="contenedorTablaProbabilidad" class="row" >
-<h3>Valores de probabilidad para agregar</h3>
+<h4>Valores de probabilidad para agregar</h4>
 	<div class="col s12 m8 l8">
 		<div id="div1">
 			<table class="responsive-table responsive striped centered" id="tbParametros">
@@ -87,9 +92,16 @@
 		</div>
 	</div>
 </div>
-
+<?php 
+	}else{
+		echo "<h4>No se han creado parámetros de Probabilidad</h4>";
+	}
+?>
+<?php 
+	if($listaParametros != null ){
+?>
 <div id="contenedorTablaImpacto" style="display:none">
-<h3>Valores de impacto para agregar</h3>
+<h4>Valores de impacto para agregar</h4>
 	<div class="col s12 m8 l8">
 		<div id="div1">
 			<table class="responsive-table responsive ParametrosImpacto striped centered" id="tbParametros">
@@ -132,7 +144,14 @@
 		</div>
 	</div>
 </div>
-
+<?php 
+	}else{
+		echo "<h4>No se han Creado parámetros de Impacto</h4>";
+	}
+?>
+<?php 
+	if($listaParametros != null ){
+?>
 <div id="contenedorTablaCalificacion" style="display:none">
 <h3>Valores de medida calificaci&oacuten para agregar</h3>
 	<div class="col s12 m8 l8">
@@ -177,8 +196,12 @@
 		</div>
 	</div>
 </div>
-		
-<h3>Par&aacutemetros Agregados</h3>
+<?php 
+	}else{
+		echo "<h4>No se han creado parámetros de Calificaci&oacuten de la medida</h4>";
+	}
+?>		
+<h4>Par&aacutemetros Agregados</h4>
 <div class="col s12 m8 l8 ">
 	<div id="div1">
 		<table class="responsive-table striped responsive centered" id="tbParametrosAgregados">

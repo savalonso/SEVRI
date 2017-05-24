@@ -7,6 +7,9 @@
 <script>
     window.onload=ocultarBarra();
 </script>
+<?php 
+    if($listaCategorias != null ){
+?>
 <div id="contenedorCategorias">
     <div class="row" id="contenedorTablaCategorias">
     <h3>Categor&iacuteas para agregar</h3>
@@ -51,7 +54,7 @@
             </div>
         </div>
         <div class="col s12 m3 l3">
-            <input type="button" value="Crear Categoria" class="btn">
+            <input type="button" onclick="cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')" value="Crear Categorías" class="btn">
         </div>
     </div>
 
@@ -86,4 +89,11 @@
         </div>
     </div>
 </div>
+<?php 
+    }else{ ?>
+        <h4>No se han creado categor&iacuteas</h4>
+        <div class="col s12 m3 l3">
+            <input type="button" onclick="cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')" value="Crear Categorías" class="btn">
+        </div>
+   <?php } ?>
 <script type="text/javascript" src="../js/jsTablas.js"></script>
