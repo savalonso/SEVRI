@@ -45,7 +45,7 @@
 			$ri = false;
 		}
 	}
-
+	$arr[] = array();
 	if($administracionRiesgo != null){
 		$i=0;
 		for($i; $i<count($listaAdministracion); $i++){
@@ -61,8 +61,8 @@
 					'NombreMedida' => $listaMedida[$i]->getNombreMedida()
 				);
 		}
-		$ArrayJson = json_encode($arr);
 	}
+	$ArrayJson = json_encode($arr);
 	/*--Victor--*/
 	/*----------*/
  ?>
