@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 
 <?php
-
 	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
 	$cedulaAprobador=$_SESSION['idUsuario'];
 	include_once("../../controladora/ctrListaSeguimientos.php");
 	include_once("../../controladora/ctrListaAdministracion.php");

@@ -1,8 +1,16 @@
-<!DOCTYPE html>
 <?php 
 	session_start();
-	if($_SESSION['tipo']=='Administrador'){
- ?>
+	$tipo="";
+	if(isset($_SESSION['tipo'])){
+		$tipo=$_SESSION['tipo'];
+	}else{
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+	if($tipo!='Administrador'){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Insertar Categor&iacutea</title>
@@ -138,10 +146,4 @@
 		$('select').material_select();
 	}
 </script>
-
-<?php }else{
-
-	header("location:../../loginUsuarios.php");
-	}  ?>
 </html>
-

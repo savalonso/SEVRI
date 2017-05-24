@@ -1,4 +1,9 @@
-
+<?php 
+	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+?>
 	<script type="text/javascript" src="../js/jsRiesgo.js"></script>
 
 	<?php

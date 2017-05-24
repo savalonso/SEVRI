@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['tipo'])){
-		header("location:../../index.php");
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
 	}
 ?>
 <!DOCTYPE html>
