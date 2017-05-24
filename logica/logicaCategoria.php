@@ -15,7 +15,13 @@ class LogicaCategoria{
 		if(!$resultado){
 			$mensaje = 'Lo sentimos no se ha podido ingresar la categoria';
 		}else{
-			$mensaje =  'La categoria se ha ingresado correctamente';
+			$resultado1 = $dtcategoria->insertarSevriCategoria();
+			if(!$resultado1){
+				$mensaje =  'Lo sentimos no se ha podido ingresar la categoria';
+			}else{
+				$mensaje =  'La categoria se ha ingresado correctamente';
+			}
+			
 		}
 		return $mensaje;
 	}

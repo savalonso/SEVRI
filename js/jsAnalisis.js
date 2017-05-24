@@ -39,7 +39,7 @@ function crearNivelRiesgo(maximaProbabilidad, maximoImpacto){
         if((i < (tabla.rows.length-1) && resultadoOperacion >= limiteInicial && resultadoOperacion <= (limite-1)) || (i == (tabla.rows.length - 1) && resultadoOperacion >= limiteInicial)){
             color = filas[3].innerHTML;
             descriptor = filas[1].innerHTML;
-            document.getElementById('visualizadorNivelRiesgo').innerHTML = resultadoOperacion + ": " + descriptor;
+            document.getElementById('visualizadorNivelRiesgo').innerHTML = resultadoOperacion + "%: " + descriptor;
             document.getElementById('visualizadorNivelRiesgo').style.background = color;
         }
         limiteInicial = limite;

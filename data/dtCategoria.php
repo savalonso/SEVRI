@@ -2,6 +2,36 @@
 	class dtCategoria {
 		
 		function dtCategoria(){}
+		function eliminarSevriCategoria($idCategoria){
+			include_once ('dtConnection.php');
+			$con = new dtConnection;
+			$conexion = $con->conect();
+
+			$result = $conexion->query("CALL eliminarSevriCategoria($idCategoria)");
+
+			mysqli_close($conexion);
+
+			if (!$result){
+				return false;
+			} else {
+				return true;
+			}
+			
+		}
+		function insertarSevriCategoria(){
+			$con = new dtConnection;
+			$conexion = $con->conect();
+
+			$result = $conexion->query("CALL insertarSevriCategorias()");
+
+			mysqli_close($conexion);
+
+			if (!$result){
+				return false;
+			} else {
+				return true;
+			}
+		}
 		function insertarCategoria($Categoria){
 			include_once ('dtConnection.php');
 			include_once ("../dominio/dCategoria.php");
@@ -234,12 +264,12 @@
             }
 			
 		}*/
-
-		function insertarSevriCategoria($idCategoia){
+		function eliminarCategoria($idCategoia){
+			include_once ('dtConnection.php');
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
-			$result = $conexion->query("CALL insertarSevriCategorias('$idCategoia')");
+			$result = $conexion->query("CALL eliminarCategoria('$idCategoia')");
 
 			mysqli_close($conexion);
 
@@ -248,25 +278,7 @@
 			} else {
 				return true;
 			}
-			
 		}
-
-		function eliminarSevriCategoria($idCategoria){
-			$con = new dtConnection;
-			$conexion = $con->conect();
-
-			$result = $conexion->query("CALL eliminarSevriCategoria('$idCategoria')");
-
-			mysqli_close($conexion);
-
-			if (!$result){
-				return false;
-			} else {
-				return true;
-			}
-			
-		}
-		
 	}	
 
 ?>

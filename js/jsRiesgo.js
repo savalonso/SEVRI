@@ -121,11 +121,11 @@ function cancelarModificar(){
 }
 
 function cargarGUIMostrarRiesgos(){
-
+    document.getElementById('barraCargando').style.display="";
     var idDepartamento=document.getElementById("departamentos").value;
 
     if(idDepartamento!=0){
-
+        
         $('#mostrarRiesgos').load("../interfaz/IRiesgo/IMostrarRiesgo.php?id="+idDepartamento);
         
     }
@@ -134,11 +134,11 @@ function cargarGUIMostrarRiesgos(){
 }
 
 function cargarGUIMostrarRiesgosAnalisis(){
-
+    document.getElementById('barraCargando').style.display="";
     var idDepartamento=document.getElementById("departamentos").value;
 
     if(idDepartamento!=0){
-
+        document.getElementById('barraCargando').style.display="";
         $('#mostrarRiesgosAnalisis').load("../interfaz/IAnalisis/IAnalizarRiesgo.php?id="+idDepartamento);
         
     }
@@ -152,7 +152,7 @@ function cargarGUIMostrarRiesgosAdministracion(){
 
 
     if(idDepartamento!=0){
-
+        document.getElementById('barraCargando').style.display="";
         $('#mostrarRiesgosAdministracion').load("../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php?id="+idDepartamento);
         
     }
@@ -160,11 +160,11 @@ function cargarGUIMostrarRiesgosAdministracion(){
 }
 
 function cargarGUIMostrarRiesgosAnalizados(){
-
+    document.getElementById('barraCargando').style.display="";
     var idDepartamento=document.getElementById("departamentos").value;
    
     if(idDepartamento!=0){
-
+        document.getElementById('barraCargando').style.display="";
         $('#mostrarRiesgosAnalizados').load("../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php?id="+idDepartamento);
         
     }
