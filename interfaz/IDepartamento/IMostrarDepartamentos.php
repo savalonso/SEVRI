@@ -1,3 +1,15 @@
+<?php
+	session_start();
+    $tipo="";
+    if(isset($_SESSION['tipo'])){
+        $tipo=$_SESSION['tipo'];
+    }else{
+        echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+    }
+    if($tipo!='Administrador'){
+        echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+    }
+?>
 <!DOCTYPE html>
 	<?php
 		include("../../controladora/ctrListaDepartamento.php");

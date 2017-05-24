@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 
 
-<?php 
-
+<?php
 	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
 	$cedula=$_SESSION['idUsuario'];
 	include("../../controladora/ctrListaDepartamento.php");
 	$controlDepartamentos=new ctrListaDepartamento;

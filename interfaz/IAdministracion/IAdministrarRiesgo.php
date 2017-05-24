@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+?>
 <!DOCTYPE html>
 <script>
 	window.onload=ocultarBarra();
@@ -6,7 +12,6 @@
 	   $('select').material_select();
 	 });
 </script>
-
 	<?php 
 
 		include ("../../Controladora/ctrListaUsuario.php");
