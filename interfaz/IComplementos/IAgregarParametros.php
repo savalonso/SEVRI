@@ -43,11 +43,11 @@
 		</div>
 	</div>
 
-<div id="contenedorTablaProbabilidad">
+<div id="contenedorTablaProbabilidad" class="row" >
 <h3>Valores de probabilidad para agregar</h3>
 	<div class="col s12 m8 l8">
 		<div id="div1">
-			<table class="responsive-table striped centered" id="tbParametros">
+			<table class="responsive-table responsive striped centered" id="tbParametros">
 				<thead>
 					<tr>
 						<th>Nombre</th>
@@ -92,7 +92,7 @@
 <h3>Valores de impacto para agregar</h3>
 	<div class="col s12 m8 l8">
 		<div id="div1">
-			<table class="responsive-table ParametrosImpacto striped centered" id="tbParametros">
+			<table class="responsive-table responsive ParametrosImpacto striped centered" id="tbParametros">
 				<thead>
 					<tr>
 						<th>Nombre</th>
@@ -137,7 +137,7 @@
 <h3>Valores de medida calificaci&oacuten para agregar</h3>
 	<div class="col s12 m8 l8">
 		<div id="div1">
-			<table class="responsive-table striped ParametrosCalificacion centered" id="tbParametros">
+			<table class="responsive-table striped responsive ParametrosCalificacion centered" id="tbParametros">
 				<thead>
 					<tr>
 						<th>Nombre</th>
@@ -181,7 +181,7 @@
 <h3>Par&aacutemetros Agregados</h3>
 <div class="col s12 m8 l8 ">
 	<div id="div1">
-		<table class="responsive-table striped centered" id="tbParametrosAgregados">
+		<table class="responsive-table striped responsive centered" id="tbParametrosAgregados">
 			<thead>
 				<tr>
 					<th>Nombre</th>
@@ -232,3 +232,4 @@ function mostrarDatosModal(){
 	}
 }
 </script>
+<script src="../js/jsParametros.js"></script>

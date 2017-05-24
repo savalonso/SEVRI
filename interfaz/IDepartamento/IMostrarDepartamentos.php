@@ -18,9 +18,13 @@
 			?>
 
 			<h2>Lista de Departamentos</h2>
+			<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="datosDepartamento" type="text" >
+    		</div>
 			<div class="col s12 m12 l12">
 				<div>
-					<table class="responsive-table striped centered responsive" id="mostrarDep">
+					<table class="responsive-table striped centered responsive2" id="mostrarDep">
 						<thead>
 							<tr>
 								<th>Codigo</th>
@@ -31,7 +35,7 @@
 								<th>Opcion 3</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="datosD">
 							<?php 
 							
 								foreach ($lista as $departamento){

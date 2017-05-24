@@ -16,12 +16,17 @@
 	</script>
 	<div class="row">
 		<h2>Lista de An&aacute;lisis de Riesgo</h2>
-		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
+		<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="datosAnalisis" type="text" >
+		    
+        	</div>
+		<div class="col s12 m12 l12">
 			<div id="div1">
 			<?php  
 				if($listaAnalisis!=null){
 			?>
-			<table class="responsive-table centered bordered">
+			<table class="responsive-table responsive centered bordered">
 				<thead>
 					<tr>
 						<th>Riesgo</th>
@@ -34,7 +39,7 @@
 						<th>Eliminar</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="datosA">
 					<?php
 					if($listaAnalisis==null){
 						echo "NO HAY REGISTROS A&Uacute;N";
@@ -112,3 +117,4 @@
 		$('.modal-trigger').leanModal();
 	});
 	</script>
+<script type="text/javascript" src="../js/jsAnalisis.js"></script>

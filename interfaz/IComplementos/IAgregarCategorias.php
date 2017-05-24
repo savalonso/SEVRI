@@ -10,9 +10,10 @@
 <div id="contenedorCategorias">
     <div class="row" id="contenedorTablaCategorias">
     <h3>Categor&iacuteas para agregar</h3>
+    <div class="row">
         <div class="col s12 m8 l8">
             <div id="div1">
-                <table class="responsive-table striped" id="tbCategorias">
+                <table class="responsive-table responsive striped" id="tbCategorias">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -20,7 +21,7 @@
                             <th>Opci&oacuten 1</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         <?php 
                         $encontrada = false;
                         foreach ($listaCategorias as $categoria) {
@@ -58,7 +59,7 @@
         <h3>Categor&iacuteas Agregadas</h3>
         <div class="col s12 m8 l8">
             <div id="div1">
-                <table class="responsive-table striped" id="tbCategoriasAgregadas">
+                <table class="responsive-table responsive striped" id="tbCategoriasAgregadas">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -66,7 +67,7 @@
                             <th>Opci&oacuten 1</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         <?php 
                         if($listaCategoriasActivas){
                             foreach ($listaCategoriasActivas as $categoriaAct) {
@@ -85,3 +86,4 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="../js/jsTablas.js"></script>
