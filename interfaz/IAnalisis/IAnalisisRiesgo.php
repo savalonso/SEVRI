@@ -104,7 +104,7 @@
 		</div>
 		<div class="col s12 m12 l12">
 			<div class="inputs blue darken-3 col s6 m6 l6">
-				<label>Calificaci&oacute;n Medida</label><br>
+				<label>Calificaci&oacuten Medida</label><br>
 				<select id="CalificacionMedida" name="CalificacionMedida" onChange="verCalificacion(this.value)">
 					<option value="0" selected disabled>Seleccione una calificaci&oacute;n</option> 
 					<?php 
@@ -172,7 +172,7 @@
 	    } else {
 			for(i=0;i<lparametros.length;i++){
 				if(lparametros[i]._id == id){
-					document.getElementById('valorProbabilidadSeleccionado').value = lparametros[i].valorParametro;
+					document.getElementById('valorImpactoSeleccionado').value = lparametros[i].valorParametro;
 					$("#imp_id").show();
 					$("#imp_id").text(lparametros[i].descripcion);
 					setTimeout(function() {
