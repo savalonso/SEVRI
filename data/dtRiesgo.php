@@ -209,6 +209,7 @@
 				return $lista;
 			}
 		}
+
 		function getRiesgosAntiguos(){
 			include_once ('dtConnection.php');
 			include_once("../../dominio/dRiesgo.php");
@@ -245,6 +246,7 @@
 				return $lista;
 			}
 		}
+
 		function eliminarRiesgo($idRiesgo){
 			$con = new dtConnection;
 			$prueba = $con->conect();
@@ -329,7 +331,40 @@
 			} else {
 				return $lista;
 			}
-		}function obtenerRiesgoDetalles($idRiesgo){
+		}
+
+		function obtenerRiesgosSinAnalisis($idDepartamento){
+			include_once ('dtConnection.php');
+			include_once("../../dominio/dRiesgo.php");
+			$con=new dtConnection();
+			$conexion=$con->conect();
+			$query="CALL obtenerRiesgoPorDepartamentoSinAnalisis('$idDepartamento')";
+			$lista=array();
+			$resultado=mysqli_query($conexion,$query);
+
+			while ($row=mysqli_fetch_array($resultado, MYSQLI_ASSOC)) {
+				$riesgo=new dRiesgo;
+				$riesgo->setId($row['Id']);
+				$riesgo->setNombre($row['Nombre']);
+				$riesgo->setDescripcion($row['Descripcion']);
+				$riesgo->setMontoEconomico($row['MontoEconomico']);
+				$riesgo->setCausa($row['Causa']);
+				$riesgo->setFecha($row['fechaRegistro']);
+
+				array_push($lista, $riesgo);
+
+			}
+
+			mysqli_free_result($resultado);
+			mysqli_close($conexion);
+			if (!$resultado){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
+
+		function obtenerRiesgoDetalles($idRiesgo){
 			include_once ('dtConnection.php');
 			include_once("../../dominio/dRiesgo.php");
 			$con = new dtConnection();
@@ -365,5 +400,6 @@
 				return $lista;
 			}
 		}
+
 	}
 ?>

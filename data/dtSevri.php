@@ -7,12 +7,14 @@
 		function dtSevri(){}
 
 		function insertarSevri($Sevri){
+			session_start();
+			$cedula=$_SESSION['idUsuario'];
 			$con = new dtConnection;
 			$conexion = $con->conect();
 			$nombre = $Sevri->getNombreVersion();
 			$fecha = $Sevri->getFechaVersion();
 
-				$result = $conexion->query("CALL insertarSevri('$nombre','$fecha')");
+				$result = $conexion->query("CALL insertarSevri('$cedula', '$nombre','$fecha')");
 
 				mysqli_close($conexion);
 

@@ -21,6 +21,14 @@
  			$lista = $logica->obtenerRiesgosAnalisados($idDepartamento);		
 			return $lista;
 		}
+
+		function obtenerRiesgosSinAnalisis($idDepartamento){
+			include_once('../../logica/logicaRiesgo.php');
+ 			$logica = new logicaRiesgo;
+ 			$lista = $logica->obtenerRiesgosSinAnalisis($idDepartamento);		
+			return $lista;
+		}
+
 		function obtenerRiesgosAntiguos(){
 
 			$dataRiesgo = new dtRiesgo();

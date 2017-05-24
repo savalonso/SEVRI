@@ -58,47 +58,6 @@ function desactivarSevri(idSevri){
   });    
 }
 
-/*
-creo que el metodo no se utiliza
-
-
-function agregarParametros(desicion, formulario, tabla){
-    document.getElementById('barraCargando').style.display="";
-    var formData = new FormData(document.getElementById(formulario)); 
-    if(desicion == 1){
-        var parametros = recorrerTabla(4, tabla);
-        formData.append("cantidadParametros", parametros.length);
-        for (var i = 0; i < parametros.length; i++) {
-           formData.append("parametros"+i, parametros[i]);
-        }
-        formData.append("opcion", 2);
-    }
-    else if(desicion == 2){
-        var categorias = recorrerTabla(2, tabla);
-        formData.append("cantidadCategorias", categorias.length);
-        for (var i = 0; i < categorias.length; i++) {
-           formData.append("categorias"+i, categorias[i]);
-        }
-        formData.append("opcion", 3);
-    }
-    else{
-        formData.append("opcion", 4);
-    }
-    $.ajax({
-    url : "../controladora/ctrSevri.php",
-    type : "post",
-    dataType : "html",
-    data : formData,
-    cache : false,
-    contentType : false,
-    processData : false
-    }).done(function(data) {
-     cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
-     Materialize.toast(data, 7000,'blue darken-3');
-     ocultarBarra();
-    });     
-}*/
-
 function ocultarTodos(){
     document.getElementById('contenedorTablaProbabilidad').style.display='none';
     document.getElementById('contenedorTablaImpacto').style.display='none';

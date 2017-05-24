@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 	<?php
-		include_once ("../../Controladora/ctrDatosSevri.php");
-		include_once ("../../Controladora/ctrListaAnalisis.php");
-		$control = new ctrDatosSevri;
-		$controlAnalisis = new ctrListaAnalisis;
 
 		$idDepartamento=$_GET['id'];
 	
-		include("../../controladora/ctrListaRiesgo.php");
+		include_once("../../controladora/ctrListaRiesgo.php");
 		$control=new ctrListaRiesgo;
-		$listaRiesgos=$control->obtenerRiesgosDepartamento($idDepartamento);
+		$listaRiesgos=$control->obtenerRiesgosSinAnalisis($idDepartamento);
 		
 
 	?>
@@ -18,34 +14,39 @@
 	</script>			
 
 <div class="row">
+	<?php  
+		if($listaRiesgos==null){?>
+		<div class="col s8 m8 l8">
+			<h3>Aún no hay riesgos identificados</h3>
+		</div>
+		<div class="col s2 m2 l2">
+			<a id="boton" href="#" onclick="cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')" data-tooltip="Identificar un nuevo riesgo." class="btn-floating tooltipped btn-large waves-effect waves-light blue "><i class="material-icons">add</i></a>
+		</div>
+		<?php
+		}else{
+	?>
 	<h2>Lista de riesgos</h2>
 	<div class="input-field buscar1 col s12 m8 l8">
-		        <label class="white-text" for="filtrar">Buscar</label>
-		        <input id="datosAnalisis2" type="text" >
-        	</div>
+        <label class="white-text" for="filtrar">Buscar</label>
+        <input id="datosAnalisis2" type="text" >
+	</div>
 	<div class="col s12 m12 l12">
 		<div id="div1">
-		<?php  
-			if($listaRiesgos!=null){
-		?>
 		<table class="responsive-table responsive centered bordered">
 			<thead>
 				<tr>
-						<th>Nombre</th>
-						<th>Descripci&oacuten</th>
-						<th>Estado</th>
-						<th>Monto Econ&oacutemico</th>
-						<th>Categor&iacutea</th>
-						<th>Causa</th>
-						<th>Fecha Registro</th>
-						<th>Opcion 1</th>
+					<th>Nombre</th>
+					<th>Descripci&oacuten</th>
+					<th>Estado</th>
+					<th>Monto Econ&oacutemico</th>
+					<th>Categor&iacutea</th>
+					<th>Causa</th>
+					<th>Fecha Registro</th>
+					<th>Opcion 1</th>
 				</tr>
 			</thead>
 			<tbody id="filtrarA">
 			<?php 
-			if($listaRiesgos==null){
-				echo "NO HAY REGISTROS A&Uacute;N";
-			}else{
 				foreach ($listaRiesgos as $riesgo){
 					echo "<tr>
 								<td>".$riesgo->getNombre()."</td>
@@ -58,14 +59,11 @@
 							<td><input class=\"btn btn-default\" type=\"button\" value=\"Analizar\" onclick=\"cargarPagina('../interfaz/IAnalisis/IAnalisisRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
 						</tr>";
 				}
-			}
 			?>
 			</tbody>
 		</table>
 	</div>
-		<?php  
-			}else{
-				echo "<h3>A&uacuten no hay riesgos identificados</h3>";
+		<?php 
 			}
 		?>	
 	</div>
@@ -73,5 +71,6 @@
 <script>
 	$(document).ready(function(){
 		$('.modal-trigger').leanModal();
+		$('.tooltipped').tooltip({delay: 10});
 	});
 </script>

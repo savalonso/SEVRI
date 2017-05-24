@@ -8,20 +8,16 @@
 	include("../../controladora/ctrListaDepartamento.php");
 	$controlDepartamentos=new ctrListaDepartamento;
 	$listaDepartamentos=$controlDepartamentos->obtenerListaDepartamentosUsuario($cedula);
+	if($listaDepartamentos==null){
+		echo "<h3>Usted no pertenece a ning&uacuten departamento.</h3>";
+	}else{
 
 ?>
 
-<script>
-	window.onload=ocultarBarra();
-	$( document ).ready(function(){
-	$('select').material_select();});
-</script>
-
 <div class="row">
 	<div class="col l6 m6 s12">
-		<label>Seleccione un departamento</label>
 		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAnalisis()">
-			<option value="0" disabled="true" selected>Seleccione una opci&oacuten</option>
+			<option value="0" disabled="true" selected>Seleccione un departamento</option>
 			<?php
 				foreach ($listaDepartamentos as $departamento) {
 					echo "<option value=".$departamento->getIdDepartamento().">".$departamento->getNombreDepartamento()."</option>";
@@ -32,4 +28,10 @@
 </div>
 <div id="mostrarRiesgosAnalisis"></div>
 	
+<?php } ?>
 
+<script>
+	window.onload=ocultarBarra();
+	$( document ).ready(function(){
+	$('select').material_select();});
+</script>
