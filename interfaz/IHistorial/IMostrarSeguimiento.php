@@ -9,6 +9,11 @@
 </script>
 <div class="row">
 	<h2>Seguimiento del riesgo.</h2>
+	<?php 
+	if($lista==null){
+		echo "NO HAY SEGUIMIENTOS PARA ESTE REISGO.";
+	}else{
+	?>
 	<table class="responsive-table centered bordered">
 		<thead>
 			<tr>
@@ -23,26 +28,25 @@
 		</thead>
 		<tbody>
 			<?php 
-			if($lista==null){
-				echo "NO HAY ADMINISTRACIONES PARA ESTE REISGO.";
-			}else{
-				foreach ($lista as $seguimiento){
-		            echo "<tr>					        
-			        	<td>"."₡".number_format($seguimiento->getMontoSeguimiento())."</td>";
-			        	if($seguimiento->getEstadoSeguimiento()==1){
-			        		echo "<td>Aprobado</td>";
-			        	}else{
-			        		echo "<td>No aprovado</td>";
-			        	}
-			        	echo "<td>".$seguimiento->getComentarioAprobador()."</td>
-						<td>".$seguimiento->getComentarioAvance()."</td>
-						<td>".$seguimiento->getPorcentajeAvance().'%'."</td>
-						<td>".$seguimiento->getFechaAvance()."</td>
-						<td>".$seguimiento->getUsuarioAprobador()."</td>
-		    		</tr>";
-				}
+			foreach ($lista as $seguimiento){
+	            echo "<tr>					        
+		        	<td>"."₡".number_format($seguimiento->getMontoSeguimiento())."</td>";
+		        	if($seguimiento->getEstadoSeguimiento()==1){
+		        		echo "<td>Aprobado</td>";
+		        	}else{
+		        		echo "<td>No aprovado</td>";
+		        	}
+		        	echo "<td>".$seguimiento->getComentarioAprobador()."</td>
+					<td>".$seguimiento->getComentarioAvance()."</td>
+					<td>".$seguimiento->getPorcentajeAvance().'%'."</td>
+					<td>".$seguimiento->getFechaAvance()."</td>
+					<td>".$seguimiento->getUsuarioAprobador()."</td>
+	    		</tr>";
 			}
 			?>
 		</tbody>
 	</table>
+	<?php 
+		}
+	?>
 </div>

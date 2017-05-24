@@ -10,15 +10,15 @@
 			$lista = $control->obtenerListaSevri();
 			
 	?>
-	<?php  if($lista){?>
-
-			
+	<?php if($lista){?>
 			<div class="row">
-			<div class="input-field buscar1 col s12 m8 l8">
+			<div class="input-field buscar1 col s8 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosSevri" type="text" >
         	</div>
-        	
+        	 <div class="col l4 m4 s4">
+				<a id="boton" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php')" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light red" style="float: right;"><i class="material-icons">add</i></a>
+			 </div>
 				<div class="col s12 m12 l10">
 					<div>
 						<table class="responsive-table responsive2 striped centered" id="MostrarSevri">
@@ -81,12 +81,20 @@
 		 			</div>
 				</div>
 			</div>
-    <?php }else{?>
-				<h3>A&uacuten no se ha creado el SEVRI </h3>
-    	  <?php } ?>
+    	<?php  
+		    }else{ ?>
+
+				<div class="row">
+					<h4 class="col s10 m10 l10">A&uacuten no se ha creado el SEVRI</h4>
+					<div class="col l2 m2 s2">
+						<a id="boton" href="#" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php')" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light red" style="float: right;"><i class="material-icons">add</i></a>
+					</div>
+				</div>
+		<?php }?>	
 			<script>
 		  		$(document).ready(function(){
    		  		$('.modal-trigger').leanModal();
+   		  		$('.tooltipped').tooltip({delay: 50});
   		   		});
 
 			</script>

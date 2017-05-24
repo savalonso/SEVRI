@@ -116,6 +116,28 @@ function confirmarModificacionEliminacion(idRiesgo){
     document.getElementById('idRiesgo').value = idRiesgo;
 }
 
+function cargarPaginaAñadirRiesgo(){
+    
+    document.getElementById('barraCargando').style.display="";
+    document.getElementById('añadir').style.display="none";
+    var formData = new FormData();
+    var id=document.getElementById("idRiesgo").value;
+  
+    formData.append("idRiesgo",id);
+    $.ajax({
+        type : "post",
+        dataType : "html",
+        data : formData,
+        cache : false,
+        contentType : false,
+        processData : false
+    }).done(function(data){
+        cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php');
+        document.getElementById('barraCargando').style.display="none";
+    });
+
+}
+
 function cancelarModificar(){
     document.getElementById('contenedorConfirmacion').style.display = 'none';
 }
@@ -171,6 +193,12 @@ function cargarGUIMostrarRiesgosAnalizados(){
 
 }
 
+$(document).ready(function(){
+        $("#MostrarRiesgos").paginationTdA({
+            elemPerPage: 4
+        });
+    });
+
 /*filtrado de tablas*/
 $(document).ready(function () {
     (function ($) {
@@ -188,3 +216,4 @@ $(document).ready(function () {
     }(jQuery));
 });
 /*fin filtrado*/
+

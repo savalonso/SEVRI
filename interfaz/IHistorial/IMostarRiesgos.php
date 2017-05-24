@@ -23,7 +23,6 @@
 			<div>
 				<label class="white-text" for="sevri">Seleccione una versi&oacuten de SEVRI:</label>
 				<select id="sevri" name="sevri" onchange="actualizarTablaAgregar()"> 
-					<option selected="true" value="0">Seleccione una versi&oacuten de SEVRI...</option>
 					<?php 
 						if($listaS!=null){
 							foreach ($listaS as $sevri){
@@ -37,8 +36,7 @@
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<div>
 				<label class="white-text" for="departamento">Seleccione un departamento:</label>
-				<select id="departamento" name="departamento" onchange="actualizarTablaAgregar()"> 
-					<option selected="true" value="0">Seleccione un departamento...</option>
+				<select id="departamento" name="departamento" onchange="actualizarTablaAgregar()">
 					<?php
 						if($listaD!=null){
 							foreach ($listaD as $departamento){
@@ -50,11 +48,13 @@
 			</div>
 		</div>
 	</div>
+	<?php  
+		if($lista==null){
+			echo "<h3>A&UacuteN NO HAY RIESGOS IDENTIFICADOS EN VERSIONES ANTERIORES</h3>";
+		}else{
+	?>
 	<div class="row">
 		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-		<?php  
-			if($lista!=null){
-		?>
 			<div id="div1">
 				<table class="responsive-table centered bordered" id="tabla">
 					<thead>
@@ -83,20 +83,18 @@
 							}
 						?>
 					</tbody>
-					</table>
+				</table>
 			</div>
-				<?php  
-					}else{
-						echo "<h3>A&uacuteN NO HAY RIESGOS IDENTIFICADOS EN VERSIONES ANTERIORES</h3>";
-					}
-				?>
 		</div>
 	</div>
+	<?php 	
+		}
+	?>
 	<script>
   		$(document).ready(function(){
 	  		$('.modal-trigger').leanModal();
 	  		$('select').material_select();
 	  		$('.tooltipped').tooltip({delay: 50});
+	  		actualizarTablaAgregar();
 	   	});
-
 	</script>

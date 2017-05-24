@@ -9,6 +9,11 @@
 </script>
 <div class="row">
 	<h2>Administraci&oacuten(es) del riesgo.</h2>
+	<?php  
+		if($lista==null){
+				echo "NO HAY ADMINISTRACIONES PARA ESTE REISGO.";
+		}else{
+	?>
 	<table class="responsive-table centered bordered">
 		<thead>
 			<tr>
@@ -24,23 +29,29 @@
 		</thead>
 		<tbody>
 			<?php 
-			if($lista==null){
-				echo "NO HAY ADMINISTRACIONES PARA ESTE REISGO.";
-			}else{
-				foreach ($lista as $administracion){
-		            echo "<tr>					        
-			        	<td>".$administracion->getActividadTratamiento()."</td>
-			        	<td>".$administracion->getMedidaAdministracion()->getDescripcionMedida()."</td>
-			        	<td>".$administracion->getUsuario()->getNombre()."</td>
-						<td>".$administracion->getActividadTratamiento()."</td>
-						<td>".$administracion->getPlazoTratamiento()."</td>
-						<td>"."₡".number_format($administracion->getCostoActividad())."</td>
-						<td>".$administracion->getIndicador()."</td>
-		        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver seguimientos\" onclick=\"		cargarPaginaHistorialS('../interfaz/IHistorial/IMostrarSeguimiento.php?idAdministracion=".$administracion->getId()."')\"/></td>
-		    		</tr>";
-				}
+			foreach ($lista as $administracion){
+	            echo "<tr>					        
+		        	<td>".$administracion->getActividadTratamiento()."</td>
+		        	<td>".$administracion->getMedidaAdministracion()->getDescripcionMedida()."</td>
+		        	<td>".$administracion->getUsuario()->getNombre()."</td>
+					<td>".$administracion->getActividadTratamiento()."</td>
+					<td>".$administracion->getPlazoTratamiento()."</td>
+					<td>"."₡".number_format($administracion->getCostoActividad())."</td>
+					<td>".$administracion->getIndicador()."</td>
+	        		<td><input id=\"btnSeguimiento\" class=\"btn btn-default\" type=\"button\" value=\"Ver seguimientos\" onclick=\"cargarPaginaHistorialS('../interfaz/IHistorial/IMostrarSeguimiento.php?idAdministracion=".$administracion->getId()."');mover()\"/></td>
+	    		</tr>";
 			}
 			?>
 		</tbody>
 	</table>
+	<?php 
+		}
+	?>
 </div>
+<script type="text/javascript">
+    function mover(){
+    	$('html,body').animate({
+            scrollTop: $("#contenedorSeguimiento").offset().top
+        }, 2000);
+    }
+</script>
