@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['tipo'])){
+	header("location:interfaz/paginaPrincipal.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

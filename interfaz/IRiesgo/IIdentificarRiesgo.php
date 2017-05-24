@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,41 +12,51 @@
 </head>
 <body>
 
-	<?php 
-		session_start();
-		$cedula=$_SESSION['idUsuario'];
-		include("../../controladora/ctrListaDepartamento.php");
-		$control=new ctrListaDepartamento;
-		$listaDepartamentos=$control->obtenerListaDepartamentosUsuario($cedula);
-		foreach($listaDepartamentos as $departamento) {
-			$arrayDepartamento[]=array(
-				'idDepartamento'=>$departamento->getIdDepartamento(),
-				'codigoDepartamento'=>utf8_encode($departamento->getCodigoDepartamento()),
-				'nombreDepartamento'=>utf8_encode($departamento->getNombreDepartamento())
-			);
-		}
-		$arrayJsonDepartamentos=json_encode($arrayDepartamento);
-	?>
-
-
-	<?php
-		include ("../../controladora/ctrDatosSevri.php");
-		$control = new ctrDatosSevri;	
-		$lista =$control->obtenerTodasLasCategorias();	
-		
-		foreach ($lista as $categoria){
-			$arr[] = array(
-			'_id' => $categoria->getIdCategoria(),
-            'nombre'=> utf8_encode($categoria->getNombreCategoria()),
-            'padre' => utf8_encode($categoria->getHijoDe()),
-            'descripcion' => utf8_encode($categoria->getDescripcion())
-        	); 	
-		}
-		$ArrayJson =json_encode($arr);
-	?>
 	<script>
 	window.onload=ocultarBarra();
 	</script>
+
+	<?php 
+		$cedula=$_SESSION['idUsuario'];
+		include("../../controladora/ctrListaDepartamento.php");
+		include ("../../controladora/ctrDatosSevri.php");
+		$controlDepartamentos=new ctrListaDepartamento;
+		$controlSevriCategorias = new ctrDatosSevri;
+		$listaDepartamentos=$controlDepartamentos->obtenerListaDepartamentosUsuario($cedula);
+		$listaCategorias =$controlSevriCategorias->obtenerTodasLasCategorias();	
+		
+		if(empty($listaDepartamentos) && empty($listaCategorias)){
+			echo "<br><h3>No se puede realizar este proceso porque no hay categorias asociadas a la version del SEVRI y usted no ha sido agregado a un departamento.</h3>";
+			
+		}else if(empty($listaDepartamentos)){
+			echo "<br><h3>No se puede realizar este proceso porque usted no ha sido agregado a un departamento.</h3>";
+		}else if(empty($listaCategorias)){
+			echo "<br><h3>No se puede realizar este proceso porque no hay categorias asociadas a la version del SEVRI.</h3>";
+				
+		}
+		else{
+
+			foreach($listaDepartamentos as $departamento) {
+				$arrayDepartamento[]=array(
+					'idDepartamento'=>$departamento->getIdDepartamento(),
+					'codigoDepartamento'=>utf8_encode($departamento->getCodigoDepartamento()),
+					'nombreDepartamento'=>utf8_encode($departamento->getNombreDepartamento())
+				);
+			}
+
+			$arrayJsonDepartamentos=json_encode($arrayDepartamento);
+
+			foreach ($listaCategorias as $categoria){
+				$arr[] = array(
+				'_id' => $categoria->getIdCategoria(),
+            	'nombre'=> utf8_encode($categoria->getNombreCategoria()),
+            	'padre' => utf8_encode($categoria->getHijoDe()),
+            	'descripcion' => utf8_encode($categoria->getDescripcion())
+        		); 	
+			}
+			$ArrayJson =json_encode($arr);?>
+	
+
 	
 		<div class="row">
 
@@ -52,7 +68,7 @@
 
                 			<label  for="Tipo">Departamentos:</label>
                				 <select id="departamentoUsuario" name="departamentoUsuario" onchange="cargarDepartamentos()">
-								<option disabled="true" selected="true" value="0">Seleccione un departamento...</option>
+								
 								<?php
 									foreach ($listaDepartamentos as $departamento):?> {
 									
@@ -96,7 +112,7 @@
 								<select id="categoria" name="categoria" onchange="llenarSelect2(this.value)"> 
 									<option disabled="true" selected="true" value="0">Seleccione una categor&iacutea...</option>
 									<?php 
-										foreach ($lista as $categoria){
+										foreach ($listaCategorias as $categoria){
 											if($categoria->getHijoDe()=="0"){
 												echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
 											}
@@ -137,6 +153,10 @@
 			</div>
 		</div>
 
+		<?php
+				}
+		  ?>
+
 <script>
 	$( document ).ready(function(){
 	   $('select').material_select();
@@ -150,7 +170,7 @@
 		            nombre: { required: true,minlength: 10, maxlength: 100},
 		            descripcion: { required:true,minlength: 20, maxlength: 3000},
 		            estado: {required : true},
-		            monto: {required: true, maxlength: 15,minlength: 6},
+		            monto: {minlength: 1,maxlength: 15},
 		            categoria: {required: true},
 		            causa: {required:true, minlength: 20,maxlength: 2000}
 		        },
@@ -158,7 +178,7 @@
 		            nombre: "Debe introducir un nombre al riesgo mayor de 10 car&aacutecteres.",
 		            descripcion: "Debe introducir una descripci&oacuten al riesgo mayor de 20 car&aacutecteres.",
 		            estado: "Debe seleccionar un estado.",
-		            monto: "Debe introducir un monto mayor a 3 d&iacutegitos y no mayor de 11.",
+		            monto: "Debe introducir un monto mayor a 1 d&iacutegito y un maximo de 15 d&iacutegitos.",
 		            categoria: "Debe seleccionar una categor&iacutea.",
 		            causa: "Debe introducir una causa mayor a 20 car&aacutecteres y un maximo de 2000.",
 		        },
@@ -176,7 +196,7 @@
 		            nombre: { required: true,minlength: 10, maxlength: 100},
 		            descripcion: { required:true,minlength: 20, maxlength: 3000},
 		            estado: {required : true},
-		            monto: {required: true,minlength: 6, maxlength: 15},
+		            monto: {minlength: 1,maxlength: 15},
 		            subcategoria: {required: true},
 		            causa: {required:true, minlength: 20,maxlength: 2000}
 		        },
@@ -184,7 +204,7 @@
 		            nombre: "Debe introducir un nombre al riesgo mayor de 10 car&aacutecteres.",
 		            descripcion: "Debe introducir una descripci&oacuten al riesgo mayor de 20 car&aacutecteres.",
 		            estado: "Debe seleccionar un estado.",
-		            monto: "Debe introducir un monto mayor a 3 d&iacutegitos y no mayor de 11.",
+		            monto: "Debe introducir un monto mayor a 1 d&iacutegito y un maximo de 15 d&iacutegitos.",
 		            subcategoria: "Debe seleccionar una sub categor&iacutea.",
 		            causa: "Debe introducir una causa mayor a 20 car&aacutecteres y un maximo de 2000.",
 		        },

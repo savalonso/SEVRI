@@ -1,7 +1,14 @@
 <?php
-
-session_start();
-	if($_SESSION['tipo']=='Administrador'){
+	session_start();
+	$tipo="";
+	if(isset($_SESSION['tipo'])){
+		$tipo=$_SESSION['tipo'];
+	}else{
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+	if($tipo!='Administrador'){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
 	$idCategoria = $_GET['idCategoria'];
 	include ("../../data/dtCategoria.php");
 	//include ("../../dominio/dRiesgo.php");
@@ -172,7 +179,3 @@ session_start();
 		$('select').material_select();
 	}
 </script>
-<?php }else{
-
-	header("location:../../loginUsuarios.php");
-	}  ?>

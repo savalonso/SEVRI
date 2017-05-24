@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 	<?php
-
-	session_start();
-	if($_SESSION['tipo']=='Administrador'){
+		session_start();
+		$tipo="";
+		if(isset($_SESSION['tipo'])){
+			$tipo=$_SESSION['tipo'];
+		}else{
+			echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+		}
+		if($tipo!='Administrador'){
+			echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+		}
 		include ("../../Controladora/ctrListaCategoria.php");
 		$control = new ctrListaCategoria;	
 		$lista =$control->obtenerListaCategoriasDE();
@@ -142,8 +149,4 @@
 	   	});
 	</script>
 	<script type="text/javascript" src="../js/jsCategoria.js"></script>	
-	<?php }else{
-
-		header("location:../../loginUsuarios.php");
-		}  ?>
 <script type="text/javascript" src="../js/jsCategoria.js"></script>
