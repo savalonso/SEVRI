@@ -17,21 +17,23 @@
 	$('select').material_select();});
 </script>
 
-<div class="contendorselect">
+
+<div class="row">
+	<div class="contendorselect col s12 m12 l6">
+		<h4>Administraci&oacuten del Riesgo</h4>
+		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAdministracion()">
 	
-	<label>Seleccione un departamento</label>
-	<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAdministracion()">
-
-		<option value="0" disabled="true" selected>Seleccione una opci&oacuten</option>
-		<?php
-			foreach ($listaDepartamentos as $departamento) {
-				echo "<option value=".$departamento->getIdDepartamento().">".$departamento->getNombreDepartamento()."</option>";
-			}
-		?>
-
-	</select>
-
-
-</div><br/><br/></br>
+			<option value="0" disabled="true" selected>Seleccione un Departamento</option>
+			<?php
+				foreach ($listaDepartamentos as $departamento) {
+					echo "<option value=".$departamento->getIdDepartamento().">".$departamento->getNombreDepartamento()."</option>";
+				}
+			?>
+	
+		</select>
+	
+	
+	</div>
+</div>
 
 <div id="mostrarRiesgosAdministracion"></div>

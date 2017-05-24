@@ -29,8 +29,8 @@
 }
 #div1 {
      overflow:scroll;
-     height:320px;
-     width:102%;
+     max-height:320px;
+     max-width:102%;
  }   
 #div1 table {
     width:100%;
@@ -70,25 +70,7 @@ float: right;
 margin-right: -30%; 
 }
 
-::-webkit-scrollbar {
-      width: 15px;
-}
 
-::-webkit-scrollbar-track {
-      background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-      background-color: #1e88e5;
-}
-
-::-webkit-scrollbar-button {
-      background-color: #0d47a1;
-}
-
-::-webkit-scrollbar-corner {
-      background-color:#0d47a1;
-}
 .divContenedorM{
     float: right;
     width: 45%;

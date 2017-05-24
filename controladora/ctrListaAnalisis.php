@@ -19,7 +19,7 @@
 		function obtenerListaAnalisis($idDepartamento){
 			include_once ('../../data/dtAnalisis.php');
 			$dataAnalisis = new dtAnalisis();
-			$lista = $dataAnalisis->getListaAnalisisDepartamento($idDepartamento);
+			$lista = $dataAnalisis->obtenerAnalisisPorDepartamento($idDepartamento);
 
 			if(!$lista){
 				return false;

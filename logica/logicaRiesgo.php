@@ -15,6 +15,17 @@
 			}
 		}
 
+		public function obtenerRiesgosSinAnalisis($idDepartamento){
+			include_once('../../data/dtRiesgo.php');
+			$data = new dtRiesgo;
+			$lista = $data->obtenerRiesgosSinAnalisis($idDepartamento);		
+			if(!$lista){
+				return false;
+			}else{
+				return $lista;
+			}
+		}
+
 		public function obtenerRiesgosDepartamento($idDepartamento){
 			include_once('../../data/dtRiesgo.php');
 			$data=new dtRiesgo;

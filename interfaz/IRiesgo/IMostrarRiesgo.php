@@ -1,37 +1,48 @@
-<!DOCTYPE html>
+
+	<script type="text/javascript" src="../js/jsRiesgo.js"></script>
+
 	<?php
 
-	$idDepartamento=$_GET['id'];
+		$idDepartamento=$_GET['id'];
 	
-	include("../../controladora/ctrListaRiesgo.php");
-	$control=new ctrListaRiesgo;
-	$listaRiesgos=$control->obtenerRiesgosDepartamento($idDepartamento);
+		include("../../controladora/ctrListaRiesgo.php");
+		$control=new ctrListaRiesgo;
+		$listaRiesgos=$control->obtenerRiesgosDepartamento($idDepartamento);
+
+		if(empty($listaRiesgos)){
 		
-	?>
-	<script>
-		window.onload=ocultarBarra();
-	</script>		
+			echo "<br><br><br><h3>No se han ingresado riesgos en este departamento.</h3>";
+		}else{
 		
-	<link rel="stylesheet" type="text/css" href="../css/styleMostrarRiesgos.css">
+?>
+
+<script>
+	window.onload=ocultarBarra();
+</script>
 
 	<div class="row">
-		<h3>Lista de riesgos</h3>
-		<div class="input-field buscar1 col s12 m8 l8">
-		        <label class="white-text" for="filtrar">Buscar</label>
-		        <input id="datosRiesgos" type="text" >
-		        <a id="boton" href="#" onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php')" data-tooltip="Agregar riesgos de versiones antiguas." class="btn-floating tooltipped btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
-        </div>
-		<div class="col l12 m12 s12">
-			<div class="col l8 m8 s8">
+
+	<div class="col l8 m8 s8">
 				<h3>Lista de riesgos</h3>
 			</div>
-			<div class="col l4 m4 s4">
-				<a id="boton" href="#" onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php')" data-tooltip="Agregar riesgos de versiones antiguas." class="btn-floating tooltipped btn-large waves-effect waves-light red" style="float: right; margin-top: 22px;"><i class="material-icons">add</i></a>
+			<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="datosRiesgos" type="text" >
+        	</div>
+
+        	<div class="col l4 m4 s4">
+        		<div id="añadir">
+        			<a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light red" data-tooltip="Agregar riesgos de versiones antiguas." style="float: right; margin-top: 22px;"><i class="material-icons" onclick="cargarPaginaAñadirRiesgo()">add</i></a>
+        		</div>
 			</div>
+
+		<div class="col l12 m12 s12">
+			
+			
 			<?php  
 				if($listaRiesgos!=null){
 			?>
-			<table class="responsive-table responsive centered bordered">
+			<table class="responsive-table responsive2 striped centered" id="MostrarRiesgos" >
 				<thead>
 					<tr>
 						<th>Nombre</th>
@@ -45,7 +56,7 @@
 						<th>Opcion 2</th>
 					</tr>
 				</thead>
-				<tbody id="datosR">
+				<tbody id="datosR" >
 					<?php 
 					if($listaRiesgos==null){
 						echo "NO HAY REGISTROS AUN";
@@ -84,7 +95,12 @@
 			<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="eliminarRiesgo()"/>
 		</div>
 	</div>
+	<?php  
+				
+				}
+	?>
 	<script>
+
   		$(document).ready(function(){
 	  		$('.modal-trigger').leanModal();
 	  		$('.tooltipped').tooltip({delay: 50});

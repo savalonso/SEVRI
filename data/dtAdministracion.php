@@ -156,7 +156,6 @@
 				$creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
 				$mensaje = "Tienes que realizar el seguimiento de una medida de administración";
 				$url = "../interfaz/IAdministracion/IMostrarAdministracionSeguimiento.php?IdAdministracion=".$id;
-				echo "$creadorMensaje";
         	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	 	 		$conexion->beginTransaction();
  	 			$conexion->exec("CALL insertarAdministracion('$idAnalisis','$responsable', '$actividad', '$plazo', '$costo', '$indicador', '$medida')");			  

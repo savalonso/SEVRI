@@ -57,6 +57,7 @@
 				$parametro->setValorParametro($row[2]);
 				$parametro->setDescriptorParametro($row[3]);	
 				$parametro->setDescripcionParametro($row[4]);
+				$parametro->setColorParametro($row[5]);
 				$aux = $row[1];
 				if($aux == 1){
 					$parametro->setNombreParametro("Probabilidad");
