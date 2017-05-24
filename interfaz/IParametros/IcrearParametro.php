@@ -29,10 +29,10 @@
 				 </div>
 				 <div>
 				 	<label class="white-text" for="valor">Valor:</label>
-					<input type="number" name="valor" id="valor">
+					<input type="number" name="valor" id="valor" onkeyup="validarNumero(this)">
 				 </div>
 				 <div>
-				  	<label class="white-text" for="color">Seleccione el color:</label>
+				  	<label class="white-text" for="color">Color:</label>
 					<select name="color" id="color" onchange="cambiarColor(this.value)">
 						<option value="0" disabled="true" selected>Seleccione un color</option>
 						<option value="#009900">Verde Oscuro</option>
@@ -59,14 +59,14 @@
 	            Tparametro: { required: true },
 	            descriptor: {  required: true, minlength: 4 , maxlength: 20 },
 	            descripcion: {  required: true, minlength: 20 , maxlength: 1000 },
-	           	valor: {required: true, maxlength: 1 },
+	           	valor: {required: true, maxlength: 1, minlength: 1},
 	           	color: { required: true }
 	        },
 	        messages: {
 	            Tparametro: "Debe seleccionar el tipo de parametro.",
 	            descriptor: "Debe introducir un descriptor con un tamaño minimo de 4 caracteres y un maximo de 20 caracteres.",
 	            descripcion: "Debe introducir un descripcion con un tamaño minimo de 20 caracteres y un maximo de 1000 caracteres.",
-	            valor: "Debe introducir un valor numerico que solo represente un caracter.",
+	            valor: "Debe introducir un valor numerico que solo represente un caracter y que sea mayor a 0.",
 	            color: "Debe seleccionar el color del parametro."
 
 	        },
