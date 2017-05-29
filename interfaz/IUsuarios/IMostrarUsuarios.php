@@ -1,6 +1,7 @@
 <?php
 	session_start();
     $tipo="";
+    $cedula = $_SESSION['idUsuario'];
     if(isset($_SESSION['tipo'])){
         $tipo=$_SESSION['tipo'];
     }else{
@@ -28,10 +29,18 @@ $listaUsuarios = $control->obtenerListaUsuarios();
         <label class="white-text" for="filtrar">Buscar</label>
         <input id="datosUsuario" type="text" >
     </div>
+    <div class="col l4 m4 s4">
+        <div id="añadir">
+            <a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light red" data-tooltip="Agregar usuarios" style="float: right; margin-top: 22px;" href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')"><i class="material-icons">add</i></a>
+        </div>
+    </div>
     <div class="col s12 m12 l12 ">
         <div>
             <?php  
                 if($listaUsuarios!=null){
+                    if(count($listaUsuarios) == 1 && $listaUsuarios[0]->getCedula() == $cedula){
+                        echo "<h3>No hay usuarios registrados</h3>";
+                    } else {
 	    	?>
             <table id="tbUsuario" class="responsive-table responsive2 striped centered">
 				<thead>
@@ -51,10 +60,8 @@ $listaUsuarios = $control->obtenerListaUsuarios();
 				</thead>
 				<tbody id="datosU">
 					<?php
-                        if($listaUsuarios==null) {
-	                        echo "NO HAY REGISTROS A&Uacute;N";
-                        } else {
-	                        foreach ($listaUsuarios as $usuario){
+                        foreach ($listaUsuarios as $usuario) {
+                            if($usuario->getCedula() != $cedula) {
 		                        echo "<tr>
 								        <td>
 									        ".$usuario->getCedula()."
@@ -92,6 +99,7 @@ $listaUsuarios = $control->obtenerListaUsuarios();
 							        </tr>";
 	                        }
                         }
+                    }
                     ?>
 				</tbody>
 			</table>
