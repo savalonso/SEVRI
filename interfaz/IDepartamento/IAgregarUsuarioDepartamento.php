@@ -119,7 +119,7 @@ foreach ($listaDepartamento as $departamento) {
             foreach ($listaUsuarios as $usuario){
                 foreach($listaDepaUsu as $du){
                     if($du->getCedulaUsuario() == $usuario->getCedula()){
-                        echo "<tr><td><input type=\"button\" value=\"Eliminar\" class=\"btn btn-default\" onclick=\"eliminarUsuarioDepartamento(".$idDepartamento.",".$usuario->getCedula()."), cargarPagina('../interfaz/IDepartamento/IAgregarUsuarioDepartamento.php?idDepartamento=".$idDepartamento."')\"></td><td>".$usuario->getCedula()."</td><td>".$usuario->getPrimerApellido()."</td><td>".$usuario->getSegundoApellido()."</td><td>".$usuario->getNombre()."</td><td>".$usuario->getCargo()."</td><td>".$usuario->getTipo()."</td></tr>";
+                        echo "<tr><td><input type=\"button\" value=\"Descartar\" class=\"btn btn-default\" onclick=\"eliminarUsuarioDepartamento(".$idDepartamento.",".$usuario->getCedula()."), cargarPagina('../interfaz/IDepartamento/IAgregarUsuarioDepartamento.php?idDepartamento=".$idDepartamento."')\"></td><td>".$usuario->getCedula()."</td><td>".$usuario->getPrimerApellido()."</td><td>".$usuario->getSegundoApellido()."</td><td>".$usuario->getNombre()."</td><td>".$usuario->getCargo()."</td><td>".$usuario->getTipo()."</td></tr>";
                     }
                 }
             }
