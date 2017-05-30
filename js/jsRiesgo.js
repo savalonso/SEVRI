@@ -92,6 +92,12 @@ function eliminarRiesgo(){
         document.getElementById('barraCargando').style.display="none";
     });
 }
+
+function generarReporte(url){
+    alert(url);
+    $().load(url);
+}
+
 function modificarRiesgo(){
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IModificarRiesgo")); 

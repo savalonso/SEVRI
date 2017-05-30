@@ -93,6 +93,35 @@
 		 			</div>
 				</div>
 			</div>
+
+			<div class="row ">
+				<h5>Crear Reportes</h5>
+				<form id="IcrearSevri" method="Get" role="form" action="../controladora/ctrReportes.php" class="responsive">
+					<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
+						<div>
+							<label class="white-text" for="sevriReporte">Seleccione el Sevri para realizar el reporte</label>
+							<select name="sevriReporte" id="sevriReporte">
+								<?php foreach ($lista as $sevri) { ?>
+									
+									<option value=<?php echo "\"".$sevri->getIdSevri()."\""; ?>><?php echo $sevri->getNombreVersion(); ?></option>
+
+								<?php } ?>
+							</select>
+						</div>
+
+						<input type="hidden" id="opcion" name="opcion" value="5">
+						 
+					 	<div>
+					 		<input type="submit" value="Crear Reporte Excel" onclick="escogerTipoReporte(5)" class="btn btn-default">
+					 	</div><br>
+
+					 	<div>
+					 		<input type="submit" value="Crear Reporte Word" onclick="escogerTipoReporte(10)" class="btn btn-default">
+					 	</div><br>
+						
+					</div>
+				</form>
+			</div>
     	<?php  
 		    }else{ ?>
 
@@ -107,6 +136,7 @@
 		  		$(document).ready(function(){
    		  		$('.modal-trigger').leanModal();
    		  		$('.tooltipped').tooltip({delay: 50});
+   		  		$('select').material_select();
   		   		});
 
 			</script>
