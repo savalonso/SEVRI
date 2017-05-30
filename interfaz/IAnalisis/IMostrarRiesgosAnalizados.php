@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+?>
 <!DOCTYPE html>
 
 
@@ -30,6 +36,15 @@
 	</div>
 </div>
 <div id="mostrarRiesgosAnalizados"></div>
+
+	<div class="row">
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=2" class="btn">Crear Reporte Excel</a>
+		</div>
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=7" class="btn">Crear Reporte Word</a>
+		</div>
+	</div>
 
 <?php } ?>
 

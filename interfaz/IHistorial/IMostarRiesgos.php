@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 	<?php
 		session_start();
+		if(!isset($_SESSION['tipo'])){
+			echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+		}
 
 		include ("../../Controladora/ctrListaRiesgo.php");
 		$control = new ctrListaRiesgo;	

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-
-
-<?php 
-
+<?php
 	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
 	$cedula=$_SESSION['idUsuario'];
 	include("../../controladora/ctrListaDepartamento.php");
 	$controlDepartamentos=new ctrListaDepartamento;
@@ -37,3 +37,12 @@
 </div>
 
 <div id="mostrarRiesgosAdministracion"></div>
+
+<div class="row">
+	<div class="col s4 m4 l4">
+		<a href="../controladora/ctrReportes.php?opcion=3" class="btn">Crear Reporte Excel</a>
+	</div>
+	<div class="col s4 m4 l4">
+		<a href="../controladora/ctrReportes.php?opcion=8" class="btn">Crear Reporte Word</a>
+	</div>
+</div>

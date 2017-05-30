@@ -1,4 +1,8 @@
 <?php
+	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
 	$idAnalisis = $_GET['idAnalisis'];
 	include ("../../controladora/ctrListaAdministracion.php");
 	$control = new ctrListaAdministracion;

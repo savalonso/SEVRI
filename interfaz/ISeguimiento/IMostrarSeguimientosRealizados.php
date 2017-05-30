@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 
 <?php
-
 	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
 	$cedulaAprobador=$_SESSION['idUsuario'];
 	include_once("../../controladora/ctrListaSeguimientos.php");
 	include_once("../../controladora/ctrListaAdministracion.php");
@@ -229,6 +231,16 @@ foreach($listaSeguimientos as $seguimientos) {
 		</div>
 	</div>
 </div>
+
+	<div class="row">
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=4" class="btn">Crear Reporte Excel</a>
+		</div>
+
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=9" class="btn">Crear Reporte Word</a>
+		</div>
+	</div>
 
 <div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
 	<div class="modal-content">

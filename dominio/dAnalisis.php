@@ -9,6 +9,7 @@
     private $nivelRiesgo;
     private $medidaControl;
     private $calificacionMedida;
+    private $departamento;
 
   	function dAnalisis(){
   	}
@@ -53,6 +54,13 @@
     }
     public function setCalificacionMedida($pCalificacionMedida){
       $this->calificacionMedida = $pCalificacionMedida;
+    }
+
+    public function getDepartamento(){
+      return $this->departamento;
+    }
+    public function setDepartamento($departamento){
+      $this->departamento = $departamento;
     }
   }
 ?>

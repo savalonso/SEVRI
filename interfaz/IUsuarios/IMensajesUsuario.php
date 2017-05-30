@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+?>
 <!DOCTYPE html>
 
 <?php
@@ -11,12 +17,14 @@ $listaMensajes = $control->obtenerMensajesUsuario();
 </script>
 
 <div class="row">
+	<?php  
+        if($listaMensajes==null){
+        	echo "<h3>Usted no tiene mensajes</h3>";
+        }else{
+	?>
     <h2>Lista de Mensajes</h2>
     <div class="col s12 m12 l12 blue darken-3 z-depth-5">
         <div id="div1">
-            <?php  
-                if($listaMensajes!=null){
-	    	?>
             <table class="responsive-table centered bordered">
 				<thead>
 					<tr>
@@ -55,11 +63,9 @@ $listaMensajes = $control->obtenerMensajesUsuario();
                     ?>
 				</tbody>
 			</table>
-            <?php  
-                } else{
-                    echo "<h3>Usted no tiene mensajes</h3>";
-                }
-            ?>
         </div>
 	</div>
+	<?php  
+    	}
+	?>
 </div>

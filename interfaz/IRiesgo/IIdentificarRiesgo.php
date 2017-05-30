@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +17,6 @@
 	</script>
 
 	<?php 
-		session_start();
 		$cedula=$_SESSION['idUsuario'];
 		include("../../controladora/ctrListaDepartamento.php");
 		include ("../../controladora/ctrDatosSevri.php");
