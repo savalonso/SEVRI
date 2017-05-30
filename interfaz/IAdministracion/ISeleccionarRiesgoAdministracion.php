@@ -12,7 +12,7 @@
 	</script>
 
 	<?php  
-		if($lista!=null){
+		if($lista != null){
 	?>
 	<div class="row">
 		<h2>Lista de riesgos</h2>

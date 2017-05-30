@@ -16,11 +16,12 @@
 	</script>
 
 	<div class="row">
-		<h2>Lista de riesgos</h2>
-		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
 		<?php  
 			if($lista!=null){
 		?>
+		<h2>Lista de riesgos</h2>
+		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
+		
 			<div id="div1">
 				<table class="responsive-table centered bordered">
 					<thead>

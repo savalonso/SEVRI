@@ -1,5 +1,4 @@
 
-
 <?php 
 	include ("../../Controladora/ctrListaNivelRiesgo.php");
 	$ctrNivel = new ctrListaNivelRiesgo();
