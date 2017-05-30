@@ -401,6 +401,11 @@ function recorrerTabla(posicion, tabla){
     }
     return parametros;
 }
+
+function escogerTipoReporte(tipoReporte){
+  document.getElementById('opcion').value = tipoReporte;
+}
+
 /*aqui se encuentra el paginador de las tablas*/
  $(document).ready(function(){
         $("#MostrarSevri").paginationTdA({

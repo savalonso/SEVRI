@@ -232,6 +232,16 @@ foreach($listaSeguimientos as $seguimientos) {
 	</div>
 </div>
 
+	<div class="row">
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=4" class="btn">Crear Reporte Excel</a>
+		</div>
+
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=9" class="btn">Crear Reporte Word</a>
+		</div>
+	</div>
+
 <div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
 	<div class="modal-content">
 		<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
