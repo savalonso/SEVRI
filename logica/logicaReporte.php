@@ -29,7 +29,7 @@
 
 						<tr>
 							<td></td>
-							<td colspan="7" bgcolor="#1e88e5"><CENTER><strong>Reporte de Riesgos</strong></CENTER></td>
+							<td colspan="7" bgcolor="#1976d2 "><CENTER><strong>Reporte de Riesgos</strong></CENTER></td>
 						</tr>
 
 						<tr>
@@ -90,7 +90,7 @@
 
 						<tr>
 							<td></td>
-							<td colspan="7" bgcolor="#1e88e5"><CENTER><strong>Reporte de Riesgos Analizados</strong></CENTER></td>
+							<td colspan="7" bgcolor="#1976d2 "><CENTER><strong>Reporte de Riesgos Analizados</strong></CENTER></td>
 						</tr>
 
 						<tr>
@@ -158,35 +158,35 @@
 
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Reporte Administración de Riesgo <?php echo " ".$contador; ?> </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Reporte Administración de Riesgo <?php echo " ".$contador; ?> </strong></CENTER></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Departamento</td>
+							<td bgcolor="#1976d2 ">Departamento</td>
 							<td colspan="5"><?php echo $analisis->getDepartamento(); ?></td>       
 						</tr>
 
 						<tr>
-							<td bgcolor="#1e88e5">Riesgo</td>
+							<td bgcolor="#1976d2 ">Riesgo</td>
 							<td colspan="5"><?php echo $analisis->getIdRiesgo(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Probabilidad</td>
+							<td bgcolor="#1976d2 ">Probabilidad</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Impacto</td>
+							<td bgcolor="#1976d2 ">Impacto</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Nivel de Riesgo</td>
+							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
 							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
 						</tr> 
 
@@ -251,7 +251,7 @@
 						<br />
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Reporte Seguimiento de Riesgos </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Reporte Seguimiento de Riesgos </strong></CENTER></td>
 						</tr>
 					</table>
 
@@ -263,30 +263,30 @@
 
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Seguimiento del Riesgo: <?php echo " ".$analisis->getIdRiesgo(); ?> </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Seguimiento del Riesgo: <?php echo " ".$analisis->getIdRiesgo(); ?> </strong></CENTER></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Departamento</td>
+							<td bgcolor="#1976d2 ">Departamento</td>
 							<td colspan="5"><?php echo $analisis->getDepartamento(); ?></td>       
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Probabilidad</td>
+							<td bgcolor="#1976d2 ">Probabilidad</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Impacto</td>
+							<td bgcolor="#1976d2 ">Impacto</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Nivel de Riesgo</td>
+							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
 							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
 						</tr>
 
@@ -298,7 +298,7 @@
 
 							<tr>
 								<td></td>
-								<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Medida de Administración: <?php echo " ".$contador; ?></strong></CENTER></td>
+								<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Medida de Administración: <?php echo " ".$contador; ?></strong></CENTER></td>
 							</tr> 
 
 							<tr>
@@ -323,7 +323,7 @@
 
 							<tr>
 								<td></td>
-								<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Seguimientos Realizados a la Medida de Administración</strong></CENTER></td>
+								<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Seguimientos Realizados a la Medida de Administración</strong></CENTER></td>
 							</tr>
 
 							<tr>
@@ -396,7 +396,7 @@
 
 						<tr>
 							<td></td>
-							<td colspan="7" bgcolor="#1e88e5"><CENTER><strong>Riesgos</strong></CENTER></td>
+							<td colspan="7" bgcolor="#1976d2 "><CENTER><strong>Riesgos</strong></CENTER></td>
 						</tr>
 
 						<tr>
@@ -432,7 +432,7 @@
 
 						<tr>
 							<td></td>
-							<td colspan="7" bgcolor="#1e88e5"><CENTER><strong>Análisis de Riesgos</strong></CENTER></td>
+							<td colspan="7" bgcolor="#1976d2 "><CENTER><strong>Análisis de Riesgos</strong></CENTER></td>
 						</tr>
 
 						<tr>
@@ -466,7 +466,7 @@
 					
 					<table>
 						<tr>
-							<td colspan="8" bgcolor="#1e88e5"><CENTER><strong>Administración de Riesgos </strong></CENTER></td>
+							<td colspan="8" bgcolor="#1976d2 "><CENTER><strong>Administración de Riesgos </strong></CENTER></td>
 						</tr>
 					</table><br />
 					<?php 
@@ -479,36 +479,36 @@
 
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Administración de Riesgo <?php echo " ".$contador; ?> </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Administración de Riesgo <?php echo " ".$contador; ?> </strong></CENTER></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Departamento</td>
+							<td bgcolor="#1976d2 ">Departamento</td>
 							<td colspan="5"><?php echo $analisis->getDepartamento(); ?></td>       
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Riesgo</td>
+							<td bgcolor="#1976d2 ">Riesgo</td>
 							<td colspan="5"><?php echo $analisis->getIdRiesgo(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Probabilidad</td>
+							<td bgcolor="#1976d2 ">Probabilidad</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Impacto</td>
+							<td bgcolor="#1976d2 ">Impacto</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Nivel de Riesgo</td>
+							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
 							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
 						</tr> 
 
@@ -549,7 +549,7 @@
 					<table>
 
 						<tr>
-							<td colspan="8" bgcolor="#1e88e5"><CENTER><strong>Seguimiento de Riesgos </strong></CENTER></td>
+							<td colspan="8" bgcolor="#1976d2 "><CENTER><strong>Seguimiento de Riesgos </strong></CENTER></td>
 						</tr>
 					</table><br />
 
@@ -561,30 +561,30 @@
 
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Seguimiento del Riesgo: <?php echo " ".$analisis->getIdRiesgo(); ?> </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Seguimiento del Riesgo: <?php echo " ".$analisis->getIdRiesgo(); ?> </strong></CENTER></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Departamento</td>
+							<td bgcolor="#1976d2 ">Departamento</td>
 							<td colspan="5"><?php echo $analisis->getDepartamento(); ?></td>       
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Probabilidad</td>
+							<td bgcolor="#1976d2 ">Probabilidad</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Impacto</td>
+							<td bgcolor="#1976d2 ">Impacto</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Nivel de Riesgo</td>
+							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
 							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
 						</tr>
 
@@ -596,7 +596,7 @@
 
 							<tr>
 								<td></td>
-								<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Medida de Administración: <?php echo " ".$contador; ?></strong></CENTER></td>
+								<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Medida de Administración: <?php echo " ".$contador; ?></strong></CENTER></td>
 							</tr> 
 
 							<tr>
@@ -621,7 +621,7 @@
 
 							<tr>
 								<td></td>
-								<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Seguimientos Realizados a la Medida de Administración</strong></CENTER></td>
+								<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Seguimientos Realizados a la Medida de Administración</strong></CENTER></td>
 							</tr>
 
 							<tr>
@@ -688,7 +688,7 @@
 
 						<tr>
 							<td></td>
-							<td colspan="7" bgcolor="#1e88e5"><CENTER><strong>Reporte de Riesgos</strong></CENTER></td>
+							<td colspan="7" bgcolor="#1976d2 "><CENTER><strong>Reporte de Riesgos</strong></CENTER></td>
 						</tr>
 
 						<tr>
@@ -750,7 +750,7 @@
 
 						<tr>
 							<td></td>
-							<td colspan="7" bgcolor="#1e88e5"><CENTER><strong>Reporte de Riesgos Analizados</strong></CENTER></td>
+							<td colspan="7" bgcolor="#1976d2 "><CENTER><strong>Reporte de Riesgos Analizados</strong></CENTER></td>
 						</tr>
 
 						<tr>
@@ -819,35 +819,35 @@
 
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Reporte Administración de Riesgo <?php echo " ".$contador; ?> </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Reporte Administración de Riesgo <?php echo " ".$contador; ?> </strong></CENTER></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Departamento</td>
+							<td bgcolor="#1976d2 ">Departamento</td>
 							<td colspan="5"><?php echo $analisis->getDepartamento(); ?></td>       
 						</tr>
 
 						<tr>
-							<td bgcolor="#1e88e5">Riesgo</td>
+							<td bgcolor="#1976d2 ">Riesgo</td>
 							<td colspan="5"><?php echo $analisis->getIdRiesgo(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Probabilidad</td>
+							<td bgcolor="#1976d2 ">Probabilidad</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Impacto</td>
+							<td bgcolor="#1976d2 ">Impacto</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Nivel de Riesgo</td>
+							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
 							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
 						</tr> 
 
@@ -913,7 +913,7 @@
 						<br />
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Reporte Seguimiento de Riesgos </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Reporte Seguimiento de Riesgos </strong></CENTER></td>
 						</tr>
 					</table>
 
@@ -925,30 +925,30 @@
 
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Seguimiento del Riesgo: <?php echo " ".$analisis->getIdRiesgo(); ?> </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Seguimiento del Riesgo: <?php echo " ".$analisis->getIdRiesgo(); ?> </strong></CENTER></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Departamento</td>
+							<td bgcolor="#1976d2 ">Departamento</td>
 							<td colspan="5"><?php echo $analisis->getDepartamento(); ?></td>       
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Probabilidad</td>
+							<td bgcolor="#1976d2 ">Probabilidad</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Impacto</td>
+							<td bgcolor="#1976d2 ">Impacto</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Nivel de Riesgo</td>
+							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
 							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
 						</tr>
 
@@ -960,7 +960,7 @@
 
 							<tr>
 								<td></td>
-								<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Medida de Administración: <?php echo " ".$contador; ?></strong></CENTER></td>
+								<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Medida de Administración: <?php echo " ".$contador; ?></strong></CENTER></td>
 							</tr> 
 
 							<tr>
@@ -985,7 +985,7 @@
 
 							<tr>
 								<td></td>
-								<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Seguimientos Realizados a la Medida de Administración</strong></CENTER></td>
+								<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Seguimientos Realizados a la Medida de Administración</strong></CENTER></td>
 							</tr>
 
 							<tr>
@@ -1058,7 +1058,7 @@
 
 						<tr>
 							<td></td>
-							<td colspan="7" bgcolor="#1e88e5 "><CENTER><strong>Riesgos</strong></CENTER></td>
+							<td colspan="7" bgcolor="#1976d2  "><CENTER><strong>Riesgos</strong></CENTER></td>
 						</tr>
 
 						<tr>
@@ -1094,7 +1094,7 @@
 
 						<tr>
 							<td></td>
-							<td colspan="7" bgcolor="#1e88e5 "><CENTER><strong>Análisis de Riesgos</strong></CENTER></td>
+							<td colspan="7" bgcolor="#1976d2  "><CENTER><strong>Análisis de Riesgos</strong></CENTER></td>
 						</tr>
 
 						<tr>
@@ -1128,7 +1128,7 @@
 					
 					<table>
 						<tr>
-							<td colspan="8" bgcolor="#1e88e5"><CENTER><strong>Administración de Riesgos </strong></CENTER></td>
+							<td colspan="8" bgcolor="#1976d2 "><CENTER><strong>Administración de Riesgos </strong></CENTER></td>
 						</tr>
 					</table><br />
 					<?php 
@@ -1141,36 +1141,36 @@
 
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Administración de Riesgo <?php echo " ".$contador; ?> </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Administración de Riesgo <?php echo " ".$contador; ?> </strong></CENTER></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Departamento</td>
+							<td bgcolor="#1976d2 ">Departamento</td>
 							<td colspan="5"><?php echo $analisis->getDepartamento(); ?></td>       
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Riesgo</td>
+							<td bgcolor="#1976d2 ">Riesgo</td>
 							<td colspan="5"><?php echo $analisis->getIdRiesgo(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Probabilidad</td>
+							<td bgcolor="#1976d2 ">Probabilidad</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Impacto</td>
+							<td bgcolor="#1976d2 ">Impacto</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Nivel de Riesgo</td>
+							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
 							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
 						</tr> 
 
@@ -1211,7 +1211,7 @@
 					<table>
 
 						<tr>
-							<td colspan="8" bgcolor="#1e88e5"><CENTER><strong>Seguimiento de Riesgos </strong></CENTER></td>
+							<td colspan="8" bgcolor="#1976d2 "><CENTER><strong>Seguimiento de Riesgos </strong></CENTER></td>
 						</tr>
 					</table><br />
 
@@ -1223,30 +1223,30 @@
 
 						<tr>
 							<td></td>
-							<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Seguimiento del Riesgo: <?php echo " ".$analisis->getIdRiesgo(); ?> </strong></CENTER></td>
+							<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Seguimiento del Riesgo: <?php echo " ".$analisis->getIdRiesgo(); ?> </strong></CENTER></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Departamento</td>
+							<td bgcolor="#1976d2 ">Departamento</td>
 							<td colspan="5"><?php echo $analisis->getDepartamento(); ?></td>       
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Probabilidad</td>
+							<td bgcolor="#1976d2 ">Probabilidad</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Impacto</td>
+							<td bgcolor="#1976d2 ">Impacto</td>
 							<td colspan="5" bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td bgcolor="#1e88e5">Nivel de Riesgo</td>
+							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
 							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
 						</tr>
 
@@ -1258,7 +1258,7 @@
 
 							<tr>
 								<td></td>
-								<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Medida de Administración: <?php echo " ".$contador; ?></strong></CENTER></td>
+								<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Medida de Administración: <?php echo " ".$contador; ?></strong></CENTER></td>
 							</tr> 
 
 							<tr>
@@ -1283,7 +1283,7 @@
 
 							<tr>
 								<td></td>
-								<td colspan="6" bgcolor="#1e88e5"><CENTER><strong>Seguimientos Realizados a la Medida de Administración</strong></CENTER></td>
+								<td colspan="6" bgcolor="#1976d2 "><CENTER><strong>Seguimientos Realizados a la Medida de Administración</strong></CENTER></td>
 							</tr>
 
 							<tr>
