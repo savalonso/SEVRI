@@ -33,6 +33,7 @@
 	      		';
 	      	}
 		}
+
 		function obtenerRiesgo(){
 			$idRiesgo->$_POST['idRiesgo'];
 			$dtRiesgo = new dtRiesgo;
@@ -44,9 +45,9 @@
 				return $lista;
 			}
 		}
+
 		function eliminarRiesgo(){
     		$idRiesgo = $_POST['idRiesgo'];
-    		//echo("alert(\"Llego a la controladora con: \"+$idRiesgo");
 	      	$dataRiesgo = new dtRiesgo;
                
 	      	if($dataRiesgo->eliminarRiesgo($idRiesgo) == true){
@@ -61,6 +62,13 @@
 	      		';
 	      	}
 		}
+
+		function generarReporte(){
+			include_once("../logica/logicaReporte.php");
+	      	$logReporte = new LogicaReporte();
+	      	$respuesta = $logReporte->reporteRiesgoExcel();
+		}
+
 		function modificarRiesgo(){
 	      	$mriesgo = new dRiesgo;
 	      	$mriesgo->setId($_POST['id']);
@@ -90,17 +98,21 @@
 	}
 
 	$op = $_POST['opcion'];
+	echo "$op";
 	$control = new ctrRiesgo;
 	if($op == 1){
 	 	$control->insertarRiesgo();
 	}
-	if($op == 2){
+	else if($op == 2){
 	 	$control->obtenerRiesgo();
 	}
-	if($op == 3){
+	else if($op == 3){
 	 	$control->eliminarRiesgo();
 	}
-	if($op == 4){
+	else if($op == 4){
 	 	$control->modificarRiesgo();
+	}
+	else if($op == 5){
+	 	$control->generarReporte();
 	}
 ?>

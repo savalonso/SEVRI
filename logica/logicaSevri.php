@@ -124,10 +124,12 @@ class LogicaSevri{
 				}else{
 					$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado ningún Departamento';
 				}
+			}else{
+				$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado ninguna categoría';
 			}
 		}else{
-				$mensaje = 'El SEVRI no se puede activar porque:  No se ha agregado los niveles de Riesgo';
-			}
+			$mensaje = 'El SEVRI no se puede activar porque:  No se han agregado los niveles de Riesgo';
+		}
 		
 		return $mensaje;
 	}

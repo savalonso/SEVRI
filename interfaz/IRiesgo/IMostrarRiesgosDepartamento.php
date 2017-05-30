@@ -29,8 +29,17 @@
 				}
 			?>
 		</select>
-	<div>
+	</div>
 </div>
-</div>
+
 <div id="mostrarRiesgos"></div>
+
+	<div class="row">
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=1" class="btn">Crear Reporte Excel</a>
+		</div>
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=6" class="btn">Crear Reporte Word</a>
+		</div>
+	</div>
 

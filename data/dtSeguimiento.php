@@ -25,6 +25,7 @@ class dtSeguimiento{
             return true;
         }
     }
+
     public function obtenerSeguimiento($idAdministracion){
         include_once ('dtConnection.php');
         include_once("../../dominio/dSeguimiento.php");
@@ -55,6 +56,7 @@ class dtSeguimiento{
             return $lista;
         }
     }
+
     public function obtenerSeguimientosPorIdAdministracion($idAdministracion){
         include_once ('dtConnection.php');
         include_once("../../dominio/dSeguimiento.php");
@@ -73,6 +75,32 @@ class dtSeguimiento{
             $seguimiento->setPorcentajeAvance($row['PorcentajeAvance']);
             $seguimiento->setFechaAvance($row['FechaAvance']);
             $seguimiento->setUsuarioAprobador($row['Nombre'].' '.$row['PrimerApellido'].' '.$row['SegundoApellido']);
+            array_push($lista, $seguimiento);
+        }
+        mysqli_free_result($result);
+        mysqli_close($conexion);
+
+        if (!$result){
+            return false;
+        } else {
+            return $lista;
+        }
+    }
+
+    public function obtenerSeguimientoReporte($idAdministracion){
+        include_once ('dtConnection.php');
+        include_once("../dominio/dSeguimiento.php");
+        $con = new dtConnection();
+        $conexion = $con->conect();
+        $query = "CALL obtenerSeguimientoReporte($idAdministracion)";
+        $result = mysqli_query($conexion, $query);
+        $lista = array();
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $seguimiento = new dSeguimiento;
+            $seguimiento->setMontoSeguimiento($row['MontoSeguimiento']);
+            $seguimiento->setComentarioAvance($row['ComentarioAvance']);
+            $seguimiento->setPorcentajeAvance($row['PorcentajeAvance']);
+            $seguimiento->setFechaAvance($row['FechaAvance']);
             array_push($lista, $seguimiento);
         }
         mysqli_free_result($result);

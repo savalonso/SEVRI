@@ -99,6 +99,48 @@
 			}
 		}
 
+		public function getAdministracionesReporte($analisis){
+			include_once ('dtConnection.php');
+			include_once("../dominio/dAdministracion.php");
+			include_once("../dominio/dUsuario.php");
+			include_once("../dominio/dMedidaAdministracion.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerAdministraciones('$analisis')";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			
+				$administracion = new dAdministracion;
+				$administracion->setId($row['Id']);	
+
+				$usuario = new dUsuario;
+				$nombre = $row['Nombre'];	
+				$nombre .= " " . $row['PrimerApellido'];
+				$nombre .= " " . $row['SegundoApellido'];
+				$usuario->setNombre($nombre);
+
+				$medida = new dMedidaAdministracion;
+				$medida->setNombreMedida($row['nombreMedida']);
+
+				$administracion->setUsuario($usuario);
+				$administracion->setActividadTratamiento($row['ActividadTratamiento']);
+				$administracion->setPlazoTratamiento($row['PlazoTratamiento']);
+				$administracion->setCostoActividad($row['CostoActividad']);
+				$administracion->setIndicador($row['Indicador']);
+				$administracion->setMedidaAdministracion($medida);
+
+				array_push($lista, $administracion);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
+
 		public function getAdministracion($idAdministracion){
 			include_once ('dtConnection.php');
 			include_once("../../dominio/dAdministracion.php");

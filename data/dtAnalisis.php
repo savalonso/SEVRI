@@ -166,6 +166,100 @@
 			}
 		}
 
+		function getAnalisisReporte(){
+			include_once("../dominio/dAnalisis.php");
+			include_once("../dominio/dParametro.php");
+			$con = new dtConnection;
+			$conexion = $con->conect();
+
+			$query = "CALL obtenerAnalisisReporte()";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+				$analisis = new dAnalisis();
+				$impacto = new dParametro;
+				$probabilidad = new dParametro;
+				$calificacion = new dParametro;
+
+				$impacto->setValorParametro($row['valorImpacto']);
+				$impacto->setDescriptorParametro($row['Impacto']);
+				$impacto->setColorParametro($row['colorImpacto']);
+				
+				$probabilidad->setValorParametro($row['valorProbabilidad']);
+				$probabilidad->setDescriptorParametro($row['Probabilidad']);
+				$probabilidad->setColorParametro($row['colorProbabilidad']);
+
+				$calificacion->setValorParametro($row['valorMedida']);
+				$calificacion->setDescriptorParametro($row['descriptorMedida']);
+				$calificacion->setColorParametro($row['colorMedida']);
+
+				$analisis->setId($row['Id']);
+				$analisis->setDepartamento($row['nombreDepartamento']);
+				$analisis->setIdRiesgo($row['Nombre']);
+	    		$analisis->setProbabilidad($probabilidad);
+		      	$analisis->setImpacto($impacto);
+		      	$analisis->setNivelRiesgo($row['NivelRiesgo']);
+		      	$analisis->setMedidaControl($row['MedidaControl']);
+		      	$analisis->setCalificacionMedida($calificacion);
+				array_push($lista, $analisis);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
+
+		function getAnalisisReporteSevri($idSevri){
+			include_once("../dominio/dAnalisis.php");
+			include_once("../dominio/dParametro.php");
+			$con = new dtConnection;
+			$conexion = $con->conect();
+
+			$query = "CALL obtenerAnalisisReporteSevri('$idSevri')";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+				$analisis = new dAnalisis();
+				$impacto = new dParametro;
+				$probabilidad = new dParametro;
+				$calificacion = new dParametro;
+
+				$impacto->setValorParametro($row['valorImpacto']);
+				$impacto->setDescriptorParametro($row['Impacto']);
+				$impacto->setColorParametro($row['colorImpacto']);
+				
+				$probabilidad->setValorParametro($row['valorProbabilidad']);
+				$probabilidad->setDescriptorParametro($row['Probabilidad']);
+				$probabilidad->setColorParametro($row['colorProbabilidad']);
+
+				$calificacion->setValorParametro($row['valorMedida']);
+				$calificacion->setDescriptorParametro($row['descriptorMedida']);
+				$calificacion->setColorParametro($row['colorMedida']);
+
+				$analisis->setId($row['Id']);
+				$analisis->setDepartamento($row['nombreDepartamento']);
+				$analisis->setIdRiesgo($row['Nombre']);
+	    		$analisis->setProbabilidad($probabilidad);
+		      	$analisis->setImpacto($impacto);
+		      	$analisis->setNivelRiesgo($row['NivelRiesgo']);
+		      	$analisis->setMedidaControl($row['MedidaControl']);
+		      	$analisis->setCalificacionMedida($calificacion);
+				array_push($lista, $analisis);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
+
 		function getTodosAnalisis(){
 			include_once("../../dominio/dAnalisis.php");
 			$con = new dtConnection;
