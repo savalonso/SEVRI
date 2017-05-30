@@ -4,8 +4,7 @@ class dtSeguimiento{
 	
 	public function dtSeguimiento(){}
 	
-	/*Victor
-	------*/
+
 	public function insertarSeguimientoNuevo($seguimiento){
         include_once ('dtConnection.php');
         include_once("../dominio/dSeguimiento.php");
@@ -168,11 +167,7 @@ class dtSeguimiento{
             return $lista;
         }
 	}
-	/*Victor
-	------*/
-
-	/*Cristhoper
-	----------*/
+	
 	function getSeguimientosAsignados($cedulaAprobador) {
 		include_once('dtConnection.php');
 		include_once("../../dominio/dSeguimiento.php");
@@ -311,7 +306,6 @@ class dtSeguimiento{
 			return true;
 		}
 	}
-	/*Cristhoper
-	----------*/
+	
 }
 ?>
