@@ -12,7 +12,7 @@
             $idDepartamento = $depaUsu->getIdDepartamento();
             $cedulaUsuario = $depaUsu->getCedulaUsuario();
 
-            $result = $prueba->query("CALL insertarDepartamentoUsuario($idDepartamento, $cedulaUsuario)");
+            $result = $prueba->query("CALL insertarDepartamentoUsuario($idDepartamento, '$cedulaUsuario')");
 			if (!$result){
 				return false;
 			} else {
