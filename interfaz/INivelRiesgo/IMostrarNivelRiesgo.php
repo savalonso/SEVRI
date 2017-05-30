@@ -47,20 +47,12 @@
 						if($NivelRiesgo[$i]->getIdDivisiones() == $idDivicion){		
 							if($NivelRiesgo[$i]->getEsEditable() == true){
 							echo "<tr>";
-								echo "<td></td>";
-								echo "<td></td>";
-								echo "<td></td>";
-								echo "<td>"."<input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificarNivel()\"/>"."</td>";
-								echo "<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"pasarIdParaEliminarNivel('".$idDivicion."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#MeliminarNivel\">Eliminar</a> </button></td>";
+								echo "<td colspan=\"4\">"."<input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificarNivel()\"/>"."<button type=\"button\" class=\"btnEliminar\" onclick=\"pasarIdParaEliminarNivel('".$idDivicion."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#MeliminarNivel\">Eliminar</a> </button>"."</td>";
 							echo "</tr>";
 							$i=count($NivelRiesgo);	
 						}else{
 							echo "<tr>";
-								echo "<td></td>";
-								echo "<td></td>";
-								echo "<td></td>";
-								echo "<td>"."<input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" onclick=\"invocarDivModificarAdmi()\"/>"."</td>";
-								echo "<td>"."<input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" onclick=\"invocarDivModificarAdmi()\"/>"."</td>";
+								echo "<td colspan=\"4\" >"."<input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" onclick=\"invocarDivModificarAdmi()\"/>"."<input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" onclick=\"invocarDivModificarAdmi()\"/>"."</td>";
 							echo "</tr>";
 							$i=count($NivelRiesgo);	
 						}	
