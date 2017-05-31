@@ -98,7 +98,6 @@
 	}
 
 	$op = $_POST['opcion'];
-	echo "$op";
 	$control = new ctrRiesgo;
 	if($op == 1){
 	 	$control->insertarRiesgo();

@@ -44,7 +44,7 @@
 			$primeraPalabra = $primeraLetra.$restoPalabra;
 			$resultado = $primeraPalabra.$restoTexto;
 
-			$result = $prueba->query("CALL insertarAnalisis($idRiesgo, $probabilidad, $impacto, 0, '$resultado', $calificacionMedida)");
+			$result = $prueba->query("CALL insertarAnalisis($idRiesgo, $probabilidad, $impacto, '$resultado', $calificacionMedida)");
 			if (!$result){
 				return false;
 			} else {
@@ -297,16 +297,16 @@
 			$query = "CALL obtenerAnalisis($idAnalisis)";
 			$lista = array();
 			$result = mysqli_query($conexion, $query);
-			while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 			
 				$analisis = new dAnalisis;
-				$analisis->setId($row[0]);
-				$analisis->setIdRiesgo($row[1]);
-				$analisis->setProbabilidad($row[2]);	
-				$analisis->setImpacto($row[3]);
-				$analisis->setNivelRiesgo($row[4]);
-				$analisis->setMedidaControl($row[5]);
-				$analisis->setCalificacionMedida($row[6]);
+				$analisis->setId($row['Id']);
+				$analisis->setIdRiesgo($row['IdRiesgo']);
+				$analisis->setProbabilidad($row['Probabilidad']);	
+				$analisis->setImpacto($row['Impacto']);
+				$analisis->setNivelRiesgo($row['nivelRiesgo']);
+				$analisis->setMedidaControl($row['MedidaControl']);
+				$analisis->setCalificacionMedida($row['CalificacionMedida']);
 				array_push($lista, $analisis);
 			}
 			mysqli_free_result($result);
@@ -358,7 +358,7 @@
 			$primeraPalabra = $primeraLetra.$restoPalabra;
 			$resultado = $primeraPalabra.$restoTexto;
 
-			$result = $prueba->query("CALL modificarAnalisis($id, $probabilidad, $impacto, $nivelRiesgo, '$resultado', $calificacionMedida)");
+			$result = $prueba->query("CALL modificarAnalisis($id, $probabilidad, $impacto, '$resultado', $calificacionMedida)");
 			if (!$result){
 				return false;
 			} else {

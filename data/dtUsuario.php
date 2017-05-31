@@ -35,8 +35,9 @@
 			include_once ('dtConnection.php');
 			include_once("../../dominio/dBandejaEntrada.php");
 			$con = new dtConnection();
+			$cedula=$_SESSION['idUsuario'];
 			$conexion = $con->conect();
-			$query = "CALL obtenerMensajesUsuario('123456789')";
+			$query = "CALL obtenerMensajesUsuario('$cedula')";
 			$lista = array();
 			$result = mysqli_query($conexion, $query);
 			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
