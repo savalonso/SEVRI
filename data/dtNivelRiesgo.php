@@ -217,11 +217,19 @@
 			$conexion = $con->conect();
 			$query = "CALL obtenerSevriNivelRiesgo()";
 			$result = mysqli_query($conexion, $query);
-
+			//falta obtener los datos de la tabla.
+			$lista = array();
+			while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+				
+				$valores = array("idSevri"=>$row["IdSevri"],"idDivicion"=>$row["IdDivicionNivel"]);	
+				
+				array_push($lista, $valores);
+			}
+			
 			if (!$result){
 				return false;
 			} else {
-				return true;
+				return $lista;
 			}
 
 		}
