@@ -18,11 +18,11 @@
 			}
 			
 		}
-		function insertarSevriCategoria(){
+		function insertarSevriCategoria($idCategoria){
 			$con = new dtConnection;
 			$conexion = $con->conect();
 
-			$result = $conexion->query("CALL insertarSevriCategorias()");
+			$result = $conexion->query("CALL insertarSevriCategorias('$idCategoria')");
 
 			mysqli_close($conexion);
 
@@ -37,7 +37,6 @@
 			include_once ("../dominio/dCategoria.php");
 			$con = new dtConnection;
 			$prueba = $con->conect();
-
 			$nombreCategoria = $Categoria->getNombreCategoria();
 			$descripcionCategoria = $Categoria->getDescripcion();
 			$hijoDe = $Categoria->getHijoDe();
