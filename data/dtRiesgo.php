@@ -140,7 +140,7 @@
 
 		function getRiesgosSevriActivo(){
 			include_once ('dtConnection.php');
-			include_once("../dominio/dRiesgo.php");
+			include_once("../../dominio/dRiesgo.php");
 			$con = new dtConnection();
 			$conexion = $con->conect();
 			$query = "CALL obtenerRiesgosSevriActivo()";

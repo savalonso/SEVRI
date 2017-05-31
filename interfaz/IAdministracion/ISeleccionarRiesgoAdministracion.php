@@ -44,7 +44,7 @@
 							foreach ($lista as $riesgo){
 					            echo "<tr>					        
 						        	<td>".$riesgo->getNombre()."</td>
-					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Admininistrar\" onclick=\"cargarPagina('../interfaz/IAdministracion/IAdministrarRiesgo.php?idAnalisis=".$riesgo->getId()."')\"/></td>
+					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Administrar\" onclick=\"cargarPagina('../interfaz/IAdministracion/IAdministrarRiesgo.php?idAnalisis=".$riesgo->getId()."')\"/></td>
 					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver Administraciones\" onclick=\"cargarPagina('../interfaz/IAdministracion/IMostrarAdministraciones.php?idAnalisis=".$riesgo->getId()."')\"/></td>
 					    		</tr>";
 							}

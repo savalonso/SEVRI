@@ -12,9 +12,7 @@
 	$controlAdministracion = new ctrListaAdministracion;
 	$lista = $control->obtenerSeguimientosAprobador($cedulaAprobador);
 	$listaAdministracion = $controlAdministracion->getAdministracionResponsable($cedulaAprobador);
-	/*
-	Cristopher
-	*/
+
 	$arreglo = array();
 	if($lista != null){
 		foreach($lista as $seguimiento){
@@ -28,9 +26,6 @@
 		}
 	}
 	$ArrayJsonSeguimiento = json_encode($arreglo);	
-	/*
-	Victor
-	*/
 	
 	$listaSeguimientos = array();
 	if($listaAdministracion != null) {

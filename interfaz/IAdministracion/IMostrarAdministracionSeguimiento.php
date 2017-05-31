@@ -17,7 +17,7 @@
 	</script>
 
 	<div class="row">
-		<h2>Lista de riesgos</h2>
+		<h4>Medidas de Administración</h4>
 		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
 		<?php  
 			if($administracion!=null){

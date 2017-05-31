@@ -1,4 +1,6 @@
-
+<?php 
+$cedulaUsuarioLogin=$_SESSION['idUsuario'];
+ ?>
 <header>
 	<input type="hidden" id="cedulaOculta" value="<?php echo "$cedulaUsuarioLogin"; ?>">
 	<nav class="navbar-fixed blue darken-4">

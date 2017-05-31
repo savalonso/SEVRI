@@ -5,12 +5,9 @@
 
 		function ctrSeguimiento(){}
 
-		/*
-		*Victor
-		*/		
+				
 		function insertarSeguimientoNuevo(){
 			include_once("../dominio/dSeguimiento.php");
-			//include_once("../data/dtSeguimiento.php");
 			include_once("../logica/logicaSeguimiento.php");
 	      	$seguimiento = new dSeguimiento;
 			$logica = new logicaSeguimiento;
@@ -21,15 +18,12 @@
 			$seguimiento->setPorcentajeAvance($_POST['porcentaje']);
 			$seguimiento->setUsuarioAprobador($_POST['aprobador']);
 			
-	      	//$dataSeguimiento = new dtSeguimiento;
+	      
                
 	      	$resultado = $logica->insertarSeguimientoNuevo($seguimiento);
 			echo $resultado;
 		}
 
-		/*
-		*Cristhoper
-		*/
 		function insertarSeguimientoAprobador(){
 			include_once("../dominio/dSeguimiento.php");
 			include_once("../logica/logicaSeguimiento.php");

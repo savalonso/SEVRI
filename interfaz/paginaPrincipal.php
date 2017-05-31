@@ -12,10 +12,10 @@
 	<script type="text/javascript" src="../js/jsPaginadorTablas.js?v=3"></script>
 	<script src="../Materialize/js/materialize.js?v=1"></script>
 	<script src="../js/jsRiesgo.js?v=1"></script>
-	<script src="../js/jsAnalisis.js?v=1"></script>
+	<script src="../js/jsAnalisis.js?v=2"></script>
 	<script src="../js/jsNivelRiesgo.js?v=1"></script>
-	<script src="../js/jsAdministracion.js?v=1"></script>
-	<script src="../js/jsUsuarios.js?v=2"></script>
+	<script src="../js/jsAdministracion.js?v=2"></script>
+	<script src="../js/jsUsuarios.js?v=3"></script>
 	<script src="../js/jsDepartamento.js?v=1"></script>
 	<script type="text/javascript" src="../js/jsSeguimiento.js?v=1"></script>
 	<script type="text/javascript" src="../js/jsSevri.js?v=1"></script>
