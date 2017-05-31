@@ -12,7 +12,7 @@
 		$fila = mysql_fetch_array($resultado);
 		
 		if(!$fila['Tipo']){
-			header("location:loginUsuarios.php");
+			header("location:index.php");
 		}
 		else{
 			$_SESSION['idUsuario'] = $fila['Cedula'];

@@ -34,7 +34,6 @@
 			
 			$analisis->setProbabilidad($_POST['probabilidad']);
 			$analisis->setImpacto($_POST['impacto']);
-			$analisis->setNivelRiesgo(0);
 			$analisis->setMedidaControl($_POST['MedidaControl']);
 			$analisis->setCalificacionMedida($_POST['CalificacionMedida']);
 	      	$id = $_POST['id'];

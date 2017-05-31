@@ -63,7 +63,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
     } else {
         echo "<tr><td>NO TIENE SEGUIMIENTO REALIZADO!</tr></td>";
     }
-    echo "</tbod>";
+    echo "</tbody>";
     echo "</table>";
     ?>
     </div>
