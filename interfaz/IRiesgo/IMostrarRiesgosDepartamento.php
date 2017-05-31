@@ -11,6 +11,10 @@
 	$controlDepartamentos=new ctrListaDepartamento;
 	$listaDepartamentos=$controlDepartamentos->obtenerListaDepartamentosUsuario($cedula);
 
+	if(empty($listaDepartamentos)){
+		echo "<br><h4>No se puede realizar este proceso porque usted no ha sido agregado a un departamento.</h4>";
+	}else{
+
 ?>
 
 <script>
@@ -20,17 +24,37 @@
 </script>
 <div class="row">
 	<div class="col l6 m6 s6">
-		<label>Seleccione un departamento</label>
+	
 		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgos()">
-			<option value="0" disabled="true" selected>Seleccione una opci&oacuten</option>
+			<option value="0" disabled="true" selected>Seleccione un departamento</option>
 			<?php
 				foreach ($listaDepartamentos as $departamento) {
 					echo "<option value=".$departamento->getIdDepartamento().">".$departamento->getNombreDepartamento()."</option>";
 				}
 			?>
 		</select>
-	<div>
+	</div>
 </div>
-</div>
+
 <div id="mostrarRiesgos"></div>
 
+	<div class="row">
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=1" class="btn">Crear Reporte Excel</a>
+		</div>
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=6" class="btn">Crear Reporte Word</a>
+		</div>
+	</div>
+
+
+
+<?php
+	}
+  ?>
+
+  	<script>
+	window.onload=ocultarBarra();
+	$( document ).ready(function(){
+	$('select').material_select();});
+</script>

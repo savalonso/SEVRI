@@ -16,7 +16,7 @@ $listaSeguimiento = $controlSeguimiento->obtenerSeguimiento($IdAdministracion);
 $administracion = $controlAdministracion->obtenerAdministracion($IdAdministracion);//
 
 $listaUsuario = $controlUsuario->obtenerListaUsuarios();
-//modal white-text
+
 ?>
 
 <script>

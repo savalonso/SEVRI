@@ -47,12 +47,12 @@ class ctrDepartamentos {
 		if($dataDepaUsu->insertarDepartamentoUsuario($depaUsu) == true){
 			echo 
 			'
-				Se ha insertado correctamente el usuario.
+				Se ha agregado con exito el usuario al departamento.
 			';
 		} else {
 			echo 
 			'	
-				Error! No se ha podido insertar el usuario.
+				Error! No se ha agregado el usuario al departamento.
 			';
 		}
 	}
@@ -64,12 +64,12 @@ class ctrDepartamentos {
 		if($dataDepaUsu->eliminarUsuarioDepartamento($idDepartamento, $cedulaUsuario) == true){
 			echo 
 			'
-				Se ha eliminado correctamente el usuario.
+				Se ha descartado con exito el usuario del departamento.
 			';
 		} else {
 			echo 
 			'	
-				Error! No se ha podido eliminar el usuario.
+				Error! No se ha descartado el usuario del departamento.
 			';
 		}
 	}

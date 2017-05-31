@@ -25,16 +25,12 @@
 		$listaDepartamentos=$controlDepartamentos->obtenerListaDepartamentosUsuario($cedula);
 		$listaCategorias =$controlSevriCategorias->obtenerTodasLasCategorias();	
 		
-		if(empty($listaDepartamentos) && empty($listaCategorias)){
-			echo "<br><h3>No se puede realizar este proceso porque no hay categorias asociadas a la version del SEVRI y usted no ha sido agregado a un departamento.</h3>";
+		if(empty($listaDepartamentos)){
 			
-		}else if(empty($listaDepartamentos)){
-			echo "<br><h3>No se puede realizar este proceso porque usted no ha sido agregado a un departamento.</h3>";
-		}else if(empty($listaCategorias)){
-			echo "<br><h3>No se puede realizar este proceso porque no hay categorias asociadas a la version del SEVRI.</h3>";
-				
-		}
-		else{
+			echo "<br><h4>No se puede realizar este proceso porque usted no ha sido agregado a un departamento.</h4>";
+
+
+		}else{
 
 			foreach($listaDepartamentos as $departamento) {
 				$arrayDepartamento[]=array(
@@ -65,13 +61,11 @@
 						<h3>Identificaci&oacuten</h3>
 
 						<div class="">
-
-                			<label  for="Tipo">Departamentos:</label>
                				 <select id="departamentoUsuario" name="departamentoUsuario" onchange="cargarDepartamentos()">
 								
 								<?php
 									foreach ($listaDepartamentos as $departamento):?> {
-									
+									<option value="0" disabled="true" selected>Seleccione un departamento</option>
 										<option value="<?php echo $departamento->getIdDepartamento();?>"><?php echo $departamento->getNombreDepartamento();?></option>;
 										<?php endforeach ?>
 									}
@@ -153,9 +147,7 @@
 			</div>
 		</div>
 
-		<?php
-				}
-		  ?>
+		
 
 <script>
 	$( document ).ready(function(){
@@ -295,4 +287,7 @@
 		}
 	}
 </script>
+<?php
+				}
+		  ?>
 </html>

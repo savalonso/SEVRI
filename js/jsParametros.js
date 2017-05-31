@@ -60,6 +60,12 @@ function eliminarParametro(){
     }); 
 }
 
+function validarNumero(input){
+    if (input.value <= 0) {
+        input.value = "";
+    }
+}
+
 function confirmarEliminacion(idParametro){
     document.getElementById('idParametro').value = idParametro;
 }

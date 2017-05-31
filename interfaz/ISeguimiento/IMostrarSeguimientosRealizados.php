@@ -12,9 +12,7 @@
 	$controlAdministracion = new ctrListaAdministracion;
 	$lista = $control->obtenerSeguimientosAprobador($cedulaAprobador);
 	$listaAdministracion = $controlAdministracion->getAdministracionResponsable($cedulaAprobador);
-	/*
-	Cristopher
-	*/
+
 	$arreglo = array();
 	if($lista != null){
 		foreach($lista as $seguimiento){
@@ -28,9 +26,6 @@
 		}
 	}
 	$ArrayJsonSeguimiento = json_encode($arreglo);	
-	/*
-	Victor
-	*/
 	
 	$listaSeguimientos = array();
 	if($listaAdministracion != null) {
@@ -231,6 +226,16 @@ foreach($listaSeguimientos as $seguimientos) {
 		</div>
 	</div>
 </div>
+
+	<div class="row">
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=4" class="btn">Crear Reporte Excel</a>
+		</div>
+
+		<div class="col s4 m4 l4">
+			<a href="../controladora/ctrReportes.php?opcion=9" class="btn">Crear Reporte Word</a>
+		</div>
+	</div>
 
 <div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
 	<div class="modal-content">

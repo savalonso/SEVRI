@@ -137,6 +137,33 @@
 
 		}
 
+		function getNivelesSevriActivoReporte(){
+			include_once("../dominio/dNivelRiesgo.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerNivelesRiesgoSevriActivo()";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+				$nivelRiesgo = new dNivelRiesgo;
+						
+				$nivelRiesgo->setLimite($row['Limite']);	
+				$nivelRiesgo->setDescriptor($row['Descriptor']);						
+				$nivelRiesgo->setDescripcion($row['Descripcion']);
+				$nivelRiesgo->setColor($row['Color']);
+
+				array_push($lista, $nivelRiesgo);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+
+		}
+
 		function getDivicionNiveles(){
 			include_once("../../dominio/dNivelRiesgo.php");
 			$con = new dtConnection();

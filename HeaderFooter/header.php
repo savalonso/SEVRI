@@ -8,7 +8,7 @@
 			</div>
 			<a href="#" data-activates="menuresponsive" class="button-collapse right"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a class="dropdown-button" href="#" data-activates="SubSevri">SEVRI</a></li>
+				<li><a class="dropdown-button " href="#" data-activates="SubSevri">SEVRI</a></li>
 				<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos">Crear Complementos</a></li>
 				<li><a class="dropdown-button" href="#" data-activates="subUsuarios">Usuarios</a></li>
 				<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamentos</a></li>

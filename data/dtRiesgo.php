@@ -140,7 +140,7 @@
 
 		function getRiesgosSevriActivo(){
 			include_once ('dtConnection.php');
-			include_once("../../dominio/dRiesgo.php");
+			include_once("../dominio/dRiesgo.php");
 			$con = new dtConnection();
 			$conexion = $con->conect();
 			$query = "CALL obtenerRiesgosSevriActivo()";
@@ -162,6 +162,66 @@
 				}
 				$riesgo->setCausa($row[8]);
 				$riesgo->setFecha($row[9]);
+
+				array_push($lista, $riesgo);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
+
+		function getRiesgosReporte(){
+			include_once ('dtConnection.php');
+			include_once("../dominio/dRiesgo.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerRiesgosReporte()";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			
+				$riesgo = new dRiesgo;
+				$riesgo->setIdDepartamento($row['nombreDepartamento']);
+				$riesgo->setIdCategoria($row['nombreCategoria']);	
+				$riesgo->setNombre($row['Nombre']);
+				$riesgo->setDescripcion($row['Descripcion']);
+				$riesgo->setMontoEconomico($row['MontoEconomico']);
+				$riesgo->setCausa($row['Causa']);
+				$riesgo->setFecha($row['fechaRegistro']);
+
+				array_push($lista, $riesgo);
+			}
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+			if (!$result){
+				return false;
+			} else {
+				return $lista;
+			}
+		}
+
+		function getRiesgosReporteSevri($idSevri){
+			include_once ('dtConnection.php');
+			include_once("../dominio/dRiesgo.php");
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerRiesgosReporteSevri('$idSevri')";
+			$lista = array();
+			$result = mysqli_query($conexion, $query);
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			
+				$riesgo = new dRiesgo;
+				$riesgo->setIdDepartamento($row['nombreDepartamento']);
+				$riesgo->setIdCategoria($row['nombreCategoria']);	
+				$riesgo->setNombre($row['Nombre']);
+				$riesgo->setDescripcion($row['Descripcion']);
+				$riesgo->setMontoEconomico($row['MontoEconomico']);
+				$riesgo->setCausa($row['Causa']);
+				$riesgo->setFecha($row['fechaRegistro']);
 
 				array_push($lista, $riesgo);
 			}

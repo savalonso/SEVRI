@@ -11,7 +11,7 @@ function insertarAnalisis(){
         contentType : false,
         processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php');
+        cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalizados.php');
         Materialize.toast(data, 7000,'blue darken-3');
         document.getElementById('barraCargando').style.display="none";
     });
@@ -63,7 +63,7 @@ function modificarAnalisis(){
         contentType : false,
         processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php');
+        cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalizados.php');
         Materialize.toast(data, 7000,'blue darken-3');
         document.getElementById('barraCargando').style.display="none";
     });
@@ -84,7 +84,7 @@ function modificarAnalisis(){
             contentType : false,
             processData : false
         }).done(function(data) {
-            cargarPagina('../interfaz/IAnalisis/IMostrarAnalisisRiesgo.php');
+            cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalizados.php');
             Materialize.toast(data, 7000,'blue darken-3');
             document.getElementById('barraCargando').style.display="none";
         });

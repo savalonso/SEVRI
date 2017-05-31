@@ -139,6 +139,8 @@ function crearLiNivRiesgoModificar(){
 }
 
 function crearEliminarFilas(){
+	var boton = document.getElementById('btnGuardar');
+	boton.disabled = false;
 	var divisiones = document.getElementById('divisiones').value;
 	var porcentajeInicial = 0;
 	var porcentajeFinal = 0;
@@ -349,6 +351,7 @@ function descartarNivelRiesgo(idDivicion){
 
 function cargarGuiMostrarNivelRiesgo(idDivicion){
 	if(idDivicion != 0){
+		document.getElementById('barraCargando').style.display="";
 		$('#mostrarDatos2').load("../interfaz/INivelRiesgo/IMostrarNivelRiesgo.php?id="+idDivicion);
 	}
 }
