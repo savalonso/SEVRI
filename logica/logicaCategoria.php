@@ -13,11 +13,10 @@ class LogicaCategoria{
 		$mensaje = '';
 
 		if(!$resultado){
-			$mensaje = 'Lo sentimos no se ha podido ingresar la categoria';
+			return 'Lo sentimos no se ha podido ingresar la categoria';
 		}else{
-			$mensaje =  'Lo sentimos no se ha podido ingresar la categoria';
+			return 'La categoría se ingresó correctamente';
 		}
-		return $mensaje;
 	}
 }
 
