@@ -65,13 +65,53 @@
 			<?php 
 		}
 
+		public function asignarNivelRiesgo($impacto, $probabilidad, $valorFormula, $listaNivel){
+			$mensaje = '';
+			$limiteInicial = 0;
+			$contador = 1;
+			$cantidadDivisiones = count($listaNivel);
+			$resultadoOperacion = round(($impacto*$probabilidad)/1*$valorFormula);
+			foreach ($listaNivel as $nivel) {
+				if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nivel->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
+					$mensaje = $resultadoOperacion."%: ".$nivel->getDescriptor();
+				}
+				$contador++;
+				$limiteInicial = $nivel->getLimite();
+			}
+			return $mensaje;
+		}
+
+		public function asignarColorNivelRiesgo($impacto, $probabilidad, $valorFormula, $listaNivel){
+			$color = '';
+			$limiteInicial = 0;
+			$contador = 1;
+			$cantidadDivisiones = count($listaNivel);
+			$resultadoOperacion = round(($impacto*$probabilidad)/1*$valorFormula);
+			foreach ($listaNivel as $nivel) {
+				if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nivel->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
+					$color = $nivel->getColor();
+				}
+				$contador++;
+				$limiteInicial = $nivel->getLimite();
+			}
+			return $color;
+		}
+
 		public function reporteAnalisisExcel(){
 
 			header("Content-type: application/vnd.ms-excel");
 			header("Content-Disposition: attachment; filename=Reporte_AnalisisRiesgo.xls");	
 			include_once('../data/dtAnalisis.php');
+			include_once('../data/dtNivelRiesgo.php');
+			include_once('logicaParametros.php');
+
+			$logicaParametro = new logicaParametros;
+			$dataNivel = new dtNivelRiesgo;
+			$nivelRiesgo = 	$dataNivel->getNivelesSevriActivoReporte();	
+			$valorFormula = $logicaParametro->obtenerValorFormulaReporte();
 			$data = new dtAnalisis;
-			$lista = $data->getAnalisisReporte();		
+			$lista = $data->getAnalisisReporte();
+			
 			?>
 			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 			<html xmlns="http://www.w3.org/1999/xhtml">
@@ -106,6 +146,11 @@
 					  
 					<?php 
 						foreach ($lista as $analisis) {	
+							$nivel = $this->asignarNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
+
+							$color = $this->asignarColorNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
 					?>
 						<tr>
 							<td></td>
@@ -113,7 +158,7 @@
 							<td><?php echo $analisis->getIdRiesgo(); ?></td>
 							<td bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 							<td bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
-							<td ><?php echo $analisis->getNivelRiesgo(); ?></td>
+							<td bgcolor=<?php echo "\"".$color."\""; ?>><?php echo $nivel; ?></td>
 							<td><?php echo $analisis->getMedidaControl(); ?></td> 
 							<td bgcolor=<?php echo "\"".$analisis->getCalificacionMedida()->getColorParametro()."\""; ?> ><?php echo $analisis->getCalificacionMedida()->getValorParametro(). ": ".$analisis->getCalificacionMedida()->getDescriptorParametro(); ?></td>                    
 						</tr> 
@@ -132,6 +177,14 @@
 			header("Content-Disposition: attachment; filename=Reporte_AdministracionRiesgo.xls");	
 			include_once('../data/dtAnalisis.php');
 			include_once('../data/dtAdministracion.php');
+			include_once('../data/dtNivelRiesgo.php');
+			include_once('logicaParametros.php');
+
+			$logicaParametro = new logicaParametros;
+			$dataNivel = new dtNivelRiesgo;
+			$nivelRiesgo = 	$dataNivel->getNivelesSevriActivoReporte();	
+			$valorFormula = $logicaParametro->obtenerValorFormulaReporte();
+
 			$data = new dtAnalisis;
 			$dataAdmin = new dtAdministracion;
 			$lista = $data->getAnalisisReporte();		
@@ -153,6 +206,12 @@
 						foreach ($lista as $analisis) {
 							$contador ++;
 							$listaAdministracion = $dataAdmin->getAdministracionesReporte($analisis->getId());
+
+							$nivel = $this->asignarNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
+
+							$color = $this->asignarColorNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
 					?>
 					<table width="100%" border="2" cellspacing="0" cellpadding="0">
 
@@ -187,7 +246,7 @@
 						<tr>
 							<td></td>
 							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
-							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
+							<td colspan="5" bgcolor=<?php echo "\"".$color."\""; ?>><?php echo $nivel; ?></td>  
 						</tr> 
 
 						<tr>
@@ -233,6 +292,14 @@
 			include_once('../data/dtAnalisis.php');
 			include_once('../data/dtAdministracion.php');
 			include_once('../data/dtSeguimiento.php');
+			include_once('../data/dtNivelRiesgo.php');
+			include_once('logicaParametros.php');
+
+			$logicaParametro = new logicaParametros;
+			$dataNivel = new dtNivelRiesgo;
+			$nivelRiesgo = 	$dataNivel->getNivelesSevriActivoReporte();	
+			$valorFormula = $logicaParametro->obtenerValorFormulaReporte();
+
 			$data = new dtAnalisis;
 			$dataAdmin = new dtAdministracion;
 			$dataSeguimiento = new dtSeguimiento;
@@ -258,6 +325,12 @@
 					<?php 
 						foreach ($lista as $analisis) {
 							$listaAdministracion = $dataAdmin->getAdministracionesReporte($analisis->getId());
+
+							$nivel = $this->asignarNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
+
+							$color = $this->asignarColorNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
 					?>
 					<table width="100%" border="2" cellspacing="0" cellpadding="0">
 
@@ -287,7 +360,7 @@
 						<tr>
 							<td></td>
 							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
-							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
+							<td colspan="5" bgcolor=<?php echo "\"".$color."\""; ?>><?php echo $nivel; ?></td>  
 						</tr>
 
 						<?php 
@@ -730,6 +803,14 @@
 			header("Content-Disposition: attachment; filename=Reporte_AnalisisRiesgo.doc");
 
 			include_once('../data/dtAnalisis.php');
+			include_once('../data/dtNivelRiesgo.php');
+			include_once('logicaParametros.php');
+
+			$logicaParametro = new logicaParametros;
+			$dataNivel = new dtNivelRiesgo;
+			$nivelRiesgo = 	$dataNivel->getNivelesSevriActivoReporte();	
+			$valorFormula = $logicaParametro->obtenerValorFormulaReporte();
+
 			$data = new dtAnalisis;
 			$lista = $data->getAnalisisReporte();		
 			?>
@@ -766,6 +847,11 @@
 					  
 					<?php 
 						foreach ($lista as $analisis) {	
+							$nivel = $this->asignarNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
+
+							$color = $this->asignarColorNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
 					?>
 						<tr>
 							<td></td>
@@ -773,7 +859,7 @@
 							<td><?php echo $analisis->getIdRiesgo(); ?></td>
 							<td bgcolor=<?php echo "\"".$analisis->getProbabilidad()->getColorParametro()."\""; ?> ><?php echo $analisis->getProbabilidad()->getValorParametro(). ": ".$analisis->getProbabilidad()->getDescriptorParametro(); ?></td>
 							<td bgcolor=<?php echo "\"".$analisis->getImpacto()->getColorParametro()."\""; ?> ><?php echo $analisis->getImpacto()->getValorParametro(). ": ".$analisis->getImpacto()->getDescriptorParametro(); ?></td>
-							<td ><?php echo $analisis->getNivelRiesgo(); ?></td>
+							<td bgcolor=<?php echo "\"".$color."\""; ?>><?php echo $nivel; ?></td>
 							<td><?php echo $analisis->getMedidaControl(); ?></td> 
 							<td bgcolor=<?php echo "\"".$analisis->getCalificacionMedida()->getColorParametro()."\""; ?> ><?php echo $analisis->getCalificacionMedida()->getValorParametro(). ": ".$analisis->getCalificacionMedida()->getDescriptorParametro(); ?></td>                    
 						</tr> 
@@ -793,6 +879,14 @@
 
 			include_once('../data/dtAnalisis.php');
 			include_once('../data/dtAdministracion.php');
+			include_once('../data/dtNivelRiesgo.php');
+			include_once('logicaParametros.php');
+
+			$logicaParametro = new logicaParametros;
+			$dataNivel = new dtNivelRiesgo;
+			$nivelRiesgo = 	$dataNivel->getNivelesSevriActivoReporte();	
+			$valorFormula = $logicaParametro->obtenerValorFormulaReporte();
+
 			$data = new dtAnalisis;
 			$dataAdmin = new dtAdministracion;
 			$lista = $data->getAnalisisReporte();		
@@ -814,6 +908,12 @@
 						foreach ($lista as $analisis) {
 							$contador ++;
 							$listaAdministracion = $dataAdmin->getAdministracionesReporte($analisis->getId());
+
+							$nivel = $this->asignarNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
+
+							$color = $this->asignarColorNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
 					?>
 					<table width="100%" border="2" cellspacing="0" cellpadding="0">
 
@@ -848,7 +948,7 @@
 						<tr>
 							<td></td>
 							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
-							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
+							<td colspan="5" bgcolor=<?php echo "\"".$color."\""; ?>><?php echo $nivel; ?></td>  
 						</tr> 
 
 						<tr>
@@ -895,6 +995,14 @@
 			include_once('../data/dtAnalisis.php');
 			include_once('../data/dtAdministracion.php');
 			include_once('../data/dtSeguimiento.php');
+			include_once('../data/dtNivelRiesgo.php');
+			include_once('logicaParametros.php');
+
+			$logicaParametro = new logicaParametros;
+			$dataNivel = new dtNivelRiesgo;
+			$nivelRiesgo = 	$dataNivel->getNivelesSevriActivoReporte();	
+			$valorFormula = $logicaParametro->obtenerValorFormulaReporte();
+
 			$data = new dtAnalisis;
 			$dataAdmin = new dtAdministracion;
 			$dataSeguimiento = new dtSeguimiento;
@@ -920,6 +1028,12 @@
 					<?php 
 						foreach ($lista as $analisis) {
 							$listaAdministracion = $dataAdmin->getAdministracionesReporte($analisis->getId());
+
+							$nivel = $this->asignarNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
+
+							$color = $this->asignarColorNivelRiesgo($analisis->getImpacto()->getValorParametro(), 
+								$analisis->getProbabilidad()->getValorParametro(), $valorFormula, $nivelRiesgo);
 					?>
 					<table width="100%" border="2" cellspacing="0" cellpadding="0">
 
@@ -949,7 +1063,7 @@
 						<tr>
 							<td></td>
 							<td bgcolor="#1976d2 ">Nivel de Riesgo</td>
-							<td colspan="5" ><?php echo $analisis->getNivelRiesgo(); ?></td>  
+							<td colspan="5" bgcolor=<?php echo "\"".$color."\""; ?>><?php echo $nivel; ?></td>  
 						</tr>
 
 						<?php 

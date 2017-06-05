@@ -72,7 +72,7 @@ function modificarAdministracion(){
     contentType : false,
     processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php');
+        cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php');
         Materialize.toast(data, 7000,'blue darken-3');
         document.getElementById('barraCargando').style.display="none";
     }); 
@@ -84,7 +84,6 @@ function eliminarAdministracion(){
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     var idAdmi = document.getElementById('idAdministracion').value;
-    alert("hola el id a eliminar es "+idAdmi);
     formData.append("idAdmi", idAdmi); 
     formData.append("opcion", 3);
     $.ajax({
@@ -96,7 +95,7 @@ function eliminarAdministracion(){
     contentType : false,
     processData : false
     }).done(function(data) {
-        cargarPagina('../interfaz/IAdministracion/ISeleccionarRiesgoAdministracion.php');
+        cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php');
         Materialize.toast(data, 7000,'blue darken-3');
         document.getElementById('barraCargando').style.display="none";
     }); 

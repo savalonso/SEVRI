@@ -83,7 +83,7 @@ class LogicaSevri{
 			if($this->verificarCategorias() == true){
 				if($this->verificarDepartamentos() == true){ 
 					$listaParametros = $dataParametro->getParametrosSevriNuevo(1);
-					if(is_null($listaParametros) == false){
+					if($listaParametros != false){
 						$listaImpacto = $this->dividirParametros($listaParametros, 1);
 						$listaProbabilidad = $this->dividirParametros($listaParametros, 2);
 						$listaCalificacion = $this->dividirParametros($listaParametros, 3);

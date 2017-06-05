@@ -196,7 +196,7 @@
 				session_start();
 				$creadorMensaje = $_SESSION['nombreUsuario'];
 				$creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
-				$mensaje = "Tienes que realizar el seguimiento de una medida de administración";
+				$mensaje = "Te han asignado una nueva medida de administración a la cual debes de dar seguimiento antes de: ".$plazo;
 				$url = "../interfaz/IAdministracion/IMostrarAdministracionSeguimiento.php?IdAdministracion=".$id;
         	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	 	 		$conexion->beginTransaction();

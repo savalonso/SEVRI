@@ -1,4 +1,6 @@
-
+<?php 
+$cedulaUsuarioLogin=$_SESSION['idUsuario'];
+ ?>
 <header>
 	<input type="hidden" id="cedulaOculta" value="<?php echo "$cedulaUsuarioLogin"; ?>">
 	<div class="navbar-fixed">
@@ -30,7 +32,7 @@
 						<li><a class="dropdown-button" href="#" data-activates="subAnalisis2">An&aacutelisis</a></li>
 						<li><a class="dropdown-button" href="#" data-activates="subAdministracion2">Administraci&oacuten</a></li>
 						<li><a class="dropdown-button" href="#" data-activates="subSeguimiento2">Seguimiento</a></li>
-						<li><a class="dropdown-button" href="#" data-activates="subMensajes2" id="cantMenUsuario">Mensajes</a></li>
+						<li><a class="dropdown-button" href="#" data-activates="subMensajes2" id="cantMenUsuario2">Mensajes</a></li>
 						<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown2"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
 					</ul>
 				</div>

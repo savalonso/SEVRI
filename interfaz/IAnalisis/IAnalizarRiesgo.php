@@ -23,7 +23,7 @@
 	<?php  
 		if($listaRiesgos==null){?>
 		<div class="col s8 m8 l8">
-			<h3>Aún no hay riesgos identificados</h3>
+			<h4>No hay riesgos disponibles para analizar</h4>
 		</div>
 		<div class="col s2 m2 l2">
 			<a id="boton" href="#" onclick="cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')" data-tooltip="Identificar un nuevo riesgo." class="btn-floating tooltipped btn-large waves-effect waves-light blue "><i class="material-icons">add</i></a>

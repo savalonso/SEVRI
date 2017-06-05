@@ -16,7 +16,7 @@ $listaSeguimiento = $controlSeguimiento->obtenerSeguimiento($IdAdministracion);
 $administracion = $controlAdministracion->obtenerAdministracion($IdAdministracion);//
 
 $listaUsuario = $controlUsuario->obtenerListaUsuarios();
-//modal white-text
+
 ?>
 
 <script>
@@ -63,7 +63,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
     } else {
         echo "<tr><td>NO TIENE SEGUIMIENTO REALIZADO!</tr></td>";
     }
-    echo "</tbod>";
+    echo "</tbody>";
     echo "</table>";
     ?>
     </div>

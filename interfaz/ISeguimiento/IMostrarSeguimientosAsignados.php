@@ -9,14 +9,9 @@
 	include("../../controladora/ctrListaSeguimientos.php");
 	$control=new ctrListaSeguimientos;
 
-	/*--Cristhoper--*/
-	/*--------------*/
+	
 	$lista = $control->obtenerSeguimientosAsignados($cedulaAprobador);
-	/*--Cristhoper--*/
-	/*--------------*/
 
-	/*--Victor--*/
-	/*----------*/
 	$administracionRiesgo = $control->obtenerAdministracionRiesgo($cedulaAprobador);
 
 	$listaAdministracion;
@@ -65,8 +60,7 @@
 		}
 		$ArrayJson = json_encode($arr);
 	}
-	/*--Victor--*/
-	/*----------*/
+	
  ?>
  <script>	
 	window.onload=ocultarBarra();
@@ -75,8 +69,7 @@
 	});
 </script>
 
-	<!--Tabs-->
-	<!-------->
+	
 	<div class="row indicator">
 		<div class="col s12">
 			<ul class="tabs">
@@ -85,11 +78,7 @@
 			</ul>
 		</div>
 	</div>	
-	<!--Tabs-->
-	<!-------->
-
-	<!--Cristhoper-->
-	<!-------------->
+	
 	<div id="contenedorSeguimientosAprobador">
 		<div class="row">
 			<?php  
@@ -137,11 +126,7 @@
 			</div>
 		</div>
 	</div>
-	<!--Cristhoper-->
-	<!-------------->
-
-	<!--Victor-->
-	<!---------->
+	
 	<div id="contenedorSeguimientosUsuario">
 		<div class="row">
 			<?php
@@ -180,13 +165,11 @@
 			</div>
 		</div>
 	</div>
-	<!--Victor-->
-	<!---------->
+	
 	<div id="Mmostrar" class="modal  blue darken-3 z-depth-5 white-text"></div>
 	
 <script>
-/*Victor
-------*/
+
 	var idJs;
 	function asignarID(id) {
 		idJs = id;
@@ -199,11 +182,7 @@
 			}
 		}
 	}
-/*Victor
-------*/
 
-/*Cristhoper
-----------*/
 	 $(document).ready(function() {
 	   	 Materialize.updateTextFields();
  	 });
@@ -215,6 +194,5 @@
 	   	$('.modal-trigger').leanModal();
 	   	$('ul.tabs').tabs();
 	});
-/*Cristhoper
-----------*/
+
 </script>
