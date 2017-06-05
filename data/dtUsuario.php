@@ -238,6 +238,25 @@
 				return true;
 			}
 		}
+		function ObtenerUsuario($usuario,$contraseña){
+			include_once ('dtConnection.php');
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = ("CALL obtenerUsuarioLogin('".$usuario."','".$contraseña."')"); 
+			$result = mysqli_query($conexion, $query);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$existe;
+			if(strlen($row['Nombre']) == 0 ){
+				$existe = false;
+			}else{
+				$existe = true;
+			}
+			
+			$datos = array("nombre"=>$row['Nombre'],"apellido"=>$row['PrimerApellido'],
+							"tipo"=>$row['Tipo'],"existe"=>$existe);
+
+			return $datos;
+		}
 
 	}
 
