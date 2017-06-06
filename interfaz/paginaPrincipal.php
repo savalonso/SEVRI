@@ -23,11 +23,11 @@
 	<script type="text/javascript" src="../js/jsParametros.js?v=1"></script>
 	<script type="text/javascript" src="../js/jsHistorial.js?v=1"></script>
 	<script type="text/javascript" src="../js/jquery.validate.min.js?v=1"></script>
-</head>
+</head>	
 <body>
 		<?php 
 			session_start();
-			$cedula=$_SESSION['idUsuario'];
+			$cedula= $_SESSION['idUsuario'];
 			$tipo = $_SESSION['tipo'];
 			if($cedula != null){
 				if($tipo == "Administrador"){
@@ -96,7 +96,7 @@
 		 ?>
 
 	<?php }else{
-		header("location:../index.php");
+		//header("location:../index.php");
 	} ?>
 
     </body>

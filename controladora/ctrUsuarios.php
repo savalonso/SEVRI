@@ -95,6 +95,15 @@
 	      	$cantidadMensajes = $logica->contarMensajesNuevos($idUsuario);
 	      	echo $cantidadMensajes;
 		}
+		function ExisteUsuario(){
+			include_once ("../logica/logicaUsuario.php");
+			$usuario = $_POST['usuario'];
+			$clave = $_POST['clave'];
+			$logica = new logicaUsuario;
+			$datos = $logica->ObtenerDatosUsuario($usuario,$clave);
+
+			echo "".json_encode($datos)."";
+		}
 
     }
 
@@ -114,5 +123,8 @@
 	}
 	else if($op == 5){
 	 	$control->marcarMensajeLeido();
+	}
+	else if($op == 6){
+	 	$control->ExisteUsuario();
 	}
 ?>
