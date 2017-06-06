@@ -22,6 +22,9 @@
 			$lista = $control->obtenerListaSevri();
 			
 	?>
+	<div class="row">
+		<h4 class="col s12 m8 l8">Mostrar SEVRI</h4>
+	</div>
 	<?php if($lista){?>
 			<div class="row">
 			<div class="input-field buscar1 col s8 m8 l8">
@@ -29,7 +32,7 @@
 		        <input id="datosSevri" type="text" >
         	</div>
         	 <div class="col l4 m4 s4">
-				<a id="boton" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php')" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light red" style="float: right;"><i class="material-icons">add</i></a>
+				<a id="boton" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php');ocultarTooltip();" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
 			 </div>
 				<div class="col s12 m12 l10">
 					<div>
@@ -128,7 +131,7 @@
 				<div class="row">
 					<h4 class="col s10 m10 l10">A&uacuten no se ha creado el SEVRI</h4>
 					<div class="col l2 m2 s2">
-						<a id="boton" href="#" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php')" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light red" style="float: right;"><i class="material-icons">add</i></a>
+						<a id="boton" href="#" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php');ocultarTooltip();" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
 					</div>
 				</div>
 		<?php }?>	

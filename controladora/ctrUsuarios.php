@@ -1,4 +1,5 @@
 <?php 
+ header("Content-Type: text/html; charset=iso-8859-1");  
 	class ctrUsuarios {
 
         function ctrUsuarios(){}
@@ -101,8 +102,16 @@
 			$clave = $_POST['clave'];
 			$logica = new logicaUsuario;
 			$datos = $logica->ObtenerDatosUsuario($usuario,$clave);
-
+			$datos = ctrUsuarios::Convertir_UTF8($datos);
+			
 			echo "".json_encode($datos)."";
+		}
+		function Convertir_UTF8($array)
+		{
+		   foreach ($array as $key => $value) {
+		   	 $array[$key] = utf8_encode($value);
+		   }
+		    return $array;
 		}
 
     }
