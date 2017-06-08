@@ -6,7 +6,7 @@
 	$apellido = $_POST['apellido'];
 	$tipo = $_POST['tipo'];
 	
-	if(isset($_POST['nombre']))
+	if(strlen($usuario)!= 0  && strlen($contrasena)!= 0  && strlen($nombre)!= 0  && strlen($apellido)!= 0  && strlen($tipo)!= 0)
 	{
 		$_SESSION['idUsuario'] = $usuario;
 		$_SESSION['tipo'] = $tipo;

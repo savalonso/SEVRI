@@ -26,7 +26,7 @@
 			<h4 class="col s10 m10 l10">Mostrar Nivel de Riesgo</h4>
 			<div class="contendorselect col s8 m8 l8">
 				<select id="nRiesgo" name="nRiesgo" onchange="cargarGuiMostrarNivelRiesgo(this.value)">
-					<option value="0" disabled="true" selected >Seleccione una opci&oacuten</option>
+					<option value="0" disabled="true" selected >Seleccione un nivel de riesgo</option>
 					<?php foreach ($DivicionNiveles as $nivel): ?>
 						<option value="<?php echo $nivel->getIdDivisiones();?>"><?php echo $nivel->getNombreDiviciones();?></option>
 					<?php endforeach ?>

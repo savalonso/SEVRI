@@ -137,9 +137,9 @@
 		<?php }?>	
 			<script>
 		  		$(document).ready(function(){
-   		  		$('.modal-trigger').leanModal();
-   		  		$('.tooltipped').tooltip({delay: 50});
-   		  		$('select').material_select();
+	   		  		$('.modal-trigger').leanModal();
+	   		  		$('.tooltipped').tooltip({delay: 50});
+	   		  		$('select').material_select();
   		   		});
 
 			</script>

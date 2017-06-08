@@ -12,7 +12,7 @@ if(isset($_SESSION['tipo'])){
 	<script src="js/jQuery.js"></script>
 	<script type="text/javascript" src="js/jquery.validate.min.js?v=2"></script>
 	<link rel="stylesheet" href="Materialize/css/materialize.css">
-	<script type="text/javascript" src="js/jsInicioSesion.js?v=5"></script>
+	<script type="text/javascript" src="js/jsInicioSesion.js?v=4"></script>
 	<script src="Materialize/js/materialize.js"></script>
 	<script type="text/javascript" src="js/jsPaginadorTablas.js?v=3"></script>
 	<script src="js/jsUsuarios.js"></script>
