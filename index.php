@@ -5,7 +5,7 @@ if(isset($_SESSION['tipo'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
 	<meta charset="UTF-8">
 	<title>Pagina Principal</title>

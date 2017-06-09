@@ -432,3 +432,10 @@ $(document).ready(function () {
 
 });
 /*fin filtrado*/
+
+//function que oculta el tooltip
+function ocultarTooltip(){
+  var tooltip= document.getElementById('boton');
+  tooltip.style.display="none";
+}
+

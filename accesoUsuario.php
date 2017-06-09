@@ -6,12 +6,16 @@
 	$apellido = $_POST['apellido'];
 	$tipo = $_POST['tipo'];
 	
-	
-			$_SESSION['idUsuario'] = $usuario;
-			$_SESSION['tipo'] = $tipo;
-			$_SESSION['nombreUsuario'] =$nombre;
-			$_SESSION['apellidoUsuario'] = $apellido;
+	if(strlen($usuario)!= 0  && strlen($contrasena)!= 0  && strlen($nombre)!= 0  && strlen($apellido)!= 0  && strlen($tipo)!= 0)
+	{
+		$_SESSION['idUsuario'] = $usuario;
+		$_SESSION['tipo'] = $tipo;
+		$_SESSION['nombreUsuario'] =$nombre;
+		$_SESSION['apellidoUsuario'] = $apellido;
 
-			header("location:interfaz/paginaPrincipal.php");
-	
+		header("location:interfaz/paginaPrincipal.php");
+	}else{
+		header("location:index.php");
+	}
+			
 ?>
