@@ -42,6 +42,12 @@
 			$data = new dtUsuario;
 			$data->marcarMensajeLeido($idMensaje);	
 		}
+		public function ObtenerDatosUsuario($usuario,$contraseña){
+			include_once('../data/dtUsuario.php');
+			$data = new dtUsuario;
+			$arreglo = $data->ObtenerUsuario($usuario,$contraseña);
+			return $arreglo;
+		}
 	}
 
  ?>
