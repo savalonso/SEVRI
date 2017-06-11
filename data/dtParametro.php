@@ -81,13 +81,20 @@
 			}
 		}
 
-		function getParametrosSevriActivoReporte(){
+		function getParametrosReporte($desicion, $idSevri){
 			include_once ('dtConnection.php');
 			
 			$con = new dtConnection();
 			$conexion = $con->conect();
 			include_once("../dominio/dParametro.php");
-			$query = "CALL obtenerParametrosSevriActivo()";
+			
+
+			if ($desicion == 1) {
+				$query = "CALL obtenerParametrosSevriActivo()";
+			}else{
+				$query = "CALL obtenerParametrosPorIdSevri('$idSevri')";
+			}
+
 			$lista = array();
 			$result = mysqli_query($conexion, $query);
 			while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
@@ -316,29 +323,5 @@
 
 		}
 	}
-		/*function agregarParametrosSevri($parametros){
-			include_once ('dtConnection.php');
-			$con = new dtConnection;
-			$conexion = $con->conect();
-			$query = "CALL obtenerIdSevriActivo()";
-
-			$result = mysqli_query($conexion, $query);
-			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-			$id = $row['Id'];
-			$conexion = $con->crearConexionPDO();
-			try {
-        	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	 	 		$conexion->beginTransaction();
-	 	 		
-				foreach ($parametros as $parametro) {
-	                $conexion->exec("INSERT INTO tbsevriparametro VALUES('".$id."', '".$parametro."');");
-				}				  
-
-				$conexion->commit();
-				return true;
-            } catch (Exception $e) {
-            	$conexion->rollback();
-            	return false;
-            }
-		}*/
+	
 ?>
