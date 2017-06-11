@@ -151,14 +151,12 @@ function validarInsertarCategoria(){
                 if(document.getElementById('categoria').value==0){
                     Materialize.toast("Debe de seleccionar una categor&iacutea v&aacutelida", 7000,'blue darken-3');
                 }else{
-
                     if (!statSend) {
                         statSend = true;
                         insertarCategoria();
                      } else {
                         Materialize.toast("Ya se esta creando la categoria", 7000,'blue darken-3');
                     }
-                    
                 }
             }
         });
@@ -177,11 +175,15 @@ function validarInsertarCategoria(){
                 categoria: "Debe seleccionar una sub categor&iacutea.",
             },
             submitHandler: function(form){
-                if (!statSend) {
-                    statSend = true;
-                    insertarCategoria();
-                } else {
-                    Materialize.toast("Ya se esta creando la subcategoria", 7000,'blue darken-3');
+                if(document.getElementById('categoria').value==0 && document.getElementById('categoria').disabled==false){
+                    Materialize.toast("Debe de seleccionar una categor&iacutea v&aacutelida", 7000,'blue darken-3');
+                }else{
+                    if (!statSend) {
+                        statSend = true;
+                        insertarCategoria();
+                    } else {
+                        Materialize.toast("Ya se esta creando la subcategoria", 7000,'blue darken-3');
+                    }
                 }
             }
         });
