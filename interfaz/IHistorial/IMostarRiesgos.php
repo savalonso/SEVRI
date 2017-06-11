@@ -21,7 +21,16 @@
 		window.onload=ocultarBarra();
 	</script>			
 	<div class="row">
-		<h2>Historial de riesgos.</h2>
+		<h4>Historial de riesgos.</h4>
+		<?php  
+			if($lista==null){
+				echo "A&UacuteN NO HAY RIESGOS IDENTIFICADOS EN VERSIONES ANTERIORES.";
+			}else{
+				echo "<script type=\"text/javascript\">
+					actualizarTablaAgregar();
+				</script>";
+		?>
+		
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<div>
 				<label class="white-text" for="sevri">Seleccione una versi&oacuten de SEVRI:</label>
@@ -51,11 +60,6 @@
 			</div>
 		</div>
 	</div>
-	<?php  
-		if($lista==null){
-			echo "<h3>A&UacuteN NO HAY RIESGOS IDENTIFICADOS EN VERSIONES ANTERIORES</h3>";
-		}else{
-	?>
 	<div class="row">
 		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
 			<div id="div1">
@@ -98,6 +102,5 @@
 	  		$('.modal-trigger').leanModal();
 	  		$('select').material_select();
 	  		$('.tooltipped').tooltip({delay: 50});
-	  		actualizarTablaAgregar();
 	   	});
 	</script>
