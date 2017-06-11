@@ -118,7 +118,7 @@
 		    $cargo = $usuario->getCargo();
 		    $tipo = $usuario->getTipo();
 
-		    $result = $prueba->query("CALL insertarUsuario('$cedula', '$nombre', '$primerApellido', '$segundoApellido', $telefono, '$correo', '$clave', '$cargo', '$tipo')");
+		    $result = $prueba->query("CALL insertarUsuario('$cedula', '$nombre', '$primerApellido', '$segundoApellido', '$telefono', '$correo', '$clave', '$cargo', '$tipo')");
 			if (!$result){
 				return false;
 			} else {
@@ -231,7 +231,7 @@
 			$cargo = $usuario->getCargo();
 			$tipo = $usuario->getTipo();
 
-			$result = $conexion->query("CALL modificarUsuario('$cedula', '$nombre', '$primerApellido', '$segundoApellido', $telefono, '$correo', '$clave', '$cargo', '$tipo')");
+			$result = $conexion->query("CALL modificarUsuario('$cedula', '$nombre', '$primerApellido', '$segundoApellido', '$telefono', '$correo', '$clave', '$cargo', '$tipo')");
 			if (!$result){
 				return false;
 			} else {
