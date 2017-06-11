@@ -98,7 +98,45 @@
 	   Materialize.updateTextFields();
 	});
 	$(document).ready(function() {
-		validarInsertarCategoria();
+		if(document.getElementById('categoria').disabled==false){
+			$("#IInsertarCategoria").validate({
+		        rules: {
+		            nombre: { required: true,minlength: 5, maxlength: 100},
+		            descripcion: { required:true,minlength: 20, maxlength: 2000},
+		            tipo: {required : true},
+		        },
+		        messages: {
+		            nombre: "Debe introducir un nombre de categor&iacutea mayor de 5 car&aacutecteres.",
+		            descripcion: "Debe introducir una descripci&oacuten de categor&iacutea mayor de 20 car&aacutecteres.",
+		            tipo: "Debe seleccionar un tipo.",
+		        },
+		        submitHandler: function(form){
+		        	if(document.getElementById('categoria').value==0){
+		        		Materialize.toast("Debe de seleccionar una categor&iacutea v&aacutelida", 7000,'blue darken-3');
+		        	}else{
+		        		insertarCategoria();
+		        	}
+		        }
+		    });
+		}else{
+			$("#IInsertarCategoria").validate({
+		        rules: {
+		            nombre: { required: true,minlength: 5, maxlength: 100},
+		            descripcion: { required:true,minlength: 20, maxlength: 2000},
+		            tipo: {required : true},
+		            categoria: {required: true},
+		        },
+		        messages: {
+		            nombre: "Debe introducir un nombre de categor&iacutea mayor de 5 car&aacutecteres.",
+		            descripcion: "Debe introducir una descripci&oacuten de categor&iacutea mayor de 20 car&aacutecteres.",
+		            tipo: "Debe seleccionar un tipo.",
+		            categoria: "Debe seleccionar una sub categor&iacutea.",
+		        },
+		        submitHandler: function(form){
+		        	insertarCategoria();
+		        }
+		    });
+		}
 	});
 	function verificarCombo(valor){
 		if(valor==0){
