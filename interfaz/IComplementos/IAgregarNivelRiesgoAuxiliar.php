@@ -70,7 +70,7 @@
 		</div>
 		<?php 
 		    }else{ ?>
-		        <h4>No se han un nivel de riesgo</h4>
+		        <h4>No se han creado un nivel de riesgo</h4>
 		        <div class="col s12 m3 l3">
 		            <input type="button" onclick="cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')" value="Crear Nivel de Riesgo" class="btn">
 		        </div>

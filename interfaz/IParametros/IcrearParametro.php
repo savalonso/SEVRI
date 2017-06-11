@@ -22,7 +22,7 @@
 		<h4 class="col s12 m8 l8">Crear Par&aacutemetros</h4>
 	</div>
 	<div class="row ">
-		<form id="IcrearParametros" onsubmit="checkSubmit('Se Esta Creando el Parámetro')" method="Post" role="form" class="responsive">
+		<form id="IcrearParametros" method="Post" role="form" class="responsive">
 			<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
 				<div>
 					<label class="white-text" for="Tparametro">Tipo de parametro:</label>

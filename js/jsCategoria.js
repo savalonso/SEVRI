@@ -128,4 +128,11 @@ $(document).ready(function () {
     }(jQuery));
 
 });
-/*fin filtrado*/
+/*funcion que levanta el modal*/
+
+    $(document).ready(function(){
+        $('.modal-trigger').leanModal();
+    });
+
+
+
