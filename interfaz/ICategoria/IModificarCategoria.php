@@ -87,6 +87,7 @@
 				?>
 						<?php 
 							if($listaC!=null){
+								echo "<option disabled=\"true\" value=\"0\">Seleccione una subcategor&iacutea...</option>";
 								foreach ($listaC as $categorias){
 									if($categorias->getHijoDe()==0&&$categorias->getIdCategoria()!=$id){
 										if($categorias->getIdCategoria()==$hijoDe){
@@ -130,45 +131,7 @@
            		document.getElementById("categoria").disabled=false;
        		}
 	   	}*/
-	   	if(document.getElementById('categoria').disabled==false){
-			$("#IModificarCategoria").validate({
-		        rules: {
-		            nombre: { required: true,minlength: 10, maxlength: 500},
-		            descripcion: { required:true,minlength: 20, maxlength: 2000},
-		            tipo: {required : true},
-		        },
-		        messages: {
-		            nombre: "Debe introducir un nombre de categor&iacutea mayor de 10 car&aacutecteres.",
-		            descripcion: "Debe introducir una descripci&oacuten de categor&iacutea mayor de 20 car&aacutecteres.",
-		            tipo: "Debe seleccionar un tipo.",
-		        },
-		        submitHandler: function(form){
-		        	if(document.getElementById('categoria').value==0){
-		        		Materialize.toast("Debe de seleccionar una categor&iacutea v&aacutelida", 7000,'blue darken-3');
-		        	}else{
-		        		modificarCategoria();
-		        	}
-		        }
-		    });
-		}else{
-			$("#IModificarCategoria").validate({
-		        rules: {
-		            nombre: { required: true,minlength: 10, maxlength: 500},
-		            descripcion: { required:true,minlength: 20, maxlength: 2000},
-		            tipo: {required : true},
-		            categoria: {required: true},
-		        },
-		        messages: {
-		            nombre: "Debe introducir un nombre de categor&iacutea mayor de 10 car&aacutecteres.",
-		            descripcion: "Debe introducir una descripci&oacuten de categor&iacutea mayor de 20 car&aacutecteres.",
-		            tipo: "Debe seleccionar un tipo.",
-		            categoria: "Debe seleccionar una sub categor&iacutea.",
-		        },
-		        submitHandler: function(form){
-		        	modificarCategoria();
-		        }
-		    });
-		}
+	   	validarModificarCategoria();
 	});
 	function verificarCombo(valor){
 		if(valor==0){
