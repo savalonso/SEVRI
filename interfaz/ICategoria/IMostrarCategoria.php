@@ -31,17 +31,25 @@
 		window.onload=ocultarBarra();
 	</script>			
 
-	<div class="row">
-		<h2>Lista de Categor&iacuteas</h2>
-		<div class="input-field buscar1 col s12 m8 l8">
-		        <label class="white-text" for="filtrar">Buscar</label>
-		        <input id="datosCategoria" type="text" >
-        	</div>
-		<div class="col s12 m12 l12">
+	
+		
+		
+		
 		<?php  
 			if($lista!=null){
 		?>
-			<div>
+		<div class="row">
+			<h4 class="col s12 m8 l8">Lista de Categor&iacuteas</h4>
+			<div class="col s4 m4 l4">
+				<a id="boton" onclick="cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php');ocultarTooltip();" data-tooltip="Crear Categoría" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field buscar1 col s12 m8 l8">
+		        <label class="white-text" for="filtrar">Buscar</label>
+		        <input id="datosCategoria" type="text" >
+        	</div>
+			<div class="col s12 m12 l12">
 				<table class="responsive-table responsive2 striped" id="categoria">
 					<thead>
 						<tr>
@@ -136,11 +144,14 @@
 					</div>
 				</div>
 			</div>
-	<?php  
-				}else{
-					echo "<h3>A&uacuten no hay categor&iacuteas identificadas</h3>";
-				}
-			?>
+			<?php }else{ ?>
+				<div class="row">
+					<h4 class="col s12 m8 l8">No se han creado categor&iacuteas</h4>
+					<div class="col s4 m4 l4">
+						<a id="boton" onclick="cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php');ocultarTooltip();" data-tooltip="Crear Categoría" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+					</div>
+				</div>
+			<?php } ?>
 	
 
 	<script>

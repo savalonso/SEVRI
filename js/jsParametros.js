@@ -183,3 +183,48 @@ $(document).ready(function () {
     }(jQuery));
 });
 /*fin filtrado*/
+//function que evita que se envie varias veces el formulario
+
+
+// clase de validacion 
+var statSend = false;
+$(document).ready(function() {
+        $('.tooltipped').tooltip({delay: 50}); // mensaje tooltip
+        $("#IcrearParametros").validate({
+            rules: {
+                Tparametro: { required: true },
+                descriptor: {  required: true, minlength: 4 , maxlength: 20 },
+                descripcion: {  required: true, minlength: 20 , maxlength: 1000 },
+                valor: {required: true, maxlength: 1, minlength: 1},
+                color: { required: true }
+            },
+            messages: {
+                Tparametro: "Debe seleccionar el tipo de parametro.",
+                descriptor: "Debe introducir un descriptor con un tamaño minimo de 4 caracteres y un maximo de 20 caracteres.",
+                descripcion: "Debe introducir un descripcion con un tamaño minimo de 20 caracteres y un maximo de 1000 caracteres.",
+                valor: "Debe introducir un valor numerico que solo represente un caracter y que sea mayor a 0.",
+                color: "Debe seleccionar el color del parametro."
+
+            },
+            submitHandler: function(form){
+             if(document.getElementById('Tparametro').value==0){
+                    Materialize.toast("Debe seleccionar un tipo de parametro", 7000,'blue darken-3');
+             }else if(document.getElementById('color').value==0){
+                    Materialize.toast("Debe seleccionar el color del parametro", 7000,'blue darken-3');
+             }else{
+                    if (!statSend) {
+                        statSend = true;
+                        insertarParametros();
+                    } else {
+                        Materialize.toast("Ya se esta creando el parámetro", 7000,'blue darken-3');
+                    }
+                }
+            }
+        });
+    });
+
+//function que oculta el tooltip
+function ocultarTooltip(){
+  var tooltip= document.getElementById('boton');
+  tooltip.style.display="prueba";
+}

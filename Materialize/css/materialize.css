@@ -4,7 +4,18 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
  /* metodos creados*/
-
+ .scrollTextArea{
+  overflow:auto;
+  max-height:60px;
+ }
+#scrollH {
+     overflow-x:scroll;
+     overflow-y:hidden;
+     max-width:102%;
+ }   
+#scrollH table {
+    width:100%;
+}
 .imagenUsuario{
   float:left;
   margin-left: 40%;
@@ -5495,7 +5506,7 @@ button.btn-floating {
   right: 0;
   background-color: #fafafa;
   padding: 0;
-  max-height: 70%;
+ 
   width: 30%;
   margin: auto;
   border-radius: 2px;

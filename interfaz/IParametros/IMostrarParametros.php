@@ -13,6 +13,18 @@
 		include ("../../controladora/ctrListaParametro.php");
 		$control = new ctrListaParametro;	
 		$lista = $control->mostrarParametros();	
+		$TempProbabilidad = false;
+		$TempImpacto=false;
+		$TempCalificacion=false;
+		foreach ($lista as $parametro) {
+			if($parametro->getNombreParametro() == "Impacto"){
+				$TempImpacto=true;
+			}else if($parametro->getNombreParametro() == "Probabilidad"){
+				$TempProbabilidad = true;
+			}else if($parametro->getNombreParametro() == "Calificacion"){
+			 	$TempCalificacion=true;
+			}
+		}
 	?>
 	<script>
 		window.onload=ocultarBarra();
@@ -36,16 +48,21 @@
 	<div id="contenedorImpacto">
 		<div class="row">
 			<?php  
-				if($lista!=null){
+				if($lista!=null && $TempImpacto == true ){
 			?>
-			<h2>Par&aacutemetros de Impacto</h2>
+			<div class="row">
+				<h4 class="col s12 m8 l8">Par&aacutemetros de Impacto</h4>
+				<div class="col s4 m4 l4">
+					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+				</div>
+			</div>
 			<div class="input-field buscar1 col s12 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="buscarParametroImpacto" type="text" >
         	</div>
-			<div class="col s12 m12 l12">
-				<div>
-					<table class="responsive-table striped centered responsive2" id="impacto">
+			<div class="col s12 m12 l12" id="scrollH">
+				<div >
+					<table class="responsive-table striped responsive2 " id="impacto">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -84,10 +101,14 @@
 				</div>
 			</div>
 			<?php  
-				}else{
-					echo "<br><h3>A&uacuten no se ha creado ning&uacuten tipo de par&aacutemetro</h3>";
-				}
-			?>
+				}else{ ?>
+					<div class="row">
+						<h4 class="col s12 m8 l8">No se han creado par&aacutemetros de impacto</h4>
+						<div class="col s4 m4 l4">
+							<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+						</div>
+					</div>
+			<?php } ?>
 		</div>
 	</div>
 
@@ -96,16 +117,21 @@
 	<div id="contenedorProbabilidad">
 		<div class="row">
 			<?php  
-				if($lista!=null){
+				if($lista!=null && $TempProbabilidad == true){
 			?>
-			<h2>Par&aacutemetros de Probabilidad</h2>
+			<div class="row">
+				<h4 class="col s12 m8 l8">Par&aacutemetros de probabilidad</h4>
+				<div class="col s4 m4 l4">
+					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+				</div>
+			</div >
 			<div class="input-field buscar1 col s12 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="buscarParametroProbabilidad" type="text" >
         	</div>
-			<div class="col s12 m12 l12">
-				<div>
-					<table class="responsive-table striped centered responsive2" id="probabilidad">
+			<div class="col s12 m12 l12" id="scrollH">
+				<div class="scrollH">
+					<table class="responsive-table striped responsive2" id="probabilidad">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -144,10 +170,14 @@
 				</div>
 			</div>
 			<?php  
-				}else{
-					echo "<br><h3>A&uacuten no se ha creado ning&uacuten tipo de par&aacutemetro</h3>";
-				}
-			?>
+				}else{ ?>
+					<div class="row">
+						<h4 class="col s12 m8 l8">No se han creado par&aacutemetros de probabilidad</h4>
+						<div class="col s4 m4 l4">
+							<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+						</div>
+					</div>
+			<?php } ?>
 		</div>
 	</div>
 
@@ -156,16 +186,21 @@
 	<div id="contenedorCalificacion">
 		<div class="row">
 			<?php  
-				if($lista!=null){
+				if($lista!=null && $TempCalificacion==true){
 			?>
-			<h2>Par&aacutemetros de Calificaci&oacuten de la Medida</h2>
+			<div class="row">
+				<h4 class="col s12 m8 l8">Par&aacutemetros de calificaci&oacuten de la medida</h4>
+				<div class="col s4 m4 l4" >
+					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+				</div>
+			</div>
 			<div class="input-field buscar1 col s12 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="buscarCalificacionMedida" type="text" >
         	</div>
-			<div class="col s12 m12 l12 ">
+			<div class="col s12 m12 l12" id="scrollH">
 				<div>
-					<table class="responsive-table striped centered responsive2" id="calificacion">
+					<table class="responsive-table striped responsive2" id="calificacion">
 						<thead>
 							<tr>
 								<th>Tipo de Par&aacutemetro</th>
@@ -204,10 +239,15 @@
 				</div>
 			</div>
 			<?php  
-				}else{
-					echo "<br><h3>A&uacuten no se ha creado ning&uacuten tipo de par&aacutemetro</h3>";
-				}
-			?>
+				}else{ ?>
+					<div class="row">
+						<h4 class="col s12 m8 l8">No se han creado par&aacutemetros de calificaci&oacuten de la medida</h4>
+						<div class="col s4 m4 l4">
+							<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+						</div>
+					</div>
+			<?php } ?>
+			
 		</div>
 	</div>
 
