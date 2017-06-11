@@ -13,7 +13,18 @@
 		include ("../../Controladora/ctrListaCategoria.php");
 		$control = new ctrListaCategoria;	
 		$lista =$control->obtenerListaCategoriasDE();
-
+		$TempSubCategoria = false;
+		$TempCategoria=false;
+		
+		if($lista != null){
+			foreach ($lista as $temp) {
+				if($temp->getHijoDe() == 0){
+					$TempCategoria=true;
+				}else if($temp->getHijoDe() != 0){
+					$TempSubCategoria = true;
+				}
+			}
+		}
 		if($lista!=null){
 			foreach ($lista as $categorias) {
 				$arr[] = array(
@@ -36,7 +47,7 @@
 		
 		
 		<?php  
-			if($lista!=null){
+			if($lista!=null && $TempCategoria == true){
 		?>
 		<div class="row">
 			<h4 class="col s12 m8 l8">Lista de Categor&iacuteas</h4>
@@ -45,11 +56,12 @@
 			</div>
 		</div>
 		<div class="row">
+
 			<div class="input-field buscar1 col s12 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosCategoria" type="text" >
         	</div>
-			<div class="col s12 m12 l12">
+			<div class="col s12 m12 l12 scrollH" >
 				<table class="responsive-table responsive2 striped" id="categoria">
 					<thead>
 						<tr>
@@ -95,15 +107,25 @@
 			     </div>
  			</div>
 		</div>
-		</div>
+		<?php }else{ ?>
+				<div class="row">
+					<h4 class="col s12 m8 l8">No se han creado categor&iacuteas</h4>
+					<div class="col s4 m4 l4">
+						<a id="boton" onclick="cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php');ocultarTooltip();" data-tooltip="Crear Categoría" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+					</div>
+				</div>
+			<?php } ?>
 
+			<?php  
+				if($lista!=null && $TempSubCategoria == true){
+			?>
 			<div class="row">
-				<h2>Lista de Sub Categor&iacuteas</h2>
+				<h4>Lista de Sub Categor&iacuteas</h4>
 				<div class="input-field buscar1 col s12 m8 l8">
 			        <label class="white-text" for="filtrar">Buscar</label>
 			        <input id="datosSubCategoria"  type="text" >
         		</div>
-				<div class="col s12 m12 l12">
+				<div class="col s12 m12 l12 scrollH">
 					<div>
 						<table class="responsive-table responsive2 striped" id="subCategorias">
 							<thead>
@@ -146,18 +168,9 @@
 			</div>
 			<?php }else{ ?>
 				<div class="row">
-					<h4 class="col s12 m8 l8">No se han creado categor&iacuteas</h4>
-					<div class="col s4 m4 l4">
-						<a id="boton" onclick="cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php');ocultarTooltip();" data-tooltip="Crear Categoría" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
-					</div>
+					<h4 class="col s12 m8 l8">No se han creado subcategor&iacuteas</h4>
 				</div>
 			<?php } ?>
 	
 
-	<script>
-  		$(document).ready(function(){
-	  		$('.modal-trigger').leanModal();
-	   	});
-	</script>
 	<script type="text/javascript" src="../js/jsCategoria.js"></script>	
-<script type="text/javascript" src="../js/jsCategoria.js"></script>

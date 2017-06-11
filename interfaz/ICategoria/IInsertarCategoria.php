@@ -49,7 +49,7 @@
 
 					<div >
 						<label class="white-text" for="descripcion">Descripci&oacuten:</label>
-						<textarea class="materialize-textarea" rows="10" celds="30" id="descripcion" name="descripcion" ></textarea>
+						<textarea class="materialize-textarea scrollTextArea" rows="10" celds="30" id="descripcion" name="descripcion" ></textarea>
 					</div>
 
 					<div>
@@ -93,6 +93,7 @@
 		</div>
 </body>
 <script>
+var statSend = false;
 	$( document ).ready(function(){
 	   $('select').material_select();
 	   Materialize.updateTextFields();
@@ -114,7 +115,14 @@
 		        	if(document.getElementById('categoria').value==0){
 		        		Materialize.toast("Debe de seleccionar una categor&iacutea v&aacutelida", 7000,'blue darken-3');
 		        	}else{
-		        		insertarCategoria();
+
+		        		if (!statSend) {
+                        	statSend = true;
+                        	insertarCategoria();
+                   		 } else {
+                        	Materialize.toast("Ya se esta creando la categoria", 7000,'blue darken-3');
+                    	}
+		        		
 		        	}
 		        }
 		    });
@@ -133,7 +141,12 @@
 		            categoria: "Debe seleccionar una sub categor&iacutea.",
 		        },
 		        submitHandler: function(form){
-		        	insertarCategoria();
+		        	if (!statSend) {
+                    	statSend = true;
+                    	insertarCategoria();
+                   	} else {
+                        Materialize.toast("Ya se esta creando la subcategoria", 7000,'blue darken-3');
+                    }
 		        }
 		    });
 		}

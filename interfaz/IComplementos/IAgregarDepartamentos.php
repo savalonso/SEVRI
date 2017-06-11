@@ -94,10 +94,10 @@
                             ?>
                     </tbody>
                 </table>
-            <div id="div1">
+           
+             </div>
         </div>
     </div>
-</div>
 <?php 
     }else{ ?>
         <h4>No se han creado departamentos</h4>
