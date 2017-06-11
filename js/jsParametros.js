@@ -226,5 +226,5 @@ $(document).ready(function() {
 //function que oculta el tooltip
 function ocultarTooltip(){
   var tooltip= document.getElementById('boton');
-  tooltip.style.display="prueba";
+  tooltip.style.display="none";
 }
