@@ -50,7 +50,7 @@
 					'Id' => $listaAdministracion[$i]->getId(),
 					'ActividadTratamiento' => $listaAdministracion[$i]->getActividadTratamiento(),
 					'PlazoTratamiento' => $listaAdministracion[$i]->getPlazoTratamiento(),
-					'CostoActividad' => $listaAdministracion[$i]->getCostoActividad(),
+					'CostoActividad' => number_format($listaAdministracion[$i]->getCostoActividad(), 2, ',', ' '),
 					'Indicador' => $listaAdministracion[$i]->getIndicador(),
 					'MedidaControl' => $listaAnalisis[$i]->getMedidaControl(),
 					'NombreRiesgo' => $listaRiesgo[$i]->getNombre(),
@@ -89,7 +89,7 @@
 				if($lista!=null){
 			?>
 			<div class="col s12 m12 l12">
-				<h3>Seguimientos asignados</h3>
+				<h4>Seguimientos asignados</h4>
 				<table class="responsive-table centered bordered">
 					<thead>
 						<tr>
@@ -124,7 +124,7 @@
 				</table>
 				<?php  
 					}else{
-						echo "<br><h3>A&uacuten no se han asignado aprobaciones</h3>";
+						echo "<br><h4>A&uacuten no se han asignado aprobaciones</h4>";
 					}
 				?>
 			</div>
@@ -141,7 +141,7 @@
 				if($listaAdministracion!=null){
 			?>
 			<div class="col s12 m12 l12">
-				<h3>Seguimientos asignados</h3>
+				<h4>Seguimientos asignados</h4>
 				<table class="responsive-table centered bordered">
 					<thead>
 						<tr>
@@ -167,7 +167,7 @@
 				</table>
 				<?php  
 					} else {
-						echo "<br><h3>A&uacuten no se han asignado seguimientos</h3>";
+						echo "<br><h4>A&uacuten no se han asignado seguimientos</h4>";
 					}
 				?>
 			</div>
@@ -188,7 +188,7 @@
 		var lista = eval(<?php echo $ArrayJson ?>);
 		for(i=0;i<lista.length;i++){
 			if(lista[i].Id == idJs){
-				$('#Mmostrar').html('<div class="col s12 m8 l8 blue darken-3 z-depth-5"><table class="responsive-table bordered"><tbody><tr><td><h5>Actividad de tratamiento:</h5></td><td><h5>' + lista[i].ActividadTratamiento + '</h5></td></tr><tr><td><h5>Plazo del tratamiento:</h5></td><td><h5>' + lista[i].PlazoTratamiento + '</h5></td></tr><tr><td><h5>Costo de la actividad:</h5></td><td><h5>' + lista[i].CostoActividad + '</h5></td></tr><tr><td><h5>Indicador:</h5></td><td><h5>' + lista[i].Indicador + '</h5></td></tr><tr><td><h5>Medida de control:</h5></td><td><h5>' + lista[i].MedidaControl + '</h5></td></tr><tr><td><h5>Nombre del riesgo:</h5></td><td><h5>' + lista[i].NombreRiesgo + '</h5></td</tr><tr><td><h5>Causa del riesgo:</h5></td><td><h5>' + lista[i].CausaRiesgo + '</h5></td></tr><tr><td><h5>Nombre de la medida:</h5></td><td><h5>' + lista[i].NombreMedida + '</h5></td></tr></tbody></table></div>');
+				$('#Mmostrar').html('<div class="col s12 m8 l8 blue darken-3 z-depth-5"><table class="responsive-table bordered"><tbody><tr><td>Actividad de tratamiento:</td><td>' + lista[i].ActividadTratamiento + '</td></tr><tr><td>Plazo del tratamiento:</td><td>' + lista[i].PlazoTratamiento + '</td></tr><tr><td>Costo de la actividad:</td><td>₡ ' + lista[i].CostoActividad + '</td></tr><tr><td>Indicador:</td><td>' + lista[i].Indicador + '</td></tr><tr><td>Medida de control:</td><td>' + lista[i].MedidaControl + '</td></tr><tr><td>Nombre del riesgo:</td><td>' + lista[i].NombreRiesgo + '</td</tr><tr><td>Causa del riesgo:</td><td>' + lista[i].CausaRiesgo + '</td></tr><tr><td>Nombre de la medida:</td><td>' + lista[i].NombreMedida + '</td></tr></tbody></table></div>');
 			}
 		}
 	}

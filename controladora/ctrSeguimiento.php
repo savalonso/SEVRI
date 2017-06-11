@@ -18,9 +18,35 @@
 			$seguimiento->setPorcentajeAvance($_POST['porcentaje']);
 			$seguimiento->setUsuarioAprobador($_POST['aprobador']);
 			
-	      
-               
 	      	$resultado = $logica->insertarSeguimientoNuevo($seguimiento);
+			echo $resultado;
+		}
+
+		function eliminarSeguimiento(){
+			include_once("../data/dtSeguimiento.php");
+			$dataSeguimiento = new dtSeguimiento;
+			$id = $_POST['id'];
+			
+	      	if($dataSeguimiento->eliminarSeguimiento($id) == true){
+	      		echo 'Se ha eliminado el seguimiento con exito.';
+	      	} else {
+	      		echo 'Lo sentimos no se ha podido eliminar el seguimiento';
+	      	}
+		}
+
+		function modificarSeguimiento(){
+			include_once("../dominio/dSeguimiento.php");
+			include_once("../logica/logicaSeguimiento.php");
+	      	$seguimiento = new dSeguimiento;
+			$logica = new logicaSeguimiento;
+
+			$seguimiento->setId($_POST['IdSeguimiento']);
+			$seguimiento->setMontoSeguimiento($_POST['monto']);
+			$seguimiento->setComentarioAvance($_POST['comentario']);
+			$seguimiento->setPorcentajeAvance($_POST['porcentaje']);
+			$seguimiento->setUsuarioAprobador($_POST['aprobador']);
+			
+	      	$resultado = $logica->modificarSeguimiento($seguimiento);
 			echo $resultado;
 		}
 
@@ -66,6 +92,9 @@
 		$control->eliminarSeguimientoAprobador();
 	} else if ($op==4) {
 		$control->insertarSeguimientoNuevo();
+	} else if ($op==5) {
+		$control->modificarSeguimiento();
+	} else if ($op==6) {
+		$control->eliminarSeguimiento();
 	}
-
   ?>

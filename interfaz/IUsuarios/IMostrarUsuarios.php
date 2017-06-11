@@ -44,7 +44,7 @@ $listaUsuarios = $control->obtenerListaUsuarios();
                 <?php
             } else {
     ?>
-    <div class="col s12 m12 l12" id="scrollH">
+    <div class="col s12 m12 l12 scrollH">
         <table id="tbUsuario" class="bordered striped centered">
             <thead>
                 <tr>

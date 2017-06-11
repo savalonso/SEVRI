@@ -25,40 +25,38 @@
 		<?php  
 			if($lista!=null){
 		?>
-		<h2>Lista de Administraciones</h2>
+		<h4>Lista de Administraciones</h4>
 		<div class="col s12 m12 l12 scrollH">
-			<div id="div1">
-				<table class="responsive-table striped responsive2">
-					<thead>
-						<tr>
-							<th>Medida</th>
-							<th>Actividad de tratamiento</th>
-							<th>Indicador</th>
-							<th>Plazo</th>
-							<th>Monto Econ&oacutemico</th>
-							<th>Responsable</th>
-							<th>Opci&oacuten 1</th>
-							<th>Opci&oacuten 2</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php 
-							foreach ($lista as $administracion){
-					            echo "<tr>				
-						        	<td>".$administracion->getMedidaAdministracion()->getNombreMedida()."</td>
-						        	<td>".$administracion->getActividadTratamiento()."</td>
-						        	<td>".$administracion->getIndicador()."</td>
-						        	<td>".$administracion->getPlazoTratamiento()."</td>
-						        	<td>"."₡".number_format($administracion->getCostoActividad(), 2, ',', ' ')."</td>
-						        	<td>".$administracion->getUsuario()->getNombre()."</td>
-					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificarAdmi(this,'".$administracion->getId()."')\"/></td>
-					        		<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarEliminarAdministracion('".$administracion->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
-					    		</tr>";
-							}
-						?>
-					</tbody>
-				</table>
-			</div>
+			<table class="responsive-table striped responsive2">
+				<thead>
+					<tr>
+						<th>Medida</th>
+						<th>Actividad de tratamiento</th>
+						<th>Indicador</th>
+						<th>Plazo</th>
+						<th>Monto Econ&oacutemico</th>
+						<th>Responsable</th>
+						<th>Opci&oacuten 1</th>
+						<th>Opci&oacuten 2</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php 
+						foreach ($lista as $administracion){
+							echo "<tr>				
+								<td>".$administracion->getMedidaAdministracion()->getNombreMedida()."</td>
+								<td>".$administracion->getActividadTratamiento()."</td>
+								<td>".$administracion->getIndicador()."</td>
+								<td>".$administracion->getPlazoTratamiento()."</td>
+								<td>"."₡".number_format($administracion->getCostoActividad(), 2, ',', ' ')."</td>
+								<td>".$administracion->getUsuario()->getNombre()."</td>
+								<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificarAdmi(this,'".$administracion->getId()."')\"/></td>
+								<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarEliminarAdministracion('".$administracion->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+							</tr>";
+						}
+					?>
+				</tbody>
+			</table>
 		</div>
 		<?php  
 			}else{
@@ -117,7 +115,7 @@
 				 <div>
 					<input type="hidden" name="idAdmi" id="idAdmi">
 					<button type="button" class="btnEliminar"><a class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a></button>
-					<input type="button" value="Canelar" class="btn btn-default" onclick="ocultarDivActualizar()"><br>
+					<input type="button" value="Cancelar" class="btn btn-default" onclick="ocultarDivActualizar()"><br>
 				</div>
 			</div>
 			<div id="Mmodificar" class="modal  blue darken-3 z-depth-5 white-text">
