@@ -17,26 +17,50 @@
 	$('select').material_select();});
 </script>
 
+<?php
 
-<div class="row">
-	<div class="contendorselect col s12 m12 l6">
-		<h4>Administraci&oacuten del Riesgo</h4>
-		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAdministracion()">
-	
-			<option value="0" disabled="true" selected>Seleccione un Departamento</option>
-			<?php
-				foreach ($listaDepartamentos as $departamento) {
-					echo "<option value=".$departamento->getIdDepartamento().">".$departamento->getNombreDepartamento()."</option>";
-				}
-			?>
-	
-		</select>
-	
-	
+	if ($listaDepartamentos != null) {
+
+ ?>
+
+	<div class="row">
+		<div class="contendorselect col s12 m12 l6">
+			<h4>Administrar Riesgos</h4>
+			<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAdministracion()">
+		
+				<option value="0" disabled="true" selected>Seleccione un Departamento</option>
+				<?php
+					foreach ($listaDepartamentos as $departamento) {
+						echo "<option value=".$departamento->getIdDepartamento().">".$departamento->getNombreDepartamento()."</option>";
+					}
+				?>
+		
+			</select>
+		
+		
+		</div>
 	</div>
-</div>
 
-<div id="mostrarRiesgosAdministracion"></div>
+	<div id="mostrarRiesgosAdministracion"></div>
+
+<?php 
+
+	}else{
+
+?>
+	<div class="row">
+		<div class="col s12 m10 l10">
+			<h4>Para poder participar de este proceso debes cumplir los siguientes requisitos:</h4>
+			<ul>
+				<li><h5>Estar registrado en un departamento.</h5></li>
+				<li><h5>El departamento debe estar vinculado a la versión del sistema activa.</h5></li>
+			</ul>
+		</div>
+	</div>
+
+<?php 
+	} 
+?>
 
 <div class="row">
 	<div class="col s4 m4 l4">

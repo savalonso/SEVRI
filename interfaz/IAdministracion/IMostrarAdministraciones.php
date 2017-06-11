@@ -25,11 +25,10 @@
 		<?php  
 			if($lista!=null){
 		?>
-		<h2>Lista de riesgos</h2>
-		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-		
+		<h2>Lista de Administraciones</h2>
+		<div class="col s12 m12 l12 scrollH">
 			<div id="div1">
-				<table class="responsive-table centered bordered">
+				<table class="responsive-table striped responsive2">
 					<thead>
 						<tr>
 							<th>Medida</th>
@@ -44,9 +43,6 @@
 					</thead>
 					<tbody>
 						<?php 
-						if($lista==null){
-							echo "A&uacuten no se ha realizado ninguna administraci&oacutens";
-						}else{
 							foreach ($lista as $administracion){
 					            echo "<tr>				
 						        	<td>".$administracion->getMedidaAdministracion()->getNombreMedida()."</td>
@@ -59,17 +55,16 @@
 					        		<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarEliminarAdministracion('".$administracion->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 					    		</tr>";
 							}
-						}
 						?>
 					</tbody>
-					</table>
+				</table>
 			</div>
-				<?php  
-					}else{
-						echo "<h3>A&uacuten no se ha realizado ninguna administraci&oacuten</h3>";
-					}
-				?>	
 		</div>
+		<?php  
+			}else{
+				echo "<h4>A&uacuten no se ha realizado ninguna administraci&oacuten para el riesgo seleccionado</h4>";
+			}
+		?>	
 	</div>
 
 	<!-- Aqui inicia el formulario para actualizar la administracion de un riesgo-->
@@ -89,14 +84,14 @@
 				</div>
 				 <div>
 				 	<label class="white-text" for="actividad">Actividad de Tratamiento:</label>
-					<textarea class="materialize-textarea" rows="10" cels="30" id="actividad" name="actividad" ></textarea>
+					<textarea class="materialize-textarea scrollTextArea" rows="10" cels="30" id="actividad" name="actividad" ></textarea>
 				 </div>
 				 <div>
 				 	<label class="white-text" for="indicador">Indicador:</label>
-					<textarea class="materialize-textarea" rows="10" cels="30" id="indicador" name="indicador" ></textarea>
+					<textarea class="materialize-textarea scrollTextArea" rows="10" cels="30" id="indicador" name="indicador" ></textarea>
 				 </div>
 				 <div>
-				 	<label class="white-text" for="valor">Monto &eacuteconomico asociado a la actividad:</label>
+				 	<label class="white-text" for="valor">Monto econ&oacutemico asociado a la actividad:</label>
 					<input type="text" name="valor" id="valor" onkeyup="mascaraDinero(this)">
 				 </div>
 				 <div>
@@ -104,7 +99,7 @@
 					<input type="date" name="plazo" id="plazo" value="<?php echo $fechaActual ?>" min="<?php echo $fechaActual; ?>" max="<?php echo date("Y")."-12-"."31"; ?>">
 				</div>
 				 <div>
-				  	<label class="white-text" for="encargado">Seleccione el encargado de realizar la actividad:</label>
+				  	<label class="white-text" for="encargado">Encargado de la Actividad:</label>
 					<select name="encargado" id="encargado">
 						<option value="0" disabled="true" selected>Seleccione un encargado</option>
 						<?php 

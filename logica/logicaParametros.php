@@ -49,10 +49,10 @@ class logicaParametros{
 		return $valorFormula;
 	}
 
-	public function obtenerValorFormulaReporte(){
+	public function obtenerValorFormulaReporte($desicion, $idSevri){
 		include_once('../data/dtParametro.php');
 		$data = new dtParametro;
-		$lista = $data->getParametrosSevriActivoReporte();		
+		$lista = $data->getParametrosReporte($desicion, $idSevri);		
 		$maximaProbabilidad = 0;
 		$maximoImpacto = 0;
 
