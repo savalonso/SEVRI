@@ -34,6 +34,7 @@
 			$porcentaje = $seguimiento->getPorcentajeAvance();
 			$fecha = $seguimiento->getFechaAvance();
 			$aprobador = $seguimiento->getUsuarioAprobador();
+			$archivo = $seguimiento->getArchivo();
 		}
 	}
 ?>
@@ -64,7 +65,7 @@
 		<form id="IModificarSeguimiento" method="Post" role="form">
 			<div class="inputs" style="width: 100%;">
 				<br>
-				<input type="number" name="IdSeguimiento" id="IdSeguimiento" value="<?=$id?>">
+				<input type="hidden" name="IdSeguimiento" id="IdSeguimiento" value="<?=$id?>">
 				<div class="">
 					<label  for="monto">Monto del avance:</label>
 					<input type="number" name="monto" id="monto" max="<?php echo ($administracion->getCostoActividad()-$montoTotal)+$monto ?>" value="<?=$monto?>">
@@ -91,6 +92,15 @@
 						}
 						?>
 					</select>
+				</div>
+				<div class="file-field input-field">
+					<div class="btn">
+						<span>Archivo</span>
+						<input type="file" name="archivo" id="archivo">
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text" name="nombreArchivo" id="nombreArchivo">
+					</div>
 				</div>
 				<input type="submit" value="Modificar" class="btn btn-default">
 				<br>

@@ -172,6 +172,7 @@ if($listaSeguimientos != null) {
 							<th>Opcion 1</th>
 							<th>Opcion 2</th>
 							<th>Opcion 3</th>
+							<th>Opcion 4</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -204,6 +205,11 @@ foreach($listaSeguimientos as $seguimientos) {
 								echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" /></td>
 									<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" /></td>
 									<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Ver detalles\" /></td>";
+							}
+							if($seg->getArchivo() != "") {
+							echo "<td><a class=\"btn waves-effect waves-light\" onclick=\"document.location='../archivos/".$seg->getArchivo()."'\">Archivo</a></td>";
+							} else {
+								echo "<td><button class=\"btn waves-effect waves-light\" disabled=\"disabled\">Archivo</button></td>";
 							}
 							?>
 						</tr>
