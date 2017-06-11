@@ -16,13 +16,15 @@
 		$TempProbabilidad = false;
 		$TempImpacto=false;
 		$TempCalificacion=false;
-		foreach ($lista as $parametro) {
-			if($parametro->getNombreParametro() == "Impacto"){
-				$TempImpacto=true;
-			}else if($parametro->getNombreParametro() == "Probabilidad"){
-				$TempProbabilidad = true;
-			}else if($parametro->getNombreParametro() == "Calificacion"){
-			 	$TempCalificacion=true;
+		if($lista != null){
+			foreach ($lista as $parametro) {
+				if($parametro->getNombreParametro() == "Impacto"){
+					$TempImpacto=true;
+				}else if($parametro->getNombreParametro() == "Probabilidad"){
+					$TempProbabilidad = true;
+				}else if($parametro->getNombreParametro() == "Calificacion"){
+				 	$TempCalificacion=true;
+				}
 			}
 		}
 	?>
@@ -60,7 +62,7 @@
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="buscarParametroImpacto" type="text" >
         	</div>
-			<div class="col s12 m12 l12" id="scrollH">
+			<div class="col s12 m12 l12 scrollH" >
 				<div >
 					<table class="responsive-table striped responsive2 " id="impacto">
 						<thead>
@@ -129,7 +131,7 @@
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="buscarParametroProbabilidad" type="text" >
         	</div>
-			<div class="col s12 m12 l12" id="scrollH">
+			<div class="col s12 m12 l12" >
 				<div class="scrollH">
 					<table class="responsive-table striped responsive2" id="probabilidad">
 						<thead>
@@ -198,7 +200,7 @@
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="buscarCalificacionMedida" type="text" >
         	</div>
-			<div class="col s12 m12 l12" id="scrollH">
+			<div class="col s12 m12 l12 scrollH ">
 				<div>
 					<table class="responsive-table striped responsive2" id="calificacion">
 						<thead>

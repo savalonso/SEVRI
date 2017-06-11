@@ -98,7 +98,7 @@
 			</div>
 
 			<div class="row ">
-				<h5>Crear Reportes</h5>
+				<h4>Crear Reportes</h4>
 				<form id="IcrearSevri" method="Get" role="form" action="../controladora/ctrReportes.php" class="responsive">
 					<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
 						<div>
