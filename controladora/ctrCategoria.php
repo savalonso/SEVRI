@@ -20,35 +20,36 @@
     		$mcategoria->setDescripcion($_POST['descripcion']);
 
     		
+    		if($resultado = $logica->insertarCategoria($mcategoria)==true){
+	      		echo 
+	      		'	
+					Perfecto! Se ha insertado la categoría correctamente.
 
-	      	$resultado = $logica->insertarCategoria($mcategoria);
-			echo $resultado;
+	      		';
+		    }else {
+	      		echo 
+	      		'	
+					Se ha producido un error al insertar la categoría.
+	      		';
+		    }
 		}
 		function eliminarCategoria(){
 			$id = $_POST['idCategoria'];
 	      	$dataCategoria = new dtCategoria();
             
-            if($dataCategoria->eliminarSevriCategoria($id)==true){
-            	if($dataCategoria->eliminarCategoria($id) == true){
-		      		echo 
-		      		'	
-						Perfecto! Se ha eliminado la categoría correctamente.
+            if($dataCategoria->eliminarCategoria($id) == true){
+	      		echo 
+	      		'	
+					Perfecto! Se ha eliminado la categoría correctamente.
 
-		      		';
-		      	} else {
-		      		echo 
-		      		'	
-						  	<strong>Error!</strong> Se ha producido un error al eliminar la categoría.
-		      		';
-		      	}
-            }else{
-            	echo 
-		      		'	
-						  	<strong>Error!</strong> Se ha producido un error al eliminar la categoría.
-		      		';
-            }
-	      	
-		}
+	      		';
+		    }else {
+	      		echo 
+	      		'	
+					  	<strong>Error!</strong> Se ha producido un error al eliminar la categoría.
+	      		';
+		    }
+	    }
 		function modificarCategoria(){
 	      	$mcategoria = new dCategoria;
 	      	$mcategoria->setIdCategoria($_POST['idCategoria']);
