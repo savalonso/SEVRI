@@ -35,7 +35,12 @@ function activarSevri(idSevri){
       cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
       Materialize.toast(data, 7000,'blue darken-3');
       ocultarBarra();
+      mostrarOpcionProcesos();
   });    
+}
+function mostrarOpcionProcesos(){//esta funcion muestra del header la opcion de procesos
+  document.getElementById('opcionProcesos').style.display = "";
+  document.getElementById('opcionProcesos2').style.display = "";
 }
 
 function desactivarSevri(idSevri){
@@ -55,7 +60,12 @@ function desactivarSevri(idSevri){
       cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
       Materialize.toast(data, 7000,'blue darken-3');
       ocultarBarra();
+      ocultarOpcionProcesos();
   });    
+}
+function ocultarOpcionProcesos(){//esta funcion oculta del header la opcion de procesos
+   document.getElementById('opcionProcesos').style.display = "none";
+   document.getElementById('opcionProcesos2').style.display = "none";
 }
 
 function ocultarTodos(){

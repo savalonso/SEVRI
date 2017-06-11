@@ -314,6 +314,13 @@ class LogicaSevri{
 				return $listaParametros;
 			}
 	}
+
+	function obtenerIdSevriActivo(){
+		include_once('../data/dtSevri.php');
+		$data = new dtSevri();
+		$idSevriActivo = $data->obtenerIdSevriActivo();
+		return $idSevriActivo;
+	}
 }
 
 ?>

@@ -29,12 +29,12 @@
 				if($lista!=null){
 			?>
 
-			<h2>Lista de Departamentos</h2>
-			<div class="input-field buscar1 col s12 m8 l8">
+			<h4>Lista de Departamentos</h4>
+			<div class="input-field buscar1 col s12 m8 l8 ">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosDepartamento" type="text" >
     		</div>
-			<div class="col s12 m12 l12">
+			<div class="col s12 m12 l12 scrollH">
 				<div>
 					<table class="responsive-table striped centered responsive2" id="mostrarDep">
 						<thead>
