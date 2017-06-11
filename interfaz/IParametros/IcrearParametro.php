@@ -1,3 +1,4 @@
+<script></script>
 <?php
 	session_start();
     $tipo="";
@@ -17,9 +18,11 @@
 		   $('select').material_select();
 		 });
 	</script>
-
+	<div class="row">
+		<h4 class="col s12 m8 l8">Crear Par&aacutemetros</h4>
+	</div>
 	<div class="row ">
-		<form id="IcrearParametros" method="Post" role="form" class="responsive">
+		<form id="IcrearParametros" onsubmit="checkSubmit('Se Esta Creando el Parámetro')" method="Post" role="form" class="responsive">
 			<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
 				<div>
 					<label class="white-text" for="Tparametro">Tipo de parametro:</label>
@@ -36,7 +39,7 @@
 				</div>
 				 <div>
 				 	<label class="white-text" for="descripcion">Descripci&oacuten:</label>
-					<textarea class="materialize-textarea" rows="10" cels="30" id="descripcion" name="descripcion" ></textarea>
+					<textarea class="materialize-textarea scrollTextArea" cols="10" rows="8" id="descripcion" name="descripcion" ></textarea>
 				 </div>
 				 <div>
 				 	<label class="white-text" for="valor">Valor:</label>
@@ -63,35 +66,5 @@
 			</div>
 		</form>
 	</div>
-<script>
-	$(document).ready(function() {
-	    $("#IcrearParametros").validate({
-	        rules: {
-	            Tparametro: { required: true },
-	            descriptor: {  required: true, minlength: 4 , maxlength: 20 },
-	            descripcion: {  required: true, minlength: 20 , maxlength: 1000 },
-	           	valor: {required: true, maxlength: 1, minlength: 1},
-	           	color: { required: true }
-	        },
-	        messages: {
-	            Tparametro: "Debe seleccionar el tipo de parametro.",
-	            descriptor: "Debe introducir un descriptor con un tamaño minimo de 4 caracteres y un maximo de 20 caracteres.",
-	            descripcion: "Debe introducir un descripcion con un tamaño minimo de 20 caracteres y un maximo de 1000 caracteres.",
-	            valor: "Debe introducir un valor numerico que solo represente un caracter y que sea mayor a 0.",
-	            color: "Debe seleccionar el color del parametro."
+	<script type="text/javascript" src="../js/jsParametros.js"></script>
 
-	        },
-	        submitHandler: function(form){
-	         if(document.getElementById('Tparametro').value==0){
-		        	Materialize.toast("Debe seleccionar un tipo de parametro", 7000,'blue darken-3');
-		     }else if(document.getElementById('color').value==0){
-		        	Materialize.toast("Debe seleccionar el color del parametro", 7000,'blue darken-3');
-		     }else{
-		     	insertarParametros();
-		     }
-	           
-	        }
-	    });
-	});
-	 
-  </script>

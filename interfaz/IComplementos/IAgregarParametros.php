@@ -34,7 +34,9 @@
 	window.onload=ocultarBarra();
 </script>
 
-<h4>Agregar par&aacutemetros al SEVRI</h4>
+<div class="row">
+		<h4 class="col s12 m8 l8">Agregar Par&aacutemetros al SEVRI</h4>
+	</div>
 <div id="contenedorGeneralParametros">
 	<div id="divParametros">
 		<form id="agregarParametrosSevri" role="form" class="responsive">

@@ -5,13 +5,14 @@ if(isset($_SESSION['tipo'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
 	<meta charset="UTF-8">
 	<title>Pagina Principal</title>
 	<script src="js/jQuery.js"></script>
-	
+	<script type="text/javascript" src="js/jquery.validate.min.js?v=2"></script>
 	<link rel="stylesheet" href="Materialize/css/materialize.css">
+	<script type="text/javascript" src="js/jsInicioSesion.js?v=4"></script>
 	<script src="Materialize/js/materialize.js"></script>
 	<script type="text/javascript" src="js/jsPaginadorTablas.js?v=3"></script>
 	<script src="js/jsUsuarios.js"></script>
@@ -132,22 +133,26 @@ if(isset($_SESSION['tipo'])){
 		      <div class="container">
 			        <div class=" blue darken-3 row" style="display: inline-block;padding: 32px 48px 0 48px; margin-left:1px;width:100%;">
 			
-				          <form method="Post" action="accesoUsuario.php" class="col s12">
+				          <form method="Post" action="accesoUsuario.php" id="inicioSesion" class="col s12">
+				          	<input type="hidden" id="nombre" name="nombre">
+				          	<input type="hidden" id="apellido" name="apellido">
+				          	<input type="hidden" id="tipo" name="tipo">
+
 				          	<div class='row'>
 					              <div class='col s12'>
 										<img class="imagenUsuario"src="img/user2.png" alt="">
 					              </div>
 					            </div>
 					            <div class='row'>
-					              <div class='input-field col s12'>
-						                <input class='validate white-text' type='text' name='usuario' id='usuario' />
-						                <label for='usuario' class="white-text">Usuario</label>
+					              <div class=' col s12'>
+					              	<label for='usuario' class="white-text">Usuario</label>
+						            <input class='validate white-text' type='text' name='usuario' id='usuario' /> 
 					              </div>
 					            </div>
 					            <div class='row'>
-						            <div class='input-field col s12'>
+						            <div class=' col s12'>
+						            	<label for='clave' class="white-text">Clave</label>
 							            <input class='validate white-text' type='password' name='clave' id='clave' />
-							            <label for='clave' class="white-text">Clave</label>
 						            </div>
 					            </div>
 					            <center>
@@ -190,7 +195,7 @@ if(isset($_SESSION['tipo'])){
 		$(document).ready(function(){
 		   	$('.modal-trigger').leanModal();
 		});
-				
+		
 	</script>
 	 <!--Aqui termina el modal del registro de usuario-->
 <?php 

@@ -15,8 +15,11 @@
 <script>
 	window.onload=ocultarBarra();
 </script>		
-	<div class="row ">
-		<form id="IcrearSevri" method="Post" role="form" class="responsive">
+	<div class="row">
+		<h4 class="col s12 m8 l8">Crear SEVRI</h4>
+	</div>
+	<div class="row">
+		<form id="IcrearSevri"  method="Post" role="form" class="responsive">
 			<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
 				<div>
 					<label class="white-text" for="nombre">Nombre Sevri</label>
