@@ -28,7 +28,7 @@
 	<div class="row">
 
 		<div class="col l8 m8 s8">
-				<h3>Lista de riesgos</h3>
+				<h4>Lista de riesgos</h4>
 		</div>
 		<div class="input-field buscar1 col s12 m8 l8">
 	        <label class="white-text" for="filtrar">Buscar</label>
@@ -37,7 +37,7 @@
 
     	<div class="col l4 m4 s4">
     		<div id="añadir">
-    			<a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light red" data-tooltip="Agregar riesgos de versiones antiguas." style="float: right; margin-top: 22px;"><i class="material-icons" onclick="cargarPaginaAñadirRiesgo()">add</i></a>
+    			<a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue" data-tooltip="Agregar riesgos de versiones antiguas." style="float: right; margin-top: 22px;"><i class="material-icons" onclick="cargarPaginaAñadirRiesgo()">add</i></a>
     		</div>
 		</div>
 

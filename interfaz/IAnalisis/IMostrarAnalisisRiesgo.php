@@ -21,19 +21,18 @@
 	<div class="row">
 		<?php  
 		if($listaAnalisis==null){
-			echo "<h3>A&uacuten no se ha realizado nungún análisis</h3>";
+			echo "<h4>A&uacuten no se ha realizado nungún análisis</h4>";
 		}else{
 			$listaNiveles = $controlDatos->obtenerNivelesSevriActivo();
 			$cantidadDivisiones = count($listaNiveles);
 			$valorFormula = $controlDatos->obtenerValorFormula();
 		?>
-			<h2>Lista de An&aacute;lisis</h2>
+			<h4>Lista de An&aacute;lisis</h4>
 			<div class="input-field buscar1 col s12 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosAnalisis" type="text" >
 	    	</div>
-			<div class="col s12 m12 l12">
-				<div id="div1">
+			<div class="col s12 m12 l12" id="scrollH">
 					<table class="responsive-table responsive centered bordered">
 						<thead>
 							<tr>
@@ -91,7 +90,6 @@
 							?>
 						</tbody>
 					</table>
-				</div>	
 			</div>
 		<?php  
 		}

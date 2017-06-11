@@ -1,6 +1,44 @@
 /**
  * Victor
  */
+function modificarSeguimientoAsignado() {
+    document.getElementById('barraCargando').style.display="";
+    var formData = new FormData(document.getElementById("IModificarSeguimiento"));
+    formData.append("opcion", 5);
+    $.ajax({
+        url : "../controladora/ctrSeguimiento.php",
+        type : "post",
+        dataType : "html",
+        data : formData,
+        cache : false,
+        contentType : false,
+        processData : false
+    }).done(function(data) {
+        cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php');
+        Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
+    });
+}
+function eliminarSeguimiento(id) {
+    document.getElementById('barraCargando').style.display="";
+    var cedula = cedulaUsuario;
+    var formData = new FormData();
+    formData.append("opcion", 6);
+    formData.append("id", id);
+    $.ajax({
+        url : "../controladora/ctrSeguimiento.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false
+    }).done(function (data) {
+        cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php');
+        Materialize.toast(data, 7000,'blue darken-3');
+        document.getElementById('barraCargando').style.display="none";
+    });
+}
 function registrarSeguimiento(idAdministracion){
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IRegistrarSeguimiento"));

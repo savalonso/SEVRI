@@ -18,6 +18,7 @@
 	$listaNiveles = $controlDatos->obtenerNivelesSevriActivo();
 	$maximaProbabilidad = 0;
 	$maximoImpacto = 0;
+
 	foreach ($listaParametros as $parametro) {
 		if (strcmp ($parametro->getNombreParametro() , "Probabilidad" ) == 0) {
 			if($maximaProbabilidad < $parametro->getValorParametro()){
@@ -40,7 +41,7 @@
 	<div class="row">
 		<div class="col s12 m12 l12">
 			<div class="inputs blue darken-3 col s6 m6 l6">
-				<h3>Analizar Riesgo</h3>
+				<h4>Analizar Riesgo</h4>
 				<label>Riesgo</label></br>
 				<?php
 					foreach ($listaRiesgos as $riesgo){
