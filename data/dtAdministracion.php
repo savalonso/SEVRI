@@ -150,7 +150,6 @@
 			$query = "CALL obtenerAdministracion('$idAdministracion')";
 			$result = mysqli_query($conexion, $query);
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-			
 			$administracion = new dAdministracion;
 			$administracion->setId($row['Id']);	
 
@@ -164,7 +163,6 @@
 			$administracion->setCostoActividad($row['CostoActividad']);
 			$administracion->setIndicador($row['Indicador']);
 			$administracion->setMedidaAdministracion($medida);
-			
 			mysqli_free_result($result);
 			mysqli_close($conexion);
 			if (!$result){
@@ -200,8 +198,8 @@
 				$url = "../interfaz/IAdministracion/IMostrarAdministracionSeguimiento.php?IdAdministracion=".$id;
         	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	 	 		$conexion->beginTransaction();
- 	 			$conexion->exec("CALL insertarAdministracion('$idAnalisis','$responsable', '$actividad', '$plazo', '$costo', '$indicador', '$medida')");			  
- 	 			$conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$responsable')");
+ 	 			$conexion->exec("CALL insertarAdministracion('$idAnalisis','$responsable', '$actividad', '$plazo', '$costo', '$indicador', '$medida', '$id')");			  
+ 	 			$conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$responsable', '$id', '1')");
 
 				$conexion->commit();
 				return true;
@@ -214,33 +212,55 @@
 		function actualizarAdministracion($administracion){
 			include_once ('dtConnection.php');
 			$con = new dtConnection;
-			$conexion = $con->conect();
 
-			$id = $administracion->getId();
-			$cedulaResponsable = $administracion->getUsuario();
-			$actividad = $administracion->getActividadTratamiento();
-			$plazo = $administracion->getPlazoTratamiento();
-			$costoActividad = $administracion->getCostoActividad();
-			$medidaAdministracion = $administracion->getMedidaAdministracion();
-			$indicador = $administracion->getIndicador();
-			$result = $conexion->query("CALL modificarAdministracion('$medidaAdministracion','$cedulaResponsable','$actividad','$plazo', '$costoActividad', '$id','$indicador')");
-			if (!$result){
-				return false;
-			} else {
+			$conexion = $con->crearConexionPDO();
+			try {
+				$id = $administracion->getId();
+				$cedulaResponsable = $administracion->getUsuario();
+				$actividad = $administracion->getActividadTratamiento();
+				$plazo = $administracion->getPlazoTratamiento();
+				$costoActividad = $administracion->getCostoActividad();
+				$medidaAdministracion = $administracion->getMedidaAdministracion();
+				$indicador = $administracion->getIndicador();
+
+				session_start();
+				$creadorMensaje = $_SESSION['nombreUsuario'];
+				$creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
+				$mensaje = "Te han asignado una nueva medida de administración a la cual debes de dar seguimiento antes de: ".$plazo;
+        	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	 	 		$conexion->beginTransaction();
+ 	 			$conexion->exec("CALL modificarAdministracion('$medidaAdministracion','$cedulaResponsable','$actividad','$plazo', '$costoActividad', '$id','$indicador')");	
+
+ 	 			//al final del procedimiento se envía para saber que el mensaje pertenece a la administración		  
+ 	 			$conexion->exec("CALL modificarMensajeUsuario('$creadorMensaje','$mensaje', '$cedulaResponsable', '$id', '1')");
+
+				$conexion->commit();
 				return true;
-			}
+            } catch (Exception $e) {
+            	$conexion->rollback();
+            	return false;
+            }
 		} 
 
 		function eliminarAdministracion($id){
 			include_once ('dtConnection.php');
 			$con = new dtConnection;
-			$conexion = $con->conect();
+			$conexion = $con->crearConexionPDO();
 
-			$result = $conexion->query("CALL eliminarAdministracion($id);");
-			if (!$result){
-				return false;
-			} else {
+			try {
+				$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	 	 		$conexion->beginTransaction();
+
+	 	 		$conexion->exec("CALL eliminarAdministracion($id);");	
+
+ 	 			//al final del procedimiento se envía para saber que el mensaje pertenece a la administración		  
+ 	 			$conexion->exec("CALL eliminarMensajeUsuario('$id', '1')");
+
+				$conexion->commit();
 				return true;
+			} catch (Exception $e) {
+				$conexion->rollback();
+            	return false;
 			}
 		}
 	}

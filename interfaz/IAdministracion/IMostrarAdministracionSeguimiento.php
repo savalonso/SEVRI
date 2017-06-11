@@ -16,12 +16,13 @@
 		window.onload=ocultarBarra();
 	</script>
 
+	<?php  
+		if($administracion!=null){
+	?>
+
 	<div class="row">
-		<h4>Medidas de Administración</h4>
+		<h4>Medida de Administración</h4>
 		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
-		<?php  
-			if($administracion!=null){
-		?>
 			<div id="div1">
 				<table class="responsive-table centered bordered">
 					<thead>
@@ -36,18 +37,14 @@
 					</thead>
 					<tbody>
 						<?php 
-						if($administracion==null){
-							echo "A&uacuten no se ha realizado ninguna administraci&oacuten";
-						}else{
-					            echo "<tr>				
-						        	<td>".$administracion->getMedidaAdministracion()->getNombreMedida()."</td>
-						        	<td>".$administracion->getActividadTratamiento()."</td>
-						        	<td>".$administracion->getIndicador()."</td>
-						        	<td>".$administracion->getPlazoTratamiento()."</td>
-						        	<td>"."₡".number_format($administracion->getCostoActividad(), 2, ',', ' ')."</td>
-					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Realizar Seguimiento\" onclick=\"realizarSeguimiento('".$administracion->getId()."')\"/></td>
-					    		</tr>";
-						}
+				            echo "<tr>				
+					        	<td>".$administracion->getMedidaAdministracion()->getNombreMedida()."</td>
+					        	<td>".$administracion->getActividadTratamiento()."</td>
+					        	<td>".$administracion->getIndicador()."</td>
+					        	<td>".$administracion->getPlazoTratamiento()."</td>
+					        	<td>"."₡".number_format($administracion->getCostoActividad(), 2, ',', ' ')."</td>
+				        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Realizar Seguimiento\" onclick=\"realizarSeguimiento('".$administracion->getId()."')\"/></td>
+				    		</tr>";
 						?>
 					</tbody>
 					</table>

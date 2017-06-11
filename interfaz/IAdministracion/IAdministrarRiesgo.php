@@ -40,14 +40,14 @@
 				</div>
 				 <div>
 				 	<label class="white-text" for="actividad">Actividad de Tratamiento:</label>
-					<textarea class="materialize-textarea" rows="10" cels="30" id="actividad" name="actividad" ></textarea>
+					<textarea class="materialize-textarea scrollTextArea" rows="10" cels="30" id="actividad" name="actividad" ></textarea>
 				 </div>
 				 <div>
 				 	<label class="white-text" for="indicador">Indicador:</label>
-					<textarea class="materialize-textarea" rows="10" cels="30" id="indicador" name="indicador" ></textarea>
+					<textarea class="materialize-textarea scrollTextArea" rows="10" cels="30" id="indicador" name="indicador" ></textarea>
 				 </div>
 				 <div>
-				 	<label class="white-text" for="valor">Monto &eacuteconomico asociado a la actividad:</label>
+				 	<label class="white-text" for="valor">Monto econ&oacutemico asociado a la actividad:</label>
 					<input type="text" name="valor" id="valor" onkeyup="mascaraDinero(this)">
 				 </div>
 				 <div>
@@ -55,7 +55,7 @@
 					<input type="date" name="plazo" id="plazo" value="<?php echo $fechaActual ?>" min="<?php echo $fechaActual; ?>" max="<?php echo date("Y")."-12-"."31"; ?>">
 				</div>
 				 <div>
-				  	<label class="white-text" for="encargado">Seleccione el encargado de realizar la actividad:</label>
+				  	<label class="white-text" for="encargado">Encargado de la Actividad:</label>
 					<select name="encargado" id="encargado">
 						<option value="0" disabled="true" selected>Seleccione un encargado</option>
 						<?php 
