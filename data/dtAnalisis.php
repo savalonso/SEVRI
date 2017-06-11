@@ -105,7 +105,7 @@
 				$analisis->setId($row['Id']);
 	    		$analisis->setProbabilidad($row['Probabilidad']);
 		      	$analisis->setImpacto($row['Impacto']);
-		      	$analisis->setNivelRiesgo($row['NivelRiesgo']);
+		      	$analisis->setNivelRiesgo($row['nivelRiesgo']);
 		      	$analisis->setMedidaControl($row['MedidaControl']);
 		      	$analisis->setCalificacionMedida($row['CalificacionMedida']);
 				array_push($lista, $analisis);
