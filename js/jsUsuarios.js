@@ -1,4 +1,5 @@
 function insertarUsuarios(){
+    document.getElementById('btn_Guardar').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IRegistrarUsuarios"));
     formData.append("opcion", 1);
@@ -18,6 +19,7 @@ function insertarUsuarios(){
 }
 
 function modificarUsuarios() {
+    document.getElementById('btnModificarUsuario').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById('IModificarUsuarios'));
     formData.append("opcion", 2);
@@ -37,6 +39,7 @@ function modificarUsuarios() {
 }
 
 function eliminarUsuario(cedulaUsuario) {
+    document.getElementById('btnEliminarUsuario').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var cedula = cedulaUsuario;
     var formData = new FormData();

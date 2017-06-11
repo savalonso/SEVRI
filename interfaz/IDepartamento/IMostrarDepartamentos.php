@@ -61,7 +61,7 @@
 											echo "<td>
 									        <input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"cargarPagina('../interfaz/IDepartamento/IModificarDepartamento.php?idDepartamento=".$departamento->getIdDepartamento()."')\"/></td>
 								       		 </td>
-											<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarEliminarDepartamento('".$departamento->getIdDepartamento()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#MeliminarDepartamento\">Eliminar</a> </button>  </td>
+											<td style=\"text-align:center;\"><button type=\"button\" id=\"btnEliminarDepartamento\" class=\"btnEliminar\" onclick=\"confirmarEliminarDepartamento('".$departamento->getIdDepartamento()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#MeliminarDepartamento\">Eliminar</a> </button>  </td>
 											<td><input class=\"btn btn-default\" type=\"button\" value=\"Agregar Usuarios\" onclick=\"cargarPagina('../interfaz/IDepartamento/IAgregarUsuarioDepartamento.php?idDepartamento=".$departamento->getIdDepartamento()."')\"/></td>
 											</tr>";
 											} else {

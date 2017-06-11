@@ -128,7 +128,7 @@
 							</div>
 							
 							<div >
-								<input type="submit" value="Crear" class="btn btn-default"></br></br>
+								<input type="submit" id="btnInsertarRiesgo" value="Crear" class="btn btn-default"></br></br>
 							</div>
 
 						</div>

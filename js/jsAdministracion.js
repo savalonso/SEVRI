@@ -1,4 +1,5 @@
 function insertarAdministracion(){
+    document.getElementById('btnGuardar').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IAdministrarRiesgo")); 
     formData.append("opcion", 1);
@@ -26,7 +27,7 @@ function invocarDivModificarAdmi(button,idAdministracion){
     document.getElementById('indicador').value = cells[2].innerText;
     document.getElementById('indicador').placeholder = "dato: " + cells[2].innerText;
 
-    document.getElementById('valor').value = "₡" + cells[4].innerText;
+    document.getElementById('valor').value = cells[4].innerText;
     document.getElementById('valor').placeholder = "dato: ₡" + cells[4].innerText;
 
     document.getElementById('plazo').value = cells[3].innerText;
@@ -60,7 +61,7 @@ function ocultarDivActualizar(){
 }
 function modificarAdministracion(){
     document.getElementById('barraCargando').style.display="";
-  
+    document.getElementById('btnModificarAdministracion').disabled = true;
     var formData = new FormData(document.getElementById("IModificarAdministrarRiesgo")); 
     formData.append("opcion", 2);
     $.ajax({
@@ -81,6 +82,7 @@ function confirmarEliminarAdministracion(idAdministracion){
     document.getElementById('idAdministracion').value = idAdministracion;
 }
 function eliminarAdministracion(){
+    document.getElementById('btnEliminarAdministracion').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     var idAdmi = document.getElementById('idAdministracion').value;

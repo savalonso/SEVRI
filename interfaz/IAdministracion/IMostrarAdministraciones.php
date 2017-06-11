@@ -52,7 +52,7 @@
 						        	<td>"."₡".number_format($administracion->getCostoActividad(), 2, ',', ' ')."</td>
 						        	<td>".$administracion->getUsuario()->getNombre()."</td>
 					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificarAdmi(this,'".$administracion->getId()."')\"/></td>
-					        		<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarEliminarAdministracion('".$administracion->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+					        		<td style=\"text-align:center;\"><button type=\"button\" id=\"btnEliminarAdministracion\" class=\"btnEliminar\" onclick=\"confirmarEliminarAdministracion('".$administracion->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 					    		</tr>";
 							}
 						?>
@@ -116,8 +116,8 @@
 				</div>
 				 <div>
 					<input type="hidden" name="idAdmi" id="idAdmi">
-					<button type="button" class="btnEliminar"><a class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a></button>
-					<input type="button" value="Canelar" class="btn btn-default" onclick="ocultarDivActualizar()"><br>
+					<button type="button" id="btnModificarAdministracion" class="btnEliminar"><a class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a></button>
+					<input type="button" value="Cancelar" class="btn btn-default" onclick="ocultarDivActualizar()"><br>
 				</div>
 			</div>
 			<div id="Mmodificar" class="modal  blue darken-3 z-depth-5 white-text">

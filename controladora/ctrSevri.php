@@ -54,7 +54,7 @@
 	      	} else {
 	      		echo 
 	      		'	
-					  	<strong>Error!</strong> Se ha producido un error al eliminar el SEVRI.
+					El sevri no se puede eliminar porque tiene configuraciones guardadas. 
 	      		';
 	      	}
 		}

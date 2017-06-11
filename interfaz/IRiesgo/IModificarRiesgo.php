@@ -5,7 +5,6 @@
 	}
 	$idRiesgo = $_GET['idRiesgo'];
 	include ("../../data/dtRiesgo.php");
-	//include ("../../dominio/dRiesgo.php");
 	$control = new dtRiesgo;
 	$lista = $control->getRiesgo($idRiesgo);
 	foreach ($lista as $riesgo) {
@@ -47,9 +46,11 @@
 	</div>
 </div>	
 <div class="row">
+
+	<h4>Modificar Riesgo</h4>
+
 	<form class="responsive" id="IModificarRiesgo" method="Post" role="form">
 		<div class="inputs blue darken-3 col s12 m6 l6 z-depth-5">
-			<h3>Modificar Riesgo</h3>
 			<div >
 				<label for="nombre">Nombre:</label><br>
 				<input type="text" name="nombre" id="nombre" value="<?php echo "$nombre";?>">
@@ -78,13 +79,13 @@
 
 			<div >
 				<label for="monto">Monto econ&oacutemico en col&oacutenes:</label>
-				‎<input type="text" name="monto" id="monto" onkeyup="format(this)" value="<?php echo "$monto";?>">‎
+				‎<input type="text" name="monto" id="monto" onkeyup="format(this)" value="<?php echo "$monto"; ?>">‎
 			</div>
 			
 			<div >
 				<label  for="categoria">Categor&iacutea:</label></br></br>
 				<select id="categoria" name="categoria" onchange="llenarSelect2(this.value)"> 
-					<option value="0">Seleccione una categor&iacutea...</option>
+					<option value="0" disabled="true">Seleccione una categor&iacutea...</option>
 				<?php 
 					foreach ($listaC as $categoria){
 						if($categoria->getHijoDe()=="0"){
@@ -100,9 +101,9 @@
 			</div>
 			
 			<div>
-				<label  for="subcategoria">Sub Categor&iacuteas:</label></br></br>
+				<label  for="subcategoria">Sub Categor&iacutea:</label></br></br>
 				<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)">
-				<option value="0">Seleccione una sub categor&iacutea...</option> 
+				<option value="0" disabled="true">Seleccione una sub categor&iacutea...</option> 
 				<?php 
 					foreach ($listaC as $categoria){
 						if($categoria->getHijoDe()==$padre){
@@ -127,7 +128,7 @@
 			</div>
 			<div>
 			<?php
-				echo "<button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";
+				echo "<button type=\"button\" class=\"btnEliminar\" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";
 			?>
 			</div>
 			<br>

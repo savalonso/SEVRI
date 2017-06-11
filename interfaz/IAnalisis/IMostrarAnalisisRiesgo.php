@@ -32,9 +32,9 @@
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosAnalisis" type="text" >
 	    	</div>
-			<div class="col s12 m12 l12">
+			<div class="col s12 m12 l12 scrollH">
 				<div id="div1">
-					<table class="responsive-table responsive centered bordered">
+					<table class="responsive-table striped responsive2">
 						<thead>
 							<tr>
 								<th>Riesgo</th>
@@ -84,7 +84,7 @@
 											<input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\" cargarPagina('../interfaz/IAnalisis/IModificarAnalisis.php?idAnalisis=".$analisis->getId()."')\"/></td>
 										</td>
 										<td>
-											<a class=\"waves-effect waves-light btn modal-trigger\" onclick=\" asignarID(".$analisis->getId().")\" href=\"#Meliminar\">Eliminar</a>
+											<a class=\"waves-effect waves-light btn modal-trigger\" id=\"btnEliminarAnalisis\" onclick=\" asignarID(".$analisis->getId().")\" href=\"#Meliminar\">Eliminar</a>
 										</td>
 									</tr>";
 								}	

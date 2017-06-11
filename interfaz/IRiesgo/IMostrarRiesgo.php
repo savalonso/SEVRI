@@ -28,7 +28,7 @@
 	<div class="row">
 
 		<div class="col l8 m8 s8">
-				<h3>Lista de riesgos</h3>
+				<h4>Lista de riesgos</h4>
 		</div>
 		<div class="input-field buscar1 col s12 m8 l8">
 	        <label class="white-text" for="filtrar">Buscar</label>
@@ -41,53 +41,41 @@
     		</div>
 		</div>
 
-		<div class="col l12 m12 s12">
-			
-			
-			<?php  
-				if($listaRiesgos!=null){
-			?>
-			<table class="responsive-table responsive2 striped centered" id="MostrarRiesgos" >
-				<thead>
-					<tr>
-						<th>Nombre</th>
-						<th>Descripci&oacuten</th>
-						<th>Estado</th>
-						<th>Monto Econ&oacutemico</th>
-						<th>Categor&iacutea</th>
-						<th>Causa</th>
-						<th>Fecha Registro</th>
-						<th>Opcion 1</th>
-						<th>Opcion 2</th>
-					</tr>
-				</thead>
-				<tbody id="datosR" >
-					<?php 
-					if($listaRiesgos==null){
-						echo "NO HAY REGISTROS AUN";
-					}else{
-						foreach ($listaRiesgos as $riesgo){
-							echo "<tr>					        
-								<td>".$riesgo->getNombre()."</td>
-								<td>".$riesgo->getDescripcion()."</td>
-								<td>".$riesgo->getEstaActivo()."</td>
-								<td> ‎"."₡".number_format($riesgo->getMontoEconomico(), 2, ',', ' ')."</td>
-								<td>".$riesgo->getIdCategoria()."</td>
-								<td>".$riesgo->getCausa()."</td>
-								<td>".$riesgo->getFecha()."</td>
-								<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"		cargarPagina('../interfaz/IRiesgo/IModificarRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
-								<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacion('".$riesgo->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
-							</tr>";
-						}
-					}
-					?>
-				</tbody>
-			</table>
-			<?php  
-				}else{
-					echo "<h3>A&uacuten no hay riesgos identificados</h3>";
-				}
-			?>
+		<div class="col s12 m12 l12 scrollH">
+			<div>
+				<table class="responsive-table striped responsive2" id="MostrarRiesgos" >
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Descripci&oacuten</th>
+							<th>Estado</th>
+							<th>Monto Econ&oacutemico</th>
+							<th>Categor&iacutea</th>
+							<th>Causa</th>
+							<th>Fecha Registro</th>
+							<th>Opcion 1</th>
+							<th>Opcion 2</th>
+						</tr>
+					</thead>
+					<tbody id="datosR" >
+						<?php 
+							foreach ($listaRiesgos as $riesgo){
+								echo "<tr>					        
+									<td>".$riesgo->getNombre()."</td>
+									<td>".$riesgo->getDescripcion()."</td>
+									<td>".$riesgo->getEstaActivo()."</td>
+									<td> ‎"."₡".number_format($riesgo->getMontoEconomico(), 2, ',', ' ')."</td>
+									<td>".$riesgo->getIdCategoria()."</td>
+									<td>".$riesgo->getCausa()."</td>
+									<td>".$riesgo->getFecha()."</td>
+									<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"cargarPagina('../interfaz/IRiesgo/IModificarRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
+									<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" id=\"btnEliminarRiesgo\" onclick=\"confirmarModificacionEliminacion('".$riesgo->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+								</tr>";
+							}
+						?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 
@@ -103,7 +91,7 @@
 	</div>
 	<?php  
 				
-				}
+		}
 	?>
 	<script>
 
