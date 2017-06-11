@@ -26,8 +26,8 @@ function invocarDivModificarAdmi(button,idAdministracion){
     document.getElementById('indicador').value = cells[2].innerText;
     document.getElementById('indicador').placeholder = "dato: " + cells[2].innerText;
 
-    document.getElementById('valor').value = cells[4].innerText;
-    document.getElementById('valor').placeholder = "dato: " + cells[4].innerText;
+    document.getElementById('valor').value = "₡" + cells[4].innerText;
+    document.getElementById('valor').placeholder = "dato: ₡" + cells[4].innerText;
 
     document.getElementById('plazo').value = cells[3].innerText;
     document.getElementById('plazo').placeholder = "dato: " + cells[3].innerText;

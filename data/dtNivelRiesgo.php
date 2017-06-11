@@ -137,11 +137,16 @@
 
 		}
 
-		function getNivelesSevriActivoReporte(){
+		function getNivelesReporte($desicion, $idSevri){
 			include_once("../dominio/dNivelRiesgo.php");
 			$con = new dtConnection();
 			$conexion = $con->conect();
-			$query = "CALL obtenerNivelesRiesgoSevriActivo()";
+			if ($desicion == 1) {
+				$query = "CALL obtenerNivelesRiesgoSevriActivo()";
+			}else{
+				$query = "CALL obtenerNivelesRiesgoPorIdSevri('$idSevri')";
+			}
+
 			$lista = array();
 			$result = mysqli_query($conexion, $query);
 			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){

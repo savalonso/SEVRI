@@ -72,8 +72,7 @@ foreach ($listaUsuarios as $usuario) {
 			</div>
             <div class="">
 				<label  for="telefono">Tel&eacutefono: </label></label>
-				<input type="number" name="telefono" id="telefono" value="<?php echo "$telefono";
-?>">
+				<input type="text" name="telefono" id="telefono" value="">
 			</div>
             <div class="">
 				<label  for="email">Correo electr&oacutenico:</label>
@@ -85,6 +84,11 @@ foreach ($listaUsuarios as $usuario) {
 				<input type="password" name="clave" id="clave" value="<?php echo "$clave";
 ?>">
 			</div>
+			<div class="">
+				<label  for="clave">Confirmar contrase&ntildea:</label>
+				<input type="password" name="clave2" id="clave2" value="<?php echo "$clave";
+?>">
+			</div>
             <div class="">
 				<label  for="cargo">Cargo:</label>
 				<input type="text" name="cargo" id="cargo" value="<?php echo "$cargo";
@@ -93,8 +97,13 @@ foreach ($listaUsuarios as $usuario) {
             <div class="">
                 <label  for="Tipo">Tipo de Usuario:</label>
                 <select id="tipo" name="tipo">
-                        <option value="Usuario">Usuario</option>
-                        <option value="Administrador">Administrador</option>
+					<?php if($tipo == "Usuario") { ?>
+							<option value="Usuario">Usuario</option>
+							<option value="Administrador">Administrador</option>
+					<?php } else { ?>
+							<option value="Administrador">Administrador</option>
+							<option value="Usuario">Usuario</option>
+					<?php } ?>
 				</select>
             </div>
             <div>
@@ -117,6 +126,10 @@ foreach ($listaUsuarios as $usuario) {
     </form>
 </div>
 <script>
+$(function(){
+    $('#telefono').mask('9999-9999');
+	$('#telefono').val('<?=$telefono?>');
+});
 $(document).ready(function(){
 		$('.modal-trigger').leanModal();
 	});
@@ -127,22 +140,24 @@ $(document).ready(function() {
     $("#IModificarUsuarios").validate({
         rules: {
             cedula:{ required: true, minlength: 7, maxlength: 20},
-            nombre:{ required: true},
-            primerApellido:{ required: true},
-            segundoApellido:{ required: true},
-            telefono:{ required: true, minlength: 8, maxlength: 8},
+            nombre:{ required: true, minlength: 2, maxlength: 45},
+            primerApellido:{ required: true, minlength: 2, maxlength: 45},
+            segundoApellido:{ required: true, minlength: 2, maxlength: 45},
+            telefono:{ required: true, minlength: 9, maxlength: 9},
             email:{ required: true},
-            clave:{ required: true},
-            cargo:{ required: true},
+            clave:{ required: true, minlength: 8, maxlength: 15},
+			clave2:{ required: true, equalTo: "#clave"},
+            cargo:{ required: true, minlength: 5},
         },
         messages: {
             cedula:"Se debe ingresar la c&eacutedula con un minimo de 7 d&iacutegitos y un m&aacuteximo de 15 d&iacutegitos",
-            nombre:"Se debe ingresar el nombre",
-            primerApellido:"Se debe ingresar el primer apellido",
-            segundoApellido:"Se debe ingresar el segundo apellido",
-            telefono:"Se debe ingresar el telefono con un m&aacuteximo y m&iacutenimo de 8 digitos",
-            email:"Se debe ingresar un correo electr&oacutenico",
-            clave:"Se debe ingresar una contrase&ntildea con un maximo de 15 caracteres",
+            nombre:"Se debe ingresar el nombre con m&iacutenimo 2 caracteres y m&aacuteximo 45 carateres",
+            primerApellido:"Se debe ingresar el primer apellido con m&iacutenimo 2 caracteres y m&aacuteximo 45 carateres",
+            segundoApellido:"Se debe ingresar el segundo apellido con m&iacutenimo 2 caracteres y m&aacuteximo 45 carateres",
+            telefono:"Se debe ingresar el tel&eacutefono con un m&aacuteximo y m&iacutenimo de 8 digitos",
+            email:"Se debe ingresar un correo electr&oacutenico v&aacutelido",
+            clave:"Se debe ingresar una contrase&ntildea con un m&iacute de 8 carateres y un m&aacuteximo de 15 caracteres",
+			clave2:"Se debe ingresar una contrase&ntildea igual a la anterior",
             cargo:"Se debe de ingresar un cargo",
         },
         submitHandler: function(form){

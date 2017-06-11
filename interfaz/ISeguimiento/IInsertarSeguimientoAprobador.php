@@ -17,7 +17,7 @@
  <div class="row">
 		<form class="responsive" id="insertarSeguimientoAprobador" method="Post" role="form">
 			<div class="inputs blue darken-3 col col s8 m6 16 z-depth-5">
-				<h3>Insertar Aprobacion</h3>
+				<h4>Insertar Aprobacion</h4>
 				
 				<div class="" >
 				

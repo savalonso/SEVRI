@@ -8,8 +8,6 @@
 
 
 <?php 
-
-	session_start();
 	$cedula=$_SESSION['idUsuario'];
 	include("../../controladora/ctrListaDepartamento.php");
 	$controlDepartamentos=new ctrListaDepartamento;

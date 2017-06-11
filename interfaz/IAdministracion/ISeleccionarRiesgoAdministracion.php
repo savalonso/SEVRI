@@ -21,38 +21,36 @@
 		if($lista != null){
 	?>
 	<div class="row">
-		<h2>Lista de riesgos</h2>
+		<h4>Lista de riesgos para administrar</h4>
 		<div class="input-field buscar1 col s8 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosAdministracion" type="text">
         </div>
         <div class="col l4 m4 s4">
-					<a id="boton" href="#" onclick="cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar Analisis" class="btn-floating tooltipped btn-large waves-effect waves-light red" style="float: right;"><i class="material-icons">add</i></a>
+			<a id="boton" href="#" onclick="cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar Administraci&oacute;n" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
 		</div>
-		<div class="col s12 m12 l12">
-			<div id="div1">
-				<table class="responsive-table centered bordered">
-					<thead>
-						<tr>
-							<th>Riesgo</th>
-							<th>Opci&oacuten 1</th>
-							<th>Opci&oacuten 2</th>
-						</tr>
-					</thead>
-					<tbody id="datosAd">
-						<?php 
-							foreach ($lista as $riesgo){
-					            echo "<tr>					        
-						        	<td>".$riesgo->getNombre()."</td>
-					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Administrar\" onclick=\"cargarPagina('../interfaz/IAdministracion/IAdministrarRiesgo.php?idAnalisis=".$riesgo->getId()."')\"/></td>
-					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver Administraciones\" onclick=\"cargarPagina('../interfaz/IAdministracion/IMostrarAdministraciones.php?idAnalisis=".$riesgo->getId()."')\"/></td>
-					    		</tr>";
-							}
-						
-						?>
-					</tbody>
-					</table>
-			</div>
+		<div class="col s12 m12 l12 scrollH">
+			<table class="responsive-table striped responsive2">
+				<thead>
+					<tr>
+						<th>Riesgo</th>
+						<th>Opci&oacuten 1</th>
+						<th>Opci&oacuten 2</th>
+					</tr>
+				</thead>
+				<tbody id="datosAd">
+					<?php 
+						foreach ($lista as $riesgo){
+							echo "<tr>					        
+								<td>".$riesgo->getNombre()."</td>
+								<td><input class=\"btn btn-default\" type=\"button\" value=\"Administrar\" onclick=\"cargarPagina('../interfaz/IAdministracion/IAdministrarRiesgo.php?idAnalisis=".$riesgo->getId()."')\"/></td>
+								<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver Administraciones\" onclick=\"cargarPagina('../interfaz/IAdministracion/IMostrarAdministraciones.php?idAnalisis=".$riesgo->getId()."')\"/></td>
+							</tr>";
+						}
+					
+					?>
+				</tbody>
+			</table>
 		</div>
 	</div>
 	<?php  
@@ -61,7 +59,7 @@
 			<div class="row">
 				<h4 class="col s10 m10 l10">A&uacuten no se ha realizado el An&aacutelisis sobre ning&uacuten riesgo</h4>
 				<div class="col l2 m2 s2">
-					<a id="boton" href="#" onclick="cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar Analisis" class="btn-floating tooltipped btn-large waves-effect waves-light red" style="float: right;"><i class="material-icons">add</i></a>
+					<a id="boton" href="#" onclick="cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Análizar Riesgo" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
 				</div>
 			</div>
 		<?php }?>	

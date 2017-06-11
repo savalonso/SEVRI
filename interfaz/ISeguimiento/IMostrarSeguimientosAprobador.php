@@ -125,7 +125,7 @@
 				</div>
 					<?php  
 						}else{
-							echo "<br><h3>A&uacuten no se han realizado aprobaciones</h3>";
+							echo "<br><4>A&uacuten no se han realizado aprobaciones</h4>";
 						}
 					?>
 			</div>
