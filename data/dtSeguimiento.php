@@ -25,6 +25,39 @@ class dtSeguimiento{
         }
     }
 
+    public function modificarSeguimiento($seguimiento) {
+        include_once ('dtConnection.php');
+        include_once("../dominio/dSeguimiento.php");
+        $con = new dtConnection;
+        $prueba = $con->conect();
+
+        $id =     $seguimiento->getId();
+        $monto = $seguimiento->getMontoSeguimiento();
+		$comentario = $seguimiento->getComentarioAvance();
+		$porcentaje = $seguimiento->getPorcentajeAvance();
+		$aprobador = $seguimiento->getUsuarioAprobador();
+
+        $result = $prueba->query("CALL modificarSeguimiento($id, $monto, '$comentario', $porcentaje, $aprobador)");
+        if (!$result){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function eliminarSeguimiento($id) {
+        include_once ('dtConnection.php');
+        $con = new dtConnection;
+        $prueba = $con->conect();
+
+        $result = $prueba->query("CALL eliminarSeguimiento($id)");
+        if (!$result){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function obtenerSeguimiento($idAdministracion){
         include_once ('dtConnection.php');
         include_once("../../dominio/dSeguimiento.php");

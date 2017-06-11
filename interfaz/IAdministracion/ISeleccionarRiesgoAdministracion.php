@@ -27,32 +27,30 @@
 		        <input id="datosAdministracion" type="text">
         </div>
         <div class="col l4 m4 s4">
-					<a id="boton" href="#" onclick="cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar Analisis" class="btn-floating tooltipped btn-large waves-effect waves-light red" style="float: right;"><i class="material-icons">add</i></a>
+			<a id="boton" href="#" onclick="cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar Administraci&oacute;n" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
 		</div>
 		<div class="col s12 m12 l12 scrollH">
-			<div id="div1">
-				<table class="responsive-table striped responsive2">
-					<thead>
-						<tr>
-							<th>Riesgo</th>
-							<th>Opci&oacuten 1</th>
-							<th>Opci&oacuten 2</th>
-						</tr>
-					</thead>
-					<tbody id="datosAd">
-						<?php 
-							foreach ($lista as $riesgo){
-					            echo "<tr>					        
-						        	<td>".$riesgo->getNombre()."</td>
-					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Administrar\" onclick=\"cargarPagina('../interfaz/IAdministracion/IAdministrarRiesgo.php?idAnalisis=".$riesgo->getId()."')\"/></td>
-					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver Administraciones\" onclick=\"cargarPagina('../interfaz/IAdministracion/IMostrarAdministraciones.php?idAnalisis=".$riesgo->getId()."')\"/></td>
-					    		</tr>";
-							}
-						
-						?>
-					</tbody>
-					</table>
-			</div>
+			<table class="responsive-table striped responsive2">
+				<thead>
+					<tr>
+						<th>Riesgo</th>
+						<th>Opci&oacuten 1</th>
+						<th>Opci&oacuten 2</th>
+					</tr>
+				</thead>
+				<tbody id="datosAd">
+					<?php 
+						foreach ($lista as $riesgo){
+							echo "<tr>					        
+								<td>".$riesgo->getNombre()."</td>
+								<td><input class=\"btn btn-default\" type=\"button\" value=\"Administrar\" onclick=\"cargarPagina('../interfaz/IAdministracion/IAdministrarRiesgo.php?idAnalisis=".$riesgo->getId()."')\"/></td>
+								<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver Administraciones\" onclick=\"cargarPagina('../interfaz/IAdministracion/IMostrarAdministraciones.php?idAnalisis=".$riesgo->getId()."')\"/></td>
+							</tr>";
+						}
+					
+					?>
+				</tbody>
+			</table>
 		</div>
 	</div>
 	<?php  
