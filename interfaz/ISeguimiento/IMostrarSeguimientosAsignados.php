@@ -42,7 +42,7 @@
 			$ri = false;
 		}
 	}
-
+	$arr[] = array();
 	if($administracionRiesgo != null){
 		$i=0;
 		for($i; $i<count($listaAdministracion); $i++){
@@ -58,8 +58,8 @@
 					'NombreMedida' => $listaMedida[$i]->getNombreMedida()
 				);
 		}
-		$ArrayJson = json_encode($arr);
 	}
+	$ArrayJson = json_encode($arr);
 	
  ?>
  <script>	
@@ -78,7 +78,11 @@
 			</ul>
 		</div>
 	</div>	
-	
+	<!--Tabs-->
+	<!-------->
+
+	<!--Cristhoper-->
+	<!-------------->
 	<div id="contenedorSeguimientosAprobador">
 		<div class="row">
 			<?php  
@@ -126,7 +130,11 @@
 			</div>
 		</div>
 	</div>
-	
+	<!--Cristhoper-->
+	<!-------------->
+
+	<!--Victor-->
+	<!---------->
 	<div id="contenedorSeguimientosUsuario">
 		<div class="row">
 			<?php
@@ -165,11 +173,13 @@
 			</div>
 		</div>
 	</div>
-	
+	<!--Victor-->
+	<!---------->
 	<div id="Mmostrar" class="modal  blue darken-3 z-depth-5 white-text"></div>
 	
 <script>
-
+/*Victor
+------*/
 	var idJs;
 	function asignarID(id) {
 		idJs = id;
@@ -182,7 +192,11 @@
 			}
 		}
 	}
+/*Victor
+------*/
 
+/*Cristhoper
+----------*/
 	 $(document).ready(function() {
 	   	 Materialize.updateTextFields();
  	 });
@@ -194,5 +208,6 @@
 	   	$('.modal-trigger').leanModal();
 	   	$('ul.tabs').tabs();
 	});
-
+/*Cristhoper
+----------*/
 </script>

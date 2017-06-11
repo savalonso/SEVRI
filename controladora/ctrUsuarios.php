@@ -46,8 +46,8 @@
 			$usuario->setCargo($_POST['cargo']);
 			$usuario->setTipo($_POST['tipo']);
 	      	$cedula = $_POST['cedula'];
-	      
-	      	$dataUsuario = new dtUsuario();
+	      	
+			$dataUsuario = new dtUsuario();
                
 	      	if($dataUsuario->actualizarUsuario($usuario,$cedula) == true){
 	      		echo 

@@ -19,7 +19,7 @@
 	<script src="../js/jsUsuarios.js?v=3"></script>
 	<script src="../js/jsDepartamento.js?v=1"></script>
 	<script type="text/javascript" src="../js/jsSeguimiento.js?v=1"></script>
-	<script type="text/javascript" src="../js/jsCategoria.js?v=1"></script>
+	<script type="text/javascript" src="../js/jsCategoria.js?v=2"></script>
 	<script type="text/javascript" src="../js/jsParametros.js?v=6"></script>
 	<script type="text/javascript" src="../js/jsHistorial.js?v=1"></script>
 	<script type="text/javascript" src="../js/jquery.validate.min.js?v=1"></script>
