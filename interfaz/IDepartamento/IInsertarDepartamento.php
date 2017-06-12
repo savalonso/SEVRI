@@ -28,15 +28,17 @@
 	 	window.onload=ocultarBarra();
 	 </script>
 
+	<h4>Registrar Departamento</h4>
+
 	<div class="row">
 		<form id="ingresarDepartamento" method="Post" role="form" class="responsive">
 
 			<div class="inputs blue darken-3 col s8 m6 16 z-depth-5">
 
-				<h3>Insertar Departamento</h3>
+				
 
 				<div>
-					<label class="white-text" for="codigo">Codigo:</label>
+					<label class="white-text" for="codigo">C&oacutedigo:</label>
 					<input type="text" name="codigo" id="codigo">
 				</div>
 
@@ -74,8 +76,8 @@
 	            fecha: { required: true}
 	        },
 	        messages: {
-	        	codigo: "Debe introducir el codigo del departamento",
-	            nombre: "Debe introducir el nombre del departamento.",
+	        	codigo: "Se debe ingresar un codigo con un minimo de 5 caracteres y maximo de 45.",
+	            nombre: "Se debe ingresar un nombre con un minimo de 5 caracteres y maximo de 100.",
 	            fecha: "Debe introducir una fecha."
 	        },
 	        submitHandler: function(form){
