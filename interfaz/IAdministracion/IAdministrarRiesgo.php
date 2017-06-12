@@ -71,7 +71,7 @@
 					<?php 
 						echo "<input type=\"hidden\" id=\"analisis\" name=\"analisis\"  value=\"".$idAnalisis."\"/>";
 					 ?>
-					<input type="submit" id="btnGuardar" value="Insertar" class="btn btn-default"><br>
+					<input type="submit" id="btnGuardar" value="Insertar" class="btn btn-default btnAccionCrud"><br>
 				</div>
 				<br>
 			</div>
