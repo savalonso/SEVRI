@@ -124,7 +124,7 @@
 				if($lista!=null && $TempSubCategoria == true){
 			?>
 			<div class="row">
-				<h4>Lista de Sub Categor&iacuteas</h4>
+				<h4>Lista de Subcategor&iacuteas</h4>
 				<div class="input-field buscar1 col s12 m8 l8">
 			        <label class="white-text" for="filtrar">Buscar</label>
 			        <input id="datosSubCategoria"  type="text" >

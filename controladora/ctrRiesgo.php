@@ -29,7 +29,7 @@
 	      	} else {
 	      		echo 
 	      		'	
-	      			Error! No se ha podido insertar el riesgo.
+	      			No se ha insertado el riesgo.
 	      		';
 	      	}
 		}

@@ -169,21 +169,16 @@ function validarInsertarCategoria(){
                 categoria: {required: true},
             },
             messages: {
-                nombre: "Debe introducir un nombre de categor&iacutea mayor de 5 car&aacutecteres.",
-                descripcion: "Debe introducir una descripci&oacuten de categor&iacutea mayor de 20 car&aacutecteres.",
-                tipo: "Debe seleccionar un tipo.",
-                categoria: "Debe seleccionar una sub categor&iacutea.",
+                nombre: "Se debe ingresar un nombre con un mínimo de 5 caracteres y máximo de 100",
+                descripcion: "Se debe ingresar una descripción con un mínimo de 20 caracteres y máximo de 2000",
+                tipo: "Debe seleccionar un tipo",
+                categoria: "Debe seleccionar una subcategor&iacutea",
             },
             submitHandler: function(form){
                 if(document.getElementById('categoria').value==0 && document.getElementById('categoria').disabled==false){
                     Materialize.toast("Debe de seleccionar una categor&iacutea v&aacutelida", 7000,'blue darken-3');
                 }else{
-                    if (!statSend) {
-                        statSend = true;
-                        insertarCategoria();
-                    } else {
-                        Materialize.toast("Ya se esta creando la subcategoria", 7000,'blue darken-3');
-                    }
+                    insertarCategoria();
                 }
             }
         });
@@ -198,9 +193,9 @@ function validarModificarCategoria(){
                 tipo: {required : true},
             },
             messages: {
-                nombre: "Debe introducir un nombre de categor&iacutea mayor de 5 car&aacutecteres.",
-                descripcion: "Debe introducir una descripci&oacuten de categor&iacutea mayor de 20 car&aacutecteres.",
-                tipo: "Debe seleccionar un tipo.",
+                nombre: "Se debe ingresar un nombre con un mínimo de 5 caracteres y máximo de 100",
+                descripcion: "Se debe ingresar una descripción con un mínimo de 20 caracteres y máximo de 2000",
+                tipo: "Debe seleccionar un tipo",
             },
             submitHandler: function(form){
                 if(document.getElementById('categoria').value==0){
@@ -219,10 +214,10 @@ function validarModificarCategoria(){
                 categoria: {required: true},
             },
             messages: {
-                nombre: "Debe introducir un nombre de categor&iacutea mayor de 5 car&aacutecteres.",
-                descripcion: "Debe introducir una descripci&oacuten de categor&iacutea mayor de 20 car&aacutecteres.",
-                tipo: "Debe seleccionar un tipo.",
-                categoria: "Debe seleccionar una sub categor&iacutea.",
+                nombre: "Se debe ingresar un nombre con un mínimo de 5 caracteres y máximo de 100",
+                descripcion: "Se debe ingresar una descripción con un mínimo de 20 caracteres y máximo de 2000",
+                tipo: "Debe seleccionar un tipo",
+                categoria: "Debe seleccionar una subcategor&iacutea",
             },
             submitHandler: function(form){
                 modificarCategoria();

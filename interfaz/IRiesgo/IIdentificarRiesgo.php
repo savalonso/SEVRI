@@ -145,7 +145,7 @@
 
 					<div class="col s12 m12 l12">
 						<div class="inputs blue darken-3 col s6 m6 l6">
-							<input type="submit" id="btnInsertarRiesgo" value="Crear" class="btn btn-default"></br><br>
+							<input type="submit" id="btnInsertarRiesgo" value="Insertar" class="btn btn-default"></br><br>
 						</div>
 					</div>
 
@@ -174,12 +174,12 @@
 		        },
 		        messages: {
 		        	departamentoUsuario: "Debe seleccionar un departamento.",
-		            nombre: "Debe introducir un nombre al riesgo mayor de 10 car&aacutecteres.",
-		            descripcion: "Debe introducir una descripci&oacuten al riesgo mayor de 20 car&aacutecteres.",
-		            estado: "Debe seleccionar un estado.",
-		            monto: "Debe introducir un monto mayor a 1 d&iacutegito y un maximo de 15 d&iacutegitos.",
+		            nombre: "Se debe ingresar un nombre con un mínimo de 10 caracteres y máximo de 100",
+		            descripcion: "Se debe ingresar una descripción con un mínimo de 20 caracteres y máximo de 3000",
+		            estado: "Debe seleccionar un estado",
+		            monto: "Se debe ingresar un monto con un mínimo de 1 dígito y máximo de 15",
 		            categoria: "Debe seleccionar una categor&iacutea.",
-		            causa: "Debe introducir una causa mayor a 20 car&aacutecteres y un maximo de 2000.",
+		            causa: "Se debe ingresar una causa con un mínimo de 20 caracteres y máximo de 2000",
 		        },
 		        submitHandler: function(form){
 		        	if(document.getElementById('departamentoUsuario').value==0){
@@ -206,12 +206,12 @@
 		        },
 		        messages: {
 		        	departamentoUsuario: "Debe seleccionar un departamento.",
-		            nombre: "Debe introducir un nombre al riesgo mayor de 10 car&aacutecteres.",
-		            descripcion: "Debe introducir una descripci&oacuten al riesgo mayor de 20 car&aacutecteres.",
-		            estado: "Debe seleccionar un estado.",
-		            monto: "Debe introducir un monto mayor a 1 d&iacutegito y un maximo de 15 d&iacutegitos.",
-		            subcategoria: "Debe seleccionar una sub categor&iacutea.",
-		            causa: "Debe introducir una causa mayor a 20 car&aacutecteres y un maximo de 2000.",
+		            nombre: "Se debe ingresar un nombre con un mínimo de 10 caracteres y máximo de 100",
+		            descripcion: "Se debe ingresar una descripción con un mínimo de 20 caracteres y máximo de 3000",
+		            estado: "Debe seleccionar un estado",
+		            monto: "Se debe ingresar un monto con un mínimo de 1 dígito y máximo de 15",
+		            subcategoria: "Debe seleccionar una subcategor&iacutea.",
+		            causa: "Se debe ingresar una causa con un mínimo de 20 caracteres y máximo de 2000",
 		        },
 		        submitHandler: function(form){
 		           if(document.getElementById('subcategoria').disabled==false && document.getElementById('subcategoria').value==0){

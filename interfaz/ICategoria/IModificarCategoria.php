@@ -41,11 +41,11 @@
 ?>	
 <script>
 	window.onload=ocultarBarra();
-</script>	
+</script>
+<h4>Modificar Categor&iacutea</h4>	
 <div class="row">
 	<form class="responsive" id="IModificarCategoria" method="Post" role="form">
 		<div class="inputs blue darken-3 col s12 m6 l6 z-depth-5">
-			<h3>Modificar Categor&iacutea</h3>
 			<div >
 				<label for="nombre">Nombre:</label><br>
 				<input type="text" name="nombre" id="nombre" value="<?php echo "$nombre";?>">

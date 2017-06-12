@@ -22,7 +22,7 @@
 			 <table class="responsive-table responsive striped">
 			 	<thead>
 			 		<tr>
-						<th>Limite</th>
+						<th>L&iacutemite</th>
 						<th>Descriptor</th>
 						<th>Descripci&oacuten</th>
 						<th>Color</th>
