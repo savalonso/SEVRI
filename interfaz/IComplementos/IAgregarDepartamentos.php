@@ -22,7 +22,7 @@
 ?>
 <div id="contenedorDepartamentos">
     <div class="row" id="contenedorTablaCategorias">
-    <h3>Departamentos para agregar</h3>
+    <h4>Departamentos para agregar</h4>
         <div class="col s12 m8 l8">
             <div id="div1">
                 <table class="responsive-table responsive striped" id="tbDepartamentos">
@@ -68,7 +68,7 @@
     </div>
 
     <div class="row">
-        <h3>Departamentos Agregados</h3>
+        <h4>Departamentos agregados</h4>
         <div class="col s12 m8 l8">
             <div id="div1">
                 <table class="responsive-table responsive striped" id="tbDepartamentosAgregadas">
