@@ -5,7 +5,6 @@
 	}
 	$idRiesgo = $_GET['idRiesgo'];
 	include ("../../data/dtRiesgo.php");
-	//include ("../../dominio/dRiesgo.php");
 	$control = new dtRiesgo;
 	$lista = $control->getRiesgo($idRiesgo);
 	foreach ($lista as $riesgo) {
@@ -22,8 +21,9 @@
 	include ("../../controladora/ctrDatosSevri.php");
 	$control1 = new ctrDatosSevri;	
 	$listaC =$control1->obtenerTodasLasCategorias();
+	$padre = 0;
 	foreach ($listaC as $categoria) {
-		if($categoria->getIdCategoria()==$subcategoria){
+		if($categoria->getIdCategoria()== $subcategoria && $categoria->getHijoDe() != 0){
 			$padre = $categoria->getHijoDe();
 		}
 		$arr[] = array(
@@ -38,112 +38,127 @@
 <script>
 	window.onload=ocultarBarra();
 </script>
-<div id="divContenedorM" class="divContenedorM">
-	<div id="divMsjCategoria" class="divMsjCategoria">
-		<div id="msjCategoria" class="msjCategoria" style="display:none;"></div>
-	</div>
-	<div id="divMsjSubCategoria" class="divMsjSubCategoria">
-		<div id="msjSubCategoria" class="msjSubCategoria" style="display:none;"></div>
-	</div>
-</div>	
-<div class="row">
-	<form class="responsive" id="IModificarRiesgo" method="Post" role="form">
-		<div class="inputs blue darken-3 col s12 m6 l6 z-depth-5">
-			<h3>Modificar Riesgo</h3>
-			<div >
-				<label for="nombre">Nombre:</label><br>
-				<input type="text" name="nombre" id="nombre" value="<?php echo "$nombre";?>">
+
+	<h4>Modificar Riesgo</h4>
+	<form id="IModificarRiesgo" method="Post" role="form" class="responsive">
+		<div class="row">
+
+			<div class="col s12 m12 l12">
+				<div class="inputs blue darken-3 col s6 m6 l6">
+					<label class="white-text" for="nombre">Nombre:</label>
+					<input type="text" name="nombre" id="nombre" value="<?php echo "$nombre";?>">
+				</div>
 			</div>
 
-			<div class="">
-				<label for="descripcion">Descripci&oacuten:</label>
-				<textarea class="materialize-textarea" rows="10" celds="30" id="descripcion" name="descripcion"><?php echo "$descripcion";?></textarea>
+			<div class="col s12 m12 l12">
+				<div class="inputs blue darken-3 col s6 m6 l6">
+					<label for="descripcion">Descripci&oacuten:</label>
+				<textarea class="materialize-textarea scrollTextArea" rows="10" celds="30" id="descripcion" name="descripcion"><?php echo "$descripcion";?></textarea>
+				</div>
 			</div>
 
-			<div >
-				<label  for="estado">Estado:</label></br></br>
-				<select id="estado" name="estado"> 
-				<?php
-					if($estado=="Activo"){
-						echo"<option selected=\"true\" value=\"1\">Activo</option>";
-						echo"<option value=\"0\">Inactivo</option>";
-					}else{
-						echo"<option value=\"1\">Activo</option>";
-						echo"<option selected=\"true\" value=\"0\">Inactivo</option>";
-					}
-				?>
-					
-				</select>
-			</div>
-
-			<div >
-				<label for="monto">Monto econ&oacutemico en col&oacutenes:</label>
-				‎<input type="text" name="monto" id="monto" onkeyup="format(this)" value="<?php echo "$monto";?>">‎
-			</div>
-			
-			<div >
-				<label  for="categoria">Categor&iacutea:</label></br></br>
-				<select id="categoria" name="categoria" onchange="llenarSelect2(this.value)"> 
-					<option value="0">Seleccione una categor&iacutea...</option>
-				<?php 
-					foreach ($listaC as $categoria){
-						if($categoria->getHijoDe()=="0"){
-							if($categoria->getIdCategoria()==$padre){
-								echo "<option selected=\"true\" value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+			<div class="col s12 m12 l12">
+				<div class="inputs blue darken-3 col s6 m6 l6">
+					<label class="white-text" for="estado">Estado:</label>
+					<select id="estado" name="estado"> 
+						<?php
+							if($estado=="Activo"){
+								echo"<option selected=\"true\" value=\"1\">Activo</option>";
+								echo"<option value=\"0\">Inactivo</option>";
 							}else{
-								echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
-							}	
-						}
-					}
-				?>
-				</select>
+								echo"<option value=\"1\">Activo</option>";
+								echo"<option selected=\"true\" value=\"0\">Inactivo</option>";
+							}
+						?>
+					</select>
+				</div>
 			</div>
-			
+
+			<div class="col s12 m12 l12">
+				<div class="inputs blue darken-3 col s6 m6 l6">
+					<label for="monto">Monto econ&oacutemico:</label>
+				‎	<input type="text" name="monto" id="monto" onkeyup="format(this)" value="<?php echo "$monto"; ?>">‎
+				</div>
+			</div>
+
+			<div class="col s12 m12 l12">
+				<div class="inputs blue darken-3 col s6 m6 l6">
+					<label  for="categoria">Categor&iacutea:</label></br></br>
+					<select id="categoria" name="categoria" onchange="llenarSelect2(this.value)"> 
+						<option value="0" disabled="true">Seleccione una categor&iacutea...</option>
+					<?php 
+						foreach ($listaC as $categoria){
+							if($categoria->getHijoDe()=="0"){
+								if($categoria->getIdCategoria()==$subcategoria){
+									echo "<option selected=\"true\" value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								}else{
+									echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								}	
+							}
+						}
+					?>
+					</select>
+				</div>
+				<div class="inputs col s6 m6 l6" style="padding: 10px;">
+					<p id="opcion_Cat" class="blue z-depth-5" style="padding: 10px; padding-right: 10px; margin: 0px; display: none;"></p>
+				</div>
+			</div>
+
+			<div <?php if ($padre == 0) { ?> style="display:none" <?php } ?> id="contenedorSubcategoria" class="col s12 m12 l12" >
+				<div class="inputs blue darken-3 col s6 m6 l6">
+					<label  for="subcategoria">Sub Categor&iacutea:</label>
+					<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)">
+					<option value="0" disabled="true">Seleccione una sub categor&iacutea...</option> 
+					<?php 
+						foreach ($listaC as $categoria){
+							if($categoria->getHijoDe()!= 0){
+								if($categoria->getIdCategoria()==$subcategoria){
+									echo "<option selected=\"true\" value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								}else{
+									echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
+								}	
+							}
+						}
+					?>
+					</select>
+				</div>
+
+				<div class="inputs col s6 m6 l6" style="padding: 10px;">
+					<p id="opcion_Sub" class="blue z-depth-5" style="padding: 10px; padding-right: 10px; margin: 0px; display: none;"></p>
+				</div>
+			</div>
+
+			<div class="col s12 m12 l12">
+				<div class="inputs blue darken-3 col s6 m6 l6">
+					<label class="white-text" for="causa">Causa:</label>
+							<textarea class="materialize-textarea scrollTextArea" rows="10" cels="30" id="causa" name="causa" ><?php echo "$causa"; ?></textarea>
+				</div>
+			</div>
+
 			<div>
-				<label  for="subcategoria">Sub Categor&iacuteas:</label></br></br>
-				<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)">
-				<option value="0">Seleccione una sub categor&iacutea...</option> 
-				<?php 
-					foreach ($listaC as $categoria){
-						if($categoria->getHijoDe()==$padre){
-							if($categoria->getIdCategoria()==$subcategoria){
-								echo "<option selected=\"true\" value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
-							}else{
-								echo "<option value=".$categoria->getIdCategoria()." >".$categoria->getNombreCategoria()."</option>";
-							}	
-						}
-					}
-				?>
-				</select>
-			</div>
-
-			<div >
-				<label for="causa">Causa:</label>
-				<textarea class="materialize-textarea" rows="10" cels="30" id="causa" name="causa"><?php echo "$causa";?></textarea>
-			</div>
-
-			<div >
 				<input type="hidden" name="id" id="id" value="<?php echo "$idRiesgo";?>">
 			</div>
-			<div>
-			<?php
-				echo "<button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";
-			?>
+
+			<div class="col s12 m12 l12">
+				<div class="inputs blue darken-3 col s6 m6 l6">
+					<?php echo "<button type=\"button\" class=\"btnEliminar\" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?> 
+				</div><br><br>
 			</div>
-			<br>
+
+			<div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
+				<div class="modal-content">
+					<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
+				</div>
+				<div class="modal-footer blue darken-3 z-depth-5">
+					<input type="hidden" id="idRiesgo" name="idRiesgo">
+				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" />
+				</div>
+			</div>
+
 		</div>
 	</form>
-	<div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
-		<div class="modal-content">
-			<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
-		</div>
-		<div class="modal-footer blue darken-3 z-depth-5">
-			<input type="hidden" id="idRiesgo" name="idRiesgo">
-		 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-		 	<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="modificarRiesgo()"/>
-		</div>
-	</div>
-</div>
+
 
 <script>
 	$( document ).ready(function(){
@@ -153,7 +168,7 @@
 	});
 	$(document).ready(function() {
 	    if(document.getElementById('subcategoria').disabled==true){
-			$("#IIdentificarRiesgo").validate({
+			$("#IModificarRiesgo").validate({
 		        rules: {
 		            nombre: { required: true,minlength: 10, maxlength: 100},
 		            descripcion: { required:true,minlength: 20, maxlength: 3000},
@@ -179,7 +194,7 @@
 		        }
 		    });
 		}else{
-			$("#IIdentificarRiesgo").validate({
+			$("#IModificarRiesgo").validate({
 		        rules: {
 		            nombre: { required: true,minlength: 10, maxlength: 100},
 		            descripcion: { required:true,minlength: 20, maxlength: 3000},
@@ -197,8 +212,8 @@
 		            causa: "Debe introducir una causa mayor a 20 car&aacutecteres y un maximo de 2000.",
 		        },
 		        submitHandler: function(form){
-		           if(document.getElementById('categoria').value==0){
-		        		Materialize.toast("Debe de seleccionar una categor&iacutea v&aacutelida", 7000,'blue darken-3');
+		           if(document.getElementById('subcategoria').disabled==false && document.getElementById('subcategoria').value==0){
+		        		Materialize.toast("Debe de seleccionar una subcategor&iacutea v&aacutelida", 7000,'blue darken-3');
 		        	}else{
 		        		modificarRiesgo();
 		        	}
@@ -208,60 +223,58 @@
 	});
 	function llenarSelect2(valor){
 		var categorias = eval(<?php echo $ArrayJson ?>);
+		var tieneHijos = false;
 		if(valor == 0){
 			 document.getElementById("subcategoria").disabled=true;
 		}else{
 			document.getElementById("subcategoria").options.length=0;
 			document.getElementById("subcategoria").options[0]=new Option("Selecciona una subcategoria", "0");
+			document.getElementById("subcategoria").options[0].disabled = true;
 			 for(i=0;i<categorias.length;i++){
-          		 if(categorias[i].padre == valor){
+				if(categorias[i].padre == valor){
+          		 	document.getElementById('contenedorSubcategoria').style.display = "";
                 	document.getElementById("subcategoria").options[document.getElementById("subcategoria").options.length]=
                 	new Option(categorias[i].nombre,categorias[i]._id);
+                	tieneHijos = true;
            		}
+
            		document.getElementById("subcategoria").disabled=false;
+       		}
+       		if (!tieneHijos) {
+       			document.getElementById("subcategoria").disabled=true;
+       			document.getElementById('contenedorSubcategoria').style.display = 'none';
        		}
 		}
 		$('select').material_select();
 
 		if(valor==0){
-			$("#msjCategoria").hide();
+			$("#opcion_Cat").hide();
 		}else{
-			$("#msjCategoria").show();
-			setTimeout(function() {
-				$("#msjCategoria").fadeOut(5);
-			},5000);
-		}
-		var categorias = eval(<?php echo $ArrayJson ?>);
-		for (i=0;i<categorias.length;i++) {
-			if(categorias[i]._id==valor){
-				document.getElementById('msjCategoria').innerHTML = categorias[i].descripcion;
+			for (i=0;i<categorias.length;i++) {
+				if(categorias[i]._id==valor){
+					$("#opcion_Cat").show();
+					$("#opcion_Cat").text(categorias[i].descripcion);
+					setTimeout(function() {
+						$("#opcion_Cat").fadeOut(5);
+					},10000);
+				}
 			}
 		}
 	}
-	function format(input){
-		var num = input.value.replace(/\./g,'');
-		if(!isNaN(num)){
-			num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
-			num = num.split('').reverse().join('').replace(/^[\.]/,'');
-			num = num.replace(/\./g,'.');
-			input.value = num;
-		}else{ 
-			input.value = input.value.replace(/[^\d\.]*/g,'');
-		}
-	}
+
 	function mostrarSubcategoria(id){
-		if(id==0){
-			$("#msjSubCategoria").hide();
-		}else{
-			$("#msjSubCategoria").show();
-			setTimeout(function() {
-				$("#msjSubCategoria").fadeOut(5);
-			},5000);
-		}
 		var categorias = eval(<?php echo $ArrayJson ?>);
-		for (i=0;i<categorias.length;i++) {
-			if(categorias[i]._id==id){
-				document.getElementById('msjSubCategoria').innerHTML = categorias[i].descripcion;
+		if(id==0){
+			$("#opcion_Sub").hide();
+		}else{
+			for(i=0;i<categorias.length;i++){
+				if(categorias[i]._id==id){
+					$("#opcion_Sub").show();
+					$("#opcion_Sub").text(categorias[i].descripcion);
+					setTimeout(function() {
+						$("#opcion_Sub").fadeOut(5);
+					},10000);
+				}
 			}
 		}
 	}

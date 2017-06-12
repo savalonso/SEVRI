@@ -21,7 +21,12 @@
 		window.onload=ocultarBarra();
 	</script>			
 	<div class="row">
-		<h2>A&ntilde;adir riesgo de versi&oacuten antigua.</h2>
+		<h4>A&ntilde;adir riesgo de versi&oacuten antigua.</h4>
+
+		<?php
+			if ($lista != null) {
+		 ?>
+
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<div>
 				<label class="white-text" for="sevri">Seleccione una versi&oacuten de SEVRI:</label>
@@ -54,10 +59,10 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
 		<?php  
 			if($lista!=null){
 		?>
+		<div class="col s12 m12 l12 blue darken-3 z-depth-5">
 			<div id="div1">
 				<table class="responsive-table centered bordered" id="tabla">
 					<thead>
@@ -85,15 +90,26 @@
 							}
 						?>
 					</tbody>
-					</table>
+				</table>
 			</div>
 				<?php  
 					}else{
-						echo "<h3>A&uacuteN NO HAY RIESGOS IDENTIFICADOS EN VERSIONES ANTERIORES</h3>";
+						echo "<h4>A&uacuten no hay versiones anteriores del SEVRI con riesgos identificados.</h4>";
 					}
 				?>
 		</div>
 	</div>
+	
+	<?php 
+		}else{ 
+	?>
+	
+	<h4>A&uacuten no hay versiones anteriores del SEVRI con riesgos identificados.</h4>
+
+	<?php 
+		} 
+	?>
+
 	<script>
   		$(document).ready(function(){
 	  		$('.modal-trigger').leanModal();

@@ -1,5 +1,6 @@
 
 function insertarSevri(){
+    document.getElementById('btnCrearSevri').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IcrearSevri")); 
     formData.append("opcion", 1);

@@ -111,7 +111,7 @@ foreach ($listaUsuarios as $usuario) {
 ?>">
 			</div>
             <div>
-				<a class="waves-effect waves-light btn modal-trigger" href="#Mconfirmar">Modificar</a></br></br>
+				<a class="waves-effect waves-light btn modal-trigger" id="btnModificarUsuario" href="#Mconfirmar">Modificar</a></br></br>
 			</div>
             <div id="Mconfirmar" class="modal blue darken-3 z-depth-5 white-text">
 				<div class="modal-content">

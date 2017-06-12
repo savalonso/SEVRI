@@ -20,6 +20,7 @@ function insertarParametros(){
 }
 
 function modificarParametro(){
+    document.getElementById('btnModificarParametro').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var idParametro = document.getElementById('idParametro').value;
     var formData = new FormData(document.getElementById("modificarParametro")); 
@@ -41,6 +42,7 @@ function modificarParametro(){
 }
 
 function eliminarParametro(){
+    document.getElementById('btnEliminarParametro').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     var idParametro = document.getElementById('idParametro').value;

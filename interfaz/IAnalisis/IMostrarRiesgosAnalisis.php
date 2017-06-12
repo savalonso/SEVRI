@@ -8,18 +8,24 @@
 
 
 <?php 
+
 	$cedula=$_SESSION['idUsuario'];
 	include("../../controladora/ctrListaDepartamento.php");
 	$controlDepartamentos=new ctrListaDepartamento;
 	$listaDepartamentos=$controlDepartamentos->obtenerListaDepartamentosUsuario($cedula);
 	if($listaDepartamentos==null){
-		echo "<h4>Usted no pertenece a ning&uacuten departamento.</h4>";
+		echo "<h3>Usted no pertenece a ning&uacuten departamento.</h3>";
 	}else{
 
 ?>
 
 <div class="row">
+	<div class="col l12 m12 s12">
+		<h4>An&aacutelizar Riesgo</h4>
+	</div>
+
 	<div class="col l6 m6 s12">
+		<label for="departamentos" class="white-text">Departamento:</label>
 		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAnalisis()">
 			<option value="0" disabled="true" selected>Seleccione un departamento</option>
 			<?php
@@ -37,6 +43,5 @@
 <script>
 	window.onload=ocultarBarra();
 	$( document ).ready(function(){
-		$('select').material_select();}
-	);
+	$('select').material_select();});
 </script>
