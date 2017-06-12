@@ -47,7 +47,7 @@
 						if($NivelRiesgo[$i]->getIdDivisiones() == $idDivicion){		
 							if($NivelRiesgo[$i]->getEsEditable() == true){
 							echo "<tr>";
-								echo "<td colspan=\"4\">"."<input class=\"btn btn-default\" type=\"button\" id=\"btnModificarNivel\" value=\"Modificar\" onclick=\"invocarDivModificarNivel()\"/>"."<button type=\"button\" id=\"btnEliminarNivel\" style=\"padding:0 10px\"class=\"btnEliminar\" onclick=\"pasarIdParaEliminarNivel('".$idDivicion."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#MeliminarNivel\">Eliminar</a> </button>"."</td>";
+								echo "<td colspan=\"4\">"."<input class=\"btn btn-default\" type=\"button\" id=\"btnModificarNivel\" value=\"Modificar\" onclick=\"invocarDivModificarNivel()\"/>"."<button type=\"button\" id=\"btnEliminarNivel\" style=\"padding:0 10px\"class=\"btnEliminar\" onclick=\"pasarIdParaEliminarNivel('".$idDivicion."')\"><a class=\" btnModal waves-effect waves-light btn modal-trigger\" href=\"#MeliminarNivel\">Eliminar</a> </button>"."</td>";
 							echo "</tr>";
 							$i=count($NivelRiesgo);	
 						}else{
@@ -127,7 +127,7 @@
 			</div>
 			 
 			<div>
-				<button type="button" class="btnModificar" ><a class="waves-effect waves-light btn modal-trigger" href="#MmodificarNivel">Modificar Niveles</a></button><br>
+				<button type="button" class="btnModificar" ><a class="btnModal waves-effect waves-light btn modal-trigger" href="#MmodificarNivel">Modificar Niveles</a></button><br>
 			</div>
 			 
 		</div>

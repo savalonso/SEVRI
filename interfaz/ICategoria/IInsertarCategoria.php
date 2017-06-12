@@ -86,7 +86,7 @@
 					</div>
 							
 					<div>
-						<input type="submit" value="Insertar" id="btnInsertarCategoria" class="btn waves-effect ligth-waves" ></br></br>
+						<input type="submit" value="Insertar" id="btnInsertarCategoria" class="btnAccionCrud btn waves-effect ligth-waves" ></br></br>
 					</div>
 				</div>
 			</form>

@@ -120,11 +120,13 @@
 			$listaSevriNivel = $dataNivel->getSevriNivel();
 
 			$vinculados = array();
- 			$encontrado = false;
+ 			$encontrado = false; 
+ 			
+ 			
  			if (!empty($listaSevriNivel)) { 
- 				for ($i=0; $i < count($listaNivel) ; $i++) {
-			         for ($j=0; $j < count($listaSevriNivel) ; $j++) { 
-						
+ 				for ( $i=0; $i < count($listaNivel); $i++ ) {
+			         for ( $j=0 ; $j < count($listaSevriNivel); $j++ ) { 
+							
 			         	$temp = $listaSevriNivel[$j];
 			         	if ($listaNivel[$i]->getIdDivisiones() == $temp['idDivicion']) {
 			         		$listaNivel[$i]->setEsEditable(false);
@@ -146,6 +148,7 @@
 			if(!$vinculados){
 				return false;
 			}else{
+
 				return $vinculados;
 			}
 		}

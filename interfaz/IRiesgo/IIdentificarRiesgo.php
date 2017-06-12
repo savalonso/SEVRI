@@ -145,7 +145,7 @@
 
 					<div class="col s12 m12 l12">
 						<div class="inputs blue darken-3 col s6 m6 l6">
-							<input type="submit" id="btnInsertarRiesgo" value="Insertar" class="btn btn-default"></br><br>
+							<input type="submit" id="btnInsertarRiesgo" value="Insertar" class="btnAccionCrud btn btn-default"></br><br>
 						</div>
 					</div>
 
