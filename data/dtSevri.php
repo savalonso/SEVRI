@@ -190,7 +190,6 @@
 			$conexion = $con->conect();
 			$query = "CALL eliminarSevri('$id')";
 			$result = mysqli_query($conexion, $query);
-			
 			mysqli_close($conexion);
 
 			if (!$result){

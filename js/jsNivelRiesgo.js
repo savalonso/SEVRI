@@ -1,6 +1,6 @@
 function agregarNivelesRiesgo(){
 	document.getElementById('barraCargando').style.display="";
-	
+	document.getElementById('btnGuardar').disabled = true;
 	var nivelesRiesgoJSON = JSON.stringify(crearLiNivRiesgoInsertar());
 	var formData = new FormData();
     formData.append("opcion", 1);
@@ -22,7 +22,7 @@ function agregarNivelesRiesgo(){
 
 function modificarNivelesRiesgo(){
 	document.getElementById('barraCargando').style.display="";
-	
+	document.getElementById('btnModificarNivel').disabled = true;
 	var nivelesRiesgoJSON = JSON.stringify(crearLiNivRiesgoModificar());
 	var formData = new FormData();
     formData.append("opcion", 4);
@@ -44,6 +44,7 @@ function modificarNivelesRiesgo(){
 
 function eliminarNivelRiesgo(){
 	document.getElementById('barraCargando').style.display="";
+	document.getElementById('btnEliminarNivel').disabled = true;
 	var formData = new FormData();
 	var idDivision = document.getElementById('idDivision').value;
     formData.append("opcion", 5);

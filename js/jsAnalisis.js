@@ -1,4 +1,5 @@
 function insertarAnalisis(){
+    document.getElementById('btnGuardarAnalisis').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IAnalisisRiesgo"));
     formData.append("opcion", 1);
@@ -51,6 +52,7 @@ function paginaModificarAnalisis(IdAnalisis){
 }
 
 function modificarAnalisis(){
+    document.getElementById('btnModificarAnalisis').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById('IModificarAnalisis'));
     formData.append("opcion", 2);
@@ -70,6 +72,7 @@ function modificarAnalisis(){
     }
 
     function eliminarAnalisis(idAnalisisForm){
+        document.getElementById('btnEliminarAnalisis').disabled = true;
         document.getElementById('barraCargando').style.display="";
         var idAnalisis = idAnalisisForm;
         var formData = new FormData(); 
