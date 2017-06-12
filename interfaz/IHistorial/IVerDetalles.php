@@ -35,27 +35,31 @@
 				$calificacion = $analisis->getCalificacionMedida();
 			}
 		}
-		include("../../logica/logicaParametros.php");
-		$logicaP = new logicaParametros;
-		$valorFormula = $logicaP->obtenerValorFormulaHistorial($idSevri);
 
-		include("../../data/dtNivelRiesgo.php");
-		$dataN = new dtNivelRiesgo;
-		$listaNivel = $dataN->getNivelesHistorial($idSevri);
+		if(isset($probabilidad)){
+			include("../../logica/logicaParametros.php");
+			$logicaP = new logicaParametros;
+			$valorFormula = $logicaP->obtenerValorFormulaHistorial($idSevri);
 
-		$mensaje = '';
-		$limiteInicial = 0;
-		$contador = 1;
-		$cantidadDivisiones = count($listaNivel);
-		$resultadoOperacion = round(($impacto*$probabilidad)/1*$valorFormula);
-		foreach ($listaNivel as $nive) {
-			if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nive->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
-				$mensaje = $resultadoOperacion."%: ".$nive->getDescriptor();
+			include("../../data/dtNivelRiesgo.php");
+			$dataN = new dtNivelRiesgo;
+			$listaNivel = $dataN->getNivelesHistorial($idSevri);
+
+			$mensaje = '';
+			$limiteInicial = 0;
+			$contador = 1;
+			$color = '';
+			$cantidadDivisiones = count($listaNivel);
+			$resultadoOperacion = round(($impacto*$probabilidad)/1*$valorFormula);
+			foreach ($listaNivel as $nive) {
+				if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nive->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
+					$mensaje = $resultadoOperacion."%: ".$nive->getDescriptor();
+					$color = $nive->getColor();
+				}
+				$contador++;
+				$limiteInicial = $nive->getLimite();
 			}
-			$contador++;
-			$limiteInicial = $nive->getLimite();
 		}
-		echo ($mensaje);
 	?>
 	<script>
 		window.onload=ocultarBarra();
@@ -85,7 +89,7 @@
 						<h5>Impacto:</h5>
 						<p><?php echo "$impacto"; ?></p><hr>
 						<h5>Nivel:</h5>
-						<p><?php echo"$nivel"; ?></p><hr>
+						<div style="background-color: <?php echo $color; ?>"><p><?php echo"$mensaje"; ?></p></div><hr>
 						<h5>Medida de control:</h5>
 						<p><?php echo "$medida"; ?></p><hr>
 						<h5>Calificaci&oacuten medida:</h5>
