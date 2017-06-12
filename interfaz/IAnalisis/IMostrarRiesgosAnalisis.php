@@ -20,7 +20,12 @@
 ?>
 
 <div class="row">
+	<div class="col l12 m12 s12">
+		<h4>An&aacutelizar Riesgo</h4>
+	</div>
+
 	<div class="col l6 m6 s12">
+		<label for="departamentos" class="white-text">Departamento:</label>
 		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAnalisis()">
 			<option value="0" disabled="true" selected>Seleccione un departamento</option>
 			<?php

@@ -28,6 +28,13 @@ function insertarRiesgo(){
 
     var cate = document.getElementById("subcategoria").value;
 
+    var monto = document.getElementById('monto').value;
+    if (monto.length == 0 || monto.length == 1) {
+        formData.append("montoE",0);
+    }else{
+        formData.append("montoE",monto);
+    }
+
     var IdDepartamento=document.getElementById("departamentoUsuario").value;
 
     formData.append("idDepartamento",IdDepartamento);
@@ -50,24 +57,6 @@ function insertarRiesgo(){
     }).done(function(data) {
         cargarPagina('../interfaz/IRiesgo/IMostrarRiesgosDepartamento.php');
         Materialize.toast(data, 7000,'blue darken-3');
-        document.getElementById('barraCargando').style.display="none";
-    });
-}
-
-
-function modificarRiesgoConsulta(id){
-    document.getElementById('barraCargando').style.display="";  
-    var formData = new FormData(document.getElementById("IListaModificarRiesgo"));
-    formData.append("idRiesgo", id);
-    $.ajax({
-        url : "../interfaz/IRiesgo/IModificarRiesgo.php",
-        type : "post",
-        dataType : "html",
-        data : formData,
-        cache : false,
-        contentType : false,
-        processData : false
-    }).done(function(data) {
         document.getElementById('barraCargando').style.display="none";
     });
 }
@@ -105,6 +94,22 @@ function modificarRiesgo(){
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IModificarRiesgo")); 
     var id = document.getElementById("idRiesgo").value;
+
+    var cate = document.getElementById("subcategoria").value;
+    if(cate!=0){
+        formData.append("sub", cate);
+    }else{
+        cate = document.getElementById("categoria").value;
+        formData.append("sub", cate);
+    }
+
+    var monto = document.getElementById('monto').value;
+    if (monto.length == 0 || monto.length == 1) {
+        formData.append("montoE",0);
+    }else{
+        formData.append("montoE",monto);
+    }
+
     formData.append("idRiesgo", id);
     formData.append("opcion", 4);
     $.ajax({
@@ -125,27 +130,6 @@ function confirmarModificacionEliminacion(idRiesgo){
     document.getElementById('idRiesgo').value = idRiesgo;
 }
 
-function cargarPaginaAñadirRiesgo(){
-    
-    document.getElementById('barraCargando').style.display="";
-    document.getElementById('añadir').style.display="none";
-    var formData = new FormData();
-    var id=document.getElementById("idRiesgo").value;
-  
-    formData.append("idRiesgo",id);
-    $.ajax({
-        type : "post",
-        dataType : "html",
-        data : formData,
-        cache : false,
-        contentType : false,
-        processData : false
-    }).done(function(data){
-        cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php');
-        document.getElementById('barraCargando').style.display="none";
-    });
-
-}
 
 function cancelarModificar(){
     document.getElementById('contenedorConfirmacion').style.display = 'none';
@@ -163,6 +147,20 @@ function cargarGUIMostrarRiesgos(){
 
 
 }
+
+function format(input){
+        var num = input.value.replace(/\./g,'');
+        input.value = num;
+        num = input.value.replace(/\₡/g,'');
+        if(!isNaN(num)){
+            num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
+            num = num.split('').reverse().join('').replace(/^[\.]/,'');
+            num = num.replace(/\./g,'.');
+            input.value ='₡'+num;
+        }else{ 
+            input.value = input.value.replace(/[^\d\.]*/g,'');
+        }
+    }
 
 function cargarGUIMostrarRiesgosAnalisis(){
 

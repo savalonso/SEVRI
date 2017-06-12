@@ -13,11 +13,6 @@
 		include("../../controladora/ctrListaRiesgo.php");
 		$control=new ctrListaRiesgo;
 		$listaRiesgos=$control->obtenerRiesgosDepartamento($idDepartamento);
-
-		if(empty($listaRiesgos)){
-		
-			echo "<br><br><br><h3>No se han ingresado riesgos en este departamento.</h3>";
-		}else{
 		
 ?>
 
@@ -26,20 +21,19 @@
 </script>
 
 	<div class="row">
-
-		<div class="col l8 m8 s8">
-				<h4>Lista de riesgos</h4>
-		</div>
+	<?php 
+		if(empty($listaRiesgos)){
+			?>
+			<div class="col s8 m8 l8">
+				<h4>No se han ingresado riesgos en este departamento.</h4>
+			</div>
+	<?php
+		}else{
+	 ?>
 		<div class="input-field buscar1 col s12 m8 l8">
 	        <label class="white-text" for="filtrar">Buscar</label>
 	        <input id="datosRiesgos" type="text" >
     	</div>
-
-    	<div class="col l4 m4 s4">
-    		<div id="añadir">
-    			<a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light red" data-tooltip="Agregar riesgos de versiones antiguas." style="float: right; margin-top: 22px;"><i class="material-icons" onclick="cargarPaginaAñadirRiesgo()">add</i></a>
-    		</div>
-		</div>
 
 		<div class="col s12 m12 l12 scrollH">
 			<div>

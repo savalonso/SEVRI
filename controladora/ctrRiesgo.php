@@ -14,7 +14,7 @@
     		$mriesgo->setIdCategoria($_POST['sub']);
 	      	$mriesgo->setNombre($_POST['nombre']);
 	      	$mriesgo->setDescripcion($_POST['descripcion']);
-	      	$montoTemp =str_replace(".","",$_POST['monto']);
+	      	$montoTemp =str_replace(".","",$_POST['montoE']);
 	      	$mriesgo->setMontoEconomico(str_replace("₡","",$montoTemp));
 	      	$mriesgo->setEstaActivo($_POST['estado']);
 	      	$mriesgo->setCausa($_POST['causa']);
@@ -58,7 +58,7 @@
 	      	} else {
 	      		echo 
 	      		'	
-	      			Error! No se ha podido eliminar el riesgo.
+	      			No se puede elliminar, este riesgo ha sido analizado. 
 	      		';
 	      	}
 		}
@@ -72,11 +72,10 @@
 		function modificarRiesgo(){
 	      	$mriesgo = new dRiesgo;
 	      	$mriesgo->setId($_POST['id']);
-    		$mriesgo->setIdDepartamento("1");
-    		$mriesgo->setIdCategoria($_POST['subcategoria']);
+    		$mriesgo->setIdCategoria($_POST['sub']);
 	      	$mriesgo->setNombre($_POST['nombre']);
 	      	$mriesgo->setDescripcion($_POST['descripcion']);
-	      	$montoTemp =str_replace(".","",$_POST['monto']);
+	      	$montoTemp =str_replace(".","",$_POST['montoE']);
 	      	$mriesgo->setMontoEconomico(str_replace("₡","",$montoTemp));
 	      	$mriesgo->setEstaActivo($_POST['estado']);
 	      	$mriesgo->setCausa($_POST['causa']);
