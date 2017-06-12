@@ -199,6 +199,20 @@
 				return true;
 			}
 		}
+
+		function obtenerIdSevriActivo(){
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerIdSevriActivo()";
+			$result = mysqli_query($conexion, $query);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$id = $row['Id'];
+
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+
+			return $id;
+		}
 	}	
 
 
