@@ -60,7 +60,7 @@
 	<script>
 		window.onload=ocultarBarra();
 	</script>	
-	<h2>Detalles del riesgo.</h2>		
+	<h4>Detalles del riesgo.</h4>		
 	<div class="row">
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<h5>Nombre:</h5>

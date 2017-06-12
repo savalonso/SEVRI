@@ -308,7 +308,7 @@
 				 </div>
 				<div>
 					<input type="hidden" name="idParametro" id="idParametro">
-					<button type="button" id="btnEliminarParametro" class="btnEliminar"><a class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a></button>
+					<a id="btnModificarParametro" class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a>
 					<input type="button" value="Canelar" class="btn btn-default" onclick="ocultarDiv()"><br>
 				</div>
 			</div><br>

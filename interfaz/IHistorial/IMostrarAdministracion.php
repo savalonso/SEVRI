@@ -12,10 +12,10 @@
 	window.onload=ocultarBarra();
 </script>
 <div class="row">
-	<h2>Administraci&oacuten(es) del riesgo.</h2>
+	<h4>Administraci&oacuten(es) del riesgo.</h4>
 	<?php  
 		if($lista==null){
-				echo "NO HAY ADMINISTRACIONES PARA ESTE REISGO.";
+				echo "No hay administraciones para este riesgo.";
 		}else{
 	?>
 	<table class="responsive-table centered bordered">

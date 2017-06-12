@@ -26,7 +26,7 @@
        $añoActual = date("Y");
 	 ?>
 	
-	 <h1>Modificar SEVRI</h1>
+	 <h4>Modificar SEVRI</h4>
 
 	 <div class="row">
 	 	<form id="actualizarSevri" method="POST">
@@ -42,7 +42,7 @@
 	 				<input type="date" id="fecha" name="fecha" placeholder="<?php echo "Dato:"."$fecha"; ?>" value="<?php echo "$fecha"; ?>" min="<?php echo $fecha; ?>" max="<?php echo date("Y")."-12-"."31"; ?>"></label>
 	 			</div>
 	 			<div>
-	 				<a class="waves-effect waves-light btn modal-trigger" href="#Mconfirmar">Actualizar</a>
+	 				<a class="waves-effect waves-light btn modal-trigger" href="#Mconfirmar">Modificar</a>
 	 			</div>
 	 			<input type="number" id="id" name="opcion" value="<?php echo "$id"; ?>" style="display:none">
 	 			<div id="Mconfirmar" class="modal blue darken-3 z-depth-5 white-text">
@@ -64,25 +64,8 @@
 			
 		</div>
 		<script>
-		$(document).ready(function() {
-	    $("#actualizarSevri").validate({
-	        rules: {
-	            nombre: { required: true, minlength: 5, maxlength: 100},
-	            fecha: { required: true}
-	        },
-	        messages: {
-	            nombre: "Debe introducir el nombre del SEVRI.",
-	            fecha: "Debe introducir una fecha."
-	        },
-	        submitHandler: function(form){
-	           actualizarSevri();
-	        }
-	    });
-		});
-		$(function(){
-		  $('#nombre').mask('SEVRI-<?= $añoActual ?>-99');
-		});
-		$(document).ready(function(){
-   		  $('.modal-trigger').leanModal();
-  		});
+	  		$(function(){
+			  $('#nombre').mask('SEVRI-<?= $añoActual ?>-99');
+			});
 		</script>
+	<script type="text/javascript" src="../js/jsSevri.js"></script>
