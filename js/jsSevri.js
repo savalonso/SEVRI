@@ -449,3 +449,47 @@ function ocultarTooltip(){
   tooltip.style.display="none";
 }
 
+// validacion del formulario de insertar SEVRI
+$(document).ready(function() {
+      $("#IcrearSevri").validate({
+          rules: {
+              nombre: { required: true, minlength: 13, maxlength: 100},
+              fecha: { required: true}
+          },
+          messages: {
+              nombre: "Se debe ingresar un nombre con un mínimo de 13 caracteres y máximo de 100.",
+              fecha: "Se debe seleccionar una fecha mayor o igual a la fecha actual."
+          },
+          submitHandler: function(form){
+             insertarSevri();
+          }
+      });
+  });
+   $(document).ready(function() {
+       Materialize.updateTextFields();
+   });
+   $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+   });
+
+//validacion de modificar SEVRI 
+$(document).ready(function() {
+      $("#actualizarSevri").validate({
+          rules: {
+              nombre: { required: true, minlength: 5, maxlength: 100},
+              fecha: { required: true}
+          },
+          messages: {
+              nombre: "Se debe ingresar un nombre con un mínimo de 13 caracteres y máximo de 100.",
+              fecha: "Se debe seleccionar una fecha mayor o igual a la fecha actual."
+          },
+          submitHandler: function(form){
+             actualizarSevri();
+          }
+      });
+    });
+    
+    $(document).ready(function(){
+        $('.modal-trigger').leanModal();
+      });

@@ -203,9 +203,9 @@ class LogicaSevri{
 		if($correcto){
 			$resultado = $dataSevri->insertarSevri($sevri);
 			if($resultado){
-				$mensaje = 'CORRECTO!! EL SEVRI se ha creado correctamente';
+				$mensaje = 'Se ha insertado correctamente el SEVRI';
 			}else{
-				$mensaje = 'ERROR!! No se ha podido crear el SEVRI';
+				$mensaje = 'No se ha insertado el SEVRI';
 			}
 		}else{
 			$mensaje = 'Lo sentimos no se puede crear el sevri porque ya existe otro sevri en el cual no se ha efectuado ningun proceso.';
