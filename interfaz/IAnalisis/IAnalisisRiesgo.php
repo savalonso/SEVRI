@@ -18,7 +18,6 @@
 	$listaNiveles = $controlDatos->obtenerNivelesSevriActivo();
 	$maximaProbabilidad = 0;
 	$maximoImpacto = 0;
-
 	foreach ($listaParametros as $parametro) {
 		if (strcmp ($parametro->getNombreParametro() , "Probabilidad" ) == 0) {
 			if($maximaProbabilidad < $parametro->getValorParametro()){
@@ -129,7 +128,7 @@
 		</div>
 		<div class="col s12 m12 l12">
 			<div class="inputs blue darken-3 col s6 m6 l6">
-				<input type="submit" value="Insertar" class="btn btn-default"><br><br>
+				<input type="submit" value="Guardar" id="btnGuardarAnalisis" class="btn btn-default"><br><br>
 			</div>
 			<div class="inputs col s6 m6 l6"></div>
 		</div>

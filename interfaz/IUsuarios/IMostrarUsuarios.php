@@ -97,7 +97,7 @@ $listaUsuarios = $control->obtenerListaUsuarios();
                                         <input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"cargarPagina('../interfaz/IUsuarios/IModificarUsuario.php?cedula=".$usuario->getCedula()."')\"/></td>
                                     </td>
                                     <td>
-                                        <a class=\"waves-effect waves-light btn modal-trigger\" onclick=\" asignarID(".$usuario->getCedula().")\" href=\"#Meliminar\">Eliminar</a>
+                                        <a class=\"waves-effect waves-light btn modal-trigger\" id=\"btnEliminarUsuario\" onclick=\" asignarID(".$usuario->getCedula().")\" href=\"#Meliminar\">Eliminar</a>
                                     </td>
                                 </tr>";
                         }

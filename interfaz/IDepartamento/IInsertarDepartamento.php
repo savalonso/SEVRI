@@ -51,7 +51,7 @@
 				</div>
 				
 				<div>
-					<input type="submit" value="Insertar" class="btn btn-default"><br>
+					<input type="submit" id="btnCrearDepartamento" value="Insertar" class="btn btn-default"><br>
 				</div>
 <br>
 			</div>

@@ -25,7 +25,7 @@
 		<form id="IcrearParametros" method="Post" role="form" class="responsive">
 			<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
 				<div>
-					<label class="white-text" for="Tparametro">Tipo de parametro:</label>
+					<label class="white-text" for="Tparametro">Tipo de par&aacutemetro:</label>
 					<select name="Tparametro" id="Tparametro">
 						<option value="0" disabled="true" selected >Seleccione una opci&oacuten</option>
 						<option value="1">Probabilidad</option>
@@ -58,7 +58,7 @@
 					<div id="divColor" class="paletaColores"></div>
 				 </div>
 				<div>
-					<input type="submit" value="Crear" class="btn btn-default"><br>
+					<input type="submit" id="btnCrearParametro" value="Crear" class="btn btn-default"><br>
 				</div>
 				 
 				
