@@ -108,7 +108,7 @@
 				<input type="hidden" name="id" id="id" value="<?php echo "$idCategoria";?>">
 			</div>
 			<div>
-				<?php echo "<button type=\"button\" class=\"btnEliminar\" id=\"btnModificarCategoria\" onclick=\"confirmarModificacionEliminacionCategoria($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?><br><br>
+				<?php echo "<button type=\"button\" class=\"btnEliminar btnModal\" id=\"btnModificarCategoria\" onclick=\"confirmarModificacionEliminacionCategoria($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?><br><br>
 			</div>
 			<div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
 				<div class="modal-content">
@@ -117,7 +117,7 @@
 				<div class="modal-footer blue darken-3 z-depth-5">
 					<input type="hidden" id="idRiesgo" name="idRiesgo">
 				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" />
+				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat btnAccionCrud"/>
 				</div>
 			</div>
 		</div>

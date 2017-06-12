@@ -86,7 +86,7 @@
 					</div>
 							
 					<div>
-						<input type="submit" value="Crear" class="btn" ></br></br>
+						<input type="submit" value="Crear" class="btn btnAccionCrud" ></br></br>
 					</div>
 				</div>
 			</form>
