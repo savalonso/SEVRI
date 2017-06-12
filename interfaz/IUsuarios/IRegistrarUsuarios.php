@@ -76,7 +76,7 @@ $ArrayJson = json_encode($arr);
 				</select>
             </div>
             <div>
-				<input id="btn_Guardar" type="submit" value="Guardar" class="btn btn-default"></br></br>
+				<input id="btn_Guardar" type="submit" value="Insertar" class="btn btn-default"></br></br>
 			</div>
         </div>
     </form>
