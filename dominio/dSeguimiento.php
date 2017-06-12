@@ -11,6 +11,7 @@
 		private $estadoSeguimiento;
 		private $comentarioAprobador;
 		private $actividadTratamiento;
+		private $archivo;
 
 		public function dSeguimiento(){}
 
@@ -84,6 +85,14 @@
 
 		public function setActividadTratamiento($actividadTratamiento){
 			$this->actividadTratamiento=$actividadTratamiento;
+		}
+
+		public function setArchivo($archivo) {
+			$this->archivo = $archivo;
+		}
+
+		public function getArchivo() {
+			return $this->archivo;
 		}
 
 	}

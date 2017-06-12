@@ -16,8 +16,9 @@ class dtSeguimiento{
         $comentario = $seguimiento->getComentarioAvance();
         $porcentaje = $seguimiento->getPorcentajeAvance();
         $aprobador = $seguimiento->getUsuarioAprobador();
+        $archivo = $seguimiento->getArchivo();
 
-        $result = $prueba->query("CALL insertarSeguimientoNuevo($idAdministracion, $monto, '$comentario', $porcentaje, $aprobador)");
+        $result = $prueba->query("CALL insertarSeguimientoNuevo($idAdministracion, $monto, '$comentario', $porcentaje, $aprobador, '$archivo')");
         if (!$result){
             return false;
         } else {
@@ -36,8 +37,9 @@ class dtSeguimiento{
 		$comentario = $seguimiento->getComentarioAvance();
 		$porcentaje = $seguimiento->getPorcentajeAvance();
 		$aprobador = $seguimiento->getUsuarioAprobador();
+        $archivo = $seguimiento->getArchivo();
 
-        $result = $prueba->query("CALL modificarSeguimiento($id, $monto, '$comentario', $porcentaje, $aprobador)");
+        $result = $prueba->query("CALL modificarSeguimiento($id, $monto, '$comentario', $porcentaje, $aprobador, '$archivo')");
         if (!$result){
             return false;
         } else {
@@ -77,6 +79,7 @@ class dtSeguimiento{
             $seguimiento->setPorcentajeAvance($row['PorcentajeAvance']);
             $seguimiento->setFechaAvance($row['FechaAvance']);
             $seguimiento->setUsuarioAprobador($row['CedulaAprobador']);
+            $seguimiento->setArchivo($row['Archivo']);
             array_push($lista, $seguimiento);
         }
         mysqli_free_result($result);

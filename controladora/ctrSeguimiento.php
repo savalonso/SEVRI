@@ -5,7 +5,6 @@
 
 		function ctrSeguimiento(){}
 
-				
 		function insertarSeguimientoNuevo(){
 			include_once("../dominio/dSeguimiento.php");
 			include_once("../logica/logicaSeguimiento.php");
@@ -17,7 +16,18 @@
 			$seguimiento->setComentarioAvance($_POST['comentario']);
 			$seguimiento->setPorcentajeAvance($_POST['porcentaje']);
 			$seguimiento->setUsuarioAprobador($_POST['aprobador']);
-			
+
+			$archivo = $_FILES['archivo']['name'];
+			if(!empty($archivo)){
+				$fecha=strftime( "%Y-%m-%d-%H-%M-%S", time() );
+	      		$ruta = $_FILES['archivo']['tmp_name'];
+		      	$destino = "../archivos/".$fecha.$archivo;
+		      	$seguimiento->setArchivo($fecha.$archivo);
+		      	copy($ruta, $destino);
+	      	} else {
+				$seguimiento->setArchivo(null);
+			}
+
 	      	$resultado = $logica->insertarSeguimientoNuevo($seguimiento);
 			echo $resultado;
 		}
@@ -45,6 +55,17 @@
 			$seguimiento->setComentarioAvance($_POST['comentario']);
 			$seguimiento->setPorcentajeAvance($_POST['porcentaje']);
 			$seguimiento->setUsuarioAprobador($_POST['aprobador']);
+
+			$archivo = $_FILES['archivo']['name'];
+			if(!empty($archivo)){
+				$fecha=strftime( "%Y-%m-%d-%H-%M-%S", time() );
+	      		$ruta = $_FILES['archivo']['tmp_name'];
+		      	$destino = "../archivos/".$fecha.$archivo;
+		      	$seguimiento->setArchivo($fecha.$archivo);
+		      	copy($ruta, $destino);
+	      	} else {
+				$seguimiento->setArchivo(null);
+			}
 			
 	      	$resultado = $logica->modificarSeguimiento($seguimiento);
 			echo $resultado;
