@@ -30,7 +30,7 @@
 					<input class="" type="date" name="fecha" id="fecha" class="validate" value="<?php echo $fechaActual ?>" min="<?php echo $fechaActual; ?>" max="<?php echo date("Y")."-12-"."31"; ?>">
 				</div>
 				 
-				 	<input type="submit" value="Insertar" class="btn btn-default"><br><br>
+				 	<input type="submit" value="Insertar" class="btn btn-default btnAccionCrud"><br><br>
 				
 			</div>
 		</form>
