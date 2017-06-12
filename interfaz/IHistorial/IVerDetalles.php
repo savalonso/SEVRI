@@ -6,6 +6,7 @@
 		}
 
 		$idRiesgo = $_GET['idRiesgo'];
+		$idSevri = $_GET['idSevri'];
 		include ("../../data/dtRiesgo.php");
 		$controlR = new dtRiesgo;
 		$listaR = $controlR->obtenerRiesgoDetalles($idRiesgo);
@@ -34,6 +35,27 @@
 				$calificacion = $analisis->getCalificacionMedida();
 			}
 		}
+		include("../../logica/logicaParametros.php");
+		$logicaP = new logicaParametros;
+		$valorFormula = $logicaP->obtenerValorFormulaHistorial($idSevri);
+
+		include("../../data/dtNivelRiesgo.php");
+		$dataN = new dtNivelRiesgo;
+		$listaNivel = $dataN->getNivelesHistorial($idSevri);
+
+		$mensaje = '';
+		$limiteInicial = 0;
+		$contador = 1;
+		$cantidadDivisiones = count($listaNivel);
+		$resultadoOperacion = round(($impacto*$probabilidad)/1*$valorFormula);
+		foreach ($listaNivel as $nive) {
+			if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nive->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
+				$mensaje = $resultadoOperacion."%: ".$nive->getDescriptor();
+			}
+			$contador++;
+			$limiteInicial = $nive->getLimite();
+		}
+		echo ($mensaje);
 	?>
 	<script>
 		window.onload=ocultarBarra();

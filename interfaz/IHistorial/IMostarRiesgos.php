@@ -83,7 +83,7 @@
 						            	<td style=\"display:none\">".$riesgo->getIdDepartamento()."</td>				        
 							        	<td>".$riesgo->getNombre()."</td>
 							        	<td>".$riesgo->getDescripcion()."</td>
-						        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver detalles\" onclick=\"		cargarPagina('../interfaz/IHistorial/IVerDetalles.php?idRiesgo=".$riesgo->getId()."')\"/></td>
+						        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Ver detalles\" onclick=\"		cargarPagina('../interfaz/IHistorial/IVerDetalles.php?idRiesgo=".$riesgo->getId()."&idSevri=".$riesgo->getIdSevri()."')\"/></td>
 						    		</tr>";
 						    		$contador++;
 								}
