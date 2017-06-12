@@ -108,7 +108,17 @@
 				<input type="hidden" name="id" id="id" value="<?php echo "$idCategoria";?>">
 			</div>
 			<div>
-				<input type="submit" value="Modificar" class="btn" ></br></br>
+				<?php echo "<button type=\"button\" class=\"btnEliminar\" id=\"btnModificarCategoria\" onclick=\"confirmarModificacionEliminacionCategoria($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?><br><br>
+			</div>
+			<div id="Meliminar" class="modal  blue darken-3 z-depth-5 white-text">
+				<div class="modal-content">
+					<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
+				</div>
+				<div class="modal-footer blue darken-3 z-depth-5">
+					<input type="hidden" id="idRiesgo" name="idRiesgo">
+				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" />
+				</div>
 			</div>
 		</div>
 	</form>
@@ -117,20 +127,7 @@
 <script>
 	$( document ).ready(function(){
 	   	$('select').material_select();
-
-	   	/*var hijoDe = eval(<?php echo $hijoDe ?>);
-	   	var id = eval(<?php echo $id ?>);
-	   	var categorias = eval(<?php echo $ArrayJson ?>);
-	   	if(hijoDe!=0){//si es una subcategoria
-	   		//document.getElementById('categoria').disabled=false;
-	   		for(i=0;i<categorias.length;i++){
-          		 if(categorias[i]._id == hijoDe){
-                	document.getElementById("categoria").options[document.getElementById("categoria").options.length]=
-                	new Option(categorias[i].nombre,categorias[i]._id);
-           		}
-           		document.getElementById("categoria").disabled=false;
-       		}
-	   	}*/
+	   	$('.modal-trigger').leanModal();
 	   	validarModificarCategoria();
 	});
 	function verificarCombo(valor){
