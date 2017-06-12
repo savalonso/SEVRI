@@ -1,5 +1,6 @@
 
 function insertarParametros(){
+
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IcrearParametros")); 
     formData.append("opcion", 1);
@@ -187,7 +188,6 @@ $(document).ready(function () {
 
 
 // clase de validacion 
-var statSend = false;
 $(document).ready(function() {
         $('.tooltipped').tooltip({delay: 50}); // mensaje tooltip
         $("#IcrearParametros").validate({
@@ -199,25 +199,21 @@ $(document).ready(function() {
                 color: { required: true }
             },
             messages: {
-                Tparametro: "Debe seleccionar el tipo de parametro.",
-                descriptor: "Debe introducir un descriptor con un tamaño minimo de 4 caracteres y un maximo de 20 caracteres.",
-                descripcion: "Debe introducir un descripcion con un tamaño minimo de 20 caracteres y un maximo de 1000 caracteres.",
-                valor: "Debe introducir un valor numerico que solo represente un caracter y que sea mayor a 0.",
-                color: "Debe seleccionar el color del parametro."
+                Tparametro: "Debe seleccionar el tipo de parametro",
+                descriptor: "Se debe ingresar un descriptor con un mínimo de 4 caracteres y máximo de 20",
+                descripcion: "Se debe ingresar un descripción con un mínimo de 20 caracteres y máximo de 1000",
+                valor: "Se debe ingresar un valor para el parámetro",
+                color: "Se debe seleccionar un color para el parámetro"
 
             },
             submitHandler: function(form){
              if(document.getElementById('Tparametro').value==0){
-                    Materialize.toast("Debe seleccionar un tipo de parametro", 7000,'blue darken-3');
+                    Materialize.toast("Se debe ingresar un valor para el parámetro", 7000,'blue darken-3');
              }else if(document.getElementById('color').value==0){
-                    Materialize.toast("Debe seleccionar el color del parametro", 7000,'blue darken-3');
+                    Materialize.toast("Se debe seleccionar un color para el parámetro", 7000,'blue darken-3');
              }else{
-                    if (!statSend) {
-                        statSend = true;
-                        insertarParametros();
-                    } else {
-                        Materialize.toast("Ya se esta creando el parámetro", 7000,'blue darken-3');
-                    }
+                    document.getElementById("btnInsertarParametro").disabled = true;
+                    insertarParametros();
                 }
             }
         });
@@ -228,3 +224,36 @@ function ocultarTooltip(){
   var tooltip= document.getElementById('boton');
   tooltip.style.display="none";
 }
+
+// function que valida la actualizacion del formulario
+$(document).ready(function() {
+        $("#modificarParametro").validate({
+            rules: {
+                Tparametro: { required: true },
+                descriptor: {  required: true, minlength: 4 , maxlength: 20 },
+                descripcion: {  required: true, minlength: 20 , maxlength: 1000 },
+                valor: {required: true, maxlength: 1 },
+                color: { required: true }
+            },
+            messages: {
+                Tparametro: "Debe seleccionar el tipo de parametro.",
+                descriptor: "Se debe ingresar un descriptor con un mínimo de 4 caracteres y máximo de 20",
+                descripcion: "Se debe ingresar un descripción con un mínimo de 20 caracteres y máximo de 1000",
+                valor: "Se debe ingresar un valor para el parámetro",
+                color: "Se debe seleccionar un color para el parámetro"
+
+            },
+            submitHandler: function(form){
+             if(document.getElementById('Tparametro').value==0){
+                    Materialize.toast("Debe seleccionar un tipo de parametro", 7000,'blue darken-3');
+             }else if(document.getElementById('color').value==0){
+                    Materialize.toast("Debe seleccionar el color del parametro", 7000,'blue darken-3');
+             }else{
+                document.getElementById("btnModificarParametro").className="waves-effect waves-light btn modal-trigger activeHref";
+                modificarParametro();
+                
+             }
+               
+            }
+        });
+    });

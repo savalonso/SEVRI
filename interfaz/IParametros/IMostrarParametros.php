@@ -71,7 +71,7 @@
 								<th>Valor</th>
 								<th>Descriptor</th>
 								<th>Descripci&oacuten</th>
-								<th>color</th>
+								<th>Color</th>
 								<th>Modificar</th>
 								<th>Eliminar</th>
 							</tr>
@@ -140,7 +140,7 @@
 								<th>Valor</th>
 								<th>Descriptor</th>
 								<th>Descripci&oacuten</th>
-								<th>color</th>
+								<th>Color</th>
 								<th>Modificar</th>
 								<th>Eliminar</th>
 							</tr>
@@ -209,7 +209,7 @@
 								<th>Valor</th>
 								<th>Descriptor</th>
 								<th>Descripci&oacuten</th>
-								<th>color</th>
+								<th>Color</th>
 								<th>Modificar</th>
 								<th>Eliminar</th>
 							</tr>
@@ -272,7 +272,7 @@
 		<form id="modificarParametro" method="Post" role="form" class="responsive">
 			<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
 				<div>
-					<label class="white-text" for="Tparametro">Tipo de parametro:</label>
+					<label class="white-text" for="Tparametro">Tipo de par&aacutemetro:</label>
 					<select name="Tparametro" id="Tparametro">
 						<option value="0" disabled="true" >Seleccione una opci&oacuten</option>
 						<option value="1">Probabilidad</option>
@@ -308,7 +308,7 @@
 				 </div>
 				<div>
 					<input type="hidden" name="idParametro" id="idParametro">
-					<button type="button" class="btnEliminar"><a class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a></button>
+					<a id="btnModificarParametro" class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a>
 					<input type="button" value="Canelar" class="btn btn-default" onclick="ocultarDiv()"><br>
 				</div>
 			</div><br>
@@ -320,7 +320,7 @@
 				</div>
 				<div class="modal-footer blue darken-3 z-depth-5">
 				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+				 	<input type="submit"  value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
 				</div>
 			</div>
 		</form>
@@ -328,37 +328,7 @@
 
 	<!-- Validacion para el formulario -->
 
-<script>
-	$(document).ready(function() {
-	    $("#modificarParametro").validate({
-	        rules: {
-	            Tparametro: { required: true },
-	            descriptor: {  required: true, minlength: 4 , maxlength: 20 },
-	            descripcion: {  required: true, minlength: 20 , maxlength: 1000 },
-	           	valor: {required: true, maxlength: 1 },
-	           	color: { required: true }
-	        },
-	        messages: {
-	            Tparametro: "Debe seleccionar el tipo de parametro.",
-	            descriptor: "Debe introducir un descriptor con un tamaño minimo de 4 caracteres y un maximo de 20 caracteres.",
-	            descripcion: "Debe introducir un descripcion con un tamaño minimo de 20 caracteres y un maximo de 1000 caracteres.",
-	            valor: "Debe introducir un valor numerico que solo represente un caracter y que sea mayor que 0.",
-	            color: "Debe seleccionar el color del parametro."
-
-	        },
-	        submitHandler: function(form){
-	         if(document.getElementById('Tparametro').value==0){
-		        	Materialize.toast("Debe seleccionar un tipo de parametro", 7000,'blue darken-3');
-		     }else if(document.getElementById('color').value==0){
-		        	Materialize.toast("Debe seleccionar el color del parametro", 7000,'blue darken-3');
-		     }else{
-		     	modificarParametro();
-		     }
-	           
-	        }
-	    });
-	});
-	 
+<script> 
 	 $( document ).ready(function(){
 	   	$('.modal-trigger').leanModal();
 	   	$('ul.tabs').tabs();

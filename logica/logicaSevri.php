@@ -222,9 +222,9 @@ class LogicaSevri{
 		$mensaje = '';
 
 		if(!$resultado){
-			$mensaje = 'Lo sentimos no se ha podido ingresar el parametro';
+			$mensaje =  'No se ha insertado el parámetro';
 		}else{
-			$mensaje =  'El parametro se ha ingresado correctamente';
+			$mensaje = 'Se ha insertado correctamente el parámetro';
 		}
 		return $mensaje;
 	}
@@ -237,9 +237,9 @@ class LogicaSevri{
 		$resultado = $dtparametro->modificarParametro($parametro);
 		$mensaje = '';
 		if(!$resultado){
-			$mensaje = 'Lo sentimos no se ha podido modificar el parametro';
+			$mensaje = 'No se ha modificado el parámetro';
 		}else{
-			$mensaje = 'El parametro se ha modificado correctamente';
+			$mensaje = 'Se ha modificado correctamente el parámetro';
 		}
 		return $mensaje;
 	}
@@ -252,9 +252,10 @@ class LogicaSevri{
 		$resultado = $dtparametro->eliminarParametro($idParametro);
 		$mensaje = '';
 		if(!$resultado){
-			$mensaje = 'Lo sentimos no se ha podido eliminar el parametro';
+			$mensaje = 'No se ha eliminado el parámetro';
 		}else{
-			$mensaje = 'El parametro se ha eliminado correctamente';
+			
+			$mensaje = 'Se ha eliminado correctamente el parámetro';
 		}
 		return $mensaje;
 	}
