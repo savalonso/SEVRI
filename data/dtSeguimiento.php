@@ -16,8 +16,43 @@ class dtSeguimiento{
         $comentario = $seguimiento->getComentarioAvance();
         $porcentaje = $seguimiento->getPorcentajeAvance();
         $aprobador = $seguimiento->getUsuarioAprobador();
+        $archivo = $seguimiento->getArchivo();
 
-        $result = $prueba->query("CALL insertarSeguimientoNuevo($idAdministracion, $monto, '$comentario', $porcentaje, $aprobador)");
+        $result = $prueba->query("CALL insertarSeguimientoNuevo($idAdministracion, $monto, '$comentario', $porcentaje, $aprobador, '$archivo')");
+        if (!$result){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function modificarSeguimiento($seguimiento) {
+        include_once ('dtConnection.php');
+        include_once("../dominio/dSeguimiento.php");
+        $con = new dtConnection;
+        $prueba = $con->conect();
+
+        $id =     $seguimiento->getId();
+        $monto = $seguimiento->getMontoSeguimiento();
+		$comentario = $seguimiento->getComentarioAvance();
+		$porcentaje = $seguimiento->getPorcentajeAvance();
+		$aprobador = $seguimiento->getUsuarioAprobador();
+        $archivo = $seguimiento->getArchivo();
+
+        $result = $prueba->query("CALL modificarSeguimiento($id, $monto, '$comentario', $porcentaje, $aprobador, '$archivo')");
+        if (!$result){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function eliminarSeguimiento($id) {
+        include_once ('dtConnection.php');
+        $con = new dtConnection;
+        $prueba = $con->conect();
+
+        $result = $prueba->query("CALL eliminarSeguimiento($id)");
         if (!$result){
             return false;
         } else {
@@ -44,6 +79,7 @@ class dtSeguimiento{
             $seguimiento->setPorcentajeAvance($row['PorcentajeAvance']);
             $seguimiento->setFechaAvance($row['FechaAvance']);
             $seguimiento->setUsuarioAprobador($row['CedulaAprobador']);
+            $seguimiento->setArchivo($row['Archivo']);
             array_push($lista, $seguimiento);
         }
         mysqli_free_result($result);

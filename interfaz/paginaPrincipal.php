@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['tipo'])){
+		echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
+	}
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
@@ -26,7 +32,6 @@
 </head>	
 <body>
 		<?php 
-			session_start();
 			$cedula= $_SESSION['idUsuario'];
 			$tipo = $_SESSION['tipo'];
 			if($cedula != null){

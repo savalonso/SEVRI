@@ -97,9 +97,7 @@ var statSend = false;
 	$( document ).ready(function(){
 	   $('select').material_select();
 	   Materialize.updateTextFields();
-	});
-	$(document).ready(function() {
-		validarInsertarCategoria();
+	   validarInsertarCategoria();
 	});
 	function verificarCombo(valor){
 		if(valor==0){
@@ -108,6 +106,7 @@ var statSend = false;
 			document.getElementById('categoria').disabled=true;
 		}
 		$('select').material_select();
+		validarInsertarCategoria();
 	}
 </script>
 </html>

@@ -25,8 +25,10 @@
 	 ?>
 
 	<div class="row ">
+		<h4>Administrar Riesgo</h4>
 		<form id="IAdministrarRiesgo" method="Post" role="form" class="responsive">
 			<div class="inputs col s12 m6 l6 blue darken-3 z-depth-5">
+				<br>
 				<div>
 					<label class="white-text" for="medida">Medida de Administraci&oacuten:</label>
 					<select name="medida" id="medida">
@@ -38,23 +40,23 @@
 						?>
 					</select>
 				</div>
-				 <div>
-				 	<label class="white-text" for="actividad">Actividad de Tratamiento:</label>
+				<div>
+					<label class="white-text" for="actividad">Actividad de Tratamiento:</label>
 					<textarea class="materialize-textarea scrollTextArea" rows="10" cels="30" id="actividad" name="actividad" ></textarea>
-				 </div>
-				 <div>
-				 	<label class="white-text" for="indicador">Indicador:</label>
+				</div>
+				<div>
+					<label class="white-text" for="indicador">Indicador:</label>
 					<textarea class="materialize-textarea scrollTextArea" rows="10" cels="30" id="indicador" name="indicador" ></textarea>
-				 </div>
-				 <div>
-				 	<label class="white-text" for="valor">Monto econ&oacutemico asociado a la actividad:</label>
+				</div>
+				<div>
+					<label class="white-text" for="valor">Monto econ&oacutemico asociado a la actividad:</label>
 					<input type="text" name="valor" id="valor" onkeyup="mascaraDinero(this)">
-				 </div>
-				 <div>
+				</div>
+				<div>
 				 	<label class="white-text" for="plazo">Plazo de la Actividad:</label>
 					<input type="date" name="plazo" id="plazo" value="<?php echo $fechaActual ?>" min="<?php echo $fechaActual; ?>" max="<?php echo date("Y")."-12-"."31"; ?>">
 				</div>
-				 <div>
+				<div>
 				  	<label class="white-text" for="encargado">Encargado de la Actividad:</label>
 					<select name="encargado" id="encargado">
 						<option value="0" disabled="true" selected>Seleccione un encargado</option>
@@ -64,14 +66,14 @@
 						}
 						?>
 					</select>
-				 </div>
+				</div>
 				<div>
 					<?php 
 						echo "<input type=\"hidden\" id=\"analisis\" name=\"analisis\"  value=\"".$idAnalisis."\"/>";
 					 ?>
-					<input type="submit" id="btnGuardar" value="Guardar Administración" class="btn btn-default"><br>
+					<input type="submit" id="btnGuardar" value="Insertar" class="btn btn-default"><br>
 				</div>
-				 
+				<br>
 			</div>
 		</form>
 	</div>

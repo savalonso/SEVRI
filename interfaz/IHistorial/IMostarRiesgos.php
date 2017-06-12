@@ -24,7 +24,7 @@
 		<h4>Historial de riesgos.</h4>
 		<?php  
 			if($lista==null){
-				echo "A&UacuteN NO HAY RIESGOS IDENTIFICADOS EN VERSIONES ANTERIORES.";
+				echo "<h4>A&uacuten no hay riesgos identificados en versiones anteriores.</h4>";
 			}else{
 				echo "<script type=\"text/javascript\">
 					actualizarTablaAgregar();

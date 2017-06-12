@@ -18,6 +18,22 @@
 			}
 			return $mensaje;
 		}
+
+		public function modificarSeguimiento($seguimiento){
+			include_once("../data/dtSeguimiento.php");
+			$dataSeguimiento = new dtSeguimiento;
+			$resultado = $dataSeguimiento->modificarSeguimiento($seguimiento);
+
+			$mensaje='';
+
+			if(!$resultado){
+				$mensaje='Lo sentimos no se ha podido modificar el seguimiento';
+			} else {
+				$mensaje='Se ha modificado el seguimiento con exito.';
+			}
+			return $mensaje;
+		}
+
 		public function obtenerSeguimiento($idAdministracion){
 			include_once('../../data/dtSeguimiento.php');
 			$dataSeguimiento= new dtSeguimiento;

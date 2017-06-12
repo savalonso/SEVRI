@@ -20,7 +20,7 @@
 				'_id'=>$seguimiento->getId(),
 				'porcentaje'=>$seguimiento->getPorcentajeAvance(),
 				'comentario'=>$seguimiento->getComentarioAvance(),
-				'monto'=>$seguimiento->getMontoSeguimiento(),
+				'monto'=>number_format($seguimiento->getMontoSeguimiento(), 2, ',', '.'),
 				'fecha'=>$seguimiento->getFechaAvance()
 			);
 		}
@@ -43,7 +43,7 @@
 					'_id'=>$seg->getId(),
 					'porcentaje'=>$seg->getPorcentajeAvance(),
 					'comentario'=>$seg->getComentarioAvance(),
-					'monto'=>$seg->getMontoSeguimiento(),
+					'monto'=>number_format($seg->getMontoSeguimiento(), 2, ',', '.'),
 					'fecha'=>$seg->getFechaAvance()
 					);
 				}
@@ -134,7 +134,7 @@
 				</div>
 				<?php  
 					} else {
-						echo "<br><h3>A&uacuten no se han realizado aprobaciones</h3>";
+						echo "<br><h4>A&uacuten no se han realizado aprobaciones</h4>";
 					}
 				?>
 			</div>
@@ -172,6 +172,7 @@ if($listaSeguimientos != null) {
 							<th>Opcion 1</th>
 							<th>Opcion 2</th>
 							<th>Opcion 3</th>
+							<th>Opcion 4</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -185,25 +186,30 @@ foreach($listaSeguimientos as $seguimientos) {
 							<td><?= $seg->getPorcentajeAvance()."%"?></td>
 							<?php
 							if($seg->getEstadoSeguimiento() == null){
-								echo "<td>Aun no se ha realizado la aprobacion</td>";
+								echo "<td>A&uacuten no se ha realizado la aprobaci&oacuten</td>";
 							} else if($seg->getEstadoSeguimiento()==1) {
 								echo "<td>Aprobado</td>";
 							} else if($seg->getEstadoSeguimiento()==0) {
 								echo "<td>Reprobado</td>";
 							}
 							if($seg->getComentarioAprobador() == null) {
-								echo "<td>Aun no se ha realizado la aprobacion</td>";
+								echo "<td>A&uacuten no se ha realizado la aprobaci&oacuten</td>";
 							} else {
 								echo "<td>".$seg->getComentarioAprobador()."</td>";
 							}
 							if($seg->getEstadoSeguimiento() == null) {
+								echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ISeguimiento/IModificarSeguimentoAsignado.php?idAdministracion=".$administracion->getId()."&idSeguimiento=".$seg->getId()."')\"/></td>
+									<td><a class=\"waves-effect waves-light btn modal-trigger\" onclick=\"asignarID(".$seg->getId().")\" href=\"#Meliminar2\">Eliminar</a></td>
+									<td><a class=\"waves-effect waves-light btn modal-trigger\" onclick=\"asignarID(".$seg->getId()."),  mostrarSeguimientoModal2()\" href=\"#MmostrarSeguimiento\">Ver detalles</a></td>";
+							} else {
 								echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" /></td>
 									<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" /></td>
 									<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Ver detalles\" /></td>";
+							}
+							if($seg->getArchivo() != "") {
+							echo "<td><a class=\"btn waves-effect waves-light\" onclick=\"document.location='../archivos/".$seg->getArchivo()."'\">Archivo</a></td>";
 							} else {
-								echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ISeguimiento/IModificarSeguimentoAsignado.php?idAdministracion=".$administracion->getId()."')\"/></td>
-									<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Eliminar\" /></td>
-									<td><a class=\"waves-effect waves-light btn modal-trigger\" onclick=\"asignarID(".$seg->getId()."),  mostrarSeguimientoModal2()\" href=\"#MmostrarSeguimiento\">Ver detalles</a></td>";
+								echo "<td><button class=\"btn waves-effect waves-light\" disabled=\"disabled\">Archivo</button></td>";
 							}
 							?>
 						</tr>
@@ -220,7 +226,7 @@ foreach($listaSeguimientos as $seguimientos) {
 		}
 	}
 } else {
-	echo "<br><h3>A&uacuten no se han realizado aprobaciones</h3>";
+	echo "<br><h4>A&uacuten no se han realizado aprobaciones</h4>";
 }
 ?>		
 		</div>
@@ -247,13 +253,28 @@ foreach($listaSeguimientos as $seguimientos) {
 		<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="eliminarSeguimientoAprobador()"/>
 	</div>
 </div>
+
 <div id="MmostrarSeguimiento" class="modal  blue darken-3 z-depth-5 white-text"></div>
+
+<div id="Meliminar2" class="modal  blue darken-3 z-depth-5 white-text">
+	<div class="modal-content">
+		<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
+	</div>
+	<div class="modal-footer blue darken-3 z-depth-5">
+		<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+		<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="confirmarEliminar()"/>
+	</div>
+</div>
+
 <script>
 	var id = 0;
 	var idSeguimientoDetalles;
 	function asignarID(id){
 		idSeguimientoDetalles = id;
 	}
+	function confirmarEliminar(){
+        eliminarSeguimiento(idSeguimientoDetalles);
+    }
  	 $('.datepicker').pickadate({
 	    selectMonths: true, // Creates a dropdown to control month
 	    selectYears: 15 // Creates a dropdown of 15 years to control year

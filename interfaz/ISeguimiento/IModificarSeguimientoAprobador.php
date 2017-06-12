@@ -27,7 +27,7 @@
 <div class="row">
 		<form class="responsive" id="modificarSeguimiento" method="Post" role="form">
 			<div class="inputs blue darken-3 col col s8 m6 16 z-depth-5">
-				<h3>Modificar aprobaci&oacute;n</h3>
+				<h4>Modificar aprobaci&oacute;n</h4>
 				<div class="">
 					
 				<div>

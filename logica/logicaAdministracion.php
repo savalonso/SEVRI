@@ -54,9 +54,9 @@
 			$mensaje = '';
 			$resultado = $dataAnalisis->agregarAdministracion($administracion, $idAnalisis);
 			if($resultado){
-				$mensaje = 'La administración se ha realizado correctamento';
+				$mensaje = 'Se ha realizado correctamente la administraci&oacuten del riesgo.';
 			}else{
-				$mensaje = 'No se ha podido realizar la administración del riesgo';
+				$mensaje = 'No se ha realizado la administraci&oacuten del riesgo.';
 			}
 			return $mensaje;
 		}
