@@ -30,12 +30,12 @@
 	      	if($dataSevri->actualizarSevri($sevri,$id) == true){
 	      		echo 
 	      		'	
-					Se ha modificado  correctamente el SEVRI.
+					Perfecto! Se ha actualizado el SEVRI correctamente.
 	      		';
 	      	} else {
 	      		echo 
 	      		'	
-					No se ha modificado el SEVRI.
+					Error! Se ha producido un error al actualizar el SEVRI.
 	      		';
 	      	}
 		}
@@ -48,13 +48,13 @@
 	      	if($dataSevri->eliminarSevri($id) == true){
 	      		echo 
 	      		'	
-					Se ha eliminado correctamente el SEVRI.
+					Perfecto! Se ha eliminado el SEVRI correctamente.
 
 	      		';
 	      	} else {
 	      		echo 
 	      		'	
-					No se ha eliminado el SEVRI.
+					El sevri no se puede eliminar porque tiene configuraciones guardadas. 
 	      		';
 	      	}
 		}
@@ -68,12 +68,12 @@
 	      	if($dataParam->insertarSevriParametro($idParametro) == true){
 
 	      		$Respuesta[] = array('inserto' => 1,
-                   					 'mensaje' => "Se ha vinculado correctamente el parámetro");	
+                   					 'mensaje' => "Se ha vinculado correctamente el parametro");	
 
 	      		echo '' . json_encode($Respuesta) . '';
 	      	} else {
 	      		$Respuesta[] = array('inserto' => 0,
-                   					 'mensaje' => "No se ha podido vincular el parámetro");
+                   					 'mensaje' => "No se ha podido vincular el parametro");
 	      		echo '' . json_encode($Respuesta) . '';
 	      	}
 		}
@@ -86,11 +86,11 @@
             $Respuesta = array();   
 	      	if($logica->desvincularParametro($idParametro) == true){
 	      		$Respuesta[] = array('inserto' => 1,
-                   					 'mensaje' => "Se ha desvinculado correctamente el parámetro");	
+                   					 'mensaje' => "Se ha desvinculado correctamente el parametro");	
 	      		echo '' . json_encode($Respuesta) . '';
 	      	} else {
 	      		$Respuesta[] = array('inserto' => 0,
-                   					 'mensaje' => "No se ha podido desvincular el parámetro");
+                   					 'mensaje' => "No se ha podido desvincular el parametro");
 	      		echo '' . json_encode($Respuesta) . '';
 	      	}
 		}
@@ -103,11 +103,11 @@
             $Respuesta = array(); 
 	      	if($dataCat->insertarSevriCategoria($idCategoria) == true){
 	      		$Respuesta[] = array('inserto' => 1,
-                   					 'mensaje' => "Se ha vinculado correctamente la categoría");	
+                   					 'mensaje' => "Se ha vinculado correctamente la categoria");	
 	      		echo '' . json_encode($Respuesta) . '';
 	      	} else {
 	      		$Respuesta[] = array('inserto' => 0,
-                   					 'mensaje' => "No se ha podido vincular la categoría");
+                   					 'mensaje' => "No se ha podido vincular la categoria");
 	      		echo '' . json_encode($Respuesta) . '';
 	      	}
 		}
@@ -120,11 +120,11 @@
             $Respuesta = array();   
 	      	if($logica->desvincularCategoria($idCategoria) == true){
 	      	$Respuesta[] = array('inserto' => 1,
-                   				 'mensaje' => "Se ha desvinculado correctamente la categoría");	
+                   				 'mensaje' => "Se ha desvinculado correctamente la categoria");	
 				echo '' . json_encode($Respuesta) . '';
 	      	} else {
 	      		$Respuesta[] = array('inserto' => 0,
-                   					 'mensaje' => "No se ha podido desvincular la categoría");
+                   					 'mensaje' => "No se ha podido desvincular la categoria");
 	      		echo '' . json_encode($Respuesta) . '';
 	      	}
 		}
