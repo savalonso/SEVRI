@@ -4,6 +4,10 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
  /* metodos creados*/
+ .activeHref {
+     pointer-events: none;
+     cursor: default;
+  } 
  .scrollTextArea{
   overflow:auto;
   max-height:60px;
