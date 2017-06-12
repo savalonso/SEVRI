@@ -141,7 +141,7 @@
 
 			<div class="col s12 m12 l12">
 				<div class="inputs blue darken-3 col s6 m6 l6">
-					<?php echo "<button type=\"button\" class=\"btnEliminar\" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?> 
+					<?php echo "<button type=\"button\" class=\"btnEliminar btnModal\" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?> 
 				</div><br><br>
 			</div>
 
@@ -152,7 +152,7 @@
 				<div class="modal-footer blue darken-3 z-depth-5">
 					<input type="hidden" id="idRiesgo" name="idRiesgo">
 				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" />
+				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat btnAccionCrud"/>
 				</div>
 			</div>
 
