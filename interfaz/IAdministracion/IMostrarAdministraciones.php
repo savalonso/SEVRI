@@ -163,18 +163,18 @@
 	           	encargado: { required: true }
 	        },
 	        messages: {
-	            medida: "Debe seleccionar una medida de administraci&oacuten.",
-	            actividad: "Debe introducir una actividad de tratamiento con un tamaño minimo de 20 caracteres y un maximo de 500 caracteres.",
-	            indicador: "Debe introducir un descriptor con un tamaño minimo de 5 caracteres y un maximo de 500 caracteres.",
-	            plazo: "Debe seleccionar una fecha limite en la que se debe realizar la actividad.",
-	            encargado: "Debe seleccionar una persona que se encargue de realizar la actividad."
+	            medida: "Se debe seleccionar una medida de administraci&oacuten.",
+	            actividad: "Se debe ingresar una actividad de tratamiento con un mínimo de 20 caracteres y un máximo de 500.",
+	            indicador: "Se debe ingresar un descriptor con un mínimo de 5 caracteres y un máximo de 500.",
+	            plazo: "Se debe seleccionar una fecha limite en la que se debe realizar la actividad.",
+	            encargado: "Se debe seleccionar un usuario que se encargue de realizar la actividad."
 
 	        },
 	        submitHandler: function(form){
 	         if(document.getElementById('medida').value==0){
-		        	Materialize.toast("Debe seleccionar una medida de administraci&oacuten.", 7000,'blue darken-3');
+		        	Materialize.toast("Se debe seleccionar una medida de administraci&oacuten.", 7000,'blue darken-3');
 		     }else if(document.getElementById('encargado').value==0){
-		        	Materialize.toast("Debe seleccionar una persona que se encargue de realizar la actividad", 7000,'blue darken-3');
+		        	Materialize.toast("Se debe seleccionar un usuario que se encargue de realizar la actividad", 7000,'blue darken-3');
 		     }else{
 		     	modificarAdministracion();
 		     }
