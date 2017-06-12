@@ -30,16 +30,37 @@
 					<input class="" type="date" name="fecha" id="fecha" class="validate" value="<?php echo $fechaActual ?>" min="<?php echo $fechaActual; ?>" max="<?php echo date("Y")."-12-"."31"; ?>">
 				</div>
 				 
-				 	<input type="submit" value="Insertar" class="btn btn-default"><br><br>
+				 	<input type="submit" id="btnCrearSevri" value="Crear" class="btn btn-default"><br><br>
 				
 			</div>
 		</form>
 	</div>
+		
 	
 	<script>
-	 	$(function(){
-	      $('#nombre').mask('SEVRI-<?= $añoActual ?>-99');
+	$(document).ready(function() {
+	    $("#IcrearSevri").validate({
+	        rules: {
+	            nombre: { required: true, minlength: 5, maxlength: 100},
+	            fecha: { required: true}
+	        },
+	        messages: {
+	            nombre: "Debe introducir el nombre del SEVRI.",
+	            fecha: "Debe introducir una fecha."
+	        },
+	        submitHandler: function(form){
+	           insertarSevri();
+	        }
 	    });
-	</script>
-	
-	<script type="text/javascript" src="../js/jsSevri.js"></script>
+	});
+	 $(document).ready(function() {
+	   	 Materialize.updateTextFields();
+ 	 });
+ 	 $('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 15 // Creates a dropdown of 15 years to control year
+ 	 });
+ 	 $(function(){
+		  $('#nombre').mask('SEVRI-<?= $añoActual ?>-99');
+		});
+  </script>
