@@ -53,6 +53,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
                         <th>Comentario de avance</th>
                         <th>Porcentaje de avance</th>
                         <th>Opci&oacuten 1</th>
+                        <th>Opci&oacuten 2</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,7 +70,13 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
                                     $aprobador = $usuario->getNombre()." ".$usuario->getPrimerApellido()." ".$usuario->getSegundoApellido();
                                 }
                             }
-                            echo "<td><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Mmostrar\" onClick=\"cargarModal('".number_format($seguimiento->getMontoSeguimiento(), 2, ',', '.')."','".$seguimiento->getComentarioAvance()."','".$seguimiento->getPorcentajeAvance()."','".$seguimiento->getFechaAvance()."','".$aprobador."')\">Ver detalles</a></td>";
+                            echo "<td><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Mmostrar\" onClick=\"cargarModal('".number_format($seguimiento->getMontoSeguimiento(), 2, ',', '.')."','".$seguimiento->getComentarioAvance()."','".$seguimiento->getPorcentajeAvance()."','".$seguimiento->getFechaAvance()."','".$aprobador."')\">Ver detalles</a></td><td>";
+                            if ($seguimiento->getArchivo() != "") {
+                                echo "<button class=\"btn waves-effect waves-light\" onClick=\"document.location='../archivos/".$seguimiento->getArchivo()."'\">Descargar Archivo</button>";                       
+                            } else {
+                                echo "<button class=\"btn waves-effect waves-light\" disabled=\"disabled\">Descargar Archivo</button>";
+                            }
+                            echo "</td>";
                         ?>
                     </tr>
                     <?php
@@ -118,16 +125,30 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
                     ?>
                 </select>
             </div>
-            <input type="submit" value="Guardar" class="btn btn-default" id="guardarAvance">
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>Archivo</span>
+                    <input type="file" name="archivo" id="archivo">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" name="nombreArchivo" id="nombreArchivo">
+                </div>
+            </div>
+            <center>
+                <input type="submit" value="Guardar" class="btn-large btn-default" id="guardarAvance">
+            </center>
         </form>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-var variable = '<?php echo $IdAdministracion; ?>'
-var montoMaximo = '<?php echo number_format($administracion->getCostoActividad()-$montoTotal, 2, ',', '.'); ?>'
-var porcentajeMaximo = '<?php echo 100-$porcentajeTotal ?>'
+var variable = '<?php echo $IdAdministracion; ?>';
+var montoMaximo = '<?php echo number_format($administracion->getCostoActividad()-$montoTotal, 2, ',', '.'); ?>';
+var porcentajeMaximo = '<?php echo 100-$porcentajeTotal ?>';
 
+    function descargarArchivo(archivo) {
+        alert(archivo);
+    }
    $(document).ready(function(){
 		$('.modal-trigger').leanModal();
         $('select').material_select();
