@@ -42,10 +42,18 @@ function modificarParametro(){
 }
 
 function eliminarParametro(){
-
+    
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     var idParametro = document.getElementById('idParametro').value;
+    var identificador = document.getElementById('identificador').value;
+    if(identificador == 1){
+       document.getElementById('btnEliminarImpacto').className="activeHref waves-effect waves-light btn modal-trigger"; 
+   }else if(identificador == 2){
+       document.getElementById('btnEliminarProbabilidad').className="activeHref waves-effect waves-light btn modal-trigger"; 
+   }else{
+       document.getElementById('btnEliminarCalificacion').className="activeHref waves-effect waves-light btn modal-trigger"; 
+   }
     formData.append("idParametro", idParametro); 
     formData.append("opcion", 3);
     $.ajax({
@@ -69,7 +77,8 @@ function validarNumero(input){
     }
 }
 
-function confirmarEliminacion(idParametro){
+function confirmarEliminacion(idParametro,identificador){
+    document.getElementById('identificador').value = identificador;
     document.getElementById('idParametro').value = idParametro;
 }
 

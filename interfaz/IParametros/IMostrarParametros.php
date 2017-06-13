@@ -88,7 +88,7 @@
 											<td><input class=\"btn btn-default\" type=\"button\" style=\"background-color:".$parametro->getColorParametro()."\"/></td>";
 											if($parametro->getEsModificable() == true){
 												echo "<td><input class=\"btn btn-default \" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificar(this,'".$parametro->getIdParametro()."','".$parametro->getColorParametro()."')\"/></td>
-							        				<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar btnAccionCrud \" onclick=\"confirmarEliminacion('".$parametro->getIdParametro()."')\"><a  class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></button></td>
+							        				<td style=\"text-align:center;\"><button type=\"button\"  class=\"btnEliminar btnAccionCrud \" onclick=\"confirmarEliminacion('".$parametro->getIdParametro()."',1)\"><a  id=\"btnEliminarImpacto\" class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></button></td>
 							    					</tr>";
 											}else{
 												echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" /></td>
@@ -157,7 +157,7 @@
 											<td><input class=\"btn btn-default\" type=\"button\" style=\"background-color:".$parametro->getColorParametro()."\"/></td>";
 							        		if($parametro->getEsModificable() == true){
 												echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificar(this,'".$parametro->getIdParametro()."','".$parametro->getColorParametro()."')\"/></td>
-							        				<td style=\"text-align:center;\"><button type=\"button\" class=\" btnEliminar btnAccionCrud\" onclick=\"confirmarEliminacion('".$parametro->getIdParametro()."')\"><a class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+							        				<td style=\"text-align:center;\"><button type=\"button\" class=\" btnEliminar btnAccionCrud\" onclick=\"confirmarEliminacion('".$parametro->getIdParametro()."',2)\"><a id=\"btnEliminarProbabilidad\" class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 							    					</tr>";
 											}else{
 												echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" /></td>
@@ -226,7 +226,7 @@
 											<td><input class=\"btn btn-default\" type=\"button\" style=\"background-color:".$parametro->getColorParametro()."\"/></td>";
 							        		if($parametro->getEsModificable() == true){
 												echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificar(this,'".$parametro->getIdParametro()."','".$parametro->getColorParametro()."')\"/></td>
-							        				<td style=\"text-align:center;\"><button type=\"button\" class=\" btnAccionCrud btnEliminar\" onclick=\"confirmarEliminacion('".$parametro->getIdParametro()."')\"><a class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+							        				<td style=\"text-align:center;\"><button type=\"button\" class=\" btnAccionCrud btnEliminar\" onclick=\"confirmarEliminacion('".$parametro->getIdParametro()."',3)\"><a id=\"btnEliminarCalificacion\" class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 							    					</tr>";
 											}else{
 												echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Modificar\" /></td>
@@ -261,6 +261,7 @@
 		</div>
 		<div class="modal-footer blue darken-3 z-depth-5">
 			<input type="hidden" id="idParametro" name="idParametro">
+			<input type="hidden" id="identificador" name="identificador">
 		 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
 		 	<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="eliminarParametro()" />
 		</div>
