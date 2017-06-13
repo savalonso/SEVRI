@@ -128,7 +128,7 @@
 		</div>
 		<div class="col s12 m12 l12">
 			<div class="inputs blue darken-3 col s6 m6 l6">
-				<input type="submit" value="Guardar" id="btnGuardarAnalisis" class="btn btn-default"><br><br>
+				<input type="submit" value="Insertar" id="btnGuardarAnalisis" class="btn btn-default btnAccionCrud"><br><br>
 			</div>
 			<div class="inputs col s6 m6 l6"></div>
 		</div>
@@ -219,14 +219,18 @@
 		        messages: {
 					probabilidad:"Se debe seleccionar un valor de  probabilidad",
 					impacto: "Se debe seleccionar un valor de impacto",
-					MedidaControl: "No cumple con los requisitos establecidos",
+					MedidaControl: "Se debe ingresar una medida de control con un mínimo de 10 caracteres y máximo de de 300",
 					CalificacionMedida: "Se debe seleccionar un valor para la calificacion de la medida"
 		           
 		        },
 		        submitHandler: function(form){
-					if(document.getElementById('probabilidad').value == 0 || document.getElementById('impacto').value == 0 || document.getElementById('CalificacionMedida').value == 0) {
-						Materialize.toast("Dede seleccionar un par&aacute;metro!", 7000, 'blue darken-3');
-					} else {
+					if(document.getElementById('probabilidad').value == 0) {
+						Materialize.toast("Se debe seleccionar una probabilidad", 7000, 'blue darken-3');
+					} else if (document.getElementById('impacto').value == 0){
+						Materialize.toast("Se debe seleccionar un impacto", 7000, 'blue darken-3');
+					} else if (document.getElementById('CalificacionMedida').value == 0){
+						Materialize.toast("Se debe seleccionar una calificación para la medida", 7000, 'blue darken-3');
+					}else{
 						insertarAnalisis();
 					}
 		        }

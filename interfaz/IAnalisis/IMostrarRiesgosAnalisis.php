@@ -14,7 +14,7 @@
 	$controlDepartamentos=new ctrListaDepartamento;
 	$listaDepartamentos=$controlDepartamentos->obtenerListaDepartamentosUsuario($cedula);
 	if($listaDepartamentos==null){
-		echo "<h3>Usted no pertenece a ning&uacuten departamento.</h3>";
+		echo "<h4>Usted no pertenece a ning&uacuten departamento.</h4>";
 	}else{
 
 ?>

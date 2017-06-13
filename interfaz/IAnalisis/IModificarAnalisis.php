@@ -52,9 +52,9 @@
 	$impactoSeleccionado;
 ?>
 <div class="row">
+	<h4>Modificar An&aacute;lisis</h4>
 	<form class="responsive" id="IModificarAnalisis" method="Post" role="form">
 		<div class="inputs blue darken-3 col s6 m6 l6 z-depth-5">
-			<h3>Modificar An&aacute;lisis</h3>
 			<div class="">
 				<label>Riesgo</label></br>
 				<?php
@@ -144,7 +144,7 @@
 				<input type="hidden" name="id" id="id" value="<?php echo "$idAnalisis";?>">
 			</div>
 			<div>
-				<a class="waves-effect waves-light btn modal-trigger" id="btnModificarAnalisis" href="#Mconfirmar">Modificar</a></br></br>
+				<a class="waves-effect waves-light btn modal-trigger btnModal" id="btnModificarAnalisis" href="#Mconfirmar">Modificar</a></br></br>
 			</div>
 			<div id="Mconfirmar" class="modal blue darken-3 z-depth-5 white-text">
 				<div class="modal-content">
@@ -152,7 +152,7 @@
 				</div>
 				<div class="modal-footer blue darken-3 z-depth-5">
 					<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-					<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+					<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat btnAccionCrud"/>
 				</div>
 			</div>	
 		</div>
@@ -259,7 +259,7 @@
 		            riesgo:"Se debe seleccionar un riesgo",
 					probabilidad:"Se debe seleccionar un valor de  probabilidad",
 					impacto: "Se debe seleccionar un valor de impacto",
-					MedidaControl: "No cumple con los requisitos establecidos",
+					MedidaControl: "Se debe ingresar una medida de control con un mínimo de 10 caracteres y máximo de de 300",
 					CalificacionMedida: "Se debe seleccionar un valor para la calificacion de la medida"
 		           
 		        },

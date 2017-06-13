@@ -52,7 +52,7 @@
 		<div class="row">
 			<h4 class="col s12 m8 l8">Lista de Categor&iacuteas</h4>
 			<div class="col s4 m4 l4">
-				<a id="boton" onclick="cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php');ocultarTooltip();" data-tooltip="Crear Categoría" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+				<a id="boton" onclick="cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php');ocultarTooltip();" data-tooltip="Crear Categoría" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 			</div>
 		</div>
 		<div class="row">
