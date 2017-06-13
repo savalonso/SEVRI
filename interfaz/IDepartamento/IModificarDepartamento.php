@@ -29,15 +29,16 @@
 	}
 ?>
 
+<h4>Modificar Departamento</h4>
+
 <div class="row">
 		<form class="responsive" id="modificarDepartamento" method="Post" role="form">
 			<div class="inputs blue darken-3 col col s8 m6 16 z-depth-5">
-				<h3>Modificar Departamento</h3>
 				
 				<div class="">
 
 					<div>
-						<label  for="codigo">Codigo:</label>
+						<label  for="codigo">C&oacutedigo:</label>
 						<input type="text" name="codigo" id="codigo" value="<?php echo "$codigo";?>">	
 					</div>
 					
@@ -81,15 +82,15 @@
 	$(document).ready(function() {
     	$("#modificarDepartamento").validate({
         	rules: {
-        		codigo:{required:true, minlength:7,maxlength:45},
-           		 nombre:{ required: true,minlength: 7, maxlength: 100},
+        		codigo:{required:true, minlength:5,maxlength:45},
+           		 nombre:{ required: true,minlength: 5, maxlength: 100},
            		 fecha:{ required: true},
             	
         },
         messages: {
-        	codigo:"Se debe de ingresar un codigo con un minimo de 7 caracteres y maximo de 45 caracteres",
-            nombre:"Se debe ingresar el nombre con un minimo de 7 caracteres y un maximo de 100 caracteres",
-            fecha:"Se debe ingresar la fecha",
+        		codigo: "Se debe ingresar un codigo con un minimo de 5 caracteres y maximo de 45.",
+	            nombre: "Se debe ingresar un nombre con un minimo de 5 caracteres y maximo de 100.",
+	            fecha: "Debe introducir una fecha."
          
         },
         submitHandler: function(form){

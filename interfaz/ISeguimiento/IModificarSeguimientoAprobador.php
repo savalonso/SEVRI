@@ -23,11 +23,11 @@
 	}
 	
   ?>
-
+<h4>Modificar aprobaci&oacute;n</h4>
 <div class="row">
 		<form class="responsive" id="modificarSeguimiento" method="Post" role="form">
 			<div class="inputs blue darken-3 col col s8 m6 16 z-depth-5">
-				<h4>Modificar aprobaci&oacute;n</h4>
+				
 				<div class="">
 					
 				<div>
@@ -95,7 +95,7 @@
            		 comentario:{ required: true,minlength: 20, maxlength: 1000},    	
         },
         messages: {
-            comentario:"Se debe de ingresar el comentario con una extension minima de 20 caracteres y una maxima de 1000 caracteres",
+            comentario:"Se debe de ingresar un comentario con una extension minima de 20 caracteres y maxima de 1000",
          
         },
         submitHandler: function(form){

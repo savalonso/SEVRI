@@ -14,10 +14,12 @@
 
   ?>
 
+  <h4>Insertar Aprobacion</h4>
+
  <div class="row">
 		<form class="responsive" id="insertarSeguimientoAprobador" method="Post" role="form">
 			<div class="inputs blue darken-3 col col s8 m6 16 z-depth-5">
-				<h4>Insertar Aprobacion</h4>
+				
 				
 				<div class="" >
 				
@@ -42,7 +44,7 @@
 
 				<div>
 						<input type="submit" value="Insertar" class="btn btn-default">
-					</div>
+					</div><br>
 
 	 			<div>
 					<input type="hidden" name="idSeguimiento" id="idSeguimiento" value="<?php echo "$idSeguimiento";?>">
@@ -66,15 +68,24 @@
 	$(document).ready(function() {
     	$("#insertarSeguimientoAprobador").validate({
         	rules: {
-           		 comentario:{ required: true,minlength: 20, maxlength: 500},
+           		 comentario:{ required: true,minlength: 20, maxlength: 1000},
             	
         },
         messages: {
-            comentario:"Se debe ingresar el comentario del aprobador con una extension minima de 20 caracteres y un maximo de 500 ",
+            comentario:"Se debe de ingresar un comentario con una extension minima de 20 caracteres y maxima de 1000 ",
          
         },
         submitHandler: function(form){
-            insertarSeguimiento();
+
+        	if(document.getElementById('estado').value==1 && document.getElementById('comentario').value!=""){
+		 		document.getElementById('comentario').value="";
+		 		
+            	insertarSeguimiento();
+		        	
+		    }else{
+		        
+            	insertarSeguimiento();
+		    }
         }
     });
 });
