@@ -55,7 +55,7 @@
 			<div class="row">
 				<h4 class="col s12 m8 l8">Par&aacutemetros de Impacto</h4>
 				<div class="col s4 m4 l4">
-					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 				</div>
 			</div>
 			<div class="input-field buscar1 col s12 m8 l8">
@@ -124,7 +124,7 @@
 			<div class="row">
 				<h4 class="col s12 m8 l8">Par&aacutemetros de probabilidad</h4>
 				<div class="col s4 m4 l4">
-					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 				</div>
 			</div >
 			<div class="input-field buscar1 col s12 m8 l8">
@@ -176,7 +176,7 @@
 					<div class="row">
 						<h4 class="col s12 m8 l8">No se han creado par&aacutemetros de probabilidad</h4>
 						<div class="col s4 m4 l4">
-							<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+							<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 						</div>
 					</div>
 			<?php } ?>
@@ -193,7 +193,7 @@
 			<div class="row">
 				<h4 class="col s12 m8 l8">Par&aacutemetros de calificaci&oacuten de la medida</h4>
 				<div class="col s4 m4 l4" >
-					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+					<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 				</div>
 			</div>
 			<div class="input-field buscar1 col s12 m8 l8">
@@ -245,7 +245,7 @@
 					<div class="row">
 						<h4 class="col s12 m8 l8">No se han creado par&aacutemetros de calificaci&oacuten de la medida</h4>
 						<div class="col s4 m4 l4">
-							<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+							<a id="boton" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php');ocultarTooltip();" data-tooltip="Crear Parámetro" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 						</div>
 					</div>
 			<?php } ?>

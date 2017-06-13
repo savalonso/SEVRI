@@ -141,7 +141,7 @@
 
 			<div class="col s12 m12 l12">
 				<div class="inputs blue darken-3 col s6 m6 l6">
-					<?php echo "<button type=\"button\" class=\"btnEliminar\" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?> 
+					<?php echo "<button type=\"button\" class=\"btnEliminar btnModal\" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger btnModal\" href=\"#Meliminar\">Modificar</a> </button>";?> 
 				</div><br><br>
 			</div>
 
@@ -152,7 +152,7 @@
 				<div class="modal-footer blue darken-3 z-depth-5">
 					<input type="hidden" id="idRiesgo" name="idRiesgo">
 				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" />
+				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat btnAccionCrud" />
 				</div>
 			</div>
 
@@ -173,17 +173,15 @@
 		            nombre: { required: true,minlength: 10, maxlength: 100},
 		            descripcion: { required:true,minlength: 20, maxlength: 3000},
 		            estado: {required : true},
-		            monto: {required: true, maxlength: 15},
 		            categoria: {required: true},
 		            causa: {required:true, minlength: 20,maxlength: 2000}
 		        },
 		        messages: {
-		            nombre: "Debe introducir un nombre al riesgo mayor de 10 car&aacutecteres.",
-		            descripcion: "Debe introducir una descripci&oacuten al riesgo mayor de 20 car&aacutecteres.",
-		            estado: "Debe seleccionar un estado.",
-		            monto: "Debe introducir un monto no mayor de 11 d&iacutegitos.",
-		            categoria: "Debe seleccionar una categor&iacutea.",
-		            causa: "Debe introducir una causa mayor a 20 car&aacutecteres y un maximo de 2000.",
+		            nombre: "Se debe ingresar un nombre con un mínimo de 10 caracteres y máximo de 100",
+		            descripcion: "Se debe ingresar una descripci&oacuten con un mínimo de 20 caracteres y máximo de 3000",
+		            estado: "Se debe seleccionar un estado.",
+		            categoria: "Se debe seleccionar una categor&iacutea.",
+		            causa: "Se debe ingresar una causa con un mínimo de 20 caracteres y máximo de 2000",
 		        },
 		        submitHandler: function(form){
 		           if(document.getElementById('categoria').value==0){
@@ -199,17 +197,15 @@
 		            nombre: { required: true,minlength: 10, maxlength: 100},
 		            descripcion: { required:true,minlength: 20, maxlength: 3000},
 		            estado: {required : true},
-		            monto: {required: true, maxlength: 15},
 		            subcategoria: {required: true},
 		            causa: {required:true, minlength: 20,maxlength: 2000}
 		        },
 		        messages: {
-		            nombre: "Debe introducir un nombre al riesgo mayor de 10 car&aacutecteres.",
-		            descripcion: "Debe introducir una descripci&oacuten al riesgo mayor de 20 car&aacutecteres.",
-		            estado: "Debe seleccionar un estado.",
-		            monto: "Debe introducir un monto no mayor de 11 d&iacutegitos.",
-		            subcategoria: "Debe seleccionar una sub categor&iacutea.",
-		            causa: "Debe introducir una causa mayor a 20 car&aacutecteres y un maximo de 2000.",
+		            nombre: "Se debe ingresar un nombre con un mínimo de 10 caracteres y máximo de 100",
+		            descripcion: "Se debe ingresar una descripci&oacuten con un mínimo de 20 caracteres y máximo de 3000",
+		            estado: "Se debe seleccionar un estado.",
+		            categoria: "Se debe seleccionar una categor&iacutea.",
+		            causa: "Se debe ingresar una causa con un mínimo de 20 caracteres y máximo de 2000",
 		        },
 		        submitHandler: function(form){
 		           if(document.getElementById('subcategoria').disabled==false && document.getElementById('subcategoria').value==0){

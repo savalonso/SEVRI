@@ -97,6 +97,7 @@ function paginaModificarSevri(IdSevri){
 }
 
 function cargarPagina (url) {
+    ocultarTooltipPorClase();
     document.getElementById('barraCargando').style.display="";
     $('#contenedor').load(url);
 }
@@ -436,6 +437,14 @@ function desabilitarBotonesModEli(){
   var botones2 = $(".btnModal");
   for (var i = botones2.length - 1; i >= 0; i--) {
     botones2[i].className = "waves-effect waves-light btn modal-trigger activeHref";
+  }
+}
+
+function ocultarTooltipPorClase(){
+  var tooltip = $(".linkTooltip");
+  //se reccoren los tooltip porque no se obtiene solo uno. 
+  for (var i = tooltip.length - 1; i >= 0; i--) {
+    tooltip[i].style.display = 'none';
   }
 }
 

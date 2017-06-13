@@ -32,7 +32,7 @@
 		        <input id="datosSevri" type="text" >
         	</div>
         	 <div class="col l4 m4 s4">
-				<a id="boton" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php');ocultarTooltip();" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+				<a id="boton" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php');ocultarTooltip();" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 			 </div>
 				<div class="col s12 m12 l10">
 					<div>

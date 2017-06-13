@@ -25,7 +25,7 @@ $listaDepartamento = $controlDepartamento->obtenerDepartamento($idDepartamento);
 $listaUsuarios = $controlUsuarios->obtenerListaUsuarios();
 $listaDepaUsu = $controlDepaUsu->obtenerDepartamentoUsuario($idDepartamento);
 foreach ($listaDepartamento as $departamento) {
-    echo "<h2>Departamento de ".$departamento->getNombreDepartamento()."</h2>";
+    echo "<h4>Departamento de ".$departamento->getNombreDepartamento()."</h4>";
 }
 
 ?>
@@ -89,7 +89,7 @@ foreach ($listaDepartamento as $departamento) {
         <?php
         }
     } else{
-        echo "<h5>No hay usuarios registrados</h5>";
+        echo "<h4>No hay usuarios registrados</h4>";
     }
         ?>
     </div>
@@ -128,7 +128,7 @@ foreach ($listaDepartamento as $departamento) {
         </table>
         <?php
         } else {
-            echo "<h3>No hay usuarios registrados</h3>";
+            echo "<h4>No hay usuarios registrados</h4>";
         }
     }
         ?>

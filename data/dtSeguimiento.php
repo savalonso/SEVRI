@@ -18,6 +18,9 @@ class dtSeguimiento{
         $aprobador = $seguimiento->getUsuarioAprobador();
         $archivo = $seguimiento->getArchivo();
 
+        $mensaje = wordwrap($comentario, 30, "\n");
+        echo "$mensaje";
+
         $result = $prueba->query("CALL insertarSeguimientoNuevo($idAdministracion, $monto, '$comentario', $porcentaje, $aprobador, '$archivo')");
         if (!$result){
             return false;

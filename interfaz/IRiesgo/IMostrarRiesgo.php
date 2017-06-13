@@ -47,8 +47,8 @@
 							<th>Categor&iacutea</th>
 							<th>Causa</th>
 							<th>Fecha Registro</th>
-							<th>Opcion 1</th>
-							<th>Opcion 2</th>
+							<th>Opci&oacuten 1</th>
+							<th>Opci&oacuten 2</th>
 						</tr>
 					</thead>
 					<tbody id="datosR" >
@@ -62,8 +62,8 @@
 									<td>".$riesgo->getIdCategoria()."</td>
 									<td>".$riesgo->getCausa()."</td>
 									<td>".$riesgo->getFecha()."</td>
-									<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"cargarPagina('../interfaz/IRiesgo/IModificarRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
-									<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" id=\"btnEliminarRiesgo\" onclick=\"confirmarModificacionEliminacion('".$riesgo->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+									<td><input class=\"btn btn-default btnAccionCrud\" type=\"button\" value=\"Modificar\" onclick=\"cargarPagina('../interfaz/IRiesgo/IModificarRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
+									<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar btnModal\" id=\"btnEliminarRiesgo\" onclick=\"confirmarModificacionEliminacion('".$riesgo->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger btnModal\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 								</tr>";
 							}
 						?>

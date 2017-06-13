@@ -21,13 +21,12 @@
 	<div class="row">
 		<?php  
 		if($listaAnalisis==null){
-			echo "<h3>A&uacuten no se ha realizado nungún análisis</h3>";
+			echo "<h4>A&uacuten no se ha realizado ningún análisis</h4>";
 		}else{
 			$listaNiveles = $controlDatos->obtenerNivelesSevriActivo();
 			$cantidadDivisiones = count($listaNiveles);
 			$valorFormula = $controlDatos->obtenerValorFormula();
 		?>
-			<h2>Lista de An&aacute;lisis</h2>
 			<div class="input-field buscar1 col s12 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosAnalisis" type="text" >
@@ -43,8 +42,8 @@
 								<th>Nivel Riesgo</th>
 								<th>Medida Control</th>
 								<th>Calificaci&oacuten Medida</th>
-								<th>Modificar</th>
-								<th>Eliminar</th>
+								<th>Opci&oacute 1</th>
+								<th>Opci&oacute 2</th>
 							</tr>
 						</thead>
 						<tbody id="datosA">
@@ -81,10 +80,10 @@
 										</td>
 
 										<td>
-											<input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\" cargarPagina('../interfaz/IAnalisis/IModificarAnalisis.php?idAnalisis=".$analisis->getId()."')\"/></td>
+											<input class=\"btn btn-default btnAccionCrud btnModal\" type=\"button\" value=\"Modificar\" onclick=\" cargarPagina('../interfaz/IAnalisis/IModificarAnalisis.php?idAnalisis=".$analisis->getId()."')\"/></td>
 										</td>
 										<td>
-											<a class=\"waves-effect waves-light btn modal-trigger\" id=\"btnEliminarAnalisis\" onclick=\" asignarID(".$analisis->getId().")\" href=\"#Meliminar\">Eliminar</a>
+											<a class=\"waves-effect waves-light btn modal-trigger btnModal\" id=\"btnEliminarAnalisis\" onclick=\" asignarID(".$analisis->getId().")\" href=\"#Meliminar\">Eliminar</a>
 										</td>
 									</tr>";
 								}	
