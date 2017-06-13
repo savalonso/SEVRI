@@ -88,7 +88,6 @@ function incluirExcluirElementos(idOrigen, idDestino) {
     var a = comboDestino.length;
     comboOrigen.options[comboOrigen.options.selectedIndex] = null;
     comboDestino[a] = nuevaOpcion;
-    alert(comboDestino[a].value);
     comboDestino[a].selected = true;
 }
 
@@ -433,12 +432,10 @@ function desabilitarBotonesModEli(){
   //se recorren los botones porque no se obtiene solo uno. 
   for (var i = botones.length - 1; i >= 0; i--) {
     botones[i].disabled = true;
-    alert(botones[i].value);
   }
   var botones2 = $(".btnModal");
   for (var i = botones2.length - 1; i >= 0; i--) {
     botones2[i].className = "waves-effect waves-light btn modal-trigger activeHref";
-    alert(botones2[i].value);
   }
 }
 
