@@ -42,7 +42,7 @@
 	<h4>Modificar Riesgo</h4>
 	<form id="IModificarRiesgo" method="Post" role="form" class="responsive">
 		<div class="row">
-
+		<input type="hidden" name="idDepartamento" id="idDepartamento" value="<?php echo "$idDepartamento";?>">
 			<div class="col s12 m12 l12">
 				<div class="inputs blue darken-3 col s6 m6 l6">
 					<label class="white-text" for="nombre">Nombre:</label>
@@ -107,6 +107,13 @@
 			<div <?php if ($padre == 0) { ?> style="display:none" <?php } ?> id="contenedorSubcategoria" class="col s12 m12 l12" >
 				<div class="inputs blue darken-3 col s6 m6 l6">
 					<label  for="subcategoria">Sub Categor&iacutea:</label>
+					<?php 
+					if($padre == 0){
+						echo "<select id=\"subcategoria\" disabled=\"true\" name=\"subcategoria\" onchange=\"mostrarSubcategoria(this.value)\">";
+					}else{
+						echo "<select id=\"subcategoria\" name=\"subcategoria\" onchange=\"mostrarSubcategoria(this.value)\">";
+					}
+					?>
 					<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)">
 					<option value="0" disabled="true">Seleccione una sub categor&iacutea...</option> 
 					<?php 
