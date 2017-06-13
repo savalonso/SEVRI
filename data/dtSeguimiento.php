@@ -9,44 +9,77 @@ class dtSeguimiento{
         include_once ('dtConnection.php');
         include_once("../dominio/dSeguimiento.php");
         $con = new dtConnection;
-        $prueba = $con->conect();
+        $conexion = $con->conect();
+        $query = "CALL obtenerUltimoIdSeguimiento()";
 
-        $idAdministracion = $seguimiento->getActividadTratamiento();
-        $monto = $seguimiento->getMontoSeguimiento();
-        $comentario = $seguimiento->getComentarioAvance();
-        $porcentaje = $seguimiento->getPorcentajeAvance();
-        $aprobador = $seguimiento->getUsuarioAprobador();
-        $archivo = $seguimiento->getArchivo();
+        $result = mysqli_query($conexion, $query);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $id = $row['id'] + 1;
 
-        $mensaje = wordwrap($comentario, 30, "\n");
-        echo "$mensaje";
+        $conexion = $con->crearConexionPDO();
+        try {
 
-        $result = $prueba->query("CALL insertarSeguimientoNuevo($idAdministracion, $monto, '$comentario', $porcentaje, $aprobador, '$archivo')");
-        if (!$result){
-            return false;
-        } else {
+           $idAdministracion = $seguimiento->getActividadTratamiento();
+            $monto = $seguimiento->getMontoSeguimiento();
+            $comentario = $seguimiento->getComentarioAvance();
+            $porcentaje = $seguimiento->getPorcentajeAvance();
+            $aprobador = $seguimiento->getUsuarioAprobador();
+            $archivo = $seguimiento->getArchivo();
+            $mensajeMostrar = substr($comentario, 0, 20);
+
+            session_start();
+            $creadorMensaje = $_SESSION['nombreUsuario'];
+            $creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
+            $mensaje = "Te han asignado como aprobador del seguimiento: ".$mensajeMostrar;
+            $url = "../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php";
+
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conexion->beginTransaction();
+            $conexion->exec("CALL insertarSeguimientoNuevo('$idAdministracion', '$monto', '$comentario',  '$porcentaje', '$aprobador', '$archivo')");           
+            $conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$aprobador', '$id', '2')");
+
+            $conexion->commit();
             return true;
+        } catch (Exception $e) {
+            $conexion->rollback();
+            return false;
         }
+
     }
 
     public function modificarSeguimiento($seguimiento) {
         include_once ('dtConnection.php');
         include_once("../dominio/dSeguimiento.php");
         $con = new dtConnection;
-        $prueba = $con->conect();
+        $conexion = $con->conect();
 
-        $id =     $seguimiento->getId();
-        $monto = $seguimiento->getMontoSeguimiento();
-		$comentario = $seguimiento->getComentarioAvance();
-		$porcentaje = $seguimiento->getPorcentajeAvance();
-		$aprobador = $seguimiento->getUsuarioAprobador();
-        $archivo = $seguimiento->getArchivo();
+        $conexion = $con->crearConexionPDO();
+        try {
+            
+            $id =     $seguimiento->getId();
+            $monto = $seguimiento->getMontoSeguimiento();
+            $comentario = $seguimiento->getComentarioAvance();
+            $porcentaje = $seguimiento->getPorcentajeAvance();
+            $aprobador = $seguimiento->getUsuarioAprobador();
+            $archivo = $seguimiento->getArchivo();
+            $mensajeMostrar = substr($comentario, 0, 20);
 
-        $result = $prueba->query("CALL modificarSeguimiento($id, $monto, '$comentario', $porcentaje, $aprobador, '$archivo')");
-        if (!$result){
-            return false;
-        } else {
+            session_start();
+            $creadorMensaje = $_SESSION['nombreUsuario'];
+            $creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
+            $mensaje = "Te han asignado como aprobador del seguimiento: ".$mensajeMostrar;
+            $url = "../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php";
+
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conexion->beginTransaction();
+            $conexion->exec("CALL modificarSeguimiento('$id', '$monto', '$comentario', '$porcentaje', '$aprobador', '$archivo')");           
+            $conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$aprobador', '$id', '2')");
+
+            $conexion->commit();
             return true;
+        } catch (Exception $e) {
+            $conexion->rollback();
+            return false;
         }
     }
 
@@ -326,12 +359,31 @@ class dtSeguimiento{
 		$conexion=$con->conect();
 		$estadoSeguimiento=$seguimiento->getEstadoSeguimiento();
 		$comentarioAprobador=$seguimiento->getComentarioAprobador();
-		$result =$conexion->query("CALL actualizarSeguimientoAprobador('$idSeguimiento','$estadoSeguimiento','$comentarioAprobador')");
-		if (!$result){
-			return false;
-		} else {
-			return true;
-		}
+
+        $conexion = $con->crearConexionPDO();
+        try {
+            $estadoSeguimiento=$seguimiento->getEstadoSeguimiento();
+            $comentarioAprobador=$seguimiento->getComentarioAprobador();
+
+            $mensajeMostrar = substr($comentarioAprobador, 0, 20);
+
+            session_start();
+            $creadorMensaje = $_SESSION['nombreUsuario'];
+            $creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
+            $mensaje = "Han hecho un comentario a tu seguimiento: ".$mensajeMostrar;
+            $url = "../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php";
+
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conexion->beginTransaction();
+            $conexion->exec("CALL actualizarSeguimientoAprobador('$idSeguimiento','$estadoSeguimiento','$comentarioAprobador')");           
+            $conexion->exec("CALL insertarMensajeUsuarioSeguimiento('$creadorMensaje','$mensaje', '$url', '$idSeguimiento', '$id', '2')");
+
+            $conexion->commit();
+            return true;
+        } catch (Exception $e) {
+            $conexion->rollback();
+            return false;
+        }
 	}
 
 	function eliminarSeguimientoAprobador($idSeguimiento){
