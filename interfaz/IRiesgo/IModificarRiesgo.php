@@ -148,7 +148,7 @@
 
 			<div class="col s12 m12 l12">
 				<div class="inputs blue darken-3 col s6 m6 l6">
-					<?php echo "<button type=\"button\" class=\"btnEliminar btnModal\" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?> 
+					<?php echo "<button type=\"button\" class=\"btnEliminar \" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger btnModal\" href=\"#Meliminar\">Modificar</a> </button>";?> 
 				</div><br><br>
 			</div>
 
