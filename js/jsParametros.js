@@ -42,10 +42,18 @@ function modificarParametro(){
 }
 
 function eliminarParametro(){
-    document.getElementById('btnEliminarParametro').disabled = true;
+    
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     var idParametro = document.getElementById('idParametro').value;
+    var identificador = document.getElementById('identificador').value;
+    if(identificador == 1){
+       document.getElementById('btnEliminarImpacto').className="activeHref waves-effect waves-light btn modal-trigger"; 
+   }else if(identificador == 2){
+       document.getElementById('btnEliminarProbabilidad').className="activeHref waves-effect waves-light btn modal-trigger"; 
+   }else{
+       document.getElementById('btnEliminarCalificacion').className="activeHref waves-effect waves-light btn modal-trigger"; 
+   }
     formData.append("idParametro", idParametro); 
     formData.append("opcion", 3);
     $.ajax({
@@ -69,7 +77,8 @@ function validarNumero(input){
     }
 }
 
-function confirmarEliminacion(idParametro){
+function confirmarEliminacion(idParametro,identificador){
+    document.getElementById('identificador').value = identificador;
     document.getElementById('idParametro').value = idParametro;
 }
 
@@ -254,6 +263,36 @@ $(document).ready(function() {
                 document.getElementById("btnModificarParametro").className="waves-effect waves-light btn modal-trigger activeHref";
                 modificarParametro();
                 
+             }
+               
+            }
+        });
+    });
+//validar modificar parametro
+$(document).ready(function() {
+        $("#modificarParametro").validate({
+            rules: {
+                Tparametro: { required: true },
+                descriptor: {  required: true, minlength: 4 , maxlength: 20 },
+                descripcion: {  required: true, minlength: 20 , maxlength: 1000 },
+                valor: {required: true, maxlength: 1 },
+                color: { required: true }
+            },
+            messages: {
+                Tparametro: "Debe seleccionar el tipo de parametro.",
+                descriptor: "Debe introducir un descriptor con un tamaño minimo de 4 caracteres y un maximo de 20 caracteres.",
+                descripcion: "Debe introducir un descripcion con un tamaño minimo de 20 caracteres y un maximo de 1000 caracteres.",
+                valor: "Debe introducir un valor numerico que solo represente un caracter y que sea mayor que 0.",
+                color: "Debe seleccionar el color del parametro."
+
+            },
+            submitHandler: function(form){
+             if(document.getElementById('Tparametro').value==0){
+                    Materialize.toast("Debe seleccionar un tipo de parametro", 7000,'blue darken-3');
+             }else if(document.getElementById('color').value==0){
+                    Materialize.toast("Debe seleccionar el color del parametro", 7000,'blue darken-3');
+             }else{
+                modificarParametro();
              }
                
             }

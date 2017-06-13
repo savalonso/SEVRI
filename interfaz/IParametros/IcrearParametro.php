@@ -58,7 +58,7 @@
 					<div id="divColor" class="paletaColores"></div>
 				 </div>
 				<div>
-					<input type="submit" value="Insertar" id="btnInsertarParametro"class="btn btn-default"><br>
+					<input type="submit" value="Insertar" id="btnInsertarParametro" class="btnAccionCrud btn btn-default"><br>
 				</div>
 				 
 				

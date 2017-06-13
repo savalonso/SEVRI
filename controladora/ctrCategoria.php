@@ -23,13 +23,13 @@
     		if($resultado = $logica->insertarCategoria($mcategoria)==true){
 	      		echo 
 	      		'	
-					Perfecto! Se ha insertado la categoría correctamente.
+					Se ha insertado correctamente la categoría
 
 	      		';
 		    }else {
 	      		echo 
 	      		'	
-					Se ha producido un error al insertar la categoría.
+					No se ha insertado la categoría
 	      		';
 		    }
 		}
@@ -40,13 +40,13 @@
             if($dataCategoria->eliminarCategoria($id) == true){
 	      		echo 
 	      		'	
-					Perfecto! Se ha eliminado la categoría correctamente.
+					Se ha eliminado correctamente la categoría.
 
 	      		';
 		    }else {
 	      		echo 
 	      		'	
-					  	<strong>Error!</strong> Se ha producido un error al eliminar la categoría.
+					No se ha eliminado la categoría.
 	      		';
 		    }
 	    }
@@ -65,12 +65,12 @@
 	      	if($dataCategoria->modificarCategoria($mcategoria) == true){
 	      		echo 
 	      		'	
-	      			Se ha modificado correctamente la categoría.
+	      			Se ha modificado correctamente la categoría
 	      		';
 	      	} else {
 	      		echo 
 	      		'	
-	      			Error! No se ha podido modificar la categoría.
+	      			No se ha modificado la categoría
 	      		';
 	      	}
 		}
