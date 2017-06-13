@@ -6,6 +6,7 @@
  		private $mHijoDe;
  		private $mcantHijos;
  		private $mcantRiesgos;
+ 		private $mcantSevri;
 
  		function dDepartamento(){}
 
@@ -44,6 +45,12 @@
   	 	}
 	  	public function setCantRiesgos($mcantRiesgos){
 	  		$this->mcantRiesgos = $mcantRiesgos;
+	  	}
+	  	public function getCantSevri(){
+  			return $this->mcantSevri;
+  	 	}
+	  	public function setCantSevri($mcantSevri){
+	  		$this->mcantSevri = $mcantSevri;
 	  	}
  	}
 

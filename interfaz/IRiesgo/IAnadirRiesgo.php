@@ -98,7 +98,7 @@
 					</div>
 							
 					<div >
-						<input data-tooltip="I am tooltip" type="submit" value="A&ntilde;adir" class="btn tooltipped" ></br></br>
+						<input type="submit" value="A&ntilde;adir" class="btn btnAccionCrud" ></br></br>
 					</div>
 				</div>
 			</form>
