@@ -52,7 +52,7 @@ class ctrDepartamentos {
 		} else {
 			echo 
 			'	
-				Error! No se ha agregado el usuario al departamento.
+				No se ha agregado el usuario al departamento.
 			';
 		}
 	}
@@ -69,7 +69,7 @@ class ctrDepartamentos {
 		} else {
 			echo 
 			'	
-				Error! No se ha descartado el usuario del departamento.
+				No se ha descartado el usuario del departamento.
 			';
 		}
 	}

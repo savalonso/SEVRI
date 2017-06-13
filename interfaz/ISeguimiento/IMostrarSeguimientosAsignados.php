@@ -89,8 +89,8 @@
 				if($lista!=null){
 			?>
 			<div class="col s12 m12 l12">
-				<h4>Seguimientos asignados</h4>
-				<table class="responsive-table centered bordered">
+				<h4>Seguimientos a aprobar</h4>
+				<table class="responsive-table striped centered responsive2">
 					<thead>
 						<tr>
 							<th>Actividad</th>
@@ -98,7 +98,7 @@
 							<th>Comentario de avance</th>
 							<th>Monto de Seguimiento</th>
 							<th>Fecha de avance</th>
-							<th>Aprobacion</th>
+							<th>Opci&oacuten</th>
 							
 						</tr>
 					</thead>
@@ -111,13 +111,9 @@
 								<td>".$seguimiento->getComentarioAvance()."</td>
 								<td>"."₡".number_format($seguimiento->getMontoSeguimiento(), 2, ',', ' ')."</td>
 								<td>".$seguimiento->getFechaAvance()."</td>";
-								if($seguimiento->getEstadoSeguimiento() == null) {
-									echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Realizar aprobacion\" onclick=\"cargarPagina('../interfaz/ISeguimiento/IInsertarSeguimientoAprobador.php?idSeguimiento=".$seguimiento->getId()."')\"/></td></tr>";
-								} else if($seguimiento->getEstadoSeguimiento()==1) {
-									echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Realizada\" /></td></tr>";
-								} else if($seguimiento->getEstadoSeguimiento()==0) {
-									echo "<td><input class=\"btn btn-default\" type=\"button\" disabled=\"true\" value=\"Realizada\" /></td></tr>";
-								}
+								
+									echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Aprobar\" onclick=\"cargarPagina('../interfaz/ISeguimiento/IInsertarSeguimientoAprobador.php?idSeguimiento=".$seguimiento->getId()."')\"/></td></tr>";
+								
 							}
 						?>
 					</tbody>

@@ -257,7 +257,7 @@ class dtSeguimiento{
 			$seguimiento->setComentarioAvance($row[3]);
 			$seguimiento->setMontoSeguimiento($row[4]);
 			$seguimiento->setFechaAvance($row[5]);
-			$seguimiento->setEstadoSeguimiento($row[6]);
+			
 			array_push($lista, $seguimiento);			
 		}
 		mysqli_free_result($resultado);
@@ -284,9 +284,7 @@ class dtSeguimiento{
 			$seguimiento->setPorcentajeAvance($row[1]);
 			$seguimiento->setEstadoSeguimiento($row[2]);
 			$seguimiento->setComentarioAprobador($row[3]);
-			$seguimiento->setComentarioAvance($row[4]);
-			$seguimiento->setMontoSeguimiento($row[5]);
-			$seguimiento->setFechaAvance($row[6]);
+			
 			array_push($lista, $seguimiento);
 		}
 		mysqli_free_result($resultado);

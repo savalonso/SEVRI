@@ -59,7 +59,7 @@
 						
 										if($sevri->getActivo()==0 && $sevri->getEsNuevo()==1){
 											echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" onclick=\"paginaModificarSevri('".$sevri->getIdSevri()."') \">Modificar</button></td>";
-											echo 	"<td style=\"text-align:center;\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></td>";
+											echo 	"<td style=\"text-align:center;\"><a class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></td>";
 											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"cargarPagina('../interfaz/IComplementos/IConfigurarSevri.php') \">Configurar</button></td>";
 											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"activarSevri('".$sevri->getIdSevri()."') \">Activar</button></td>";
 											echo 	"<td style=\"text-align:center;\"><input type=\"hidden\" value=\"".$sevri->getIdSevri()."\" id=\"idSevri\"></input></td>";
