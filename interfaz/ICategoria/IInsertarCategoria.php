@@ -37,11 +37,11 @@
 	<script>
 	window.onload=ocultarBarra();
 	</script>
-	<h4>Insertar Categor&iacutea</h4>
+	
 		<div class="row">
 			<form id="IInsertarCategoria" method="Post" role="form" class="responsive">
 				<div class="inputs blue darken-3 col s8 m6 l6 z-depth-5">
-					
+					<h3>Insertar Categor&iacutea</h3>
 					<div >
 						<label class="white-text" for="nombre">Nombre:</label>
 						<input type="text" name="nombre" id="nombre">
@@ -86,7 +86,7 @@
 					</div>
 							
 					<div>
-						<input type="submit" value="Insertar" id="btnInsertarCategoria" class="btnAccionCrud btn waves-effect ligth-waves" ></br></br>
+						<input type="submit" value="Crear" class="btn btnAccionCrud" ></br></br>
 					</div>
 				</div>
 			</form>

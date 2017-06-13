@@ -78,19 +78,20 @@
 						}else{
 							foreach ($lista as $categoria){
 					            if($categoria->getHijoDe()==0){
+					            	echo $categoria->getCantSevri();
 					            	echo "<tr>					        
 						        	<td>".$categoria->getNombreCategoria()."</td>
 						        	<td>".$categoria->getDescripcion()."</td>";
-						        	if($categoria->getCantRiesgos()>0){
-						        		echo "<td><input class=\"btn btn-default\" disabled=\"true\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
+						        	if($categoria->getCantRiesgos()>0 || $categoria->getCantHijos()>0 || $categoria->getCantSevri()!=0){
+						        		echo "<td><input class=\"btn btn-default btnAccionCrud\" disabled=\"true\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
 						        	}else{
-					        			echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
+					        			echo "<td><input class=\"btn btn-default btnAccionCrud\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
 					        		}
-					        		if ($categoria->getCantHijos()>0 || $categoria->getCantRiesgos()>0){
-					    					echo "<td style=\"text-align:center;\"><button type=\"button\" disabled=\"true\" class=\"btnEliminar\"><a class=\"waves-effect waves-light btn disabled\">Eliminar</a> </button>  </td>
+					        		if ($categoria->getCantHijos()>0 || $categoria->getCantRiesgos()>0 || $categoria->getCantSevri()!=0){
+					    					echo "<td style=\"text-align:center;\"><button type=\"button\" disabled=\"true\" class=\"btnEliminar btnModal\"><a class=\"waves-effect waves-light btn disabled\">Eliminar</a> </button>  </td>
 					    					</tr>";
 					        		}else{
-					        			echo "<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacionCategoria('".$categoria->getIdCategoria()."')\"><a class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+					        			echo "<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar btnModal\" onclick=\"confirmarModificacionEliminacionCategoria('".$categoria->getIdCategoria()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 					    					</tr>";
 					        		}
 					            }
@@ -107,7 +108,7 @@
 				 <div class="modal-footer blue darken-3 z-depth-5">
 				 	<input type="hidden" id="idCategoria" name="idCategoria">
 				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				 	<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="eliminarCategoria()"/>
+				 	<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat btnAccionCrud" onclick="eliminarCategoria()"/>
 			     </div>
  			</div>
 		</div>
@@ -124,7 +125,7 @@
 				if($lista!=null && $TempSubCategoria == true){
 			?>
 			<div class="row">
-				<h4>Lista de Subcategor&iacuteas</h4>
+				<h4>Lista de Sub Categor&iacuteas</h4>
 				<div class="input-field buscar1 col s12 m8 l8">
 			        <label class="white-text" for="filtrar">Buscar</label>
 			        <input id="datosSubCategoria"  type="text" >
@@ -155,13 +156,13 @@
 									        	if($categoria->getCantRiesgos()>0){
 									        		echo "<td><input class=\"btn btn-default\" disabled=\"true\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
 									        	}else{
-									        		echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
+									        		echo "<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"	cargarPagina('../interfaz/ICategoria/IModificarCategoria.php?idCategoria=".$categoria->getIdCategoria()."')\"/></td>";
 									        	}
 								        		if ($categoria->getCantRiesgos()>0){
-								    					echo "<td style=\"text-align:center;\"><button type=\"button\" disabled=\"true\" class=\"btnEliminar\"><a class=\"btnModal waves-effect waves-light btn disabled\">Eliminar</a> </button>  </td>
+								    					echo "<td style=\"text-align:center;\"><button type=\"button\" disabled=\"true\" class=\"btnEliminar\"><a class=\"waves-effect waves-light btn disabled\">Eliminar</a> </button>  </td>
 								    					</tr>";
 								        		}else{
-								        			echo "<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacionCategoria('".$categoria->getIdCategoria()."')\"><a class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+								        			echo "<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" onclick=\"confirmarModificacionEliminacionCategoria('".$categoria->getIdCategoria()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 								    				</tr>";
 								        		}
 								        		$contador++;
