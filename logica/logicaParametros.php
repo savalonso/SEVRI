@@ -71,6 +71,27 @@ class logicaParametros{
 		$valorFormula = 100 / (($maximoImpacto * $maximaProbabilidad)/1);
 		return $valorFormula;
 	}
+	public function obtenerValorFormulaHistorial($idSevri){
+		include_once('../../data/dtParametro.php');
+		$data = new dtParametro;
+		$lista = $data->getParametrosHistorial($idSevri);		
+		$maximaProbabilidad = 0;
+		$maximoImpacto = 0;
+		foreach ($lista as $parametro) {
+			if (strcmp ($parametro->getNombreParametro() , "Probabilidad" ) == 0) {
+				if($maximaProbabilidad < $parametro->getValorParametro()){
+					$maximaProbabilidad = $parametro->getValorParametro();
+				}
+			}elseif (strcmp ($parametro->getNombreParametro() , "Impacto" ) == 0) {
+				if($maximoImpacto < $parametro->getValorParametro()){
+					$maximoImpacto = $parametro->getValorParametro();
+				}
+			} 	
+		}
+
+		$valorFormula = 100 / (($maximoImpacto * $maximaProbabilidad)/1);
+		return $valorFormula;
+	}
 
 	public function obtenerParametrosSevriNuevo(){
 		include_once('../../data/dtParametro.php');

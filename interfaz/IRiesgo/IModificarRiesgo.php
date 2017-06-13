@@ -42,7 +42,7 @@
 	<h4>Modificar Riesgo</h4>
 	<form id="IModificarRiesgo" method="Post" role="form" class="responsive">
 		<div class="row">
-
+		<input type="hidden" name="idDepartamento" id="idDepartamento" value="<?php echo "$idDepartamento";?>">
 			<div class="col s12 m12 l12">
 				<div class="inputs blue darken-3 col s6 m6 l6">
 					<label class="white-text" for="nombre">Nombre:</label>
@@ -107,6 +107,13 @@
 			<div <?php if ($padre == 0) { ?> style="display:none" <?php } ?> id="contenedorSubcategoria" class="col s12 m12 l12" >
 				<div class="inputs blue darken-3 col s6 m6 l6">
 					<label  for="subcategoria">Sub Categor&iacutea:</label>
+					<?php 
+					if($padre == 0){
+						echo "<select id=\"subcategoria\" disabled=\"true\" name=\"subcategoria\" onchange=\"mostrarSubcategoria(this.value)\">";
+					}else{
+						echo "<select id=\"subcategoria\" name=\"subcategoria\" onchange=\"mostrarSubcategoria(this.value)\">";
+					}
+					?>
 					<select id="subcategoria" name="subcategoria" onchange="mostrarSubcategoria(this.value)">
 					<option value="0" disabled="true">Seleccione una sub categor&iacutea...</option> 
 					<?php 
@@ -141,7 +148,7 @@
 
 			<div class="col s12 m12 l12">
 				<div class="inputs blue darken-3 col s6 m6 l6">
-					<?php echo "<button type=\"button\" class=\"btnEliminar\" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Modificar</a> </button>";?> 
+					<?php echo "<button type=\"button\" class=\"btnEliminar \" id=\"btnModificarRiesgo\" onclick=\"confirmarModificacionEliminacion($id)\"><a class=\"waves-effect waves-light btn modal-trigger btnModal\" href=\"#Meliminar\">Modificar</a> </button>";?> 
 				</div><br><br>
 			</div>
 
@@ -152,7 +159,7 @@
 				<div class="modal-footer blue darken-3 z-depth-5">
 					<input type="hidden" id="idRiesgo" name="idRiesgo">
 				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" />
+				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat btnAccionCrud"/>
 				</div>
 			</div>
 

@@ -62,8 +62,8 @@
 									<td>".$riesgo->getIdCategoria()."</td>
 									<td>".$riesgo->getCausa()."</td>
 									<td>".$riesgo->getFecha()."</td>
-									<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"cargarPagina('../interfaz/IRiesgo/IModificarRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
-									<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar\" id=\"btnEliminarRiesgo\" onclick=\"confirmarModificacionEliminacion('".$riesgo->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+									<td><input class=\"btn btn-default btnAccionCrud\" type=\"button\" value=\"Modificar\" onclick=\"cargarPagina('../interfaz/IRiesgo/IModificarRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
+									<td style=\"text-align:center;\"><button type=\"button\" class=\"btnEliminar btnModal\" id=\"btnEliminarRiesgo\" onclick=\"confirmarModificacionEliminacion('".$riesgo->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 								</tr>";
 							}
 						?>
@@ -80,7 +80,7 @@
 		<div class="modal-footer blue darken-3 z-depth-5">
 			<input type="hidden" id="idRiesgo" name="idRiesgo">
 			<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-			<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat" onclick="eliminarRiesgo()"/>
+			<input type="button" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat btnAccionCrud" onclick="eliminarRiesgo()"/>
 		</div>
 	</div>
 	<?php  
