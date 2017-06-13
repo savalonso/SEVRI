@@ -43,7 +43,7 @@
 					        	<td>".$administracion->getIndicador()."</td>
 					        	<td>".$administracion->getPlazoTratamiento()."</td>
 					        	<td>"."₡".number_format($administracion->getCostoActividad(), 2, ',', ' ')."</td>
-				        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Realizar Seguimiento\" onclick=\"realizarSeguimiento('".$administracion->getId()."')\"/></td>
+				        		<td><input class=\"btn btn-default btnAccionCrud btnModal\" type=\"button\" value=\"Realizar Seguimiento\" onclick=\"cargarPagina('../interfaz/ISeguimiento/IRealizarSeguimiento.php?IdAdministracion=".$administracion->getId()."')\"/></td>
 				    		</tr>";
 						?>
 					</tbody>

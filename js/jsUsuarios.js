@@ -60,7 +60,7 @@ function eliminarUsuario(cedulaUsuario) {
     });
 }
 
-function dirigir_url_mensaje(url, idMensaje) {
+function dirigir_url_mensaje(urlM, idMensaje) {
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData();
     formData.append("opcion", 5);
@@ -75,7 +75,7 @@ function dirigir_url_mensaje(url, idMensaje) {
         processData: false
     }).done(function (data) {
         document.getElementById('barraCargando').style.display="none";
-        $('#contenedor').load(url);
+        $('#contenedor').load(urlM);
     });
 }
 

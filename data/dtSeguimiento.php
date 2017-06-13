@@ -72,8 +72,10 @@ class dtSeguimiento{
 
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $conexion->beginTransaction();
-            $conexion->exec("CALL modificarSeguimiento('$id', '$monto', '$comentario', '$porcentaje', '$aprobador', '$archivo')");           
-            $conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$aprobador', '$id', '2')");
+            $conexion->exec("CALL modificarSeguimiento('$id', '$monto', '$comentario', '$porcentaje', '$aprobador', '$archivo')"); 
+
+            //al final del procedimiento se envía 2 para saber que el mensaje pertenece a seguimiento
+            $conexion->exec("CALL modificarMensajeUsuario('$creadorMensaje','$mensaje', '$aprobador', '$id', '2')");
 
             $conexion->commit();
             return true;
@@ -86,13 +88,22 @@ class dtSeguimiento{
     public function eliminarSeguimiento($id) {
         include_once ('dtConnection.php');
         $con = new dtConnection;
-        $prueba = $con->conect();
+        $conexion = $con->crearConexionPDO();
 
-        $result = $prueba->query("CALL eliminarSeguimiento($id)");
-        if (!$result){
-            return false;
-        } else {
+        try {
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conexion->beginTransaction();
+
+            $conexion->exec("CALL eliminarSeguimiento('$id');");   
+
+            //al final del procedimiento se envía 2 para saber que el mensaje pertenece a seguimiento         
+            $conexion->exec("CALL eliminarMensajeUsuario('$id', '2')");
+
+            $conexion->commit();
             return true;
+        } catch (Exception $e) {
+            $conexion->rollback();
+            return false;
         }
     }
 
@@ -369,12 +380,14 @@ class dtSeguimiento{
             $creadorMensaje = $_SESSION['nombreUsuario'];
             $creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
             $mensaje = "Han hecho un comentario a tu seguimiento: ".$mensajeMostrar;
-            $url = "../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php";
+            $url = "../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php";
 
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $conexion->beginTransaction();
-            $conexion->exec("CALL actualizarSeguimientoAprobador('$idSeguimiento','$estadoSeguimiento','$comentarioAprobador')");           
-            $conexion->exec("CALL insertarMensajeUsuarioSeguimiento('$creadorMensaje','$mensaje', '$url', '$idSeguimiento', '$id', '2')");
+            $conexion->exec("CALL actualizarSeguimientoAprobador('$idSeguimiento','$estadoSeguimiento','$comentarioAprobador')"); 
+
+            //al final del procedimiento se envía 3 para saber que el mensaje pertenece a seguimiento y es de aprobación          
+            $conexion->exec("CALL insertarMensajeUsuarioSeguimiento('$creadorMensaje','$mensaje', '$url', '$idSeguimiento', '3')");
 
             $conexion->commit();
             return true;
@@ -387,13 +400,23 @@ class dtSeguimiento{
 	function eliminarSeguimientoAprobador($idSeguimiento){
 		include_once ("dtConnection.php");
 		$con=new dtConnection();
-		$conexion=$con->conect();
-		$result = $conexion->query("CALL eliminarSeguimientoAprobador('$idSeguimiento')");
-		if (!$result){
-			return false;
-		} else {
-			return true;
-		}
+		$conexion = $con->crearConexionPDO();
+
+        try {
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conexion->beginTransaction();
+
+            $conexion->exec("CALL eliminarSeguimientoAprobador('$idSeguimiento');");   
+
+            //al final del procedimiento se envía 3 para saber que el mensaje pertenece a seguimiento y es de aprobación         
+            $conexion->exec("CALL eliminarMensajeUsuario('$idSeguimiento', '3')");
+
+            $conexion->commit();
+            return true;
+        } catch (Exception $e) {
+            $conexion->rollback();
+            return false;
+        }
 	}
 	
 }

@@ -83,6 +83,7 @@
 	</ul>
 
 	<ul id="subDropdown1" class="dropdown-content">
+		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IModificarUsuario.php?cedula=<?php echo "$cedulaUsuarioLogin"; ?>')">Actualizar Informaci&oacuten</a></li>
 		<li><a href="../desconectar.php">Salir</a></li>
 	</ul>
 	
@@ -127,6 +128,7 @@
 	</ul>
 
 	<ul id="subDropdown2" class="dropdown-content">
+		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IModificarUsuario.php?cedula=<?php echo "$cedulaUsuarioLogin"; ?>')">Actualizar Informaci&oacuten</a></li>
 		<li><a href="../desconectar.php">Salir</a></li>
 	</ul>
 
