@@ -58,7 +58,7 @@
 			</div>
 		</form>
 		<div class="col s12 m3 l3">
-			<input type="button" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php')" value="Crear Parametro" class="btn">
+			<input type="button" onclick="cargarPagina('../interfaz/IParametros/IcrearParametro.php')" value="Crear Parámetro" class="btn">
 		</div>
 	</div>
 
@@ -179,7 +179,7 @@
 <?php 
 	if($listaParametros != null && $TempCalificacion == true){
 ?>
-<h3>Valores de medida calificaci&oacuten para agregar</h3>
+<h4>Calificaci&oacuten de medida para agregar</h4>
 	<div class="col s12 m8 l8">
 		<div id="div1">
 			<table class="responsive-table striped responsive ParametrosCalificacion centered" id="tbParametros">
@@ -230,7 +230,7 @@
 ?>	
 </div>
 	
-<h4>Par&aacutemetros Agregados</h4>
+<h4>Par&aacutemetros agregados</h4>
 <div class="col s12 m8 l8 ">
 	<div id="div1">
 		<table class="responsive-table striped responsive centered" id="tbParametrosAgregados">

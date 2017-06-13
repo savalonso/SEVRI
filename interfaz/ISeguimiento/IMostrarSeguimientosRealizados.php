@@ -211,7 +211,7 @@ foreach($listaSeguimientos as $seguimientos) {
 		}
 	}
 } else {
-	echo "<br><h4>A&uacuten no se han realizado aprobaciones</h4>";
+	echo "<br><h4>A&uacuten no se han realizado seguimientos</h4>";
 }
 ?>		
 		</div>

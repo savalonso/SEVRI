@@ -5,8 +5,8 @@ $(document).ready(function(){
             clave: { required: true,minlength: 8, maxlength: 15}
         },
         messages: {
-            usuario: "Extención minima de 9 digitos y maxima de 15",
-            clave: "Extención minima de 8 digitos y maxima de 15"
+            usuario: "Extención minima de 9 digitos y maxima de 15 para el usuario",
+            clave: "Extención minima de 8 digitos y maxima de 15 para la contraseña"
         },
         submitHandler: function(form){
            if(usurioExiste()){

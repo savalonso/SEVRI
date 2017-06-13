@@ -6,6 +6,7 @@
 		}
 
 		$idRiesgo = $_GET['idRiesgo'];
+		$idSevri = $_GET['idSevri'];
 		include ("../../data/dtRiesgo.php");
 		$controlR = new dtRiesgo;
 		$listaR = $controlR->obtenerRiesgoDetalles($idRiesgo);
@@ -34,11 +35,36 @@
 				$calificacion = $analisis->getCalificacionMedida();
 			}
 		}
+
+		if(isset($probabilidad)){
+			include("../../logica/logicaParametros.php");
+			$logicaP = new logicaParametros;
+			$valorFormula = $logicaP->obtenerValorFormulaHistorial($idSevri);
+
+			include("../../data/dtNivelRiesgo.php");
+			$dataN = new dtNivelRiesgo;
+			$listaNivel = $dataN->getNivelesHistorial($idSevri);
+
+			$mensaje = '';
+			$limiteInicial = 0;
+			$contador = 1;
+			$color = '';
+			$cantidadDivisiones = count($listaNivel);
+			$resultadoOperacion = round(($impacto*$probabilidad)/1*$valorFormula);
+			foreach ($listaNivel as $nive) {
+				if(($resultadoOperacion >= $limiteInicial && $resultadoOperacion <= $nive->getLimite() && $contador < $cantidadDivisiones) || ($contador == $cantidadDivisiones && $resultadoOperacion >= $limiteInicial)){
+					$mensaje = $resultadoOperacion."%: ".$nive->getDescriptor();
+					$color = $nive->getColor();
+				}
+				$contador++;
+				$limiteInicial = $nive->getLimite();
+			}
+		}
 	?>
 	<script>
 		window.onload=ocultarBarra();
 	</script>	
-	<h2>Detalles del riesgo.</h2>		
+	<h4>Detalles del riesgo.</h4>		
 	<div class="row">
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<h5>Nombre:</h5>
@@ -63,7 +89,7 @@
 						<h5>Impacto:</h5>
 						<p><?php echo "$impacto"; ?></p><hr>
 						<h5>Nivel:</h5>
-						<p><?php echo"$nivel"; ?></p><hr>
+						<div style="background-color: <?php echo $color; ?>"><p><?php echo"$mensaje"; ?></p></div><hr>
 						<h5>Medida de control:</h5>
 						<p><?php echo "$medida"; ?></p><hr>
 						<h5>Calificaci&oacuten medida:</h5>

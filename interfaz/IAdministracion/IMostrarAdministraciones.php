@@ -52,7 +52,7 @@
 						        	<td>"."₡".number_format($administracion->getCostoActividad(), 2, ',', ' ')."</td>
 						        	<td>".$administracion->getUsuario()->getNombre()."</td>
 					        		<td><input class=\"btn btn-default\" type=\"button\" value=\"Modificar\" onclick=\"invocarDivModificarAdmi(this,'".$administracion->getId()."')\"/></td>
-					        		<td style=\"text-align:center;\"><button type=\"button\" id=\"btnEliminarAdministracion\" class=\"btnEliminar\" onclick=\"confirmarEliminarAdministracion('".$administracion->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
+					        		<td style=\"text-align:center;\"><button type=\"button\" id=\"btnEliminarAdministracion\" class=\"btnEliminar btnModal\" onclick=\"confirmarEliminarAdministracion('".$administracion->getId()."')\"><a class=\"waves-effect waves-light btn modal-trigger btnModal\" href=\"#Meliminar\">Eliminar</a> </button>  </td>
 					    		</tr>";
 							}
 						?>
@@ -116,17 +116,18 @@
 				</div>
 				 <div>
 					<input type="hidden" name="idAdmi" id="idAdmi">
-					<button type="button" id="btnModificarAdministracion" class="btnEliminar"><a class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a></button>
+					<button type="button" id="btnModificarAdministracion" class="btnEliminar"><a class="waves-effect waves-light btn modal-trigger btnModal" href="#Mmodificar">Modificar</a></button>
 					<input type="button" value="Cancelar" class="btn btn-default" onclick="ocultarDivActualizar()"><br>
 				</div>
 			</div>
+
 			<div id="Mmodificar" class="modal  blue darken-3 z-depth-5 white-text">
 				<div class="modal-content">
 					<h5>¿Estas seguro de realizar la siguiente operaci&oacuten?</h5>
 				</div>
 				<div class="modal-footer blue darken-3 z-depth-5">
 				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat btnAccionCrud"/>
 				</div>
 			</div>
 		</form>
@@ -147,7 +148,6 @@
 		</div>
 	</div>
 
-	
 	<script>
 	 $( document ).ready(function(){
 		   $('select').material_select();
@@ -163,18 +163,18 @@
 	           	encargado: { required: true }
 	        },
 	        messages: {
-	            medida: "Debe seleccionar una medida de administraci&oacuten.",
-	            actividad: "Debe introducir una actividad de tratamiento con un tamaño minimo de 20 caracteres y un maximo de 500 caracteres.",
-	            indicador: "Debe introducir un descriptor con un tamaño minimo de 5 caracteres y un maximo de 500 caracteres.",
-	            plazo: "Debe seleccionar una fecha limite en la que se debe realizar la actividad.",
-	            encargado: "Debe seleccionar una persona que se encargue de realizar la actividad."
+	            medida: "Se debe seleccionar una medida de administraci&oacuten.",
+	            actividad: "Se debe ingresar una actividad de tratamiento con un mínimo de 20 caracteres y un máximo de 500.",
+	            indicador: "Se debe ingresar un descriptor con un mínimo de 5 caracteres y un máximo de 500.",
+	            plazo: "Se debe seleccionar una fecha limite en la que se debe realizar la actividad.",
+	            encargado: "Se debe seleccionar un usuario que se encargue de realizar la actividad."
 
 	        },
 	        submitHandler: function(form){
 	         if(document.getElementById('medida').value==0){
-		        	Materialize.toast("Debe seleccionar una medida de administraci&oacuten.", 7000,'blue darken-3');
+		        	Materialize.toast("Se debe seleccionar una medida de administraci&oacuten.", 7000,'blue darken-3');
 		     }else if(document.getElementById('encargado').value==0){
-		        	Materialize.toast("Debe seleccionar una persona que se encargue de realizar la actividad", 7000,'blue darken-3');
+		        	Materialize.toast("Se debe seleccionar un usuario que se encargue de realizar la actividad", 7000,'blue darken-3');
 		     }else{
 		     	modificarAdministracion();
 		     }

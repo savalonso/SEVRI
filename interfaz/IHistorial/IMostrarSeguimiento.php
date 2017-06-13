@@ -8,14 +8,15 @@
 	$control = new ctrListaSeguimientos;
 	$lista = $control->obtenerSeguimientosPorIdAdministracion($idAdministracion);
 ?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script>
 	window.onload=ocultarBarra();
 </script>
 <div class="row">
-	<h2>Seguimiento del riesgo.</h2>
+	<h4>Seguimiento del riesgo.</h4>
 	<?php 
 	if($lista==null){
-		echo "NO HAY SEGUIMIENTOS PARA ESTE REISGO.";
+		echo "No hay seguimientos para este riesgo.";
 	}else{
 	?>
 	<table class="responsive-table centered bordered">
