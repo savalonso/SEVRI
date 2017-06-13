@@ -84,7 +84,7 @@
 						            	<td style=\"display:none\">".$riesgo->getIdDepartamento()."</td>				        
 							        	<td>".$riesgo->getNombre()."</td>
 							        	<td>".$riesgo->getDescripcion()."</td>
-						        		<td><input class=\"btn btn-default\" type=\"button\" value=\"A&ntilde;adir\" onclick=\"		cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
+						        		<td><input class=\"btn btn-default btnAccionCrud\" type=\"button\" value=\"A&ntilde;adir\" onclick=\"		cargarPagina('../interfaz/IRiesgo/IAnadirRiesgo.php?idRiesgo=".$riesgo->getId()."')\"/></td>
 						    		</tr>";
 								}
 							}

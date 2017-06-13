@@ -94,16 +94,15 @@
 		function modificarRiesgo($Riesgo){
 			$con = new dtConnection;
 			$prueba = $con->conect();
-
 			$id = $Riesgo->getId();
+			$idDepartamento = $Riesgo->getIdDepartamento();
 			$idCategoria = $Riesgo->getIdCategoria();
 			$nombre = $Riesgo->getNombre();
 			$descripcion = $Riesgo->getDescripcion();
 			$montoEconomico = $Riesgo->getMontoEconomico();
 			$estaActivo = $Riesgo->getEstaActivo();
 			$causa = $Riesgo->getCausa();
-
-			$result = $prueba->query("CALL modificarRiesgo($id, $idCategoria, '$nombre', '$descripcion', $montoEconomico, $estaActivo, '$causa')");
+			$result = $prueba->query("CALL modificarRiesgo($id, $idDepartamento, $idCategoria, '$nombre', '$descripcion', $montoEconomico, $estaActivo, '$causa')");
 			if (!$result){
 				return false;
 			} else {
