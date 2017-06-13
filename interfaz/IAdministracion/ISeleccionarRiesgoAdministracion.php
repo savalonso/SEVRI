@@ -70,3 +70,4 @@
 	  		$('.tooltipped').tooltip({delay: 50});
 	   	});
 	</script>
+	<script type="text/javascript" src="../js/jsAdministracion.js"></script>

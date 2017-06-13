@@ -6,9 +6,7 @@
     }else{
         echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
     }
-    if($tipo!='Administrador'){
-        echo "<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;URL=http:../index.php\">";
-    }
+   
 ?>
 <script>
 	window.onload=ocultarBarra();
