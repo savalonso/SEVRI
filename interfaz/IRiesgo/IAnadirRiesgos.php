@@ -29,7 +29,7 @@
 
 		<div class="col s6 m6 l6 blue darken-3 z-depth-5">
 			<div>
-				<label class="white-text" for="sevri">Seleccione una versi&oacuten de SEVRI:</label>
+				<label class="white-text" for="sevri">Seleccione una versi&oacuten del SEVRI:</label>
 				<select id="sevri" name="sevri" onchange="actualizarTablaAgregar()"> 
 					<option selected="true" value="0">Seleccione una versi&oacuten de SEVRI...</option>
 					<?php 
@@ -76,7 +76,7 @@
 						<?php 
 							$contador=1;
 							if($lista==null){
-								echo "SELECCIONA UNA VERSI&OacuteN DE SEVRI Y UN DEPARTAMENTO";
+								echo "Selecciona una versión del sevri y un departamento";
 							}else{
 								foreach ($lista as $riesgo){
 						            echo "<tr id=\"tr".$contador."\" style=\"display:none\">
