@@ -1,5 +1,6 @@
 
 function insertarDepartamento(){
+    document.getElementById('btnCrearDepartamento').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData= new FormData(document.getElementById("ingresarDepartamento"));
     formData.append("opcion",1);
@@ -19,6 +20,7 @@ function insertarDepartamento(){
 }
 
 function modificarDepartamento(){
+    document.getElementById('btnModificarDepartamento').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData=new FormData(document.getElementById("modificarDepartamento"));
     formData.append("opcion", 2);
@@ -38,6 +40,7 @@ function modificarDepartamento(){
 }
 
 function eliminarDepartamento(){
+    document.getElementById('btnEliminarDepartamento').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData=new FormData();
     var idDepartamento=document.getElementById('idDepartamento').value;

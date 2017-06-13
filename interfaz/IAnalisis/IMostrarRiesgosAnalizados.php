@@ -13,13 +13,19 @@
 	$controlDepartamentos=new ctrListaDepartamento;
 	$listaDepartamentos=$controlDepartamentos->obtenerListaDepartamentosUsuario($cedula);
 	if($listaDepartamentos==null){
-		echo "<h3>Usted no pertenece a ning&uacuten departamento.</h3>";
+		echo "<h4>Usted no pertenece a ning&uacuten departamento.</h4>";
 	}else{
 
 ?>
 
 <div class="row">
+	
+	<div class="col l12 m12 s12">
+		<h4>Mostrar An&aacutelisis</h4>
+	</div>
+
 	<div class="col l6 m6 s12">
+		<label for="departamentos" class="white-text">Departamento:</label>
 		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAnalizados()">
 			<option value="0" disabled="true" selected>Seleccione un departamento</option>
 			<?php

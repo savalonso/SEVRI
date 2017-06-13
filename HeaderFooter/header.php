@@ -1,5 +1,8 @@
 <?php 
-$cedulaUsuarioLogin=$_SESSION['idUsuario'];
+	include_once('../controladora/ctrListaSevri.php');
+	$contr = new ctrListaSevri();
+	$resultado = $contr->obtenerIdSevriActivo();
+ 	$cedulaUsuarioLogin=$_SESSION['idUsuario'];
  ?>
 <header>
 	<input type="hidden" id="cedulaOculta" value="<?php echo "$cedulaUsuarioLogin"; ?>">
@@ -14,7 +17,11 @@ $cedulaUsuarioLogin=$_SESSION['idUsuario'];
 				<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos">Crear Complementos</a></li>
 				<li><a class="dropdown-button" href="#" data-activates="subUsuarios">Usuarios</a></li>
 				<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamentos</a></li>
-				<li><a class="dropdown-button" href="#" data-activates="subProceso">Procesos SEVRI</a></li>
+				<?php if($resultado == true){ ?>
+				<li><a id="opcionProcesos" class="dropdown-button" href="#" data-activates="subProceso">Procesos SEVRI</a></li>
+				<?php }else{ ?>
+				<li><a id="opcionProcesos" class="dropdown-button" href="#" data-activates="subProceso" style="display:none;">Procesos SEVRI</a></li>
+				<?php } ?>
 				<li><a class="dropdown-button" href="#" data-activates="subMensajes" id="cantMenUsuario">Mensajes</a></li>
 				<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown1"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
 			</ul>
@@ -23,7 +30,11 @@ $cedulaUsuarioLogin=$_SESSION['idUsuario'];
 					<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos2">Crear Complementos</a></li>
 					<li><a class="dropdown-button" href="#" data-activates="subUsuarios2">Usuarios</a></li>
 					<li><a class="dropdown-button" href="#" data-activates="subDepartamentos2">Departamentos</a></li>
-					<li><a class="dropdown-button" href="#" data-activates="subProceso2">Procesos SEVRI</a></li>
+					<?php if($resultado == true){ ?>
+					<li><a id="opcionProcesos2" class="dropdown-button" href="#" data-activates="subProceso2">Procesos SEVRI</a></li>
+					<?php }else{ ?>
+					<li><a id="opcionProcesos2" class="dropdown-button" href="#" data-activates="subProceso2" style="display:none;">Procesos SEVRI</a></li>
+					<?php } ?>
 					<li><a class="dropdown-button" href="#" data-activates="subMensajes2" id="cantMenUsuario2">Mensajes</a></li>
 					<li class="active"><a class="dropdown-button" href="#" data-activates="subDropdown2"><?php echo $_SESSION['nombreUsuario']; ?><i class="material-icons right">more_vert</i></a></li>
 			</ul>

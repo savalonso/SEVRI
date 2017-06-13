@@ -308,7 +308,7 @@
 				 </div>
 				<div>
 					<input type="hidden" name="idParametro" id="idParametro">
-					<button type="button" class="btnEliminar"><a class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a></button>
+					<a id="btnModificarParametro" class="waves-effect waves-light btn modal-trigger" href="#Mmodificar">Modificar</a>
 					<input type="button" value="Canelar" class="btn btn-default" onclick="ocultarDiv()"><br>
 				</div>
 			</div><br>
@@ -320,7 +320,7 @@
 				</div>
 				<div class="modal-footer blue darken-3 z-depth-5">
 				 	<input type="button" value="Cancelar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
-				 	<input type="submit" value="Confirmar" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
+				 	<input type="submit" value="Confirmar" id="btnModificarParametro" class="white-text modal-action modal-close waves-effect waves-green btn-flat"/>
 				</div>
 			</div>
 		</form>

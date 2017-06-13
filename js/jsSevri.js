@@ -1,5 +1,7 @@
 
 function insertarSevri(){
+    //document.getElementById('btnCrearSevri').disabled = true;
+    desabilitarBotonesModEli();
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IcrearSevri")); 
     formData.append("opcion", 1);
@@ -35,7 +37,12 @@ function activarSevri(idSevri){
       cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
       Materialize.toast(data, 7000,'blue darken-3');
       ocultarBarra();
+      mostrarOpcionProcesos();
   });    
+}
+function mostrarOpcionProcesos(){//esta funcion muestra del header la opcion de procesos
+  document.getElementById('opcionProcesos').style.display = "";
+  document.getElementById('opcionProcesos2').style.display = "";
 }
 
 function desactivarSevri(idSevri){
@@ -55,7 +62,12 @@ function desactivarSevri(idSevri){
       cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
       Materialize.toast(data, 7000,'blue darken-3');
       ocultarBarra();
+      ocultarOpcionProcesos();
   });    
+}
+function ocultarOpcionProcesos(){//esta funcion oculta del header la opcion de procesos
+   document.getElementById('opcionProcesos').style.display = "none";
+   document.getElementById('opcionProcesos2').style.display = "none";
 }
 
 function ocultarTodos(){
@@ -128,6 +140,7 @@ function cancelarActualizar(){
 }
 
 function actualizarSevri(){
+    desabilitarBotonesModEli();
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById('actualizarSevri')); 
     var id = document.getElementById("id").value;
@@ -149,23 +162,24 @@ function actualizarSevri(){
 }
 
 function eliminarSevri(){
+    desabilitarBotonesModEli();
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(); 
     var id = document.getElementById("idSevri").value;
     formData.append("opcion", 6);
     formData.append("idSevri",id);
     $.ajax({
-    url : "../controladora/ctrSevri.php",
-    type : "post",
-    dataType : "html",
-    data : formData,
-    cache : false,
-    contentType : false,
-    processData : false
+      url : "../controladora/ctrSevri.php",
+      type : "post",
+      dataType : "html",
+      data : formData,
+      cache : false,
+      contentType : false,
+      processData : false
     }).done(function(data) {
-     cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
-     Materialize.toast(data, 7000,'blue darken-3');
-     ocultarBarra();
+       cargarPagina('../interfaz/ISevri/IMostrarSevri.php');
+       Materialize.toast(data, 7000,'blue darken-3');
+       ocultarBarra();
     });    
 }
 
@@ -406,6 +420,25 @@ function escogerTipoReporte(tipoReporte){
   document.getElementById('opcion').value = tipoReporte;
 }
 
+
+/*
+* con el siguiente metodo se obtienen todos los botones submit que insertan
+* modifican y eliminan para que cuando se hace click sobre los mismos se desabiliten
+* También se obtienen los botones que invocan modales para confirmar acciones
+* para que los mismos se desabiliten cuando se confirma la acción. 
+*/
+function desabilitarBotonesModEli(){
+  var botones = $(".btnAccionCrud");
+  //se reccoren los botones porque no se obtiene solo uno. 
+  for (var i = botones.length - 1; i >= 0; i--) {
+    botones[i].disabled = true;
+  }
+  var botones2 = $(".btnModal");
+  for (var i = botones2.length - 1; i >= 0; i--) {
+    botones2[i].className = "waves-effect waves-light btn modal-trigger activeHref";
+  }
+}
+
 /*aqui se encuentra el paginador de las tablas*/
  $(document).ready(function(){
         $("#MostrarSevri").paginationTdA({
@@ -439,3 +472,47 @@ function ocultarTooltip(){
   tooltip.style.display="none";
 }
 
+// validacion del formulario de insertar SEVRI
+$(document).ready(function() {
+      $("#IcrearSevri").validate({
+          rules: {
+              nombre: { required: true, minlength: 13, maxlength: 100},
+              fecha: { required: true}
+          },
+          messages: {
+              nombre: "Se debe ingresar un nombre con un mínimo de 13 caracteres y máximo de 100.",
+              fecha: "Se debe seleccionar una fecha mayor o igual a la fecha actual."
+          },
+          submitHandler: function(form){
+             insertarSevri();
+          }
+      });
+  });
+   $(document).ready(function() {
+       Materialize.updateTextFields();
+   });
+   $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+   });
+
+//validacion de modificar SEVRI 
+$(document).ready(function() {
+      $("#actualizarSevri").validate({
+          rules: {
+              nombre: { required: true, minlength: 5, maxlength: 100},
+              fecha: { required: true}
+          },
+          messages: {
+              nombre: "Se debe ingresar un nombre con un mínimo de 13 caracteres y máximo de 100.",
+              fecha: "Se debe seleccionar una fecha mayor o igual a la fecha actual."
+          },
+          submitHandler: function(form){
+             actualizarSevri();
+          }
+      });
+    });
+    
+    $(document).ready(function(){
+        $('.modal-trigger').leanModal();
+      });

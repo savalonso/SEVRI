@@ -24,8 +24,9 @@
  ?>
 
 	<div class="row">
+	<h4>Administrar Riesgos</h4>
 		<div class="contendorselect col s12 m12 l6">
-			<h4>Administrar Riesgos</h4>
+			<label class="white-text" for="departamentos">Departamento:</label>
 			<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAdministracion()">
 		
 				<option value="0" disabled="true" selected>Seleccione un Departamento</option>

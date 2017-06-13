@@ -25,7 +25,7 @@
 	<div class="row">
 		<h4 class="col s12 m8 l8">Mostrar SEVRI</h4>
 	</div>
-	<?php if($lista){?>
+	<?php if($lista){ ?>
 			<div class="row">
 			<div class="input-field buscar1 col s8 m8 l8">
 		        <label class="white-text" for="filtrar">Buscar</label>

@@ -190,7 +190,6 @@
 			$conexion = $con->conect();
 			$query = "CALL eliminarSevri('$id')";
 			$result = mysqli_query($conexion, $query);
-			
 			mysqli_close($conexion);
 
 			if (!$result){
@@ -198,6 +197,20 @@
 			} else {
 				return true;
 			}
+		}
+
+		function obtenerIdSevriActivo(){
+			$con = new dtConnection();
+			$conexion = $con->conect();
+			$query = "CALL obtenerIdSevriActivo()";
+			$result = mysqli_query($conexion, $query);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$id = $row['Id'];
+
+			mysqli_free_result($result);
+			mysqli_close($conexion);
+
+			return $id;
 		}
 	}	
 

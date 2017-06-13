@@ -22,7 +22,7 @@
 ?>
 <div id="contenedorCategorias">
     <div class="row" id="contenedorTablaCategorias">
-    <h3>Categor&iacuteas para agregar</h3>
+    <h4>Categor&iacuteas para agregar</h4>
     <div class="row">
         <div class="col s12 m8 l8">
             <div id="div1">
@@ -69,7 +69,7 @@
     </div>
 
     <div class="row">
-        <h3>Categor&iacuteas Agregadas</h3>
+        <h4>Categor&iacuteas agregadas</h4>
         <div class="col s12 m8 l8">
             <div id="div1">
                 <table class="responsive-table responsive striped" id="tbCategoriasAgregadas">

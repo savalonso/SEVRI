@@ -18,6 +18,7 @@ $cedulaUsuarioLogin=$_SESSION['idUsuario'];
 				<div class="posicion2">
 					<ul id="nav-mobile" class="right responsive-nav">
 						<!--menu -->
+						<li><a class="dropdown-button " href="#" data-activates="SubSevri">SEVRI</a></li>
 						<li><a class="dropdown-button" href="#" data-activates="subIdentificar">Identificaci&oacuten</a></li>
 						<li><a class="dropdown-button" href="#" data-activates="subAnalisis">An&aacutelisis</a></li>
 						<li><a class="dropdown-button" href="#" data-activates="subAdministracion">Administraci&oacuten</a></li>
@@ -28,6 +29,7 @@ $cedulaUsuarioLogin=$_SESSION['idUsuario'];
 
 					<ul class="side-nav" id="menuresponsive">
 					<!-- sub menu responsive-->
+						<li><a class="dropdown-button" href="#" data-activates="SubSevri2">SEVRI</a></li>
 						<li><a class="dropdown-button" href="#" data-activates="subIdentificar2">Identificaci&oacuten</a></li>
 						<li><a class="dropdown-button" href="#" data-activates="subAnalisis2">An&aacutelisis</a></li>
 						<li><a class="dropdown-button" href="#" data-activates="subAdministracion2">Administraci&oacuten</a></li>
@@ -41,6 +43,10 @@ $cedulaUsuarioLogin=$_SESSION['idUsuario'];
 	  </nav>
 	</div>
      <!-- Dropdown Structure -->
+     <ul id="SubSevri" class="dropdown-content" >
+		<li><a href="javascript:cargarPagina('../interfaz/ISevri/IcrearReportes.php')">Crear Reportes</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/IHistorial/IMostarRiesgos.php')">Historial</a></li>
+	</ul>
 		  
 	<ul id="subIdentificar" class="dropdown-content">
 	  <li>
@@ -85,6 +91,10 @@ $cedulaUsuarioLogin=$_SESSION['idUsuario'];
 	</ul>
 
 	<!-- estructura del menú responsive-->
+	<ul id="SubSevri2" class="dropdown-content" >
+		<li><a href="javascript:cargarPagina('../interfaz/ISevri/IMostrarSevri.php')">Mostrar Versiones</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/IHistorial/IMostarRiesgos.php')">Historial</a></li>
+	</ul>
 	<ul id="subIdentificar2" class="dropdown-content">
 		<li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IIdentificarRiesgo.php')">Identificar Riesgo</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IRiesgo/IMostrarRiesgo.php')">Mostrar Riesgos</a></li>

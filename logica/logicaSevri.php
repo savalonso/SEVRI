@@ -203,9 +203,9 @@ class LogicaSevri{
 		if($correcto){
 			$resultado = $dataSevri->insertarSevri($sevri);
 			if($resultado){
-				$mensaje = 'CORRECTO!! EL SEVRI se ha creado correctamente';
+				$mensaje = 'Se ha insertado correctamente el SEVRI';
 			}else{
-				$mensaje = 'ERROR!! No se ha podido crear el SEVRI';
+				$mensaje = 'No se ha insertado el SEVRI';
 			}
 		}else{
 			$mensaje = 'Lo sentimos no se puede crear el sevri porque ya existe otro sevri en el cual no se ha efectuado ningun proceso.';
@@ -222,9 +222,9 @@ class LogicaSevri{
 		$mensaje = '';
 
 		if(!$resultado){
-			$mensaje = 'Lo sentimos no se ha podido ingresar el parametro';
+			$mensaje =  'No se ha insertado el parámetro';
 		}else{
-			$mensaje =  'El parametro se ha ingresado correctamente';
+			$mensaje = 'Se ha insertado correctamente el parámetro';
 		}
 		return $mensaje;
 	}
@@ -237,9 +237,9 @@ class LogicaSevri{
 		$resultado = $dtparametro->modificarParametro($parametro);
 		$mensaje = '';
 		if(!$resultado){
-			$mensaje = 'Lo sentimos no se ha podido modificar el parametro';
+			$mensaje = 'No se ha modificado el parámetro';
 		}else{
-			$mensaje = 'El parametro se ha modificado correctamente';
+			$mensaje = 'Se ha modificado correctamente el parámetro';
 		}
 		return $mensaje;
 	}
@@ -252,9 +252,10 @@ class LogicaSevri{
 		$resultado = $dtparametro->eliminarParametro($idParametro);
 		$mensaje = '';
 		if(!$resultado){
-			$mensaje = 'Lo sentimos no se ha podido eliminar el parametro';
+			$mensaje = 'No se ha eliminado el parámetro';
 		}else{
-			$mensaje = 'El parametro se ha eliminado correctamente';
+			
+			$mensaje = 'Se ha eliminado correctamente el parámetro';
 		}
 		return $mensaje;
 	}
@@ -313,6 +314,13 @@ class LogicaSevri{
 			}else{
 				return $listaParametros;
 			}
+	}
+
+	function obtenerIdSevriActivo(){
+		include_once('../data/dtSevri.php');
+		$data = new dtSevri();
+		$idSevriActivo = $data->obtenerIdSevriActivo();
+		return $idSevriActivo;
 	}
 }
 
