@@ -39,14 +39,14 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
             <h5>Procentaje de avance: <?=$porcentajeTotal?>%</h5>
             <h5>Monto de avance: ₡ <?=number_format($montoTotal, 2, ',', '.')?></h5>
             <hr>
-        <?php
+            <?php
+            if($porcentajeTotal < 100){
+                ?>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#MInsertar" style="margin-bottom: 7.5px;">Nuevo Avance</a>
+                <?php
+            }
             if($listaSeguimiento!=null){
-                if($porcentajeTotal < 100){
-                    ?>
-                        <a class="waves-effect waves-light btn modal-trigger" href="#MInsertar" style="margin-bottom: 7.5px;">Nuevo Avance</a>
-                    <?php
-                }
-        ?>
+            ?>
             <table class="responsive-table centered bordered">
                 <thead>
                     <tr>
