@@ -224,7 +224,8 @@
 				$categoria->setDescripcion($row['Descripcion']);
 				$categoria->setHijoDe($row['HijoDe']);
 				$categoria->setCantHijos($row['cantHijos']);
-				$categoria->setCantRiesgos($row['cantRiesgos']);					
+				$categoria->setCantRiesgos($row['cantRiesgos']);
+				$categoria->setCantSevri($row['cantSevri']);
 
 				array_push($lista, $categoria);
 			}

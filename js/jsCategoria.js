@@ -1,4 +1,5 @@
 function insertarCategoria(){
+    desabilitarBotonesModEli();
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IInsertarCategoria"));
     if(document.getElementById('categoria').disabled==false){
@@ -29,6 +30,7 @@ function cancelarModificar(){
     document.getElementById('contenedorConfirmacion').style.display = 'none';
 }
 function eliminarCategoria(){
+    desabilitarBotonesModEli();
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IMostrarCategoria"));
     var id = document.getElementById("idCategoria").value;
@@ -49,6 +51,7 @@ function eliminarCategoria(){
     });
 }
 function modificarCategoria(){
+    desabilitarBotonesModEli();
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IModificarCategoria")); 
     var id = document.getElementById("id").value;
@@ -151,12 +154,7 @@ function validarInsertarCategoria(){
                 if(document.getElementById('categoria').value==0){
                     Materialize.toast("Debe de seleccionar una categor&iacutea v&aacutelida", 7000,'blue darken-3');
                 }else{
-                    if (!statSend) {
-                        statSend = true;
-                        insertarCategoria();
-                     } else {
-                        Materialize.toast("Ya se esta creando la categoria", 7000,'blue darken-3');
-                    }
+                    insertarCategoria(); 
                 }
             }
         });

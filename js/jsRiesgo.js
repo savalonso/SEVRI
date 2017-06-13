@@ -19,6 +19,7 @@ function nuevoAjax(){
 
 
 function insertarRiesgo(){
+    desabilitarBotonesModEli();
     document.getElementById('barraCargando').style.display="";
     document.getElementById('btnInsertarRiesgo').disabled = true;
 
@@ -63,6 +64,7 @@ function insertarRiesgo(){
 
 
 function eliminarRiesgo(){
+    desabilitarBotonesModEli();
     document.getElementById('btnEliminarRiesgo').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IIdentificarRiesgo"));
@@ -90,6 +92,7 @@ function generarReporte(url){
 }
 
 function modificarRiesgo(){
+    desabilitarBotonesModEli();
     document.getElementById('btnModificarRiesgo').disabled = true;
     document.getElementById('barraCargando').style.display="";
     var formData = new FormData(document.getElementById("IModificarRiesgo")); 

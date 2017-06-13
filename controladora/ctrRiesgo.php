@@ -72,6 +72,7 @@
 		function modificarRiesgo(){
 	      	$mriesgo = new dRiesgo;
 	      	$mriesgo->setId($_POST['id']);
+	      	$mriesgo->setIdDepartamento($_POST['idDepartamento']);
     		$mriesgo->setIdCategoria($_POST['sub']);
 	      	$mriesgo->setNombre($_POST['nombre']);
 	      	$mriesgo->setDescripcion($_POST['descripcion']);
@@ -79,7 +80,6 @@
 	      	$mriesgo->setMontoEconomico(str_replace("₡","",$montoTemp));
 	      	$mriesgo->setEstaActivo($_POST['estado']);
 	      	$mriesgo->setCausa($_POST['causa']);
-
 	      	$dataRiesgo = new dtRiesgo;
                
 	      	if($dataRiesgo->modificarRiesgo($mriesgo) == true){
