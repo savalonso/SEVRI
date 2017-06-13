@@ -32,7 +32,7 @@
 		        <input id="datosSevri" type="text" >
         	</div>
         	 <div class="col l4 m4 s4">
-				<a id="boton" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php');ocultarTooltip();" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+				<a id="boton" onclick="cargarPagina('../interfaz/ISevri/IcrearSevri.php');ocultarTooltip();" data-tooltip="Crear SEVRI" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 			 </div>
 				<div class="col s12 m12 l10">
 					<div>
@@ -59,7 +59,7 @@
 						
 										if($sevri->getActivo()==0 && $sevri->getEsNuevo()==1){
 											echo 	"<td style=\"text-align:center;\"><button class=\"btn \" type=\"button\" onclick=\"paginaModificarSevri('".$sevri->getIdSevri()."') \">Modificar</button></td>";
-											echo 	"<td style=\"text-align:center;\"><a class=\"waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></td>";
+											echo 	"<td style=\"text-align:center;\"><a class=\"btnModal waves-effect waves-light btn modal-trigger\" href=\"#Meliminar\">Eliminar</a></td>";
 											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"cargarPagina('../interfaz/IComplementos/IConfigurarSevri.php') \">Configurar</button></td>";
 											echo 	"<td style=\"text-align:center;\"><button class=\"btn\" type=\"button\" onclick=\"activarSevri('".$sevri->getIdSevri()."') \">Activar</button></td>";
 											echo 	"<td style=\"text-align:center;\"><input type=\"hidden\" value=\"".$sevri->getIdSevri()."\" id=\"idSevri\"></input></td>";

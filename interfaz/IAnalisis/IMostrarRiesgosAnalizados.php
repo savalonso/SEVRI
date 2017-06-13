@@ -36,7 +36,7 @@
 		</select>
 	</div>
 	<div class="col s6 m6 l6">
-		<a id="boton" href="#" onclick="cargarPagina('IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar un nuevo análisis" class="btn-floating tooltipped btn-large waves-effect waves-light blue "><i class="material-icons">add</i></a>
+		<a id="boton" href="#" onclick="cargarPagina('IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar un nuevo análisis" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip"><i class="material-icons">add</i></a>
 	</div>
 </div>
 <div id="mostrarRiesgosAnalizados"></div>

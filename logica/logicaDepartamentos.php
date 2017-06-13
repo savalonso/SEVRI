@@ -65,9 +65,9 @@ class logicaDepartamentos{
 		$resultado=$dtdepartamento->insertarDepartamentos($departamento);
 		$mensaje = '';
 		if(!$resultado){
-			$mensaje = 'Lo sentimos no se ha podido ingresar el departamento';
+			$mensaje = 'No se ha insertado el departamento';
 		} else {
-			$mensaje =  'El departamento se ha ingresado correctamente';
+			$mensaje =  'Se ha insertado correctamente el departamento';
 		}
 		return $mensaje;
 	}
@@ -78,9 +78,9 @@ class logicaDepartamentos{
 		$resultado = $dtdepartamento->modificarDepartamento($departamento,$idDepartamento);
 		$mensaje = '';
 		if(!$resultado){	
-			$mensaje = 'Lo sentimos no se ha podido modificar el departamento';			
+			$mensaje = 'No se ha modificado el departamento';			
 		} else{	
-			$mensaje = 'El departamento se ha modificado correctamente';
+			$mensaje = 'Se ha modificado correctamente el departamento';
 		}
 		return $mensaje;
 	}
@@ -91,9 +91,9 @@ class logicaDepartamentos{
 		$resultado=$dtdepartamento->eliminarDepartamento($idDepartamento);
 		$mensaje='';
 		if(!$resultado){
-			$mensaje='Lo sentimos no se ha podido eliminar del departamento';
+			$mensaje='No se ha eliminado el departamento';
 		} else {
-			$mensaje='Se ha eliminado el departamento';
+			$mensaje='Se ha eliminado correctamente el departamento';
 		}
 		return $mensaje;
 	}
