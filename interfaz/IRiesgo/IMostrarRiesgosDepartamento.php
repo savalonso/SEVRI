@@ -19,9 +19,12 @@
 
 <script>
 	window.onload=ocultarBarra();
+
 	$( document ).ready(function(){
 	$('select').material_select();});
 </script>
+
+
 
 
 <div class="row">
@@ -66,6 +69,9 @@
 	</div>
   	<script>
 	window.onload=ocultarBarra();
-	$( document ).ready(function(){
-	$('select').material_select();});
+	$( document ).ready(function(){	
+
+	$('.tooltipped').tooltip({delay: 10});
+	$('select').material_select();
+});
 </script>

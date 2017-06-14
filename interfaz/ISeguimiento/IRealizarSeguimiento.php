@@ -23,6 +23,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
     window.onload=ocultarBarra();
 </script>
 
+<h4>Realizar Seguimiento</h4>
 <div class="row">
     <div class="col s12 m12 l12">
         <?php
@@ -158,13 +159,13 @@ var porcentajeMaximo = '<?php echo 100-$porcentajeTotal ?>';
         $("#IRegistrarSeguimiento").validate({
             rules: {
                 monto:{ required: true},
-                comentario:{ required: true},
+                comentario:{ required: true,minlength: 20, maxlength: 1000},
                 porcentaje:{ required: true},
                 aprobador:{ required: true},
             },
             messages: {
                 monto:"Se debe ingresar el monto para la actividad. Monto m&aacute;ximo ₡"+montoMaximo,
-                comentario:"Se debe ingresar un comentario de avence",
+                comentario:"Se debe ingresar un comentario de avence con una extension minima de 20 caracteres y maxima de 100 caracteres",
                 porcentaje:"Se debe ingresar un porcentaje de avance. Porcentaje m&aacute;ximo "+porcentajeMaximo+"%",
                 aprobador:"Se debe seleccionar un aprobador"
             },

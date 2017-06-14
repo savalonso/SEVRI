@@ -24,8 +24,9 @@
 				<div class="" >
 				
 					<div>
-						<label class="white-text" for="estado">Estado:</label>
+						
 						<select id="estado" name="estado" onchange="cargarFormulario()"> 
+							<option selected disabled>Seleccione un estado...</option>
 							<option value="1">Aprobar</option>
 							<option value="0">Reprobar</option>
 						</select>

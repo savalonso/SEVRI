@@ -64,7 +64,7 @@
 		<div class="col s12">
 			<ul class="tabs">
 				<li class="tab s4"><a href="#contenedorSeguimientosUsuario">Seguimientos realizados</a></li>
-				<li class="tab s4"><a href="#contenedorSeguimientosAprobador">Seguimientos aprobados/reprobados</a></li>
+				<li class="tab s4"><a href="#contenedorSeguimientosAprobador">Seguimientos aprobados</a></li>
 			</ul>
 		</div>
 	</div>	
@@ -154,10 +154,10 @@ if($listaSeguimientos != null) {
 							<th>Porcentaje avance</th>
 							<th>Estado del seguimiento</th>
 							<th>Comentario del aprobador</th>
-							<th>Opcion 1</th>
-							<th>Opcion 2</th>
-							<th>Opcion 3</th>
-							<th>Opcion 4</th>
+							<th>Opci&oacuten 1</th>
+							<th>Opci&oacuten 2</th>
+							<th>Opci&oacuten 3</th>
+							<th>Opci&oacuten 4</th>
 						</tr>
 					</thead>
 					<tbody>
