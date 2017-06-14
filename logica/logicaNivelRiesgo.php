@@ -120,34 +120,66 @@
 			$listaSevriNivel = $dataNivel->getSevriNivel();
 
 			$vinculados = array();
- 			$encontrado = false;
+ 			$encontrado = false; 
+ 			
+ 			
  			if (!empty($listaSevriNivel)) { 
- 				for ($i=0; $i < count($listaNivel) ; $i++) {
-			         for ($j=0; $j < count($listaSevriNivel) ; $j++) { 
-						
-			         	$temp = $listaSevriNivel[$j];
-			         	if ($listaNivel[$i]->getIdDivisiones() == $temp['idDivicion']) {
-			         		$listaNivel[$i]->setEsEditable(false);
-			              	array_push($vinculados,$listaNivel[$i]);
-			            }else{
-			            	$listaNivel[$i]->setEsEditable(true);
-			            	array_push($vinculados,$listaNivel[$i]);
+ 				for ( $i=0; $i < count($listaSevriNivel); $i++ ) {
+ 					$temp = $listaSevriNivel[$i];
+			         for ( $j=0 ; $j < count($listaNivel); $j++ ) { 
+							
+			         	if ($listaNivel[$j]->getIdDivisiones() == $temp['idDivicion']) {
+			         		
+			         		$condicion = logicaNivelRiesgo::valoresSinRepetir($vinculados,$listaNivel[$j]);//recive el array de vinculados y el nivel de riesgo
+			         		if(!$condicion){
+			         			$listaNivel[$j]->setEsEditable(false);
+			              		array_push($vinculados,$listaNivel[$j]);
+			         		}
 			            }
 			         }
-		        }
+		        } 
+		        if($vinculados != null){
+		        	$vinculados	= logicaNivelRiesgo::AgregarNovinculados($vinculados,$listaNivel);
+ 				}
  			} else {
- 				
 				for ($i=0; $i < count($listaNivel) ; $i++) { 
 
 	         		$listaNivel[$i]->setEsEditable(true);
 	              	array_push($vinculados,$listaNivel[$i]);
 	           }
  			}
-			if(!$vinculados){
-				return false;
-			}else{
+ 			
 				return $vinculados;
+		}
+
+		function valoresSinRepetir($vinculados,$nivelRiesgo){
+
+			$encontrado = false;
+			if($vinculados != null){
+				for($i = 0; $i<count($vinculados);$i++){
+
+					if($vinculados[$i]==$nivelRiesgo){
+						$encontrado = true;
+						$i=count($vinculados);
+					}
+				}
+			}else{
+				
+				$encontrado = false;
 			}
+			return $encontrado;
+		}
+		function AgregarNovinculados($vinculados,$listaNivel){
+
+			for($i = 0; $i<count($listaNivel);$i++){
+				if(!(logicaNivelRiesgo::valoresSinRepetir($vinculados,$listaNivel[$i]))){
+					$listaNivel[$i]->setEsEditable(true);
+			        array_push($vinculados,$listaNivel[$i]);
+				}
+			}
+
+			return $vinculados;
+
 		}
 	}
 

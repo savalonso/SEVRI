@@ -207,3 +207,21 @@ $( document ).ready(function(){
 $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
 });
+
+/*filtrado de tablas*/
+$(document).ready(function () {
+    (function ($) {
+
+        $('#datosAdministracion').keyup(function () {
+            
+            var rex = new RegExp($(this).val(), 'i');
+            $('#datosAd tr').hide();
+            $('#datosAd tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+});
+/*fin filtrado*/

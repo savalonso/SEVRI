@@ -57,16 +57,12 @@ function registrarSeguimiento(idAdministracion){
         document.getElementById('barraCargando').style.display="none";
     });
 }
-/**
- * Cristopher
- */
-function cargarPagina (url) {
-    document.getElementById('barraCargando').style.display="";
-    $('#contenedor').load(url);
-}
+
+
 function confirmarModificacionEliminacion(idSeguimiento){
     document.getElementById('idSeguimiento').value = idSeguimiento;
 }
+
 function eliminarSeguimientoAprobador(){
     document.getElementById('barraCargando').style.display="";
 	var formData= new FormData();
@@ -87,6 +83,7 @@ function eliminarSeguimientoAprobador(){
         document.getElementById('barraCargando').style.display="none";
 	});
 }
+
 function modificarSeguimiento(){
     document.getElementById('barraCargando').style.display="";
 	var formData=new FormData(document.getElementById("modificarSeguimiento"));

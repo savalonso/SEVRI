@@ -19,7 +19,7 @@ $listaMensajes = $control->obtenerMensajesUsuario();
 <div class="row">
 	<?php  
         if($listaMensajes==null){
-        	echo "<h3>Usted no tiene mensajes</h3>";
+        	echo "<h4>Usted no tiene mensajes</h4>";
         }else{
 	?>
     <h2>Lista de Mensajes</h2>

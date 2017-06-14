@@ -31,7 +31,7 @@ $listaUsuarios = $control->obtenerListaUsuarios();
     </div>
     <div class="col l4 m4 s4">
         <div id="añadir">
-            <a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue" data-position="top" data-tooltip="Agregar Usuarios" style="float: right; margin-top: 22px;" href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')"><i class="material-icons">add</i></a>
+            <a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" data-position="top" data-tooltip="Agregar Usuarios" style="float: right; margin-top: 22px;" href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')"><i class="material-icons">add</i></a>
         </div>
     </div>
     <?php  

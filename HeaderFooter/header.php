@@ -15,8 +15,8 @@
 			<ul class="right hide-on-med-and-down">
 				<li><a class="dropdown-button " href="#" data-activates="SubSevri">SEVRI</a></li>
 				<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos">Crear Complementos</a></li>
-				<li><a class="dropdown-button" href="#" data-activates="subUsuarios">Usuarios</a></li>
-				<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamentos</a></li>
+				<li><a class="dropdown-button" href="#" data-activates="subUsuarios">Usuario</a></li>
+				<li><a class="dropdown-button" href="#" data-activates="subDepartamentos">Departamento</a></li>
 				<?php if($resultado == true){ ?>
 				<li><a id="opcionProcesos" class="dropdown-button" href="#" data-activates="subProceso">Procesos SEVRI</a></li>
 				<?php }else{ ?>
@@ -28,8 +28,8 @@
 			<ul class="side-nav" id="menuresponsive">
 				<li><a class="dropdown-button" href="#" data-activates="SubSevri2">SEVRI</a></li>
 					<li><a class="dropdown-button" href="#" data-activates="subCrearComplementos2">Crear Complementos</a></li>
-					<li><a class="dropdown-button" href="#" data-activates="subUsuarios2">Usuarios</a></li>
-					<li><a class="dropdown-button" href="#" data-activates="subDepartamentos2">Departamentos</a></li>
+					<li><a class="dropdown-button" href="#" data-activates="subUsuarios2">Usuario</a></li>
+					<li><a class="dropdown-button" href="#" data-activates="subDepartamentos2">Departamento</a></li>
 					<?php if($resultado == true){ ?>
 					<li><a id="opcionProcesos2" class="dropdown-button" href="#" data-activates="subProceso2">Procesos SEVRI</a></li>
 					<?php }else{ ?>
@@ -51,7 +51,7 @@
 	<ul id="subCrearComplementos" class="dropdown-content" >
 		<li><a href="javascript:cargarPagina('../interfaz/IParametros/IcrearParametro.php')">Crear Par&aacutemetro</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IParametros/IMostrarParametros.php')">Mostrar Par&aacutemetro</a></li>
-		<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')">Insertar Categor&iacuteas</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')">Insertar Categor&iacutea</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IMostrarCategoria.php')">Mostrar Categor&iacuteas</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')">Crear Niveles de Riesgo</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php')">Mostrar Nivel Riesgo</a></li>	
@@ -63,7 +63,7 @@
 		<li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')">Analizar Riesgo</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalizados.php')">Mostrar An&aacutelisis</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php')">Administrar Riesgo</a></li>
-		<li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimientos</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimiento</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php')">Mostrar Seguimientos</a></li>
 	</ul>
 
@@ -73,16 +73,17 @@
 	</ul>
 
 	<ul id="subUsuarios" class="dropdown-content">
-		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')">Registrar Usuarios</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')">Registrar Usuario</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php')">Mostrar Usuarios</a></li>
 	</ul>
 
 	<ul id="subDepartamentos" class="dropdown-content">
-		<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IInsertarDepartamento.php')">Registrar Departamentos</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IInsertarDepartamento.php')">Registrar Departamento</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IMostrarDepartamentos.php')">Mostrar Departamentos</a></li>
 	</ul>
 
 	<ul id="subDropdown1" class="dropdown-content">
+		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IModificarUsuario.php?cedula=<?php echo "$cedulaUsuarioLogin"; ?>')">Actualizar Informaci&oacuten</a></li>
 		<li><a href="../desconectar.php">Salir</a></li>
 	</ul>
 	
@@ -96,7 +97,7 @@
 	<ul id="subCrearComplementos2" class="dropdown-content" >
 		<li><a href="javascript:cargarPagina('../interfaz/IParametros/IcrearParametro.php')">Crear Par&aacutemetro</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IParametros/IMostrarParametros.php')">Mostrar Par&aacutemetro</a></li>
-		<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')">Insertar Categor&iacuteas</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IInsertarCategoria.php')">Insertar Categor&iacutea</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/ICategoria/IMostrarCategoria.php')">Mostrar Categor&iacuteas</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')">Crear Niveles de Riesgo</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/INivelRiesgo/IMostrarNivelRisgoAuxiliar.php')">Mostrar Nivel Riesgo</a></li>	
@@ -108,7 +109,7 @@
 		<li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')">Analizar Riesgo</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalizados.php')">Mostrar An&aacutelisis</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IAdministracion/IMostrarRiesgosAdministracion.php')">Administrar Riesgo</a></li>
-		<li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimientos</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php')">Realizar Seguimiento</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php')">Mostrar Seguimientos</a></li>
 	</ul>
 
@@ -117,16 +118,17 @@
 	</ul>
 
 	<ul id="subUsuarios2" class="dropdown-content">
-		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')">Registrar Usuarios</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')">Registrar Usuario</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IMostrarUsuarios.php')">Mostrar Usuarios</a></li>
 	</ul>
 
 	<ul id="subDepartamentos2" class="dropdown-content">
-		<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IInsertarDepartamento.php')">Registrar Departamentos</a></li>
+		<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IInsertarDepartamento.php')">Registrar Departamento</a></li>
 		<li><a href="javascript:cargarPagina('../interfaz/IDepartamento/IMostrarDepartamentos.php')">Mostrar Departamentos</a></li>
 	</ul>
 
 	<ul id="subDropdown2" class="dropdown-content">
+		<li><a href="javascript:cargarPagina('../interfaz/IUsuarios/IModificarUsuario.php?cedula=<?php echo "$cedulaUsuarioLogin"; ?>')">Actualizar Informaci&oacuten</a></li>
 		<li><a href="../desconectar.php">Salir</a></li>
 	</ul>
 

@@ -36,7 +36,7 @@
                         <input type="hidden" id="opcion" name="opcion" value="5">
                          
                         <div>
-                            <input type="submit" value="Crear Reporte Excel" onclick="escogerTipoReporte(5)" class="btn btn-default">
+                            <input type="submit" value="Crear Reporte Excel" onclick="escogerTipoReporte(5)" class=" btn btn-default">
                         </div><br>
 
                         <div>
