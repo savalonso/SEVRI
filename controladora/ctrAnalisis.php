@@ -50,7 +50,7 @@ class ctrAnalisis {
 		if($dataAnalisis->eliminarAnalisis($idAnalisis) == true){
 			echo 'Se ha eliminado correctamente el an&aacutelisis.';	
 		} else {
-			echo 'No se ha eliminado el an&aacutelisis.';
+			echo 'No se elimin&oacute el an&aacutelisis, porque cunta con una adminstraci&oacuten';
 		}
 	}
 	

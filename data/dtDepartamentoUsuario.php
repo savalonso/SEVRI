@@ -46,7 +46,7 @@
 		function eliminarUsuarioDepartamento($idDepartamento, $cedulaUsuario){
 			$con = new dtConnection;
 			$prueba = $con->conect();
-			$result = $prueba->query("CALL eliminarUsuarioDepartamento($idDepartamento, $cedulaUsuario);");
+			$result = $prueba->query("CALL eliminarUsuarioDepartamento($idDepartamento, '$cedulaUsuario');");
 			if (!$result){
 				return false;
 			} else {

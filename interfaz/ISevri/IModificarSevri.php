@@ -42,7 +42,7 @@
 	 				<input type="date" id="fecha" name="fecha" placeholder="<?php echo "Dato:"."$fecha"; ?>" value="<?php echo "$fecha"; ?>" min="<?php echo $fecha; ?>" max="<?php echo date("Y")."-12-"."31"; ?>"></label>
 	 			</div>
 	 			<div>
-	 				<a class="waves-effect waves-light btn modal-trigger" href="#Mconfirmar">Modificar</a>
+	 				<a class="btnModal waves-effect waves-light btn modal-trigger" href="#Mconfirmar">Modificar</a>
 	 			</div>
 	 			<input type="number" id="id" name="opcion" value="<?php echo "$id"; ?>" style="display:none">
 	 			<div id="Mconfirmar" class="modal blue darken-3 z-depth-5 white-text">

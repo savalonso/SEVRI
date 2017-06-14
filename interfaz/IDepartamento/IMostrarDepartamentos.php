@@ -39,12 +39,12 @@
 					<table class="responsive-table striped centered responsive2" id="mostrarDep">
 						<thead>
 							<tr>
-								<th>Codigo</th>
+								<th>C&oacutedigo</th>
 								<th>Nombre</th>
 								<th>Fecha de creac&iacuteon</th>
-								<th>Opcion 1</th>
-								<th>Opcion 2</th>
-								<th>Opcion 3</th>
+								<th>Opci&oacuten 1</th>
+								<th>Opci&oacuten 2</th>
+								<th>Opci&oacuten 3</th>
 							</tr>
 						</thead>
 						<tbody id="datosD">
@@ -77,7 +77,7 @@
 				</div>
 					<?php  
 						}else{
-							echo "<br><h3>A&uacuten no se ha creado ning&uacuten departamento</h3>";
+							echo "<br><h4>A&uacuten no se ha creado ning&uacuten departamento</h4>";
 						}
 					?>
 			</div>
