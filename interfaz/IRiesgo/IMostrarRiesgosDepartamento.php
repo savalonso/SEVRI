@@ -45,7 +45,7 @@
 		</select>
 	</div>
 	<div class="col s6 m6 l6">
-		<a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue" 
+<a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" 
 		data-tooltip="Agregar riesgos de versiones antiguas." ><i class="material-icons" 
 		onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgos.php')">add</i></a>
 	</div>
