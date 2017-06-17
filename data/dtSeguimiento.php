@@ -30,13 +30,14 @@ class dtSeguimiento{
             session_start();
             $creadorMensaje = $_SESSION['nombreUsuario'];
             $creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
-            $mensaje = "Te han asignado como aprobador del seguimiento: ".$mensajeMostrar;
+            $cedulaRemitente = $_SESSION['idUsuario'];
+            $mensaje = "Te han asignado como aprobador del seguimiento: ".$mensajeMostrar. "...";
             $url = "../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php";
 
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $conexion->beginTransaction();
             $conexion->exec("CALL insertarSeguimientoNuevo('$idAdministracion', '$monto', '$comentario',  '$porcentaje', '$aprobador', '$archivo')");           
-            $conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$aprobador', '$id', '2')");
+            $conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$aprobador', '$id', '2', '$cedulaRemitente')");
 
             $conexion->commit();
             return true;
@@ -68,6 +69,7 @@ class dtSeguimiento{
             $creadorMensaje = $_SESSION['nombreUsuario'];
             $creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
             $mensaje = "Te han asignado como aprobador del seguimiento: ".$mensajeMostrar;
+            $cedulaRemitente = $_SESSION['idUsuario'];
             $url = "../interfaz/ISeguimiento/IMostrarSeguimientosAsignados.php";
 
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -75,7 +77,7 @@ class dtSeguimiento{
             $conexion->exec("CALL modificarSeguimiento('$id', '$monto', '$comentario', '$porcentaje', '$aprobador', '$archivo')"); 
 
             //al final del procedimiento se envía 2 para saber que el mensaje pertenece a seguimiento
-            $conexion->exec("CALL modificarMensajeUsuario('$creadorMensaje','$mensaje', '$aprobador', '$id', '2')");
+            $conexion->exec("CALL modificarMensajeUsuario('$creadorMensaje','$mensaje', '$aprobador', '$id', '2', '$cedulaRemitente')");
 
             $conexion->commit();
             return true;
@@ -379,7 +381,8 @@ class dtSeguimiento{
             session_start();
             $creadorMensaje = $_SESSION['nombreUsuario'];
             $creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
-            $mensaje = "Han hecho un comentario a tu seguimiento: ".$mensajeMostrar;
+            $cedulaRemitente = $_SESSION['idUsuario'];
+            $mensaje = "Han hecho un comentario a tu seguimiento: ".$mensajeMostrar."...";
             $url = "../interfaz/ISeguimiento/IMostrarSeguimientosRealizados.php";
 
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -387,7 +390,7 @@ class dtSeguimiento{
             $conexion->exec("CALL actualizarSeguimientoAprobador('$idSeguimiento','$estadoSeguimiento','$comentarioAprobador')"); 
 
             //al final del procedimiento se envía 3 para saber que el mensaje pertenece a seguimiento y es de aprobación          
-            $conexion->exec("CALL insertarMensajeUsuarioSeguimiento('$creadorMensaje','$mensaje', '$url', '$idSeguimiento', '3')");
+            $conexion->exec("CALL insertarMensajeUsuarioSeguimiento('$creadorMensaje','$mensaje', '$url', '$idSeguimiento', '3', '$cedulaRemitente')");
 
             $conexion->commit();
             return true;
