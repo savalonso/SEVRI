@@ -92,19 +92,10 @@ foreach ($listaUsuarios as $usuario) {
 				<input type="text" name="cargo" id="cargo" value="<?php echo "$cargo";
 ?>">
 			</div>
-            <div class="">
-                <label  for="Tipo">Tipo de Usuario:</label>
-                <select id="tipo" name="tipo">
-					<?php if($tipo == "Usuario") { ?>
-							<option value="Usuario">Usuario</option>
-							<option value="Administrador">Administrador</option>
-					<?php } else { ?>
-							<option value="Administrador">Administrador</option>
-							<option value="Usuario">Usuario</option>
-					<?php } ?>
-				</select>
-            </div>
+
+
             <div>
+            	<input type="hidden" name="tipo" id="tipo" value="<?php echo "$tipo"; ?>">
 				<input type="hidden" name="cedula" id="cedula" value="<?php echo "$cedula";
 ?>">
 			</div>
