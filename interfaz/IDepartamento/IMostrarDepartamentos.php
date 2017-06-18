@@ -28,11 +28,14 @@
 			<?php  
 				if($lista!=null){
 			?>
-
+			
 			<h4>Lista de Departamentos</h4>
-			<div class="input-field buscar1 col s12 m8 l8 ">
+			<div class="input-field buscar1 col s8 m8 l8 ">
 		        <label class="white-text" for="filtrar">Buscar</label>
 		        <input id="datosDepartamento" type="text" >
+    		</div>
+    		<div class ="col s4 m4 l4">
+    			<a id="boton" onclick="ocultarTooltipPorClase('../interfaz/IDepartamento/IInsertarDepartamento.php');" data-tooltip="Crear departamento" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
     		</div>
 			<div class="col s12 m12 l12 scrollH">
 				<div>
@@ -75,11 +78,15 @@
 						</tbody>
 					</table>
 				</div>
-					<?php  
-						}else{
-							echo "<br><h4>A&uacuten no se ha creado ning&uacuten departamento</h4>";
-						}
-					?>
+				<?php
+				    }else{ ?>
+						<div class="row">
+							<h4 class="col s10 m10 l10">A&uacuten no se ha creado ning&uacuten departamento</h4>
+							<div class="col l2 m2 s2">
+								<a id="boton" onclick="ocultarTooltipPorClase('../interfaz/IDepartamento/IInsertarDepartamento.php');" data-tooltip="Crear departamento" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
+							</div>
+						</div>
+				<?php } ?>	
 			</div>
 		</div>
 
@@ -97,7 +104,9 @@
 	</div>
 
 <script>
-
+	$(document).ready(function(){
+	   	$('.tooltipped').tooltip({delay: 50});
+  	});
 	 $(document).ready(function() {
 	   	 Materialize.updateTextFields();
  	 });
