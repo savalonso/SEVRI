@@ -102,7 +102,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
             <h5>Costo: ₡ <?=number_format($administracion->getCostoActividad(), 2, ',', '.')?></h5>
             <div class="">
                 <label  for="monto">Monto del avance:</label>
-                <input type="number" name="monto" id="monto" max="<?php echo $administracion->getCostoActividad()-$montoTotal ?>">
+                <input type="text" name="monto" onkeyup="format(this)" id="monto">
             </div>
             <div class="">
                 <label  for="comentario">Comentario de avance:</label>
@@ -110,7 +110,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
             </div>
             <div class="">
                 <label  for="porcentaje">Porcentaje de avance:</label>
-                <input type="number" name="porcentaje" id="porcentaje" max="<?php echo 100-$porcentajeTotal ?>">
+                <input type="text" onkeyup="return formatProcentaje(this,event)" name="porcentaje" id="porcentaje">
             </div>
             <div class="">
                 <label  for="aprobador">Aprobador:</label>
@@ -135,7 +135,7 @@ $listaUsuario = $controlUsuario->obtenerListaUsuarios();
                 </div>
             </div>
             <center>
-                <input type="submit" value="Guardar" class="btn-large btn-default" id="guardarAvance">
+                <input type="submit" onclick="limpiarTxts()" value="Guardar" class="btn-large btn-default" id="guardarAvance">
             </center>
         </form>
         </div>
@@ -148,6 +148,32 @@ var porcentajeMaximo = '<?php echo 100-$porcentajeTotal ?>';
 
     function descargarArchivo(archivo) {
         alert(archivo);
+    }
+    function limpiarTxts(){
+        var input = document.getElementById('porcentaje');
+        var num = input.value.replace(/\%/g,'');
+        input.value = num;
+
+        var input1 = document.getElementById('monto');
+        var num1 = input1.value.replace(/\₡/g,'');
+        input1.value = num1;
+        num1 = input1.value.replace(/\./g,'');
+        input1.value = num1;
+    }
+    function formatProcentaje(input,e){
+        tecla = (document.all) ? e.keyCode : e.which; 
+        if (tecla==8){
+            if(input.value.length>0){
+                input.value= input.value.slice(0,-1)+'%';
+            }
+        }else{
+            var num = input.value.replace(/\%/g,'');
+            if(!isNaN(num)){
+                input.value =num+'%';
+            }else{ 
+                input.value = input.value.replace(/[^\d\.]*/g,'');
+            }
+        }
     }
    $(document).ready(function(){
 		$('.modal-trigger').leanModal();
