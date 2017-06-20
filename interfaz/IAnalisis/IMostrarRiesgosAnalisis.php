@@ -24,7 +24,7 @@
 		<h4>An&aacutelizar Riesgo</h4>
 	</div>
 
-	<div class="col l6 m6 s12">
+	<div class="col l8 m8 s8">
 		<label for="departamentos" class="white-text">Departamento:</label>
 		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAnalisis()">
 			<option value="0" disabled="true" selected>Seleccione un departamento</option>

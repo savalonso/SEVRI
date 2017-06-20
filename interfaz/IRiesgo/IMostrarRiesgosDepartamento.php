@@ -30,7 +30,7 @@
 		<h4>Mostrar Riesgos</h4>
 	</div>
 
-	<div class="col l6 m6 s12">
+	<div class="col l6 m6 s6">
 		<label for="departamentos" class="white-text">Departamento:</label>
 		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgos()">
 			<option value="0" disabled="true" selected>Seleccione un departamento</option>
@@ -44,7 +44,7 @@
 	<div class="col s6 m6 l6">
 		<a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" 
 		data-tooltip="Agregar riesgos de versiones antiguas." ><i class="material-icons" 
-		onclick="cargarPagina('../interfaz/IRiesgo/IAnadirRiesgos.php')">add</i></a>
+		onclick="ocultarTooltipPorClase('../interfaz/IRiesgo/IAnadirRiesgos.php')">add</i></a>
 	</div>
 
 </div>

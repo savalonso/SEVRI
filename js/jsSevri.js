@@ -95,11 +95,6 @@ function paginaModificarSevri(IdSevri){
  $('#contenedor').load("../interfaz/ISevri/IModificarSevri.php?IdSevri="+IdSevri);
 }
 
-function cargarPagina (url) {
-    ocultarTooltipPorClase();
-    document.getElementById('barraCargando').style.display="";
-    $('#contenedor').load(url);
-}
 function cargarPaginaHistorial (url) {
     document.getElementById('barraCargando').style.display="";
     $('#contenedorAdministracion').load(url);
@@ -439,12 +434,19 @@ function desabilitarBotonesModEli(){
   }
 }
 
-function ocultarTooltipPorClase(){
+function cargarPagina (url) { 
+    document.getElementById('barraCargando').style.display="";
+    $('#contenedor').load(url);
+}
+
+function ocultarTooltipPorClase(ruta){
   var tooltip = $(".linkTooltip");
   //se reccoren los tooltip porque no se obtiene solo uno. 
   for (var i = tooltip.length - 1; i >= 0; i--) {
     tooltip[i].style.display = 'none';
   }
+  document.getElementById('barraCargando').style.display="";
+  setTimeout( function(){cargarPagina(ruta);} ,1000 );
 }
 
 /*aqui se encuentra el paginador de las tablas*/
