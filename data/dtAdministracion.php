@@ -194,12 +194,13 @@
 				session_start();
 				$creadorMensaje = $_SESSION['nombreUsuario'];
 				$creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
+				$cedulaRemitente = $_SESSION['idUsuario'];
 				$mensaje = "Te han asignado una nueva medida de administración a la cual debes de dar seguimiento antes de: ".$plazo;
 				$url = "../interfaz/IAdministracion/IMostrarAdministracionSeguimiento.php?IdAdministracion=".$id;
         	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	 	 		$conexion->beginTransaction();
  	 			$conexion->exec("CALL insertarAdministracion('$idAnalisis','$responsable', '$actividad', '$plazo', '$costo', '$indicador', '$medida', '$id')");			  
- 	 			$conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$responsable', '$id', '1')");
+ 	 			$conexion->exec("CALL insertarMensajeUsuario('$creadorMensaje','$mensaje', '$url', '$responsable', '$id', '1', '$cedulaRemitente')");
 
 				$conexion->commit();
 				return true;
@@ -226,13 +227,15 @@
 				session_start();
 				$creadorMensaje = $_SESSION['nombreUsuario'];
 				$creadorMensaje.=" ".$_SESSION['apellidoUsuario'];
+				$cedulaRemitente = $_SESSION['idUsuario'];
+
 				$mensaje = "Te han asignado una nueva medida de administración a la cual debes de dar seguimiento antes de: ".$plazo;
         	 	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	 	 		$conexion->beginTransaction();
  	 			$conexion->exec("CALL modificarAdministracion('$medidaAdministracion','$cedulaResponsable','$actividad','$plazo', '$costoActividad', '$id','$indicador')");	
 
  	 			//al final del procedimiento se envía para saber que el mensaje pertenece a la administración		  
- 	 			$conexion->exec("CALL modificarMensajeUsuario('$creadorMensaje','$mensaje', '$cedulaResponsable', '$id', '1')");
+ 	 			$conexion->exec("CALL modificarMensajeUsuario('$creadorMensaje','$mensaje', '$cedulaResponsable', '$id', '1', '$cedulaRemitente')");
 
 				$conexion->commit();
 				return true;
