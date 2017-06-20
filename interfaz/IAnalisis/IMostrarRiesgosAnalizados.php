@@ -24,7 +24,7 @@
 		<h4>Mostrar An&aacutelisis</h4>
 	</div>
 
-	<div class="col l6 m6 s12">
+	<div class="col l6 m6 s6">
 		<label for="departamentos" class="white-text">Departamento:</label>
 		<select id="departamentos" name="departamentos" onchange="cargarGUIMostrarRiesgosAnalizados()">
 			<option value="0" disabled="true" selected>Seleccione un departamento</option>
@@ -36,7 +36,7 @@
 		</select>
 	</div>
 	<div class="col s6 m6 l6">
-		<a id="boton" href="#" onclick="cargarPagina('IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar un nuevo análisis" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip"><i class="material-icons">add</i></a>
+		<a id="boton" href="#" onclick="ocultarTooltipPorClase('IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar un nuevo análisis" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip"><i class="material-icons">add</i></a>
 	</div>
 </div>
 <div id="mostrarRiesgosAnalizados"></div>

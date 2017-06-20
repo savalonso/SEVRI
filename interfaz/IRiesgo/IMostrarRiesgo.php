@@ -27,12 +27,18 @@
 			<div class="col s8 m8 l8">
 				<h4>No se han ingresado riesgos en este departamento.</h4>
 			</div>
+			<div class="col s4 m4 l4">
+				<a id="boton" onclick="ocultarTooltipPorClase('../interfaz/IRiesgo/IIdentificarRiesgo.php');" data-tooltip="Identificar Riesgo" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
+			</div>
 	<?php
 		}else{
 	 ?>
-		<div class="input-field buscar1 col s12 m8 l8">
+		<div class="input-field buscar1 col s8 m8 l8">
 	        <label class="white-text" for="filtrar">Buscar</label>
 	        <input id="datosRiesgos" type="text" >
+    	</div>
+    	<div class="col s4 m4 l4">
+    		<a id="boton" onclick="ocultarTooltipPorClase('../interfaz/IRiesgo/IIdentificarRiesgo.php');" data-tooltip="Identificar Riesgo" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
     	</div>
 
 		<div class="col s12 m12 l12 scrollH">
