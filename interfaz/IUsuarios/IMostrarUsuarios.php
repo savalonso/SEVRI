@@ -31,7 +31,7 @@ $listaUsuarios = $control->obtenerListaUsuarios();
     </div>
     <div class="col l4 m4 s4">
         <div id="añadir">
-            <a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" data-position="top" data-tooltip="Agregar Usuarios" style="float: right; margin-top: 22px;" href="javascript:cargarPagina('../interfaz/IUsuarios/IRegistrarUsuarios.php')"><i class="material-icons">add</i></a>
+            <a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" data-position="top" data-tooltip="Agregar Usuarios" style="float: right; margin-top: 22px;" href="javascript:ocultarTooltipPorClase('../interfaz/IUsuarios/IRegistrarUsuarios.php')"><i class="material-icons">add</i></a>
         </div>
     </div>
     <?php  
@@ -109,8 +109,11 @@ $listaUsuarios = $control->obtenerListaUsuarios();
         <?php  
             } else {
                 ?>
-                <div class="col s12 m12 l12">
+                <div class="col s8 m8 l8">
                     <h4>No hay usuarios registrados</h4>
+                </div>
+                <div class="col s4 m4 l4">
+                    <a id="boton" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" data-position="top" data-tooltip="Agregar Usuarios" style="float: right; margin-top: 22px;" href="javascript:ocultarTooltipPorClase('../interfaz/IUsuarios/IRegistrarUsuarios.php')"><i class="material-icons">add</i></a>
                 </div>
                 <?php
             }

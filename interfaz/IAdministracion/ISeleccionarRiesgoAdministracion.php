@@ -27,7 +27,7 @@
 		        <input id="datosAdministracion" type="text">
         </div>
         <div class="col l4 m4 s4">
-			<a id="boton" href="#" onclick="cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar Administraci&oacute;n" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
+			<a id="boton" href="#" onclick="ocultarTooltipPorClase('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar Administración" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 		</div>
 		<div class="col s12 m12 l12 scrollH">
 			<table class="responsive-table striped responsive2">
@@ -59,7 +59,7 @@
 			<div class="row">
 				<h4 class="col s10 m10 l10">A&uacuten no se ha realizado el An&aacutelisis sobre ning&uacuten riesgo</h4>
 				<div class="col l2 m2 s2">
-					<a id="boton" href="#" onclick="cargarPagina('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Análizar Riesgo" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
+					<a id="boton" href="#" onclick="ocultarTooltipPorClase('../interfaz/IAnalisis/IMostrarRiesgosAnalisis.php')" data-tooltip="Realizar Administración" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 				</div>
 			</div>
 		<?php }?>	

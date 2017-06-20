@@ -33,7 +33,7 @@
 				</select>
 			</div>
 			<div class="col l2 m2 s2">
-				<a id="boton" href="#" onclick="cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')" data-tooltip="Crear Nivel de Riesgo" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
+				<a id="boton" href="#" onclick="ocultarTooltipPorClase('../interfaz/INivelRiesgo/ICrearNiveles.php')" data-tooltip="Crear Nivel de Riesgo" class="btn-floating tooltipped btn-large waves-effect waves-light blue linkTooltip" style="float: right;"><i class="material-icons">add</i></a>
 			</div>
 		</div>
 		<div id="mostrarDatos2">
@@ -47,7 +47,7 @@
 				<h4 class="col s10 m10 l10">Mostrar Nivel de Riesgo</h4>
 				<h4 class="col s10 m10 l10">No se han creado niveles de riesgo</h4>
 				<div class="col l2 m2 s2">
-					<a id="boton" href="#" onclick="cargarPagina('../interfaz/INivelRiesgo/ICrearNiveles.php')" data-tooltip="Crear Nivel de Riesgo" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
+					<a id="boton" href="#" onclick="ocultarTooltipPorClase('../interfaz/INivelRiesgo/ICrearNiveles.php')" data-tooltip="Crear Nivel de Riesgo" class="btn-floating tooltipped btn-large waves-effect waves-light blue" style="float: right;"><i class="material-icons">add</i></a>
 				</div>
 			</div>
 		<?php }?>	
